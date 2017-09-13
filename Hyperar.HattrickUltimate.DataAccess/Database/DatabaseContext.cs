@@ -1,0 +1,186 @@
+﻿//-----------------------------------------------------------------------
+// <copyright file="DatabaseContext.cs" company="Hyperar">
+//     Copyright (c) Hyperar. All rights reserved.
+// </copyright>
+// <author>Matías Ezequiel Sánchez</author>
+//-----------------------------------------------------------------------
+namespace Hyperar.HattrickUltimate.DataAccess.Database
+{
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Linq;
+    using BusinessObjects.App.Interface;
+    using Interface;
+
+    /// <summary>
+    /// Application Database Context definition.
+    /// </summary>
+    public class DatabaseContext : DbContext, IDatabaseContext
+    {
+        #region Fields
+
+        /// <summary>
+        /// Indicates whether the current operation has been cancelled.
+        /// </summary>
+        private bool cancelled;
+
+        #endregion Fields
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DatabaseContext"/> class.
+        /// </summary>
+        public DatabaseContext()
+            : base("Data Source=(localdb)\\v11.0;AttachDbFilename=|DataDirectory|\\HattrickUltimateDB.mdf;Initial Catalog=HattrickUltimateDB;Integrated Security=True")
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, Migrations.Configuration>());
+
+            this.cancelled = false;
+        }
+
+        #endregion Constructors
+
+        #region Methods
+
+        /// <summary>
+        /// Initializes a new transaction.
+        /// </summary>
+        public void BeginTransaction()
+        {
+            if (this.Database.CurrentTransaction != null)
+            {
+                throw new InvalidOperationException("The context already has an active transaction.");
+            }
+
+            this.Database.BeginTransaction();
+        }
+
+        /// <summary>
+        /// Sets the current transaction as cancelled so when the EndTransaction method is called
+        /// changes undone.
+        /// </summary>
+        public void Cancel()
+        {
+            this.cancelled = true;
+        }
+
+        /// <summary>
+        /// Returns a IQueryable instance for access to entities of the given type in the context and
+        /// the underlying store.
+        /// </summary>
+        /// <typeparam name="TEntity">The type entity for which a set should be returned.</typeparam>
+        /// <returns>A set for the given entity type.</returns>
+        public virtual IDbSet<TEntity> CreateSet<TEntity>() where TEntity : class, IEntity
+        {
+            return this.Set<TEntity>();
+        }
+
+        /// <summary>
+        /// Commits or rollbacks the pending changes depending on the transaction state.
+        /// </summary>
+        public void EndTransaction()
+        {
+            if (this.cancelled)
+            {
+                this.Rollback();
+            }
+            else
+            {
+                this.Commit();
+            }
+        }
+
+        /// <summary>
+        /// Saves changes to the database.
+        /// </summary>
+        /// <remarks>In case there's an active transaction changes will be saved within its scope.</remarks>
+        public void Save()
+        {
+            this.SaveChanges();
+        }
+
+        /// <summary>
+        /// Disposes the context. The underlying System.Data.Entity.Core.Objects.ObjectContext is
+        /// also disposed if it was created is by this context or ownership was passed to this
+        /// context when this context was created. The connection to the database
+        /// (System.Data.Common.DbConnection object) is also disposed if it was created is by this
+        /// context or ownership was passed to this context when this context was created.
+        /// </summary>
+        /// <param name="disposing">
+        /// true to release both managed and unmanaged resources; false to release only unmanaged resources.
+        /// </param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// Model definition.
+        /// </summary>
+        /// <param name="modelBuilder">
+        /// The builder that defines the model for the context being created.
+        /// </param>
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Configurations.Add(new Mapping.Manager());
+            modelBuilder.Configurations.Add(new Mapping.Token());
+            modelBuilder.Configurations.Add(new Mapping.User());
+        }
+
+        /// <summary>
+        /// Save changes and commits the transaction, if any.
+        /// </summary>
+        private void Commit()
+        {
+            this.SaveChanges();
+
+            if (this.Database.CurrentTransaction != null)
+            {
+                this.Database.CurrentTransaction.Commit();
+            }
+        }
+
+        /// <summary>
+        /// Revert changes and rollbacks the transaction, if any.
+        /// </summary>
+        private void Rollback()
+        {
+            this.UndoChanges();
+
+            if (this.Database.CurrentTransaction != null)
+            {
+                this.Database.CurrentTransaction.Rollback();
+            }
+
+            this.cancelled = false;
+        }
+
+        /// <summary>
+        /// Revert changes made to context entities.
+        /// </summary>
+        private void UndoChanges()
+        {
+            var objectContext = ((IObjectContextAdapter)this).ObjectContext;
+
+            var rollbackStrategyFactory = new Factory.RollbackStrategyFactory();
+
+            var entriesToRevert = objectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Added |
+                                                                                         EntityState.Deleted |
+                                                                                         EntityState.Modified)
+                                                                  .Where(e => e.Entity != null)
+                                                                  .ToList();
+
+            entriesToRevert.ForEach(e =>
+            {
+                rollbackStrategyFactory.GetFor(e.State)
+                                       .Undo(e, objectContext);
+            });
+        }
+
+        #endregion Methods
+    }
+}
