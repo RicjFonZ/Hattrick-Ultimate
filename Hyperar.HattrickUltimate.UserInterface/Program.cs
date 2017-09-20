@@ -11,10 +11,16 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using System.Windows.Forms;
     using SimpleInjector.Lifestyles;
 
+    /// <summary>
+    /// Application entry point.
+    /// </summary>
     internal static class Program
     {
         #region Private Methods
 
+        /// <summary>
+        /// Gets the best LocalDb instance.
+        /// </summary>
         private static void GetDatabaseInstance()
         {
             try
@@ -34,6 +40,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             }
         }
 
+        /// <summary>
+        /// Gets the user selected database folder.
+        /// </summary>
         private static void GetDataFolder()
         {
             try
@@ -68,6 +77,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             }
         }
 
+        /// <summary>
+        /// Initializes the database prerequisites.
+        /// </summary>
         private static void Initialize()
         {
             GetDatabaseInstance();
