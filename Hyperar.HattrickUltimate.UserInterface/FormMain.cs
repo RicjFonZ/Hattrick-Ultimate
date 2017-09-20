@@ -6,6 +6,7 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.UserInterface
 {
+    using System;
     using System.Windows.Forms;
 
     /// <summary>
@@ -22,11 +23,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             this.InitializeComponent();
 
-            this.Text = $"{Application.ProductName} v{Application.ProductVersion}";
-
-#if DEBUG
-            this.Text += " [DEBUG]";
-#endif
+            this.Text = AppDomain.CurrentDomain.GetData("AppName").ToString();
         }
 
         #endregion Public Constructors

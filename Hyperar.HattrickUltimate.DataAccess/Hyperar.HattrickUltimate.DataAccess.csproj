@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevDefined.OAuth, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a3261f5b4697e67d, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevDefined.OAuth.0.2\lib\DevDefined.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -42,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chpp\ChppManager.cs" />
+    <Compile Include="Chpp\Constants\OAuth.cs" />
+    <Compile Include="Chpp\Constants\Url.cs" />
+    <Compile Include="Chpp\Constants\XmlFileName.cs" />
+    <Compile Include="Chpp\Constants\XmlTag.cs" />
+    <Compile Include="Chpp\Factory\EntityFactory.cs" />
+    <Compile Include="Chpp\Factory\XmlParserFactory.cs" />
+    <Compile Include="Chpp\Interface\IEntityFactory.cs" />
+    <Compile Include="Chpp\Interface\IXmlParserFactory.cs" />
+    <Compile Include="Chpp\Interface\IXmlParserStrategy.cs" />
+    <Compile Include="Chpp\Strategy\XmlParser\CheckToken.cs" />
+    <Compile Include="Chpp\Strategy\XmlParser\ManagerCompendium.cs" />
+    <Compile Include="Chpp\Strategy\XmlParser\WorldDetails.cs" />
+    <Compile Include="Chpp\XmlParserBase.cs" />
     <Compile Include="Database\Constants\ColumnLength.cs" />
     <Compile Include="Database\Constants\ColumnName.cs" />
     <Compile Include="Database\Constants\ColumnType.cs" />
@@ -78,9 +97,7 @@
       <Name>Hyperar.HattrickUltimate.BusinessObjects</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Xml\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

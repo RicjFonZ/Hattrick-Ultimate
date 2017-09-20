@@ -7,6 +7,8 @@
       <Value>dll</Value>
       <Value>hattrick</Value>
       <Value>hyperar</Value>
+      <Value>loginname</Value>
+      <Value>oob</Value>
       <Value>queryable</Value>
     </CollectionProperty>
   </GlobalSettings>

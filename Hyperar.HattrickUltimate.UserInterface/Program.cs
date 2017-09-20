@@ -82,6 +82,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private static void Initialize()
         {
+            GetAppName();
             GetDatabaseInstance();
             GetDataFolder();
         }
@@ -102,6 +103,20 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 Initialize();
                 Application.Run(ApplicationObjects.Container.GetInstance<FormMain>());
             }
+        }
+
+        /// <summary>
+        /// Gets the App Name.
+        /// </summary>
+        private static void GetAppName()
+        {
+            string appName = $"{Application.ProductName} v{Application.ProductVersion}";
+
+#if DEBUG
+            appName += " [DEBUG]";
+#endif
+
+            AppDomain.CurrentDomain.SetData("AppName", appName);
         }
 
         #endregion Private Methods

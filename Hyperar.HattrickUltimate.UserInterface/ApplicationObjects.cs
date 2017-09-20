@@ -57,11 +57,20 @@ namespace Hyperar.HattrickUltimate.UserInterface
             RegisterDatabaseContexts();
             RegisterRepositories();
             RegisterForms();
+            RegisterBusinessObjectsManagers();
         }
 
         #endregion Internal Methods
 
         #region Private Methods
+
+        /// <summary>
+        /// Registers business objects managers.
+        /// </summary>
+        private static void RegisterBusinessObjectsManagers()
+        {
+            Container.Register(typeof(BusinessLogic.UserManager));
+        }
 
         /// <summary>
         /// Registers database contexts.
