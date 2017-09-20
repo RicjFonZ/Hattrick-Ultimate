@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick
     /// </summary>
     public abstract class XmlEntityBase : IXmlEntity
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the date and time when the file was fetched.
@@ -36,6 +36,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick
         /// </summary>
         public decimal Version { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

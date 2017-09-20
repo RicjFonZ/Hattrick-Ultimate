@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     /// </summary>
     public class Token : EntityBase, IEntity
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the key.
@@ -31,18 +31,14 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// </summary>
         public string Secret { get; set; }
 
-        #endregion Properties
-
-        #region Navigation properties
-
         /// <summary>
         /// Gets or sets the User.
         /// </summary>
         public virtual User User { get; set; }
 
-        #endregion Navigation properties
+        #endregion Public Properties
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Returns a System.String that represents the current object.
@@ -53,6 +49,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
             return this.GetType().FullName.ToString();
         }
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

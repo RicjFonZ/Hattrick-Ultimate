@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
     /// </summary>
     internal class ColumnName
     {
-        #region Fields
+        #region Internal Fields
 
         /// <summary>
         /// AccessScope database table column name.
@@ -118,6 +118,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// </summary>
         internal const string WaitingUsers = "WaitingUsers";
 
-        #endregion Fields
+        #endregion Internal Fields
     }
 }

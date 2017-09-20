@@ -1,0 +1,13 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>adv</Value>
+      <Value>auth</Value>
+      <Value>btn</Value>
+      <Value>dll</Value>
+      <Value>hattrick</Value>
+      <Value>hyperar</Value>
+      <Value>queryable</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+</StyleCopSettings>

@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Factory
     /// </summary>
     public class RollbackStrategyFactory : IRollbackStrategyFactory
     {
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Gets the corresponding Strategy for the given EntityState.
@@ -39,6 +39,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Factory
             }
         }
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

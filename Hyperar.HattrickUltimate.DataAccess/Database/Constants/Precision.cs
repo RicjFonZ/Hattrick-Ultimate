@@ -11,13 +11,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
     /// </summary>
     internal class Precision
     {
-        #region Fields
+        #region Internal Fields
 
         /// <summary>
         /// Currency numeric column precision.
         /// </summary>
         internal const byte Currency = 10;
 
-        #endregion Fields
+        #endregion Internal Fields
     }
 }

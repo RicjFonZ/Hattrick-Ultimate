@@ -13,16 +13,16 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     /// </summary>
     public abstract class EntityBase : IEntity
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the ID.
         /// </summary>
         public int Id { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Returns a System.String that represents the current object.
@@ -30,6 +30,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <returns>A string that represents the current object.</returns>
         public abstract override string ToString();
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

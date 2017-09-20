@@ -106,11 +106,38 @@ namespace Hyperar.HattrickUltimate.UserInterface.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an error trying to retrieve the LocalDb instance..
+        /// </summary>
+        internal static string CannotRetrieveLocalDbInstance {
+            get {
+                return ResourceManager.GetString("CannotRetrieveLocalDbInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database folder could not be set..
+        /// </summary>
+        internal static string CannotSetDataFolder {
+            get {
+                return ResourceManager.GetString("CannotSetDataFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pick the folder where the Hattrick Ultimate database will be stored..
         /// </summary>
         internal static string DataFolderBrowserDialog_Description {
             get {
                 return ResourceManager.GetString("DataFolderBrowserDialog_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No database folder set, Hattrick Ultimate can&apos;t continue..
+        /// </summary>
+        internal static string DataFolderNotSet {
+            get {
+                return ResourceManager.GetString("DataFolderNotSet", resourceCulture);
             }
         }
         
@@ -124,11 +151,29 @@ namespace Hyperar.HattrickUltimate.UserInterface.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Database folder.
         /// </summary>
         internal static string FormDataFolder_Text {
             get {
                 return ResourceManager.GetString("FormDataFolder_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No LocalDb instance found. Hattrick Ultimate can&apos;t continue..
+        /// </summary>
+        internal static string LocalDbInstanceNotFound {
+            get {
+                return ResourceManager.GetString("LocalDbInstanceNotFound", resourceCulture);
             }
         }
     }

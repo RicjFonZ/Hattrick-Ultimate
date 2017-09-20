@@ -7,6 +7,7 @@
 namespace Hyperar.HattrickUltimate.UserInterface
 {
     using System;
+    using System.IO;
     using System.Windows.Forms;
 
     /// <summary>
@@ -14,7 +15,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// </summary>
     public partial class FormDataFolder : Form
     {
-        #region Constructor
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FormDataFolder" /> class.
@@ -23,36 +24,21 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             this.InitializeComponent();
             this.PopulateLanguage();
+            this.PopulateControls();
         }
 
-        #endregion Constructor
+        #endregion Public Constructors
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets the data folder.
         /// </summary>
         public string DataFolder { get; private set; }
 
-        #endregion Properties
+        #endregion Public Properties
 
-        #region Methods
-
-        /// <summary>
-        /// Fills controls texts with localized strings.
-        /// </summary>
-        protected void PopulateLanguage()
-        {
-            this.Text = Localization.Strings.FormDataFolder_Text;
-            this.AdvTxtBoxDataFolder.Placeholder = Localization.Strings.AdvTxtBoxDataFolder_Placeholder;
-            this.BtnBrowse.Text = Localization.Strings.BtnBrowse_Text;
-            this.BtnCancel.Text = Localization.Strings.BtnCancel_Text;
-            this.BtnOk.Text = Localization.Strings.BtnOk_Text;
-        }
-
-        #endregion Methods
-
-        #region Events
+        #region Private Methods
 
         /// <summary>
         /// AdvTxtBoxDataFolder KeyPress event handler.
@@ -133,6 +119,28 @@ namespace Hyperar.HattrickUltimate.UserInterface
             }
         }
 
-        #endregion Events
+        /// <summary>
+        /// Sets initial values to form controls.
+        /// </summary>
+        private void PopulateControls()
+        {
+            this.AdvTxtBoxDataFolder.Text = Path.Combine(
+                                                     Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                                                     "Hattrick Ultimate");
+        }
+
+        /// <summary>
+        /// Fills controls texts with localized strings.
+        /// </summary>
+        private void PopulateLanguage()
+        {
+            this.Text = Localization.Strings.FormDataFolder_Text;
+            this.AdvTxtBoxDataFolder.Placeholder = Localization.Strings.AdvTxtBoxDataFolder_Placeholder;
+            this.BtnBrowse.Text = Localization.Strings.BtnBrowse_Text;
+            this.BtnCancel.Text = Localization.Strings.BtnCancel_Text;
+            this.BtnOk.Text = Localization.Strings.BtnOk_Text;
+        }
+
+        #endregion Private Methods
     }
 }

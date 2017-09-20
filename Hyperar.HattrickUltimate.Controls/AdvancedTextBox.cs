@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.Controls
     /// </summary>
     public class AdvancedTextBox : TextBox
     {
-        #region Fields
+        #region Private Fields
 
         /// <summary>
         /// The text that will be shown when the control is empty.
@@ -28,9 +28,9 @@ namespace Hyperar.HattrickUltimate.Controls
         /// </summary>
         private bool stickyPlaceholder;
 
-        #endregion Fields
+        #endregion Private Fields
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the text that will be shown when the control is empty.
@@ -80,9 +80,9 @@ namespace Hyperar.HattrickUltimate.Controls
             }
         }
 
-        #endregion Properties
+        #endregion Public Properties
 
-        #region Methods
+        #region Protected Methods
 
         /// <summary>
         /// Raises the Hyperar.HattrickUltimate.Controls.HandleCreated event.
@@ -93,6 +93,10 @@ namespace Hyperar.HattrickUltimate.Controls
             base.OnHandleCreated(e);
             this.UpdatePlaceholder();
         }
+
+        #endregion Protected Methods
+
+        #region Private Methods
 
         /// <summary>
         /// Updates the placeholder.
@@ -116,14 +120,16 @@ namespace Hyperar.HattrickUltimate.Controls
             }
         }
 
-        #endregion Methods
+        #endregion Private Methods
+
+        #region Private Classes
 
         /// <summary>
         /// Contains the unmanaged libraries calls.
         /// </summary>
         private class NativeMethods
         {
-            #region Constants
+            #region Private Fields
 
             /// <summary>
             /// Kernel.dll library name.
@@ -140,9 +146,9 @@ namespace Hyperar.HattrickUltimate.Controls
             /// </summary>
             private const string UserLibrary = "user32.dll";
 
-            #endregion Constants
+            #endregion Private Fields
 
-            #region Methods
+            #region Public Methods
 
             /// <summary>
             /// Retrieves the calling thread's last-error code value.
@@ -150,6 +156,10 @@ namespace Hyperar.HattrickUltimate.Controls
             /// <returns>The calling thread's last-error code</returns>
             [DllImport(KernelLibrary)]
             public static extern uint GetLastError();
+
+            #endregion Public Methods
+
+            #region Internal Methods
 
             /// <summary>
             /// Sends a message to a control.
@@ -162,7 +172,9 @@ namespace Hyperar.HattrickUltimate.Controls
             [DllImport(UserLibrary, CharSet = CharSet.Unicode)]
             internal static extern IntPtr SendMessage(IntPtr hWnd, uint msg, IntPtr wParam, [MarshalAs(UnmanagedType.LPWStr)]string lParam);
 
-            #endregion Methods
+            #endregion Internal Methods
         }
+
+        #endregion Private Classes
     }
 }

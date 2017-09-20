@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
     /// </summary>
     public interface IRollbackStrategy
     {
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Revert changes for the specified entry on the specified context.
@@ -22,6 +22,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
         /// <param name="context">Object context that contains the changes.</param>
         void Undo(ObjectStateEntry entry, ObjectContext context);
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

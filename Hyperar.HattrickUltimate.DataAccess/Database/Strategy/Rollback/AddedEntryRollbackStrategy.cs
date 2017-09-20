@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Strategy.Rollback
     /// </summary>
     public class AddedEntryRollbackStrategy : IRollbackStrategy
     {
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Revert changes for the specified entry on the specified context.
@@ -26,6 +26,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Strategy.Rollback
             context.Detach(entry.Entity);
         }
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

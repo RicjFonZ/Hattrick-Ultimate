@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
     /// </summary>
     internal interface IRollbackStrategyFactory
     {
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Gets the corresponding Strategy for the given EntityState.
@@ -22,6 +22,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
         /// <returns>Corresponding IRollbackStrategy object.</returns>
         IRollbackStrategy GetFor(EntityState state);
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
     /// <typeparam name="TEntity">IEntity class.</typeparam>
     public interface IRepository<TEntity> where TEntity : class, IEntity
     {
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Deletes the object with the specified ID.
@@ -50,6 +50,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
         /// <param name="entity">Entity to update.</param>
         void Update(TEntity entity);
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

@@ -132,13 +132,28 @@
   <data name="BtnOk_Text" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="CannotRetrieveLocalDbInstance" xml:space="preserve">
+    <value>There was an error trying to retrieve the LocalDb instance.</value>
+  </data>
+  <data name="CannotSetDataFolder" xml:space="preserve">
+    <value>Database folder could not be set.</value>
+  </data>
   <data name="DataFolderBrowserDialog_Description" xml:space="preserve">
     <value>Pick the folder where the Hattrick Ultimate database will be stored.</value>
+  </data>
+  <data name="DataFolderNotSet" xml:space="preserve">
+    <value>No database folder set, Hattrick Ultimate can't continue.</value>
   </data>
   <data name="EmptyErrorMessage" xml:space="preserve">
     <value>Please, fill in the field to continue.</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="FormDataFolder_Text" xml:space="preserve">
     <value>Database folder</value>
+  </data>
+  <data name="LocalDbInstanceNotFound" xml:space="preserve">
+    <value>No LocalDb instance found. Hattrick Ultimate can't continue.</value>
   </data>
 </root>

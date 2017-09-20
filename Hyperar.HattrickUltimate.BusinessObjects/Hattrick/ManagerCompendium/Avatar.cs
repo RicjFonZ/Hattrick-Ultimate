@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
     /// </summary>
     public class Avatar
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the background image URL.
@@ -25,6 +25,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// </summary>
         public List<Layer> Layers { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

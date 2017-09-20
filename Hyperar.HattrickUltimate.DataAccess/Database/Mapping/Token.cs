@@ -11,6 +11,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
     /// </summary>
     internal class Token : Entity<BusinessObjects.App.Token>
     {
+        #region Internal Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Token" /> class.
         /// </summary>
@@ -19,6 +21,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
             this.RegisterTable();
             this.RegisterProperties();
         }
+
+        #endregion Internal Constructors
+
+        #region Private Methods
 
         /// <summary>
         /// Registers entity properties.
@@ -53,5 +59,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         {
             this.ToTable(Constants.TableName.Token);
         }
+
+        #endregion Private Methods
     }
 }

@@ -11,6 +11,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
     /// </summary>
     internal class Manager : HattrickEntity<BusinessObjects.App.Manager>
     {
+        #region Internal Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Manager" /> class.
         /// </summary>
@@ -19,6 +21,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
             this.RegisterTable();
             this.RegisterProperties();
         }
+
+        #endregion Internal Constructors
+
+        #region Private Methods
 
         /// <summary>
         /// Registers entity properties.
@@ -40,5 +46,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         {
             this.ToTable(Constants.TableName.Manager);
         }
+
+        #endregion Private Methods
     }
 }

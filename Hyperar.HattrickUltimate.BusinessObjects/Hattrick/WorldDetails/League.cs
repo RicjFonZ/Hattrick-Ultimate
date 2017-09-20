@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
     /// </summary>
     public class League
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the number of active teams within the League.
@@ -125,6 +125,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// </summary>
         public string ZoneName { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

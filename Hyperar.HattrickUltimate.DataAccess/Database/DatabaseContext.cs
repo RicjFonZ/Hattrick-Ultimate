@@ -18,31 +18,31 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
     /// </summary>
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        #region Fields
+        #region Private Fields
 
         /// <summary>
         /// Indicates whether the current operation has been cancelled.
         /// </summary>
         private bool cancelled;
 
-        #endregion Fields
+        #endregion Private Fields
 
-        #region Constructors
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DatabaseContext"/> class.
         /// </summary>
         public DatabaseContext()
-            : base("Data Source=(localdb)\\v11.0;AttachDbFilename=|DataDirectory|\\HattrickUltimateDB.mdf;Initial Catalog=HattrickUltimateDB;Integrated Security=True")
+            : base($"Data Source=(localdb)\\{AppDomain.CurrentDomain.GetData("LocalDbInstance")};AttachDbFilename={AppDomain.CurrentDomain.GetData("DataDirectory")}\\HattrickUltimateDB.mdf;Initial Catalog=HattrickUltimateDB;Integrated Security=True")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, Migrations.Configuration>());
 
             this.cancelled = false;
         }
 
-        #endregion Constructors
+        #endregion Public Constructors
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Initializes a new transaction.
@@ -101,6 +101,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             this.SaveChanges();
         }
 
+        #endregion Public Methods
+
+        #region Protected Methods
+
         /// <summary>
         /// Disposes the context. The underlying System.Data.Entity.Core.Objects.ObjectContext is
         /// also disposed if it was created is by this context or ownership was passed to this
@@ -130,6 +134,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             modelBuilder.Configurations.Add(new Mapping.Token());
             modelBuilder.Configurations.Add(new Mapping.User());
         }
+
+        #endregion Protected Methods
+
+        #region Private Methods
 
         /// <summary>
         /// Save changes and commits the transaction, if any.
@@ -181,6 +189,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             });
         }
 
-        #endregion Methods
+        #endregion Private Methods
     }
 }

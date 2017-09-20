@@ -11,13 +11,13 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
     /// </summary>
     public class Root : XmlEntityBase
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the manager.
         /// </summary>
         public Manager Manager { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

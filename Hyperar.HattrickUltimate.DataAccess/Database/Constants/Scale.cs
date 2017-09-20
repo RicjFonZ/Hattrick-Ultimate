@@ -11,13 +11,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
     /// </summary>
     internal class Scale
     {
-        #region Fields
+        #region Internal Fields
 
         /// <summary>
         /// Currency numeric column scale.
         /// </summary>
         internal const byte Currency = 8;
 
-        #endregion Fields
+        #endregion Internal Fields
     }
 }

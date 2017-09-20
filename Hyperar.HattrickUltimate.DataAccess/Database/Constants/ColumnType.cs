@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
     /// </summary>
     internal class ColumnType
     {
-        #region Fields
+        #region Internal Fields
 
         /// <summary>
         /// Big integer column data type.
@@ -53,6 +53,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// </summary>
         internal const string UnicodeVarChar = "nvarchar";
 
-        #endregion Fields
+        #endregion Internal Fields
     }
 }

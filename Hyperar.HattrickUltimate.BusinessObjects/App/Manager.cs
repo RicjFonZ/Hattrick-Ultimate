@@ -13,25 +13,21 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     /// </summary>
     public class Manager : HattrickEntityBase, IHattrickEntity
     {
-        #region Properties
-
-        /// <summary>
-        /// Gets or sets the UserName.
-        /// </summary>
-        public string UserName { get; set; }
-
-        #endregion Properties
-
-        #region Navigation properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the User.
         /// </summary>
         public virtual User User { get; set; }
 
-        #endregion Navigation properties
+        /// <summary>
+        /// Gets or sets the UserName.
+        /// </summary>
+        public string UserName { get; set; }
 
-        #region Methods
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Returns a System.String that represents the current object.
@@ -42,6 +38,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
             return $"{this.UserName} ({this.HattrickId})";
         }
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

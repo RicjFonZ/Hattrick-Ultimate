@@ -13,6 +13,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// </summary>
     public partial class FormMain : Form
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FormMain" /> class.
         /// </summary>
@@ -26,5 +28,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Text += " [DEBUG]";
 #endif
         }
+
+        #endregion Public Constructors
     }
 }

@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
     /// </summary>
     public class Root : XmlEntityBase
     {
-        #region Constructors
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Root"/> class.
@@ -23,15 +23,15 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
             this.LeagueList = new List<League>();
         }
 
-        #endregion Constructors
+        #endregion Public Constructors
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the League list.
         /// </summary>
         public List<League> LeagueList { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

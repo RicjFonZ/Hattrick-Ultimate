@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     /// </summary>
     public class User : EntityBase, IEntity
     {
-        #region Navigation properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the Manager.
@@ -25,9 +25,9 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// </summary>
         public virtual Token Token { get; set; }
 
-        #endregion Navigation properties
+        #endregion Public Properties
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Returns a System.String that represents the current object.
@@ -38,6 +38,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
             return this.GetType().FullName.ToString();
         }
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

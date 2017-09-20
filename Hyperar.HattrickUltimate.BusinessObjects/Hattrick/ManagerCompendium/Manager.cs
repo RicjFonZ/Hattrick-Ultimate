@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
     /// </summary>
     public class Manager
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the avatar.
@@ -60,6 +60,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// </summary>
         public uint UserId { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

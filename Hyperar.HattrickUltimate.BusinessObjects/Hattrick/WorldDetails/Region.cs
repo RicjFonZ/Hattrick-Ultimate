@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
     /// </summary>
     public class Region
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the Region ID.
@@ -23,6 +23,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// </summary>
         public string RegionName { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

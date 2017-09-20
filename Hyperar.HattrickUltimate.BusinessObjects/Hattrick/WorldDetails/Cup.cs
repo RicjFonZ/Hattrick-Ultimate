@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
     /// </summary>
     public class Cup
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the Cup ID.
@@ -62,6 +62,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// </summary>
         public int MatchRoundsLeft { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

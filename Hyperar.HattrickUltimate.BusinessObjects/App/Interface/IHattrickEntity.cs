@@ -11,13 +11,13 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App.Interface
     /// </summary>
     public interface IHattrickEntity
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the Hattrick ID.
         /// </summary>
         long HattrickId { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

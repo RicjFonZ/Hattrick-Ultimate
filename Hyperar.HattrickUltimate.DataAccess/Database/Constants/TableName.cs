@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
     /// </summary>
     internal class TableName
     {
-        #region Fields
+        #region Internal Fields
 
         /// <summary>
         /// Continent database table name.
@@ -68,6 +68,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// </summary>
         internal const string Zone = "Zone";
 
-        #endregion Fields
+        #endregion Internal Fields
     }
 }

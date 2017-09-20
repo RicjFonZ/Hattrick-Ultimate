@@ -18,16 +18,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
     /// <typeparam name="TEntity">IEntity class.</typeparam>
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        #region Fields
+        #region Private Fields
 
         /// <summary>
         /// Database context.
         /// </summary>
         private IDatabaseContext context;
 
-        #endregion Fields
+        #endregion Private Fields
 
-        #region Constructors
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class.
@@ -38,9 +38,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             this.context = context;
         }
 
-        #endregion Constructors
+        #endregion Public Constructors
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Deletes the object with the specified ID.
@@ -107,6 +107,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             this.context.CreateSet<TEntity>().AddOrUpdate(entity);
         }
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

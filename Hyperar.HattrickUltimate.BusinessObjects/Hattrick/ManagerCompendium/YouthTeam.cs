@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
     /// </summary>
     public class YouthTeam
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the league.
@@ -28,6 +28,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// </summary>
         public string YouthTeamName { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

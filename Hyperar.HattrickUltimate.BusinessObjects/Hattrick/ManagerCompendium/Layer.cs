@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
     /// </summary>
     public class Layer
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the image URL.
@@ -28,6 +28,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// </summary>
         public int Y { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

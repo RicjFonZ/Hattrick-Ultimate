@@ -13,9 +13,13 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     /// </summary>
     public abstract class HattrickEntityBase : EntityBase, IEntity, IHattrickEntity
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Hattrick Id.
         /// </summary>
         public long HattrickId { get; set; }
+
+        #endregion Public Properties
     }
 }

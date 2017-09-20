@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Interface
     /// </summary>
     public interface IXmlEntity
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the date and time when the file was fetched.
@@ -35,6 +35,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Interface
         /// </summary>
         decimal Version { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

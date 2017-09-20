@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
     /// </summary>
     public class NationalTeam
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the ID.
@@ -23,6 +23,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// </summary>
         public string NationalTeamName { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

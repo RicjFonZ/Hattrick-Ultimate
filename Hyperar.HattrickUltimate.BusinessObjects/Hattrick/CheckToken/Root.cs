@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.CheckToken
     /// </summary>
     public class Root : XmlEntityBase
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the date and time when the Token was created.
@@ -41,6 +41,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.CheckToken
         /// </summary>
         public uint User { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

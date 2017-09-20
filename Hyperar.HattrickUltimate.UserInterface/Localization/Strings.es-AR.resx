@@ -132,13 +132,28 @@
   <data name="BtnOk_Text" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="CannotRetrieveLocalDbInstance" xml:space="preserve">
+    <value>Ocurrió un error al intentar obtener la instancia de LocalDb.</value>
+  </data>
+  <data name="CannotSetDataFolder" xml:space="preserve">
+    <value>No se pudo establecer la carpeta de la base de datos.</value>
+  </data>
   <data name="DataFolderBrowserDialog_Description" xml:space="preserve">
-    <value>Elige la carpeta donde se almacenará la base de datos de Hattrick Ultimate.</value>
+    <value>Elija la carpeta donde se almacenará la base de datos de Hattrick Ultimate.</value>
+  </data>
+  <data name="DataFolderNotSet" xml:space="preserve">
+    <value>No se ha establecido una carpeta para la base de datos. Hattrick Ultimate no puede continuar</value>
   </data>
   <data name="EmptyErrorMessage" xml:space="preserve">
     <value>Por favor, complete el campo para continuar.</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="FormDataFolder_Text" xml:space="preserve">
-    <value>Carpeta de base de datos</value>
+    <value>Carpeta de la base de datos</value>
+  </data>
+  <data name="LocalDbInstanceNotFound" xml:space="preserve">
+    <value>No se ha encontrado una instancia de LocalDb. Hattrick Ultimate no puede continuar.</value>
   </data>
 </root>

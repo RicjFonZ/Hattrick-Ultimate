@@ -18,7 +18,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
     /// <typeparam name="TEntity">IEntity entity.</typeparam>
     public class Entity<TEntity> : EntityTypeConfiguration<TEntity> where TEntity : EntityBase, IEntity
     {
-        #region Constructors
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity{TEntity}"/> class.
@@ -32,6 +32,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .IsRequired();
         }
 
-        #endregion Constructors
+        #endregion Public Constructors
     }
 }

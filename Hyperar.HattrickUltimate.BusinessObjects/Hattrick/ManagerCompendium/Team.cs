@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
     /// </summary>
     public class Team
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the Arena.
@@ -48,6 +48,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// </summary>
         public YouthTeam YouthTeam { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }

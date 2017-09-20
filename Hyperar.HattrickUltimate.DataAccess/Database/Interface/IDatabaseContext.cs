@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
     /// </summary>
     public interface IDatabaseContext
     {
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Initializes a new transaction.
@@ -46,6 +46,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
         /// <remarks>In case there's an active transaction changes will be saved within its scope.</remarks>
         void Save();
 
-        #endregion Methods
+        #endregion Public Methods
     }
 }

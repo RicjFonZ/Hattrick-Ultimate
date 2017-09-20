@@ -11,6 +11,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
     /// </summary>
     internal class User : Entity<BusinessObjects.App.User>
     {
+        #region Internal Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
@@ -19,6 +21,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
             this.RegisterTable();
             this.RegisterRelationships();
         }
+
+        #endregion Internal Constructors
+
+        #region Private Methods
 
         /// <summary>
         /// Register entity relationships.
@@ -49,5 +55,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         {
             this.ToTable(Constants.TableName.User);
         }
+
+        #endregion Private Methods
     }
 }

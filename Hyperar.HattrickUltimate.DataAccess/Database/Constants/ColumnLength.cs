@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
     /// </summary>
     internal class ColumnLength
     {
-        #region Fields
+        #region Internal Fields
 
         /// <summary>
         /// Long text column length.
@@ -38,6 +38,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// </summary>
         internal const int Token = 16;
 
-        #endregion Fields
+        #endregion Internal Fields
     }
 }

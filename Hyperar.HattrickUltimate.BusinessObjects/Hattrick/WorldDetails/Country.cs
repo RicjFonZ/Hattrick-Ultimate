@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
     /// </summary>
     public class Country
     {
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the country code.
@@ -55,6 +55,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// </summary>
         public string TimeFormat { get; set; }
 
-        #endregion Properties
+        #endregion Public Properties
     }
 }
