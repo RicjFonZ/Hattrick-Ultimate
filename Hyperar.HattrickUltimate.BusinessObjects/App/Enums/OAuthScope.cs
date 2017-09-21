@@ -17,7 +17,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App.Enums
         /// <summary>
         /// Initial state.
         /// </summary>
-        None = 0,
+        Read = 0,
 
         /// <summary>
         /// Allows to accept, reject and send friendly match invitations.

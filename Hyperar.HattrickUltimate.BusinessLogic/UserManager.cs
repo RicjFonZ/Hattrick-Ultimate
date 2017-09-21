@@ -206,7 +206,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <param name="toggleScope">Scope name.</param>
         public void ToggleScope(ref BusinessObjects.App.Token token, string toggleScope)
         {
-            OAuthScope selectedScope = OAuthScope.None;
+            OAuthScope selectedScope = OAuthScope.Read;
 
             switch (toggleScope)
             {

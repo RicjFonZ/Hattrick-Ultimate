@@ -187,7 +187,7 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OAuth Token.
+        ///   Looks up a localized string similar to OAuth Token:.
         /// </summary>
         public static string FormToken_GrpBoxToken_Text {
             get {

@@ -160,7 +160,7 @@
     <value>Revoke</value>
   </data>
   <data name="FormToken_GrpBoxToken_Text" xml:space="preserve">
-    <value>OAuth Token</value>
+    <value>OAuth Token:</value>
   </data>
   <data name="FormToken_Text" xml:space="preserve">
     <value>Manage OAuth Token</value>
