@@ -57,6 +57,10 @@
       <Project>{edecb207-d702-419b-8af6-7e9226e28cdd}</Project>
       <Name>Hyperar.HattrickUltimate.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hyperar.HattrickUltimate.Localization\Hyperar.HattrickUltimate.Localization.csproj">
+      <Project>{46129115-1267-4de3-923e-07d9e1a0c9d9}</Project>
+      <Name>Hyperar.HattrickUltimate.Localization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

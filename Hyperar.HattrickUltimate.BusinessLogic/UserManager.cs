@@ -59,7 +59,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             this.tokenRepository = tokenRepository;
             this.userRepository = userRepository;
 
-            var user = this.userRepository.Get().SingleOrDefault();
+            var user = this.GetUser();
 
             if (user.Token == null)
             {

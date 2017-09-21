@@ -29,37 +29,20 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDataFolder));
-            this.BtnBrowse = new System.Windows.Forms.Button();
             this.BtnOk = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.ErrPrvForm = new System.Windows.Forms.ErrorProvider(this.components);
+            this.GrpBoxDatabaseFolder = new System.Windows.Forms.GroupBox();
             this.AdvTxtBoxDataFolder = new Hyperar.HattrickUltimate.Controls.AdvancedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrPrvForm)).BeginInit();
+            this.BtnBrowse = new System.Windows.Forms.Button();
+            this.GrpBoxDatabaseFolder.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BtnBrowse
-            // 
-            this.BtnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnBrowse.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Open_16px;
-            this.BtnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnBrowse.Location = new System.Drawing.Point(272, 38);
-            this.BtnBrowse.Name = "BtnBrowse";
-            this.BtnBrowse.Size = new System.Drawing.Size(100, 24);
-            this.BtnBrowse.TabIndex = 1;
-            this.BtnBrowse.Text = "BtnBrowse";
-            this.BtnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBrowse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnBrowse.UseVisualStyleBackColor = true;
-            this.BtnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // BtnOk
             // 
             this.BtnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnOk.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Ok_16px;
             this.BtnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnOk.Location = new System.Drawing.Point(272, 68);
+            this.BtnOk.Location = new System.Drawing.Point(272, 93);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(100, 28);
             this.BtnOk.TabIndex = 2;
@@ -75,7 +58,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancel.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Cancel_16px;
             this.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCancel.Location = new System.Drawing.Point(166, 68);
+            this.BtnCancel.Location = new System.Drawing.Point(166, 93);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(100, 28);
             this.BtnCancel.TabIndex = 3;
@@ -85,28 +68,45 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // ErrPrvForm
+            // GrpBoxDatabaseFolder
             // 
-            this.ErrPrvForm.ContainerControl = this;
-            this.ErrPrvForm.Icon = ((System.Drawing.Icon)(resources.GetObject("ErrPrvForm.Icon")));
+            this.GrpBoxDatabaseFolder.Controls.Add(this.AdvTxtBoxDataFolder);
+            this.GrpBoxDatabaseFolder.Controls.Add(this.BtnBrowse);
+            this.GrpBoxDatabaseFolder.Location = new System.Drawing.Point(12, 12);
+            this.GrpBoxDatabaseFolder.Name = "GrpBoxDatabaseFolder";
+            this.GrpBoxDatabaseFolder.Size = new System.Drawing.Size(360, 75);
+            this.GrpBoxDatabaseFolder.TabIndex = 4;
+            this.GrpBoxDatabaseFolder.TabStop = false;
+            this.GrpBoxDatabaseFolder.Text = "GrpBoxDatabaseFolder";
             // 
             // AdvTxtBoxDataFolder
             // 
             this.AdvTxtBoxDataFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AdvTxtBoxDataFolder.BackColor = System.Drawing.SystemColors.Window;
-            this.ErrPrvForm.SetIconPadding(this.AdvTxtBoxDataFolder, -20);
-            this.AdvTxtBoxDataFolder.Location = new System.Drawing.Point(12, 12);
+            this.AdvTxtBoxDataFolder.Location = new System.Drawing.Point(6, 19);
             this.AdvTxtBoxDataFolder.MaxLength = 0;
             this.AdvTxtBoxDataFolder.Name = "AdvTxtBoxDataFolder";
-            this.AdvTxtBoxDataFolder.Placeholder = "Placeholder";
+            this.AdvTxtBoxDataFolder.Placeholder = "AdvTxtBoxDataFolder";
             this.AdvTxtBoxDataFolder.ShowPlaceholder = true;
-            this.AdvTxtBoxDataFolder.Size = new System.Drawing.Size(360, 20);
+            this.AdvTxtBoxDataFolder.Size = new System.Drawing.Size(348, 20);
             this.AdvTxtBoxDataFolder.StickyPlaceholder = true;
-            this.AdvTxtBoxDataFolder.TabIndex = 5;
-            this.AdvTxtBoxDataFolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdvTxtBoxDataFolder_KeyPress);
-            this.AdvTxtBoxDataFolder.Validating += new System.ComponentModel.CancelEventHandler(this.AdvTxtBoxDataFolder_Validating);
-            this.AdvTxtBoxDataFolder.Validated += new System.EventHandler(this.AdvTxtBoxDataFolder_Validated);
+            this.AdvTxtBoxDataFolder.TabIndex = 7;
+            // 
+            // BtnBrowse
+            // 
+            this.BtnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBrowse.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.OpenFolder_16px;
+            this.BtnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBrowse.Location = new System.Drawing.Point(254, 45);
+            this.BtnBrowse.Name = "BtnBrowse";
+            this.BtnBrowse.Size = new System.Drawing.Size(100, 24);
+            this.BtnBrowse.TabIndex = 6;
+            this.BtnBrowse.Text = "BtnBrowse";
+            this.BtnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBrowse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnBrowse.UseVisualStyleBackColor = true;
+            this.BtnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // FormDataFolder
             // 
@@ -115,29 +115,29 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CancelButton = this.BtnCancel;
-            this.ClientSize = new System.Drawing.Size(384, 108);
-            this.Controls.Add(this.AdvTxtBoxDataFolder);
+            this.ClientSize = new System.Drawing.Size(384, 133);
+            this.Controls.Add(this.GrpBoxDatabaseFolder);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnOk);
-            this.Controls.Add(this.BtnBrowse);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Database;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(750, 147);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(400, 147);
+            this.MinimumSize = new System.Drawing.Size(400, 157);
             this.Name = "FormDataFolder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDataFolder";
-            ((System.ComponentModel.ISupportInitialize)(this.ErrPrvForm)).EndInit();
+            this.GrpBoxDatabaseFolder.ResumeLayout(false);
+            this.GrpBoxDatabaseFolder.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button BtnBrowse;
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.ErrorProvider ErrPrvForm;
+        private System.Windows.Forms.GroupBox GrpBoxDatabaseFolder;
         private Controls.AdvancedTextBox AdvTxtBoxDataFolder;
+        private System.Windows.Forms.Button BtnBrowse;
     }
 }

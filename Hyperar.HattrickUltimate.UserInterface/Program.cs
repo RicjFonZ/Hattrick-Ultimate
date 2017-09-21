@@ -29,14 +29,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 if (string.IsNullOrWhiteSpace(localDbInstance))
                 {
-                    throw new Exception(Localization.Strings.LocalDbInstanceNotFound);
+                    throw new Exception(Localization.Strings.Message_LocalDbInstanceNotFound);
                 }
 
                 AppDomain.CurrentDomain.SetData("LocalDbInstance", localDbInstance);
             }
             catch (Exception ex)
             {
-                throw new Exception(Localization.Strings.CannotRetrieveLocalDbInstance, ex);
+                throw new Exception(Localization.Strings.Message_CannotRetrieveLocalDbInstance, ex);
             }
         }
 
@@ -47,7 +47,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             try
             {
-                string dataFolder = Properties.Settings.Default.DataFolder;
+                string dataFolder = Properties.Settings.Default["DataFolder"].ToString();
 
                 if (string.IsNullOrWhiteSpace(dataFolder))
                 {
@@ -64,16 +64,20 @@ namespace Hyperar.HattrickUltimate.UserInterface
                         }
                         else
                         {
-                            throw new Exception(Localization.Strings.DataFolderNotSet);
+                            throw new Exception(Localization.Strings.Message_DataFolderNotSet);
                         }
                     }
                 }
 
                 AppDomain.CurrentDomain.SetData("DataDirectory", dataFolder);
+
+                Properties.Settings.Default["DataFolder"] = dataFolder;
+
+                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
-                throw new Exception(Localization.Strings.CannotSetDataFolder, ex);
+                throw new Exception(Localization.Strings.Message_CannotSetDataFolder, ex);
             }
         }
 

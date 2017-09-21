@@ -96,6 +96,10 @@
       <Project>{42f24226-c9c4-41f9-b51a-d980f9751ee0}</Project>
       <Name>Hyperar.HattrickUltimate.BusinessObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hyperar.HattrickUltimate.Localization\Hyperar.HattrickUltimate.Localization.csproj">
+      <Project>{46129115-1267-4de3-923e-07d9e1a0c9d9}</Project>
+      <Name>Hyperar.HattrickUltimate.Localization</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -117,43 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AdvTxtBoxDataFolder_EmptyMessage" xml:space="preserve">
-    <value>Please, pick a folder for the Hattrick Ultimate database.</value>
+  <data name="FormDataFolder_AdvTxtBoxDataFolder_Placeholder" xml:space="preserve">
+    <value>Carpeta de la base de datos</value>
   </data>
-  <data name="AdvTxtBoxDataFolder_Placeholder" xml:space="preserve">
-    <value>Pick a folder for the database...</value>
+  <data name="FormDataFolder_DataFolderBrowserDialog_Description" xml:space="preserve">
+    <value>Elija la carpeta donde se almacenará la base de datos.</value>
   </data>
-  <data name="BtnBrowse_Text" xml:space="preserve">
-    <value>Browse</value>
-  </data>
-  <data name="BtnCancel_Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="BtnOk_Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="CannotRetrieveLocalDbInstance" xml:space="preserve">
-    <value>There was an error trying to retrieve the LocalDb instance.</value>
-  </data>
-  <data name="CannotSetDataFolder" xml:space="preserve">
-    <value>Database folder could not be set.</value>
-  </data>
-  <data name="DataFolderBrowserDialog_Description" xml:space="preserve">
-    <value>Pick the folder where the Hattrick Ultimate database will be stored.</value>
-  </data>
-  <data name="DataFolderNotSet" xml:space="preserve">
-    <value>No database folder set, Hattrick Ultimate can't continue.</value>
-  </data>
-  <data name="EmptyErrorMessage" xml:space="preserve">
-    <value>Please, fill in the field to continue.</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
+  <data name="FormDataFolder_GrpBoxDatabaseFolder_Text" xml:space="preserve">
+    <value>Base de datos</value>
   </data>
   <data name="FormDataFolder_Text" xml:space="preserve">
-    <value>Database folder</value>
+    <value>Carpera de la Base de Datos</value>
   </data>
-  <data name="LocalDbInstanceNotFound" xml:space="preserve">
-    <value>No LocalDb instance found. Hattrick Ultimate can't continue.</value>
+  <data name="FormGeneral_BtnBrowse_Text" xml:space="preserve">
+    <value>Examinar</value>
+  </data>
+  <data name="FormGeneral_BtnCancel_Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="FormGeneral_BtnClose_Text" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="FormGeneral_BtnOk_Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="FormToken_AdvTxtBoxVerificationCode_EmptyMessage" xml:space="preserve">
+    <value>Pegue el código de verificación generado por Hattrick.</value>
+  </data>
+  <data name="FormToken_AdvTxtBoxVerificationCode_Placeholder" xml:space="preserve">
+    <value>Código de verificación</value>
+  </data>
+  <data name="FormToken_BtnAllowToken_Text" xml:space="preserve">
+    <value>Autorizar</value>
+  </data>
+  <data name="FormToken_BtnCheckToken_Text" xml:space="preserve">
+    <value>Comprobar</value>
+  </data>
+  <data name="FormToken_BtnOpenVerificationWebSite_Text" xml:space="preserve">
+    <value>Iniciar Autorización</value>
+  </data>
+  <data name="FormToken_BtnRevokeToken_Text" xml:space="preserve">
+    <value>Revocar</value>
+  </data>
+  <data name="FormToken_GrpBoxToken_Text" xml:space="preserve">
+    <value>Token OAuth</value>
+  </data>
+  <data name="FormToken_Text" xml:space="preserve">
+    <value>Administrar Token OAuth</value>
+  </data>
+  <data name="Message_CannotRetrieveLocalDbInstance" xml:space="preserve">
+    <value>Ocurrió un error al intentar obtener la instancia de LocalDb.</value>
+  </data>
+  <data name="Message_CannotSetDataFolder" xml:space="preserve">
+    <value>No se pudo establecer la carpeta de la base de datos.</value>
+  </data>
+  <data name="Message_DatabaseFolderGroup" xml:space="preserve">
+    <value>Carpeta de la base de datos:</value>
+  </data>
+  <data name="Message_DataFolderNotSet" xml:space="preserve">
+    <value>No se ha establecido una carpeta para la base de datos. Hattrick Ultimate no puede continuar</value>
+  </data>
+  <data name="Message_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Message_LocalDbInstanceNotFound" xml:space="preserve">
+    <value>No se ha encontrado una instancia de LocalDb. Hattrick Ultimate no puede continuar.</value>
   </data>
 </root>

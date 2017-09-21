@@ -76,11 +76,13 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Localization\Strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
+    <Compile Include="FormToken.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormToken.Designer.cs">
+      <DependentUpon>FormToken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\ILocalizedForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDataFolder.resx">
@@ -89,10 +91,8 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Localization\Strings.es-AR.resx" />
-    <EmbeddedResource Include="Localization\Strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="FormToken.resx">
+      <DependentUpon>FormToken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,13 +133,142 @@
       <Project>{edecb207-d702-419b-8af6-7e9226e28cdd}</Project>
       <Name>Hyperar.HattrickUltimate.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hyperar.HattrickUltimate.Localization\Hyperar.HattrickUltimate.Localization.csproj">
+      <Project>{46129115-1267-4de3-923e-07d9e1a0c9d9}</Project>
+      <Name>Hyperar.HattrickUltimate.Localization</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\Images\16px\Cancel.png" />
-    <Content Include="Resources\Images\16px\Ok.png" />
-    <Content Include="Resources\Images\16px\Open.png" />
-    <Content Include="Resources\Icons\Unavailable.ico" />
+    <None Include="Resources\OpenInBrowser_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AllowToken_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AllowToken_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckToken_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckToken_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownloadsFolder_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownloadsFolder_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFolder_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFolder_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RevokeToken_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RevokeToken_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenInBrowser_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

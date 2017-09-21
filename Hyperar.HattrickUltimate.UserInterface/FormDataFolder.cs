@@ -9,11 +9,12 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using System;
     using System.IO;
     using System.Windows.Forms;
+    using Interface;
 
     /// <summary>
     /// Data folder selection folder.
     /// </summary>
-    public partial class FormDataFolder : Form
+    public partial class FormDataFolder : Form, ILocalizedForm
     {
         #region Public Constructors
 
@@ -38,6 +39,23 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
         #endregion Public Properties
 
+        #region Public Methods
+
+        /// <summary>
+        /// Populates controls' properties with the corresponding localized string.
+        /// </summary>
+        public void PopulateLanguage()
+        {
+            this.Text = Localization.Strings.FormDataFolder_Text;
+            this.AdvTxtBoxDataFolder.Text = Localization.Strings.FormDataFolder_AdvTxtBoxDataFolder_Placeholder;
+            this.BtnBrowse.Text = Localization.Strings.FormGeneral_BtnBrowse_Text;
+            this.BtnCancel.Text = Localization.Strings.FormGeneral_BtnCancel_Text;
+            this.BtnOk.Text = Localization.Strings.FormGeneral_BtnOk_Text;
+            this.GrpBoxDatabaseFolder.Text = Localization.Strings.FormDataFolder_GrpBoxDatabaseFolder_Text;
+        }
+
+        #endregion Public Methods
+
         #region Private Methods
 
         /// <summary>
@@ -52,30 +70,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         /// <summary>
-        /// AdvTextBoxDataFolder Validated event handler.
-        /// </summary>
-        /// <param name="sender">The control that raised the event.</param>
-        /// <param name="e">Event arguments.</param>
-        private void AdvTxtBoxDataFolder_Validated(object sender, System.EventArgs e)
-        {
-            this.ErrPrvForm.SetError(this.AdvTxtBoxDataFolder, null);
-        }
-
-        /// <summary>
-        /// AdvTextBoxDataFolder Validating event handler.
-        /// </summary>
-        /// <param name="sender">The control that raised the event.</param>
-        /// <param name="e">Event arguments.</param>
-        private void AdvTxtBoxDataFolder_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(this.AdvTxtBoxDataFolder.Text))
-            {
-                this.ErrPrvForm.SetError(this.AdvTxtBoxDataFolder, Localization.Strings.AdvTxtBoxDataFolder_EmptyMessage);
-                e.Cancel = true;
-            }
-        }
-
-        /// <summary>
         /// BtnBrowse Click event handler.
         /// </summary>
         /// <param name="sender">The control that raised the event.</param>
@@ -84,7 +78,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             using (var form = new FolderBrowserDialog())
             {
-                form.Description = Localization.Strings.DataFolderBrowserDialog_Description;
+                form.Description = Localization.Strings.FormDataFolder_DataFolderBrowserDialog_Description;
                 form.RootFolder = Environment.SpecialFolder.UserProfile;
                 form.ShowNewFolderButton = true;
 
@@ -127,18 +121,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.AdvTxtBoxDataFolder.Text = Path.Combine(
                                                      Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                                                      "Hattrick Ultimate");
-        }
-
-        /// <summary>
-        /// Fills controls texts with localized strings.
-        /// </summary>
-        private void PopulateLanguage()
-        {
-            this.Text = Localization.Strings.FormDataFolder_Text;
-            this.AdvTxtBoxDataFolder.Placeholder = Localization.Strings.AdvTxtBoxDataFolder_Placeholder;
-            this.BtnBrowse.Text = Localization.Strings.BtnBrowse_Text;
-            this.BtnCancel.Text = Localization.Strings.BtnCancel_Text;
-            this.BtnOk.Text = Localization.Strings.BtnOk_Text;
         }
 
         #endregion Private Methods
