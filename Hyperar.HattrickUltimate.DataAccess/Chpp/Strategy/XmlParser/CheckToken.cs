@@ -39,7 +39,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             result.Expires = DateTime.Parse(reader.ReadElementContentAsString());
             result.ExtendedPermissions = new List<string>(
                                             reader.ReadElementContentAsString()
-                                                  .Split(',')
+                                                  .Split(
+                                                       new char[] { Constants.Generic.Comma[0] },
+                                                       StringSplitOptions.RemoveEmptyEntries)
                                                   .Where(p => !string.IsNullOrWhiteSpace(p)));
         }
 

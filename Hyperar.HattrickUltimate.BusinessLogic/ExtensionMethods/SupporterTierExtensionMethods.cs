@@ -41,7 +41,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
                     return Constants.SupporterTier.Diamond;
 
                 default:
-                    throw new NotImplementedException($"No string value convertion found for: {value.ToString()}.");
+                    throw new NotImplementedException(
+                              string.Format(
+                                         Localization.Strings.Message_UnknownSupporterTier,
+                                         value.ToString()));
             }
         }
 

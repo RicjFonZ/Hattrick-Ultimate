@@ -69,7 +69,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                         break;
 
                     default:
-                        throw new NotImplementedException($"No XML file parser found for File: {fileName}.");
+                        throw new NotImplementedException(
+                                      string.Format(
+                                                 Localization.Strings.Message_NotImplemented,
+                                                 "IXmlParserFactory",
+                                                 fileName));
                 }
             }
 

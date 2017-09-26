@@ -414,6 +414,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No entity of type &apos;{0}&apos; found with ID &apos;{1}&apos;..
+        /// </summary>
+        public static string Message_EntityIdNotFound {
+            get {
+                return ResourceManager.GetString("Message_EntityIdNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EntityState &apos;{0}&apos; not supported..
+        /// </summary>
+        public static string Message_EntityStateNotSupported {
+            get {
+                return ResourceManager.GetString("Message_EntityStateNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Message_Error {
@@ -441,6 +459,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No class of type &apos;{0}&apos; found for parameter &apos;{1}&apos;..
+        /// </summary>
+        public static string Message_NotImplemented {
+            get {
+                return ResourceManager.GetString("Message_NotImplemented", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is already an active transaction on the context..
+        /// </summary>
+        public static string Message_OverlappingTransaction {
+            get {
+                return ResourceManager.GetString("Message_OverlappingTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hattrick Ultimate was unauthorized successfully..
         /// </summary>
         public static string Message_TokenRevokedSuccessfully {
@@ -455,6 +491,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string Message_Unauthorized {
             get {
                 return ResourceManager.GetString("Message_Unauthorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown OAuth Scope &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_UnknownOAuthScope {
+            get {
+                return ResourceManager.GetString("Message_UnknownOAuthScope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown Supporter Tier &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_UnknownSupporterTier {
+            get {
+                return ResourceManager.GetString("Message_UnknownSupporterTier", resourceCulture);
             }
         }
     }

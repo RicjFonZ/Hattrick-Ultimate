@@ -290,6 +290,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
         private KeyValuePair<string, int> ParseLayerAttributes(XmlReader reader)
         {
             string name = reader.Name;
+
             int value = 0;
 
             int.TryParse(reader.Value, out value);

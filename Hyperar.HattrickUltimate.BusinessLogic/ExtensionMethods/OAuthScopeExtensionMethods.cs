@@ -57,7 +57,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
                         break;
 
                     default:
-                        throw new NotImplementedException("%MESSAGE%");
+                        throw new NotImplementedException(
+                                  string.Format(
+                                             Localization.Strings.Message_UnknownOAuthScope,
+                                             value));
                 }
             }
 

@@ -47,7 +47,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                     break;
 
                 default:
-                    throw new NotImplementedException($"No IHattrickEntity class found for file: {fileName}.");
+                    throw new NotImplementedException(
+                                  string.Format(
+                                             Localization.Strings.Message_NotImplemented,
+                                             "IXmlEntity",
+                                             fileName));
             }
 
             result.FileName = fileName;

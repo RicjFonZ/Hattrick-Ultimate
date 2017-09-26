@@ -58,7 +58,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
 
             using (XmlReader reader = XmlReader.Create(file, new XmlReaderSettings { CloseInput = true, IgnoreComments = true, IgnoreProcessingInstructions = true, IgnoreWhitespace = true }))
             {
-                reader.ReadToFollowing("FileName");
+                reader.ReadToFollowing(Constants.XmlTag.FileName);
 
                 result = this.entityFactory.GetEntity(reader.ReadElementContentAsString());
                 result.Version = reader.ReadElementContentAsDecimal();
@@ -85,18 +85,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                 throw new ArgumentNullException(nameof(fileName));
             }
 
-            if (!File.Exists(fileName))
-            {
-                throw new FileNotFoundException($"File not found: {fileName}.");
-            }
-
             IXmlEntity result = null;
 
             Stream file = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
 
             using (XmlReader reader = XmlReader.Create(file, new XmlReaderSettings { CloseInput = true, IgnoreComments = true, IgnoreProcessingInstructions = true, IgnoreWhitespace = true }))
             {
-                reader.ReadToFollowing("FileName");
+                reader.ReadToFollowing(Constants.XmlTag.FileName);
 
                 result = this.entityFactory.GetEntity(reader.ReadElementContentAsString());
                 result.Version = reader.ReadElementContentAsDecimal();

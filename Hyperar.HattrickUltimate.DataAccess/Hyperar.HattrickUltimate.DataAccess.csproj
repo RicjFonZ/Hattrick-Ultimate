@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chpp\ChppManager.cs" />
+    <Compile Include="Chpp\Constants\Generic.cs" />
     <Compile Include="Chpp\Constants\OAuth.cs" />
     <Compile Include="Chpp\Constants\Url.cs" />
     <Compile Include="Chpp\Constants\XmlFileName.cs" />

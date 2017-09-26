@@ -16,427 +16,427 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// <summary>
         /// ActiveTeams tag.
         /// </summary>
-        internal const string ActiveTeams = "activeteams";
+        internal const string ActiveTeams = "ActiveTeams";
 
         /// <summary>
         /// ActiveUsers tag.
         /// </summary>
-        internal const string ActiveUsers = "activeusers";
+        internal const string ActiveUsers = "ActiveUsers";
 
         /// <summary>
         /// Arena tag.
         /// </summary>
-        internal const string Arena = "arena";
+        internal const string Arena = "Arena";
 
         /// <summary>
         /// ArenaId tag.
         /// </summary>
-        internal const string ArenaId = "arenaid";
+        internal const string ArenaId = "ArenaId";
 
         /// <summary>
         /// ArenaName tag.
         /// </summary>
-        internal const string ArenaName = "arenaname";
+        internal const string ArenaName = "ArenaName";
 
         /// <summary>
         /// Available tag.
         /// </summary>
-        internal const string Available = "available";
+        internal const string Available = "Available";
 
         /// <summary>
         /// Avatar tag.
         /// </summary>
-        internal const string Avatar = "avatar";
+        internal const string Avatar = "Avatar";
 
         /// <summary>
         /// BackgroundImage tag.
         /// </summary>
-        internal const string BackgroundImage = "backgroundimage";
+        internal const string BackgroundImage = "BackgroundImage";
 
         /// <summary>
         /// Continent tag.
         /// </summary>
-        internal const string Continent = "continent";
+        internal const string Continent = "Continent";
 
         /// <summary>
         /// Country tag.
         /// </summary>
-        internal const string Country = "country";
+        internal const string Country = "Country";
 
         /// <summary>
         /// CountryCode tag.
         /// </summary>
-        internal const string CountryCode = "countrycode";
+        internal const string CountryCode = "CountryCode";
 
         /// <summary>
         /// CountryId tag.
         /// </summary>
-        internal const string CountryId = "countryid";
+        internal const string CountryId = "CountryId";
 
         /// <summary>
         /// CountryName tag.
         /// </summary>
-        internal const string CountryName = "countryname";
+        internal const string CountryName = "CountryName";
 
         /// <summary>
         /// Created tag.
         /// </summary>
-        internal const string Created = "created";
+        internal const string Created = "Created";
 
         /// <summary>
         /// Cup tag.
         /// </summary>
-        internal const string Cup = "cup";
+        internal const string Cup = "Cup";
 
         /// <summary>
         /// CupId tag.
         /// </summary>
-        internal const string CupId = "cupid";
+        internal const string CupId = "CupId";
 
         /// <summary>
         /// CupLeagueLevel tag.
         /// </summary>
-        internal const string CupLeagueLevel = "cupleaguelevel";
+        internal const string CupLeagueLevel = "CupLeagueLevel";
 
         /// <summary>
         /// CupLevel tag.
         /// </summary>
-        internal const string CupLevel = "cuplevel";
+        internal const string CupLevel = "CupLevel";
 
         /// <summary>
         /// CupLevelIndex tag.
         /// </summary>
-        internal const string CupLevelIndex = "cuplevelindex";
+        internal const string CupLevelIndex = "CupLevelIndex";
 
         /// <summary>
         /// CupMatchDate tag.
         /// </summary>
-        internal const string CupMatchDate = "cupmatchdate";
+        internal const string CupMatchDate = "CupMatchDate";
 
         /// <summary>
         /// CupName tag.
         /// </summary>
-        internal const string CupName = "cupname";
+        internal const string CupName = "CupName";
 
         /// <summary>
         /// Cups tag.
         /// </summary>
-        internal const string Cups = "cups";
+        internal const string Cups = "Cups";
 
         /// <summary>
         /// CurrencyName tag.
         /// </summary>
-        internal const string CurrencyName = "currencyname";
+        internal const string CurrencyName = "CurrencyName";
 
         /// <summary>
         /// CurrencyRate tag.
         /// </summary>
-        internal const string CurrencyRate = "currencyrate";
+        internal const string CurrencyRate = "CurrencyRate";
 
         /// <summary>
         /// DateFormat tag.
         /// </summary>
-        internal const string DateFormat = "dateformat";
+        internal const string DateFormat = "DateFormat";
 
         /// <summary>
         /// EconomyDate tag.
         /// </summary>
-        internal const string EconomyDate = "economydate";
+        internal const string EconomyDate = "EconomyDate";
 
         /// <summary>
         /// EnglishName tag.
         /// </summary>
-        internal const string EnglishName = "englishname";
+        internal const string EnglishName = "EnglishName";
 
         /// <summary>
         /// Expires tag.
         /// </summary>
-        internal const string Expires = "expires";
+        internal const string Expires = "Expires";
 
         /// <summary>
         /// ExtendedPermissions tag.
         /// </summary>
-        internal const string ExtendedPermissions = "extendedpermissions";
+        internal const string ExtendedPermissions = "ExtendedPermissions";
 
         /// <summary>
         /// FetchedDate tag.
         /// </summary>
-        internal const string FetchedDate = "fetcheddate";
+        internal const string FetchedDate = "FetcheDdate";
 
         /// <summary>
         /// FileName tag.
         /// </summary>
-        internal const string FileName = "filename";
+        internal const string FileName = "FileName";
 
         /// <summary>
         /// HattrickData tag.
         /// </summary>
-        internal const string HattrickData = "hattrickdata";
+        internal const string HattrickData = "HattrickData";
 
         /// <summary>
         /// Image tag.
         /// </summary>
-        internal const string Image = "image";
+        internal const string Image = "Image";
 
         /// <summary>
         /// Language tag.
         /// </summary>
-        internal const string Language = "language";
+        internal const string Language = "Language";
 
         /// <summary>
         /// LanguageId tag.
         /// </summary>
-        internal const string LanguageId = "languageid";
+        internal const string LanguageId = "LanguageId";
 
         /// <summary>
         /// LanguageName tag.
         /// </summary>
-        internal const string LanguageName = "languagename";
+        internal const string LanguageName = "LanguageName";
 
         /// <summary>
         /// LastLogins tag.
         /// </summary>
-        internal const string LastLogins = "lastlogins";
+        internal const string LastLogins = "LastLogins";
 
         /// <summary>
         /// Layer tag.
         /// </summary>
-        internal const string Layer = "layer";
+        internal const string Layer = "Layer";
 
         /// <summary>
         /// League tag.
         /// </summary>
-        internal const string League = "league";
+        internal const string League = "League";
 
         /// <summary>
         /// LeagueId tag.
         /// </summary>
-        internal const string LeagueId = "leagueid";
+        internal const string LeagueId = "LeagueId";
 
         /// <summary>
         /// LeagueLevelUnit tag.
         /// </summary>
-        internal const string LeagueLevelUnit = "leaguelevelunit";
+        internal const string LeagueLevelUnit = "LeagueLevelUnit";
 
         /// <summary>
         /// LeagueLevelUnitId tag.
         /// </summary>
-        internal const string LeagueLevelUnitId = "leaguelevelunitid";
+        internal const string LeagueLevelUnitId = "LeagueLevelUnitId";
 
         /// <summary>
         /// LeagueLevelUnitName tag.
         /// </summary>
-        internal const string LeagueLevelUnitName = "leaguelevelunitname";
+        internal const string LeagueLevelUnitName = "LeagueLevelUnitName";
 
         /// <summary>
         /// LeagueList tag.
         /// </summary>
-        internal const string LeagueList = "leaguelist";
+        internal const string LeagueList = "LeagueList";
 
         /// <summary>
         /// LeagueName tag.
         /// </summary>
-        internal const string LeagueName = "leaguename";
+        internal const string LeagueName = "LeagueName";
 
         /// <summary>
         /// Loginname tag.
         /// </summary>
-        internal const string LoginName = "loginname";
+        internal const string LoginName = "LoginName";
 
         /// <summary>
         /// LoginTime tag.
         /// </summary>
-        internal const string LoginTime = "logintime";
+        internal const string LoginTime = "LoginTime";
 
         /// <summary>
         /// Manager tag.
         /// </summary>
-        internal const string Manager = "manager";
+        internal const string Manager = "Manager";
 
         /// <summary>
         /// MatchRound tag.
         /// </summary>
-        internal const string MatchRound = "matchround";
+        internal const string MatchRound = "MatchRound";
 
         /// <summary>
         /// MatchRoundsLeft tag.
         /// </summary>
-        internal const string MatchRoundsLeft = "matchroundsleft";
+        internal const string MatchRoundsLeft = "MatchRoundsLeft";
 
         /// <summary>
         /// NationalTeam tag.
         /// </summary>
-        internal const string NationalTeam = "nationalteam";
+        internal const string NationalTeam = "NationalTeam";
 
         /// <summary>
         /// NationalTeamCoach tag.
         /// </summary>
-        internal const string NationalTeamCoach = "nationalteamcoach";
+        internal const string NationalTeamCoach = "NationalTeamCoach";
 
         /// <summary>
         /// NationalTeamId tag.
         /// </summary>
-        internal const string NationalTeamId = "nationalteamid";
+        internal const string NationalTeamId = "NationalTeamId";
 
         /// <summary>
         /// NationalTeamName tag.
         /// </summary>
-        internal const string NationalTeamName = "nationalteamname";
+        internal const string NationalTeamName = "NationalTeamName";
 
         /// <summary>
         /// NumberOfLevels tag.
         /// </summary>
-        internal const string NumberOfLevels = "numberoflevels";
+        internal const string NumberOfLevels = "NumberOfLevels";
 
         /// <summary>
         /// Region tag.
         /// </summary>
-        internal const string Region = "region";
+        internal const string Region = "Region";
 
         /// <summary>
         /// RegionId tag.
         /// </summary>
-        internal const string RegionId = "regionid";
+        internal const string RegionId = "RegionId";
 
         /// <summary>
         /// RegionList tag.
         /// </summary>
-        internal const string RegionList = "regionlist";
+        internal const string RegionList = "RegionList";
 
         /// <summary>
         /// RegionName tag.
         /// </summary>
-        internal const string RegionName = "regionname";
+        internal const string RegionName = "RegionName";
 
         /// <summary>
         /// Season tag.
         /// </summary>
-        internal const string Season = "season";
+        internal const string Season = "Season";
 
         /// <summary>
         /// SeasonOffset tag.
         /// </summary>
-        internal const string SeasonOffset = "seasonoffset";
+        internal const string SeasonOffset = "SeasonOffset";
 
         /// <summary>
         /// SeriesMatchDate tag.
         /// </summary>
-        internal const string SeriesMatchDate = "seriesmatchdate";
+        internal const string SeriesMatchDate = "SeriesMatchDate";
 
         /// <summary>
         /// ShortName tag.
         /// </summary>
-        internal const string ShortName = "shortname";
+        internal const string ShortName = "ShortName";
 
         /// <summary>
         /// SupporterTier tag.
         /// </summary>
-        internal const string SupporterTier = "supportertier";
+        internal const string SupporterTier = "SupporterTier";
 
         /// <summary>
         /// Team tag.
         /// </summary>
-        internal const string Team = "team";
+        internal const string Team = "Team";
 
         /// <summary>
         /// TeamId tag.
         /// </summary>
-        internal const string TeamId = "teamid";
+        internal const string TeamId = "TeamId";
 
         /// <summary>
         /// TeamName tag.
         /// </summary>
-        internal const string TeamName = "teamname";
+        internal const string TeamName = "TeamName";
 
         /// <summary>
         /// Teams tag.
         /// </summary>
-        internal const string Teams = "teams";
+        internal const string Teams = "Teams";
 
         /// <summary>
         /// TimeFormat tag.
         /// </summary>
-        internal const string TimeFormat = "timeformat";
+        internal const string TimeFormat = "TimeFormat";
 
         /// <summary>
         /// Token tag.
         /// </summary>
-        internal const string Token = "token";
+        internal const string Token = "Token";
 
         /// <summary>
         /// TrainingDate tag.
         /// </summary>
-        internal const string TrainingDate = "trainingdate";
+        internal const string TrainingDate = "TrainingDate";
 
         /// <summary>
         /// U20TeamId tag.
         /// </summary>
-        internal const string U20TeamId = "u20teamid";
+        internal const string U20TeamId = "U20TeamId";
 
         /// <summary>
         /// User tag.
         /// </summary>
-        internal const string User = "user";
+        internal const string User = "User";
 
         /// <summary>
         /// UserID tag.
         /// </summary>
-        internal const string UserId = "userid";
+        internal const string UserId = "UserId";
 
         /// <summary>
         /// Version tag.
         /// </summary>
-        internal const string Version = "version";
+        internal const string Version = "Version";
 
         /// <summary>
         /// WaitingUsers tag.
         /// </summary>
-        internal const string WaitingUsers = "waitingusers";
+        internal const string WaitingUsers = "WaitingUsers";
 
         /// <summary>
         /// x tag.
         /// </summary>
-        internal const string X = "x";
+        internal const string X = "X";
 
         /// <summary>
         /// y tag.
         /// </summary>
-        internal const string Y = "y";
+        internal const string Y = "Y";
 
         /// <summary>
         /// YouthLeague tag.
         /// </summary>
-        internal const string YouthLeague = "youthleague";
+        internal const string YouthLeague = "YouthLeague";
 
         /// <summary>
         /// YouthLeagueId tag.
         /// </summary>
-        internal const string YouthLeagueId = "youthleagueid";
+        internal const string YouthLeagueId = "YouthLeagueId";
 
         /// <summary>
         /// YouthLeagueName tag.
         /// </summary>
-        internal const string YouthLeagueName = "youthleaguename";
+        internal const string YouthLeagueName = "YouthLeagueName";
 
         /// <summary>
         /// YouthTeam tag.
         /// </summary>
-        internal const string YouthTeam = "youthteam";
+        internal const string YouthTeam = "YouthTeam";
 
         /// <summary>
         /// YouthTeamId tag.
         /// </summary>
-        internal const string YouthTeamId = "youthteamid";
+        internal const string YouthTeamId = "YouthTeamId";
 
         /// <summary>
         /// YouthTeamName tag.
         /// </summary>
-        internal const string YouthTeamName = "youthteamname";
+        internal const string YouthTeamName = "YouthTeamName";
 
         /// <summary>
         /// ZoneName tag.
         /// </summary>
-        internal const string ZoneName = "zonename";
+        internal const string ZoneName = "ZoneName";
 
         #endregion Internal Fields
     }

@@ -68,13 +68,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                     newLeague.Country.CountryName = reader.ReadElementContentAsString();
                     newLeague.Country.CurrencyName = reader.ReadElementContentAsString();
 
-                    // TODO: Refactor this to a more "standard" way. Replace first non numeric
-                    // character for CultureInfo.CurrentCulture.NumberFormat.DecimalNumberSeparator
-                    // instead of literal ",".
                     newLeague.Country.CurrencyRate = decimal.Parse(
                                                                 reader.ReadElementContentAsString()
                                                                       .Replace(
-                                                                          ",",
+                                                                          Generic.Comma,
                                                                           CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
 
                     newLeague.Country.CountryCode = reader.ReadElementContentAsString();

@@ -236,6 +236,12 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_DataFolderNotSet" xml:space="preserve">
     <value>No se ha elegido una carpeta para la base de datos. Hattrick Ultimate no puede continuar.</value>
   </data>
+  <data name="Message_EntityIdNotFound" xml:space="preserve">
+    <value>No se ha encontrado una entidad de tipo '{0}' con el ID '{1}'.</value>
+  </data>
+  <data name="Message_EntityStateNotSupported" xml:space="preserve">
+    <value>Estado de entidad '{0}' no soportado.</value>
+  </data>
   <data name="Message_Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -245,10 +251,22 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_LocalDbInstanceNotFound" xml:space="preserve">
     <value>No se ha encontrado una instancia de LocalDb. Hattrick Ultimate no puede continuar.</value>
   </data>
+  <data name="Message_NotImplemented" xml:space="preserve">
+    <value>No se ha encontrado una clase del tipo '{0}' para el parámetro '{1}'.</value>
+  </data>
+  <data name="Message_OverlappingTransaction" xml:space="preserve">
+    <value>Ya hay una transacción activa en el contexto.</value>
+  </data>
   <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
     <value>Hattrick Ultimate fue desautorizado correctamente.</value>
   </data>
   <data name="Message_Unauthorized" xml:space="preserve">
     <value>Hattrick Ultimate no está autorizado para acceder a la información de tu cuenta.</value>
+  </data>
+  <data name="Message_UnknownOAuthScope" xml:space="preserve">
+    <value>Permiso OAuth desconocido '{0}'.</value>
+  </data>
+  <data name="Message_UnknownSupporterTier" xml:space="preserve">
+    <value>Nivel Supporter desconocido '{0}'.</value>
   </data>
 </root>

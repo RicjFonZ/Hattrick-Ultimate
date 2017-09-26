@@ -54,7 +54,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             {
                 var type = typeof(TEntity);
 
-                throw new Exception($"No entity of type: '{type}' with ID: '{id}' found.");
+                throw new Exception(
+                          string.Format(
+                                     Localization.Strings.Message_EntityIdNotFound,
+                                     type.ToString(),
+                                     id));
             }
 
             this.context.CreateSet<TEntity>().Remove(entity);

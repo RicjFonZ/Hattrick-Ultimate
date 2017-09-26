@@ -236,6 +236,12 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_DataFolderNotSet" xml:space="preserve">
     <value>Database folder not set. Hattrick Ultimate cannot continue.</value>
   </data>
+  <data name="Message_EntityIdNotFound" xml:space="preserve">
+    <value>No entity of type '{0}' found with ID '{1}'.</value>
+  </data>
+  <data name="Message_EntityStateNotSupported" xml:space="preserve">
+    <value>EntityState '{0}' not supported.</value>
+  </data>
   <data name="Message_Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -245,10 +251,22 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_LocalDbInstanceNotFound" xml:space="preserve">
     <value>LocalDb instance not found. Hattrick Ultimate cannot continue.</value>
   </data>
+  <data name="Message_NotImplemented" xml:space="preserve">
+    <value>No class of type '{0}' found for parameter '{1}'.</value>
+  </data>
+  <data name="Message_OverlappingTransaction" xml:space="preserve">
+    <value>There is already an active transaction on the context.</value>
+  </data>
   <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
     <value>Hattrick Ultimate was unauthorized successfully.</value>
   </data>
   <data name="Message_Unauthorized" xml:space="preserve">
     <value>Hattrick Ultimate is not authorized to access your account data.</value>
+  </data>
+  <data name="Message_UnknownOAuthScope" xml:space="preserve">
+    <value>Unknown OAuth Scope '{0}'.</value>
+  </data>
+  <data name="Message_UnknownSupporterTier" xml:space="preserve">
+    <value>Unknown Supporter Tier '{0}'.</value>
   </data>
 </root>

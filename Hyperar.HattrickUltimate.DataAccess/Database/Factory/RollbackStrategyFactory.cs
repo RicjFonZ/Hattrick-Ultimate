@@ -35,7 +35,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Factory
                     return new ModifiedEntryRollbackStrategy();
 
                 default:
-                    throw new NotSupportedException($"EntityState: {state} rollback not supported.");
+                    throw new NotSupportedException(
+                                  string.Format(
+                                             Localization.Strings.Message_EntityStateNotSupported,
+                                             state.ToString()));
             }
         }
 
