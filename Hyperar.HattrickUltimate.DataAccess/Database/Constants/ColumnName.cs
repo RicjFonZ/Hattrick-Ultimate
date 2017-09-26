@@ -34,6 +34,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string Code = "Code";
 
         /// <summary>
+        /// CreatedOn database table column name.
+        /// </summary>
+        internal const string CreatedOn = "CreatedOn";
+
+        /// <summary>
         /// Divisions database table column name.
         /// </summary>
         internal const string Divisions = "Divisions";
@@ -42,6 +47,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// EnglishName database table column name.
         /// </summary>
         internal const string EnglishName = "EnglishName";
+
+        /// <summary>
+        /// ExpiresOn database table column name.
+        /// </summary>
+        internal const string ExpiresOn = "ExpiresOn";
 
         /// <summary>
         /// FullName database table column name.

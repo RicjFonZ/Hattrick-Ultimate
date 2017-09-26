@@ -103,6 +103,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Check_16px {
+            get {
+                object obj = ResourceManager.GetObject("Check_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CheckToken_16px {
             get {
                 object obj = ResourceManager.GetObject("CheckToken_16px", resourceCulture);
@@ -136,6 +146,26 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         internal static System.Drawing.Bitmap Close_24px {
             get {
                 object obj = ResourceManager.GetObject("Close_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CopyAuthorizationLink_16px {
+            get {
+                object obj = ResourceManager.GetObject("CopyAuthorizationLink_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CopyLink_16px {
+            get {
+                object obj = ResourceManager.GetObject("CopyLink_16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -281,6 +311,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GetAuthorizationLink_16px {
+            get {
+                object obj = ResourceManager.GetObject("GetAuthorizationLink_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Manager {
@@ -406,6 +446,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         internal static System.Drawing.Bitmap OpenInBrowser_24px {
             get {
                 object obj = ResourceManager.GetObject("OpenInBrowser_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Refresh_16px {
+            get {
+                object obj = ResourceManager.GetObject("Refresh_16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -64,9 +64,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             var user = this.userManager.GetUser();
 
-            if (user.Token == null)
+            if (user == null || user.Manager == null)
             {
-                using (var form = ApplicationObjects.Container.GetInstance<FormToken>())
+                using (var form = ApplicationObjects.Container.GetInstance<FormUser>())
                 {
                     form.ShowDialog(this);
                 }

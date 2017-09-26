@@ -6,6 +6,7 @@
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
 {
+    using System;
     using System.Collections.Generic;
     using BusinessObjects.App.Enums;
 
@@ -15,6 +16,53 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
     public static class OAuthScopeExtensionMethods
     {
         #region Public Methods
+
+        /// <summary>
+        /// Gets an OAuthScope object from a string array.
+        /// </summary>
+        /// <param name="values">OAuth scopes tags.</param>
+        /// <returns>OAuthScope object.</returns>
+        public static OAuthScope GetOAuthScopes(this List<string> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+
+            // Having a valid token means at least having Read access, thus it's always ON.
+            OAuthScope result = OAuthScope.Read;
+
+            foreach (var value in values)
+            {
+                switch (value)
+                {
+                    case Constants.OAuthScope.ManagerChallenges:
+                        result |= OAuthScope.ManageChallenges;
+                        break;
+
+                    case Constants.OAuthScope.ManageYouthPlayers:
+                        result |= OAuthScope.ManageChallenges;
+                        break;
+
+                    case Constants.OAuthScope.PlaceBid:
+                        result |= OAuthScope.PlaceBid;
+                        break;
+
+                    case Constants.OAuthScope.SetMatchOrders:
+                        result |= OAuthScope.SetMatchOrders;
+                        break;
+
+                    case Constants.OAuthScope.SetTraining:
+                        result |= OAuthScope.SetTraining;
+                        break;
+
+                    default:
+                        throw new NotImplementedException("%MESSAGE%");
+                }
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Gets the Query String value of the current OAuthScope state.
@@ -51,8 +99,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
             }
 
             return string.Join(
-                             Constants.OAuthScope.Separator,
-                             result.ToArray());
+                              Constants.OAuthScope.Separator,
+                              result.ToArray());
         }
 
         #endregion Public Methods

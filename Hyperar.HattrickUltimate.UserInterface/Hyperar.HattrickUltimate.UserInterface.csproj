@@ -82,6 +82,12 @@
     <Compile Include="FormToken.Designer.cs">
       <DependentUpon>FormToken.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\ILocalizedForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormToken.resx">
       <DependentUpon>FormToken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -193,9 +202,6 @@
     <None Include="Resources\Database_96px.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Delete_16px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Delete_24px.png" />
   </ItemGroup>
   <ItemGroup>
@@ -269,6 +275,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Error.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopyLink_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopyAuthorizationLink_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GetAuthorizationLink_16px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

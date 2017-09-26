@@ -71,6 +71,8 @@
     <Compile Include="Hattrick\WorldDetails\League.cs" />
     <Compile Include="Hattrick\WorldDetails\Region.cs" />
     <Compile Include="Hattrick\WorldDetails\Root.cs" />
+    <Compile Include="OAuth\GetAccessTokenRequest.cs" />
+    <Compile Include="OAuth\GetAuthorizationUrlResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

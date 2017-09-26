@@ -31,9 +31,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             this.components = new System.ComponentModel.Container();
             this.GrpBoxToken = new System.Windows.Forms.GroupBox();
+            this.BtnCopyAuthorizationLink = new System.Windows.Forms.Button();
+            this.LnkLblAuthorizationLink = new System.Windows.Forms.LinkLabel();
             this.BtnAllowToken = new System.Windows.Forms.Button();
             this.AdvTxtBoxVerificationCode = new Hyperar.HattrickUltimate.Controls.AdvancedTextBox();
-            this.BtnOpenVerificationWebSite = new System.Windows.Forms.Button();
+            this.BtnGetAuthorizationLink = new System.Windows.Forms.Button();
             this.BtnRevokeToken = new System.Windows.Forms.Button();
             this.BtnCheckToken = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
@@ -44,24 +46,52 @@ namespace Hyperar.HattrickUltimate.UserInterface
             // 
             // GrpBoxToken
             // 
-            this.GrpBoxToken.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.GrpBoxToken.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.GrpBoxToken.Controls.Add(this.BtnCopyAuthorizationLink);
+            this.GrpBoxToken.Controls.Add(this.LnkLblAuthorizationLink);
             this.GrpBoxToken.Controls.Add(this.BtnAllowToken);
             this.GrpBoxToken.Controls.Add(this.AdvTxtBoxVerificationCode);
-            this.GrpBoxToken.Controls.Add(this.BtnOpenVerificationWebSite);
+            this.GrpBoxToken.Controls.Add(this.BtnGetAuthorizationLink);
             this.GrpBoxToken.Location = new System.Drawing.Point(12, 12);
             this.GrpBoxToken.Name = "GrpBoxToken";
-            this.GrpBoxToken.Size = new System.Drawing.Size(384, 105);
+            this.GrpBoxToken.Size = new System.Drawing.Size(435, 135);
             this.GrpBoxToken.TabIndex = 0;
             this.GrpBoxToken.TabStop = false;
             this.GrpBoxToken.Text = "GrpBoxToken";
             // 
+            // BtnCopyAuthorizationUrl
+            // 
+            this.BtnCopyAuthorizationLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCopyAuthorizationLink.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.CopyAuthorizationLink_16px;
+            this.BtnCopyAuthorizationLink.Location = new System.Drawing.Point(405, 49);
+            this.BtnCopyAuthorizationLink.Name = "BtnCopyAuthorizationUrl";
+            this.BtnCopyAuthorizationLink.Size = new System.Drawing.Size(24, 24);
+            this.BtnCopyAuthorizationLink.TabIndex = 6;
+            this.BtnCopyAuthorizationLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCopyAuthorizationLink.UseVisualStyleBackColor = true;
+            this.BtnCopyAuthorizationLink.Click += new System.EventHandler(this.BtnCopyAuthorizationLink_Click);
+            // 
+            // LnkLblAuthorizationLink
+            // 
+            this.LnkLblAuthorizationLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LnkLblAuthorizationLink.Location = new System.Drawing.Point(6, 49);
+            this.LnkLblAuthorizationLink.Margin = new System.Windows.Forms.Padding(3);
+            this.LnkLblAuthorizationLink.Name = "LnkLblAuthorizationLink";
+            this.LnkLblAuthorizationLink.Size = new System.Drawing.Size(393, 24);
+            this.LnkLblAuthorizationLink.TabIndex = 3;
+            this.LnkLblAuthorizationLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LnkLblAuthorizationLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkLblAuthorizationLink_LinkClicked);
+            // 
             // BtnAllowToken
             // 
             this.BtnAllowToken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnAllowToken.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.AllowToken_16px;
+            this.BtnAllowToken.Enabled = false;
+            this.BtnAllowToken.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Check_16px;
             this.BtnAllowToken.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnAllowToken.Location = new System.Drawing.Point(258, 75);
+            this.BtnAllowToken.Location = new System.Drawing.Point(309, 105);
             this.BtnAllowToken.Name = "BtnAllowToken";
             this.BtnAllowToken.Size = new System.Drawing.Size(120, 24);
             this.BtnAllowToken.TabIndex = 2;
@@ -73,44 +103,45 @@ namespace Hyperar.HattrickUltimate.UserInterface
             // 
             // AdvTxtBoxVerificationCode
             // 
-            this.AdvTxtBoxVerificationCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AdvTxtBoxVerificationCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ErrProvToken.SetIconPadding(this.AdvTxtBoxVerificationCode, -20);
-            this.AdvTxtBoxVerificationCode.Location = new System.Drawing.Point(6, 49);
+            this.AdvTxtBoxVerificationCode.Location = new System.Drawing.Point(6, 79);
             this.AdvTxtBoxVerificationCode.Name = "AdvTxtBoxVerificationCode";
             this.AdvTxtBoxVerificationCode.Placeholder = "AdvTxtBoxVerificationCode";
             this.AdvTxtBoxVerificationCode.ShowPlaceholder = true;
-            this.AdvTxtBoxVerificationCode.Size = new System.Drawing.Size(372, 20);
+            this.AdvTxtBoxVerificationCode.Size = new System.Drawing.Size(423, 20);
             this.AdvTxtBoxVerificationCode.StickyPlaceholder = true;
             this.AdvTxtBoxVerificationCode.TabIndex = 1;
             this.AdvTxtBoxVerificationCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AdvTxtBoxVerificationCode.TextChanged += new System.EventHandler(this.AdvTxtBoxVerificationCode_TextChanged);
             this.AdvTxtBoxVerificationCode.Validating += new System.ComponentModel.CancelEventHandler(this.AdvTxtBoxVerificationCode_Validating);
             this.AdvTxtBoxVerificationCode.Validated += new System.EventHandler(this.AdvTxtBoxVerificationCode_Validated);
             // 
-            // BtnOpenVerificationWebSite
+            // BtnGetAuthorizationLink
             // 
-            this.BtnOpenVerificationWebSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.BtnGetAuthorizationLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOpenVerificationWebSite.CausesValidation = false;
-            this.BtnOpenVerificationWebSite.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.OpenInBrowser_16px;
-            this.BtnOpenVerificationWebSite.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnOpenVerificationWebSite.Location = new System.Drawing.Point(6, 19);
-            this.BtnOpenVerificationWebSite.Name = "BtnOpenVerificationWebSite";
-            this.BtnOpenVerificationWebSite.Size = new System.Drawing.Size(372, 24);
-            this.BtnOpenVerificationWebSite.TabIndex = 0;
-            this.BtnOpenVerificationWebSite.Text = "BtnOpenVerificationWebSite";
-            this.BtnOpenVerificationWebSite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOpenVerificationWebSite.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnOpenVerificationWebSite.UseVisualStyleBackColor = true;
-            this.BtnOpenVerificationWebSite.Click += new System.EventHandler(this.BtnOpenVerificationWebSite_Click);
+            this.BtnGetAuthorizationLink.CausesValidation = false;
+            this.BtnGetAuthorizationLink.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.GetAuthorizationLink_16px;
+            this.BtnGetAuthorizationLink.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGetAuthorizationLink.Location = new System.Drawing.Point(6, 19);
+            this.BtnGetAuthorizationLink.Name = "BtnGetAuthorizationLink";
+            this.BtnGetAuthorizationLink.Size = new System.Drawing.Size(423, 24);
+            this.BtnGetAuthorizationLink.TabIndex = 0;
+            this.BtnGetAuthorizationLink.Text = "BtnGetAuthorizationLink";
+            this.BtnGetAuthorizationLink.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGetAuthorizationLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnGetAuthorizationLink.UseVisualStyleBackColor = true;
+            this.BtnGetAuthorizationLink.Click += new System.EventHandler(this.BtnGetAuthorizationLink_Click);
             // 
             // BtnRevokeToken
             // 
             this.BtnRevokeToken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnRevokeToken.CausesValidation = false;
-            this.BtnRevokeToken.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.RevokeToken_16px;
+            this.BtnRevokeToken.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Delete_16px;
             this.BtnRevokeToken.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnRevokeToken.Location = new System.Drawing.Point(138, 123);
+            this.BtnRevokeToken.Location = new System.Drawing.Point(138, 153);
             this.BtnRevokeToken.Name = "BtnRevokeToken";
             this.BtnRevokeToken.Size = new System.Drawing.Size(120, 28);
             this.BtnRevokeToken.TabIndex = 4;
@@ -124,9 +155,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             // 
             this.BtnCheckToken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnCheckToken.CausesValidation = false;
-            this.BtnCheckToken.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.CheckToken_16px;
+            this.BtnCheckToken.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Refresh_16px;
             this.BtnCheckToken.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCheckToken.Location = new System.Drawing.Point(12, 123);
+            this.BtnCheckToken.Location = new System.Drawing.Point(12, 153);
             this.BtnCheckToken.Name = "BtnCheckToken";
             this.BtnCheckToken.Size = new System.Drawing.Size(120, 28);
             this.BtnCheckToken.TabIndex = 3;
@@ -142,7 +173,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnClose.CausesValidation = false;
             this.BtnClose.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Close_16px;
             this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.Location = new System.Drawing.Point(296, 123);
+            this.BtnClose.Location = new System.Drawing.Point(347, 153);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(100, 28);
             this.BtnClose.TabIndex = 5;
@@ -162,7 +193,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(408, 163);
+            this.ClientSize = new System.Drawing.Size(459, 193);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnCheckToken);
             this.Controls.Add(this.BtnRevokeToken);
@@ -188,8 +219,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private System.Windows.Forms.Button BtnCheckToken;
         private System.Windows.Forms.Button BtnRevokeToken;
         private Controls.AdvancedTextBox AdvTxtBoxVerificationCode;
-        private System.Windows.Forms.Button BtnOpenVerificationWebSite;
+        private System.Windows.Forms.Button BtnGetAuthorizationLink;
         private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.ErrorProvider ErrProvToken;
+        private System.Windows.Forms.LinkLabel LnkLblAuthorizationLink;
+        private System.Windows.Forms.Button BtnCopyAuthorizationLink;
     }
 }

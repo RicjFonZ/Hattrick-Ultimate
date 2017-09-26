@@ -8,10 +8,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 {
     using System;
     using System.Linq;
-    using System.Web;
-    using BusinessObjects.App.Enums;
+    using System.Net;
     using DataAccess.Database.Interface;
-    using ExtensionMethods;
 
     /// <summary>
     /// User objects business processes.
@@ -59,16 +57,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             this.tokenRepository = tokenRepository;
             this.userRepository = userRepository;
 
-            var user = this.GetUser();
-
-            if (user.Token == null)
-            {
-                this.chppManager = new DataAccess.Chpp.ChppManager();
-            }
-            else
-            {
-                this.chppManager = new DataAccess.Chpp.ChppManager(user.Token);
-            }
+            this.chppManager = new DataAccess.Chpp.ChppManager();
         }
 
         #endregion Public Constructors
@@ -76,168 +65,143 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         #region Public Methods
 
         /// <summary>
-        /// Checks the current token.
+        /// Checks the specified Access Token validity.
         /// </summary>
-        /// <returns>CheckToken.Root object.</returns>
-        public BusinessObjects.App.Token CheckToken()
+        /// <param name="accessToken">Access token.</param>
+        /// <returns>The valid access token with creation and expiration dates.</returns>
+        public BusinessObjects.App.Token CheckToken(BusinessObjects.App.Token accessToken)
         {
-            BusinessObjects.App.Token result = null;
-
             try
             {
-                var checkTokenResponse = (BusinessObjects.Hattrick.CheckToken.Root)this.chppManager.CheckToken();
+                var checkTokenResponse = (BusinessObjects.Hattrick.CheckToken.Root)this.chppManager.CheckToken(accessToken);
 
-                result = new BusinessObjects.App.Token
-                {
-                    Key = checkTokenResponse.Token,
-                };
+                accessToken.CreatedOn = checkTokenResponse.Created;
+                accessToken.ExpiresOn = checkTokenResponse.Expires;
             }
-            catch
+            catch (WebException ex)
             {
+                if (ex.Response is HttpWebResponse && (ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    this.RemoveToken(accessToken);
+                }
+
                 throw;
             }
 
-            return result;
+            return accessToken;
         }
 
         /// <summary>
-        /// Deletes the specified token.
+        /// Gets the Access Token from Hattrick.
         /// </summary>
-        /// <param name="token">Token to delete.</param>
-        public void DeleteToken(BusinessObjects.App.Token token)
+        /// <param name="request">Request token and verification code.</param>
+        /// <returns>Access Token.</returns>
+        public BusinessObjects.App.Token GetAccessToken(BusinessObjects.OAuth.GetAccessTokenRequest request)
         {
-            this.tokenRepository.Delete(token.Id);
+            var token = this.chppManager.GetAccessToken(request);
 
-            this.context.Save();
-        }
-
-        /// <summary>
-        /// Gets OAuth Access Token with the Request Token and the Verification Code.
-        /// </summary>
-        /// <param name="verificationCode">Verification Code.</param>
-        /// <param name="token">OAuth token.</param>
-        public void GetAccessToken(string verificationCode, ref BusinessObjects.App.Token token)
-        {
-            this.chppManager.GetAccessToken(verificationCode, ref token);
+            return token;
         }
 
         /// <summary>
         /// Gets a request token and the authorization URL.
         /// </summary>
-        /// <param name="scope">OAuth scope.</param>
         /// <returns>Request token and Authorization URL.</returns>
-        public string GetAuthorizationUrl(OAuthScope scope)
+        public BusinessObjects.OAuth.GetAuthorizationUrlResponse GetAuthorizationUrl()
         {
-            string url = this.chppManager.GetAuthorizationUrl();
-
-            var uriBuilder = new UriBuilder(url);
-
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-
-            query.Add(Constants.OAuthScope.QueryStringParameter, scope.GetQueryStringValue());
-
-            uriBuilder.Query = query.ToString();
-
-            return uriBuilder.ToString();
+            return this.chppManager.GetAuthorizationUrl();
         }
 
         /// <summary>
-        /// Gets the application User.
+        /// Gets the user.
         /// </summary>
-        /// <returns>The application user.</returns>
+        /// <returns>Stored user.</returns>
         public BusinessObjects.App.User GetUser()
         {
-            var user = this.userRepository.Get().SingleOrDefault();
-
-            if (user == null)
-            {
-                user = new BusinessObjects.App.User();
-
-                this.CreateUser(user);
-            }
-
-            return user;
+            return this.userRepository.Get().SingleOrDefault();
         }
 
         /// <summary>
-        /// Revokes the current token.
+        /// Revokes the Access Token in Hattrick and deletes it from the database.
         /// </summary>
-        /// <param name="token">OAuth token.</param>
-        /// <returns>A value indicating whether the operation was successful or not.</returns>
-        public bool RevokeToken(BusinessObjects.App.Token token)
+        /// <param name="accessToken">Access Token to revoke.</param>
+        public void RevokeToken(BusinessObjects.App.Token accessToken)
         {
-            string expectedMessage = $"Invalidated token {token.Key}";
-
-            var response = this.chppManager.RevokeToken();
-
-            var result = expectedMessage.Equals(response, StringComparison.OrdinalIgnoreCase);
-
-            if (result)
+            try
             {
-                this.DeleteToken(token);
+                this.chppManager.RevokeToken(accessToken);
+
+                this.RemoveToken(accessToken);
             }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Sets the User token.
-        /// </summary>
-        /// <param name="newToken">OAuth token.</param>
-        public void SetUserToken(BusinessObjects.App.Token newToken)
-        {
-            var token = this.tokenRepository.Get()
-                                            .SingleOrDefault();
-
-            if (token == null)
+            catch (WebException ex)
             {
-                this.CreateToken(newToken);
-            }
-            else
-            {
-                this.UpdateToken(newToken);
+                // Already invalid token.
+                if (ex.Response is HttpWebResponse && (ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    this.RemoveToken(accessToken);
+                }
+                else
+                {
+                    throw;
+                }
             }
         }
 
         /// <summary>
-        /// Toggles the specified scope on the given token.
+        /// Creates an user with an access token.
         /// </summary>
-        /// <param name="token">OAuth token.</param>
-        /// <param name="toggleScope">Scope name.</param>
-        public void ToggleScope(ref BusinessObjects.App.Token token, string toggleScope)
+        /// <param name="accessToken">Access token.</param>
+        public void SetUserToken(BusinessObjects.App.Token accessToken)
         {
-            OAuthScope selectedScope = OAuthScope.Read;
-
-            switch (toggleScope)
+            try
             {
-                case Constants.OAuthScope.ManagerChallenges:
-                    selectedScope = OAuthScope.ManageChallenges;
-                    break;
+                if (accessToken == null ||
+                    string.IsNullOrWhiteSpace(accessToken.Key) ||
+                    string.IsNullOrWhiteSpace(accessToken.Secret))
+                {
+                    throw new ArgumentNullException(nameof(accessToken));
+                }
 
-                case Constants.OAuthScope.ManageYouthPlayers:
-                    selectedScope = OAuthScope.ManageYouthPlayers;
-                    break;
+                var user = this.GetUser();
 
-                case Constants.OAuthScope.PlaceBid:
-                    selectedScope = OAuthScope.PlaceBid;
-                    break;
+                this.context.BeginTransaction();
 
-                case Constants.OAuthScope.SetMatchOrders:
-                    selectedScope = OAuthScope.SetMatchOrders;
-                    break;
+                if (user == null)
+                {
+                    user = new BusinessObjects.App.User();
 
-                case Constants.OAuthScope.SetTraining:
-                    selectedScope = OAuthScope.SetTraining;
-                    break;
+                    this.userRepository.Insert(user);
+                }
+
+                var existingToken = this.tokenRepository.Get().SingleOrDefault();
+
+                if (existingToken == null)
+                {
+                    accessToken.User = user;
+                    this.tokenRepository.Insert(accessToken);
+                }
+                else
+                {
+                    existingToken.CreatedOn = accessToken.CreatedOn;
+                    existingToken.ExpiresOn = accessToken.ExpiresOn;
+                    existingToken.Key = accessToken.Key;
+                    existingToken.Scope = accessToken.Scope;
+                    existingToken.Secret = accessToken.Secret;
+
+                    this.tokenRepository.Update(existingToken);
+                }
+
+                this.context.Save();
             }
+            catch
+            {
+                this.context.Cancel();
 
-            if (token.Scope.HasFlag(selectedScope))
-            {
-                token.Scope &= ~selectedScope;
+                throw;
             }
-            else
+            finally
             {
-                token.Scope |= selectedScope;
+                this.context.EndTransaction();
             }
         }
 
@@ -246,68 +210,39 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         #region Private Methods
 
         /// <summary>
-        /// Creates a new token.
+        /// Creates the user.
         /// </summary>
-        /// <param name="newToken">OAuth token.</param>
-        private void CreateToken(BusinessObjects.App.Token newToken)
+        /// <returns>Created user.</returns>
+        private BusinessObjects.App.User CreateUser()
         {
-            try
-            {
-                this.context.BeginTransaction();
+            var user = new BusinessObjects.App.User();
 
-                newToken.User = this.GetUser();
+            this.userRepository.Insert(user);
 
-                this.tokenRepository.Insert(newToken);
-            }
-            catch
-            {
-                this.context.Cancel();
-            }
-            finally
-            {
-                this.context.EndTransaction();
-            }
+            return user;
         }
 
         /// <summary>
-        /// Creates a new User.
+        /// Deletes user access token.
         /// </summary>
-        /// <param name="user">Application user.</param>
-        private void CreateUser(BusinessObjects.App.User user)
+        /// <param name="accessToken">Access token to remove.</param>
+        private void RemoveToken(BusinessObjects.App.Token accessToken)
         {
             try
             {
                 this.context.BeginTransaction();
 
-                this.userRepository.Insert(user);
+                this.tokenRepository.Delete(accessToken.Id);
+
+                this.context.Save();
+
+                accessToken = null;
             }
             catch
             {
                 this.context.Cancel();
 
                 throw;
-            }
-            finally
-            {
-                this.context.EndTransaction();
-            }
-        }
-
-        /// <summary>
-        /// Updates an existing token.
-        /// </summary>
-        /// <param name="token">OAuth token.</param>
-        private void UpdateToken(BusinessObjects.App.Token token)
-        {
-            try
-            {
-                this.context.BeginTransaction();
-
-                this.tokenRepository.Update(token);
-            }
-            catch
-            {
-                this.context.Cancel();
             }
             finally
             {

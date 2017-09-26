@@ -20,9 +20,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Private Fields
 
         /// <summary>
-        /// Access token.
+        /// GetAuthorizationUrl response.
         /// </summary>
-        private BusinessObjects.App.Token token;
+        private BusinessObjects.OAuth.GetAuthorizationUrlResponse getAuthorizationUrlResponse;
 
         /// <summary>
         /// User manager.
@@ -44,12 +44,17 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             this.userManager = userManager;
 
-            this.token = this.userManager.GetUser().Token;
+            var user = this.userManager.GetUser();
 
-            if (this.token == null)
+            if (user == null || user.Token == null)
             {
-                this.token = new BusinessObjects.App.Token();
+                this.BtnCheckToken.Enabled =
+                this.BtnRevokeToken.Enabled = false;
             }
+
+            this.AdvTxtBoxVerificationCode.Enabled =
+            this.BtnAllowToken.Enabled =
+            this.BtnCopyAuthorizationLink.Enabled = false;
         }
 
         #endregion Public Constructors
@@ -66,7 +71,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnAllowToken.Text = Localization.Strings.FormToken_BtnAllowToken_Text;
             this.BtnCheckToken.Text = Localization.Strings.FormToken_BtnCheckToken_Text;
             this.BtnClose.Text = Localization.Strings.FormGeneral_BtnClose_Text;
-            this.BtnOpenVerificationWebSite.Text = Localization.Strings.FormToken_BtnOpenVerificationWebSite_Text;
+            this.BtnGetAuthorizationLink.Text = Localization.Strings.FormToken_BtnGetAuthorizationLink_Text;
             this.BtnRevokeToken.Text = Localization.Strings.FormToken_BtnRevokeToken_Text;
             this.GrpBoxToken.Text = Localization.Strings.FormToken_GrpBoxToken_Text;
         }
@@ -74,6 +79,16 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #endregion Public Methods
 
         #region Private Methods
+
+        /// <summary>
+        /// AdvTxtBoxVerificationCode TextChanged event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void AdvTxtBoxVerificationCode_TextChanged(object sender, EventArgs e)
+        {
+            this.BtnAllowToken.Enabled = !string.IsNullOrWhiteSpace(this.AdvTxtBoxVerificationCode.Text);
+        }
 
         /// <summary>
         /// AdvTxtBoxVerificationCode Validated event handler.
@@ -106,13 +121,36 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void BtnAllowToken_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren())
+            try
             {
-                this.userManager.GetAccessToken(this.AdvTxtBoxVerificationCode.Text, ref this.token);
+                var accessToken = this.userManager.GetAccessToken(
+                                                       new BusinessObjects.OAuth.GetAccessTokenRequest(
+                                                           this.AdvTxtBoxVerificationCode.Text,
+                                                           this.getAuthorizationUrlResponse.Token,
+                                                           this.getAuthorizationUrlResponse.TokenSecret));
 
-                this.userManager.SetUserToken(this.token);
-
-                this.Close();
+                this.userManager.SetUserToken(accessToken);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                               this,
+                               string.Format(Localization.Strings.Message_AnErrorHasOccurred, ex.Message),
+                               Localization.Strings.Message_Error,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.LnkLblAuthorizationLink.Text = null;
+                this.LnkLblAuthorizationLink.Links.Clear();
+                this.getAuthorizationUrlResponse = null;
+                this.AdvTxtBoxVerificationCode.Text = null;
+                this.AdvTxtBoxVerificationCode.Enabled =
+                this.BtnAllowToken.Enabled =
+                this.BtnCopyAuthorizationLink.Enabled = false;
+                this.BtnCheckToken.Enabled =
+                this.BtnRevokeToken.Enabled = true;
             }
         }
 
@@ -123,7 +161,35 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void BtnCheckToken_Click(object sender, EventArgs e)
         {
-            this.userManager.CheckToken();
+            string text, title = null;
+            MessageBoxIcon icon = MessageBoxIcon.Information;
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+            try
+            {
+                var user = this.userManager.GetUser();
+
+                var token = this.userManager.CheckToken(user.Token);
+
+                text = string.Format(
+                                  Localization.Strings.Message_CheckToken,
+                                  token.CreatedOn.ToString(),
+                                  token.ExpiresOn.ToString());
+
+                title = Localization.Strings.Message_Information;
+            }
+            catch (Exception ex)
+            {
+                text = string.Format(
+                                  Localization.Strings.Message_AnErrorHasOccurred,
+                                  ex.Message);
+
+                title = Localization.Strings.Message_Error;
+
+                icon = MessageBoxIcon.Error;
+            }
+
+            MessageBox.Show(this, text, title, buttons, icon);
         }
 
         /// <summary>
@@ -137,15 +203,52 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         /// <summary>
-        /// BtnOpenVerificationWebSite Click event handler.
+        /// BtnCopyAuthorizationUrl Click event handler.
         /// </summary>
         /// <param name="sender">Control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
-        private void BtnOpenVerificationWebSite_Click(object sender, EventArgs e)
+        private void BtnCopyAuthorizationLink_Click(object sender, EventArgs e)
         {
-            string url = this.userManager.GetAuthorizationUrl(this.token.Scope);
+            var link = this.LnkLblAuthorizationLink.Links.Count > 0
+                     ? this.LnkLblAuthorizationLink.Links[0]
+                     : null;
 
-            Process.Start(url);
+            if (link != null)
+            {
+                Clipboard.SetText(link.LinkData.ToString());
+            }
+        }
+
+        /// <summary>
+        /// BtnGetAuthorizationLink Click event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void BtnGetAuthorizationLink_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.getAuthorizationUrlResponse = this.userManager.GetAuthorizationUrl();
+
+                this.LnkLblAuthorizationLink.Text = Localization.Strings.FormToken_LnkLabelAuthorizationUrl_Text;
+
+                this.LnkLblAuthorizationLink.Links.Add(
+                                                       0,
+                                                       this.LnkLblAuthorizationLink.Text.Length,
+                                                       this.getAuthorizationUrlResponse.AuthorizationUrl);
+
+                this.AdvTxtBoxVerificationCode.Enabled =
+                this.BtnCopyAuthorizationLink.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                               this,
+                               string.Format(Localization.Strings.Message_AnErrorHasOccurred, ex.Message),
+                               Localization.Strings.Message_Error,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -155,7 +258,51 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void BtnRevokeToken_Click(object sender, EventArgs e)
         {
-            this.userManager.RevokeToken(this.token);
+            string text, title = null;
+            MessageBoxIcon icon = MessageBoxIcon.Information;
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+            try
+            {
+                var user = this.userManager.GetUser();
+
+                this.userManager.RevokeToken(user.Token);
+
+                this.BtnCheckToken.Enabled =
+                this.BtnRevokeToken.Enabled = false;
+
+                text = Localization.Strings.Message_TokenRevokedSuccessfully;
+                title = Localization.Strings.Message_Information;
+            }
+            catch (Exception ex)
+            {
+                text = string.Format(
+                                  Localization.Strings.Message_AnErrorHasOccurred,
+                                  ex.Message);
+
+                icon = MessageBoxIcon.Error;
+
+                title = Localization.Strings.Message_Error;
+            }
+
+            MessageBox.Show(this, text, title, buttons, icon);
+        }
+
+        /// <summary>
+        /// LnkLblAuthorizationLink LinkClicked event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void LnkLblAuthorizationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var link = this.LnkLblAuthorizationLink.Links.Count > 0
+                     ? this.LnkLblAuthorizationLink.Links[0]
+                     : null;
+
+            if (link != null)
+            {
+                Process.Start(link.LinkData.ToString());
+            }
         }
 
         #endregion Private Methods

@@ -25,16 +25,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// </summary>
         private XmlParserBase baseParser;
 
-        /// <summary>
-        /// OAuth request token.
-        /// </summary>
-        private IToken requestToken;
-
-        /// <summary>
-        /// OAuth Session.
-        /// </summary>
-        private OAuthSession session;
-
         #endregion Private Fields
 
         #region Public Constructors
@@ -44,33 +34,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// </summary>
         public ChppManager()
         {
-            this.session = new OAuthSession(
-                              new OAuthConsumerContext
-                              {
-                                  ConsumerKey = Constants.OAuth.Key,
-                                  ConsumerSecret = Constants.OAuth.Secret,
-                                  SignatureMethod = SignatureMethod.HmacSha1,
-                                  UserAgent = AppDomain.CurrentDomain.GetData("AppName").ToString()
-                              },
-                              Constants.Url.RequestToken,
-                              Constants.Url.Authorize,
-                              Constants.Url.AccessToken,
-                              Constants.Url.Callback);
-
             this.baseParser = new XmlParserBase();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ChppManager"/> class.
-        /// </summary>
-        /// <param name="token">OAuth access token.</param>
-        public ChppManager(BusinessObjects.App.Token token) : this()
-        {
-            this.session.AccessToken = new TokenBase
-            {
-                Token = token.Key,
-                TokenSecret = token.Secret
-            };
         }
 
         #endregion Public Constructors
@@ -78,55 +42,110 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         #region Public Methods
 
         /// <summary>
-        /// Checks the current Access Token and returns the response content in a string object.
+        /// Checks the specified Access Token validity.
         /// </summary>
-        /// <returns>Response content.</returns>
-        public IXmlEntity CheckToken()
+        /// <param name="accessToken">Access token.</param>
+        /// <returns>An IXmlEntity objects with the Hattrick response.</returns>
+        public IXmlEntity CheckToken(BusinessObjects.App.Token accessToken)
         {
-            return this.baseParser.Parse(this.GetResponseContentForUrl(Constants.Url.CheckToken));
+            if (accessToken == null ||
+                string.IsNullOrWhiteSpace(accessToken.Key) ||
+                string.IsNullOrWhiteSpace(accessToken.Key))
+            {
+                throw new ArgumentNullException(nameof(accessToken));
+            }
+
+            var session = this.CreateOAuthSession(accessToken);
+
+            return this.baseParser.Parse(
+                                       this.GetResponseContentForUrl(
+                                                Constants.Url.CheckToken,
+                                                session));
         }
 
         /// <summary>
-        /// Gets OAuth Access Token with the Request Token and the Verification Code.
+        /// Gets the Access Token from Hattrick.
         /// </summary>
-        /// <param name="verificationCode">Verification Code.</param>
-        /// <param name="token">OAuth token.</param>
-        public void GetAccessToken(string verificationCode, ref BusinessObjects.App.Token token)
+        /// <param name="request">Request token and verification code.</param>
+        /// <returns>Access Token.</returns>
+        public BusinessObjects.App.Token GetAccessToken(BusinessObjects.OAuth.GetAccessTokenRequest request)
         {
-            if (string.IsNullOrWhiteSpace(verificationCode))
+            if (request == null)
             {
-                throw new ArgumentNullException(nameof(verificationCode));
+                throw new ArgumentNullException(nameof(request));
             }
 
-            this.session.AccessToken = this.session.ExchangeRequestTokenForAccessToken(
-                                                       this.requestToken,
-                                                       WebRequestMethods.Http.Get,
-                                                       verificationCode);
+            if (string.IsNullOrWhiteSpace(request.VerificationCode))
+            {
+                throw new ArgumentNullException(nameof(request.VerificationCode));
+            }
 
-            token.Key = this.session.AccessToken.Token;
-            token.Secret = this.session.AccessToken.TokenSecret;
+            if (string.IsNullOrWhiteSpace(request.Token))
+            {
+                throw new ArgumentNullException(nameof(request.Token));
+            }
+
+            if (string.IsNullOrWhiteSpace(request.TokenSecret))
+            {
+                throw new ArgumentNullException(nameof(request.TokenSecret));
+            }
+
+            var session = this.CreateOAuthSession();
+
+            var requestToken = new TokenBase
+            {
+                Token = request.Token,
+                TokenSecret = request.TokenSecret
+            };
+
+            var accessToken = session.ExchangeRequestTokenForAccessToken(
+                                          requestToken,
+                                          WebRequestMethods.Http.Get,
+                                          request.VerificationCode);
+
+            return new BusinessObjects.App.Token
+            {
+                Key = accessToken.Token,
+                Secret = accessToken.TokenSecret,
+                CreatedOn = DateTime.Now,
+                ExpiresOn = DateTime.MaxValue
+            };
         }
 
         /// <summary>
         /// Gets a request token and the authorization URL.
         /// </summary>
         /// <returns>Request token and Authorization URL.</returns>
-        public string GetAuthorizationUrl()
+        public BusinessObjects.OAuth.GetAuthorizationUrlResponse GetAuthorizationUrl()
         {
-            this.requestToken = this.session.GetRequestToken(WebRequestMethods.Http.Get);
+            BusinessObjects.OAuth.GetAuthorizationUrlResponse response = null;
 
-            return this.session.GetUserAuthorizationUrlForToken(this.requestToken);
+            var session = this.CreateOAuthSession();
+
+            var requestToken = session.GetRequestToken(WebRequestMethods.Http.Get);
+            string url = session.GetUserAuthorizationUrlForToken(requestToken);
+
+            response = new BusinessObjects.OAuth.GetAuthorizationUrlResponse(
+                          url,
+                          requestToken.Token,
+                          requestToken.TokenSecret);
+
+            return response;
         }
 
         /// <summary>
-        /// Revokes the current Access Token and returns the response content in a string object.
+        /// Revokes the specified Access Token.
         /// </summary>
-        /// <returns>Response content.</returns>
-        public string RevokeToken()
+        /// <param name="accessToken">Access token to revoke.</param>
+        /// <returns>A string object with the Hattrick response.</returns>
+        public string RevokeToken(BusinessObjects.App.Token accessToken)
         {
+            var session = this.CreateOAuthSession(accessToken);
+
             return this.ReadResponseStream(
-                           this.GetResponseContentForUrl(
-                                   Constants.Url.RevokeToken));
+                            this.GetResponseContentForUrl(
+                                     Constants.Url.RevokeToken,
+                                     session));
         }
 
         #endregion Public Methods
@@ -134,22 +153,73 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         #region Private Methods
 
         /// <summary>
+        /// Creates an unauthorized OAuthSession.
+        /// </summary>
+        /// <returns>Unauthorized OAuthSession object.</returns>
+        private OAuthSession CreateOAuthSession()
+        {
+            return new OAuthSession(
+                        new OAuthConsumerContext
+                        {
+                            ConsumerKey = Constants.OAuth.Key,
+                            ConsumerSecret = Constants.OAuth.Secret,
+                            SignatureMethod = SignatureMethod.HmacSha1,
+                            UserAgent = AppDomain.CurrentDomain.GetData("AppName").ToString()
+                        },
+                        Constants.Url.RequestToken,
+                        Constants.Url.Authorize,
+                        Constants.Url.AccessToken,
+                        Constants.Url.Callback);
+        }
+
+        /// <summary>
+        /// Creates an authorized OAuthSession.
+        /// </summary>
+        /// <param name="accessToken">Access token.</param>
+        /// <returns>Authorized OAuthSession object.</returns>
+        private OAuthSession CreateOAuthSession(BusinessObjects.App.Token accessToken)
+        {
+            var session = this.CreateOAuthSession();
+
+            session.AccessToken = new TokenBase
+            {
+                Token = accessToken.Key,
+                TokenSecret = accessToken.Secret
+            };
+
+            return session;
+        }
+
+        /// <summary>
         /// Makes an OAuth request to the specified URL and returns the response in a string object.
         /// </summary>
         /// <param name="url">URL to make the request to.</param>
+        /// <param name="session">Authorized OAuth session.</param>
         /// <returns>Response content.</returns>
-        private Stream GetResponseContentForUrl(string url)
+        private Stream GetResponseContentForUrl(string url, OAuthSession session)
         {
             if (string.IsNullOrWhiteSpace(url))
             {
                 throw new ArgumentNullException(nameof(url));
             }
 
-            return this.session.Request()
-                               .ForUrl(url)
-                               .ForMethod(WebRequestMethods.Http.Get)
-                               .ToWebResponse()
-                               .GetResponseStream();
+            if (session == null)
+            {
+                throw new ArgumentNullException(nameof(session));
+            }
+
+            if (session.AccessToken == null ||
+                string.IsNullOrWhiteSpace(session.AccessToken.Token) ||
+                string.IsNullOrWhiteSpace(session.AccessToken.TokenSecret))
+            {
+                throw new Exception(Localization.Strings.Message_AuthorizedOAuthSessionExpected);
+            }
+
+            return session.Request()
+                          .ForUrl(url)
+                          .ForMethod(WebRequestMethods.Http.Get)
+                          .ToWebResponse()
+                          .GetResponseStream();
         }
 
         /// <summary>
@@ -159,6 +229,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// <returns>A string object with the response content.</returns>
         private string ReadResponseStream(Stream stream)
         {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             string result = null;
 
             using (var reader = new StreamReader(stream))

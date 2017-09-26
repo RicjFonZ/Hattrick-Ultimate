@@ -50,6 +50,18 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnOrder(4)
                 .HasColumnType(Constants.ColumnType.TinyInteger)
                 .IsRequired();
+
+            this.Property(e => e.CreatedOn)
+                .HasColumnName(Constants.ColumnName.CreatedOn)
+                .HasColumnOrder(5)
+                .HasColumnType(Constants.ColumnType.DateTime)
+                .IsRequired();
+
+            this.Property(e => e.ExpiresOn)
+                .HasColumnName(Constants.ColumnName.ExpiresOn)
+                .HasColumnOrder(6)
+                .HasColumnType(Constants.ColumnType.DateTime)
+                .IsRequired();
         }
 
         /// <summary>

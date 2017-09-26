@@ -6,6 +6,7 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
+    using System;
     using Enums;
     using Interface;
 
@@ -15,6 +16,16 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     public class Token : EntityBase, IEntity
     {
         #region Public Properties
+
+        /// <summary>
+        /// Gets or sets the date and time when the token was created.
+        /// </summary>
+        public DateTime CreatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date and time when the token was expires.
+        /// </summary>
+        public DateTime ExpiresOn { get; set; }
 
         /// <summary>
         /// Gets or sets the key.

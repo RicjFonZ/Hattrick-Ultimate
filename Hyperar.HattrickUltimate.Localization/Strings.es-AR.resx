@@ -124,10 +124,10 @@
     <value>Elija la carpeta donde se almacenará la base de datos.</value>
   </data>
   <data name="FormDataFolder_GrpBoxDatabaseFolder_Text" xml:space="preserve">
-    <value>Base de datos</value>
+    <value>Base de datos:</value>
   </data>
   <data name="FormDataFolder_Text" xml:space="preserve">
-    <value>Carpera de la Base de Datos</value>
+    <value>Carpeta de la Base de Datos</value>
   </data>
   <data name="FormGeneral_BtnBrowse_Text" xml:space="preserve">
     <value>Examinar</value>
@@ -153,8 +153,8 @@
   <data name="FormToken_BtnCheckToken_Text" xml:space="preserve">
     <value>Comprobar</value>
   </data>
-  <data name="FormToken_BtnOpenVerificationWebSite_Text" xml:space="preserve">
-    <value>Iniciar Autorización</value>
+  <data name="FormToken_BtnGetAuthorizationLink_Text" xml:space="preserve">
+    <value>Obtener el link de Autorización</value>
   </data>
   <data name="FormToken_BtnRevokeToken_Text" xml:space="preserve">
     <value>Revocar</value>
@@ -162,8 +162,63 @@
   <data name="FormToken_GrpBoxToken_Text" xml:space="preserve">
     <value>Token OAuth:</value>
   </data>
+  <data name="FormToken_LnkLabelAuthorizationUrl_Text" xml:space="preserve">
+    <value>Link de Autorización</value>
+  </data>
   <data name="FormToken_Text" xml:space="preserve">
     <value>Administrar Token OAuth</value>
+  </data>
+  <data name="FormUser_BtnManageToken_Text" xml:space="preserve">
+    <value>Administrar Token</value>
+  </data>
+  <data name="FormUser_GrpBoxManager_Text" xml:space="preserve">
+    <value>Mánager:</value>
+  </data>
+  <data name="FormUser_GrpBoxTeams_Text" xml:space="preserve">
+    <value>Equipos:</value>
+  </data>
+  <data name="FormUser_LblJuniorTeamSeries_Text" xml:space="preserve">
+    <value>Serie:</value>
+  </data>
+  <data name="FormUser_LblJuniorTeam_Text" xml:space="preserve">
+    <value>Equipo Juvenil:</value>
+  </data>
+  <data name="FormUser_LblManagerCountry_Text" xml:space="preserve">
+    <value>País:</value>
+  </data>
+  <data name="FormUser_LblManager_Text" xml:space="preserve">
+    <value>Manager:</value>
+  </data>
+  <data name="FormUser_LblSeniorTeamArena_Text" xml:space="preserve">
+    <value>Estadio:</value>
+  </data>
+  <data name="FormUser_LblSeniorTeamCountry_Text" xml:space="preserve">
+    <value>País:</value>
+  </data>
+  <data name="FormUser_LblSeniorTeamLeague_Text" xml:space="preserve">
+    <value>Liga:</value>
+  </data>
+  <data name="FormUser_LblSeniorTeamRegion_Text" xml:space="preserve">
+    <value>Región:</value>
+  </data>
+  <data name="FormUser_LblSeniorTeamSeries_Text" xml:space="preserve">
+    <value>Serie:</value>
+  </data>
+  <data name="FormUser_LblSupporterTier_Text" xml:space="preserve">
+    <value>Nivel Supporter:</value>
+  </data>
+  <data name="FormUser_Text" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Message_AnErrorHasOccurred" xml:space="preserve">
+    <value>Ha ocurrido un error al intentar realizar la acción requerida.
+Mensaje de error: {0}</value>
+  </data>
+  <data name="Message_Authorized" xml:space="preserve">
+    <value>Hattrick Ultimate ha sido autorizado exitosamente.</value>
+  </data>
+  <data name="Message_AuthorizedOAuthSessionExpected" xml:space="preserve">
+    <value>Hattrick está esperando una Sesión OAuth autorizada.</value>
   </data>
   <data name="Message_CannotRetrieveLocalDbInstance" xml:space="preserve">
     <value>Ocurrió un error al intentar obtener la instancia de LocalDb.</value>
@@ -171,16 +226,29 @@
   <data name="Message_CannotSetDataFolder" xml:space="preserve">
     <value>No se pudo establecer la carpeta de la base de datos.</value>
   </data>
+  <data name="Message_CheckToken" xml:space="preserve">
+    <value>Hattrick Ultimate puede acceder a los datos de su cuenta.
+Desde: {0} - Hasta: {1}.</value>
+  </data>
   <data name="Message_DatabaseFolderGroup" xml:space="preserve">
     <value>Carpeta de la base de datos:</value>
   </data>
   <data name="Message_DataFolderNotSet" xml:space="preserve">
-    <value>No se ha establecido una carpeta para la base de datos. Hattrick Ultimate no puede continuar</value>
+    <value>No se ha elegido una carpeta para la base de datos. Hattrick Ultimate no puede continuar.</value>
   </data>
   <data name="Message_Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="Message_Information" xml:space="preserve">
+    <value>Información</value>
+  </data>
   <data name="Message_LocalDbInstanceNotFound" xml:space="preserve">
     <value>No se ha encontrado una instancia de LocalDb. Hattrick Ultimate no puede continuar.</value>
+  </data>
+  <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
+    <value>Hattrick Ultimate fue desautorizado correctamente.</value>
+  </data>
+  <data name="Message_Unauthorized" xml:space="preserve">
+    <value>Hattrick Ultimate no está autorizado para acceder a la información de tu cuenta.</value>
   </data>
 </root>

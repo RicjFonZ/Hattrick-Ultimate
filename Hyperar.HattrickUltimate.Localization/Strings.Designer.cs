@@ -79,7 +79,7 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Database.
+        ///   Looks up a localized string similar to Database:.
         /// </summary>
         public static string FormDataFolder_GrpBoxDatabaseFolder_Text {
             get {
@@ -169,11 +169,11 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start Authorization.
+        ///   Looks up a localized string similar to Get Authorization link.
         /// </summary>
-        public static string FormToken_BtnOpenVerificationWebSite_Text {
+        public static string FormToken_BtnGetAuthorizationLink_Text {
             get {
-                return ResourceManager.GetString("FormToken_BtnOpenVerificationWebSite_Text", resourceCulture);
+                return ResourceManager.GetString("FormToken_BtnGetAuthorizationLink_Text", resourceCulture);
             }
         }
         
@@ -196,11 +196,174 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authorization Link.
+        /// </summary>
+        public static string FormToken_LnkLabelAuthorizationUrl_Text {
+            get {
+                return ResourceManager.GetString("FormToken_LnkLabelAuthorizationUrl_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage OAuth Token.
         /// </summary>
         public static string FormToken_Text {
             get {
                 return ResourceManager.GetString("FormToken_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Token.
+        /// </summary>
+        public static string FormUser_BtnManageToken_Text {
+            get {
+                return ResourceManager.GetString("FormUser_BtnManageToken_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manager:.
+        /// </summary>
+        public static string FormUser_GrpBoxManager_Text {
+            get {
+                return ResourceManager.GetString("FormUser_GrpBoxManager_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teams:.
+        /// </summary>
+        public static string FormUser_GrpBoxTeams_Text {
+            get {
+                return ResourceManager.GetString("FormUser_GrpBoxTeams_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Youth Team:.
+        /// </summary>
+        public static string FormUser_LblJuniorTeam_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblJuniorTeam_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Series:.
+        /// </summary>
+        public static string FormUser_LblJuniorTeamSeries_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblJuniorTeamSeries_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manager:.
+        /// </summary>
+        public static string FormUser_LblManager_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblManager_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country:.
+        /// </summary>
+        public static string FormUser_LblManagerCountry_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblManagerCountry_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arena:.
+        /// </summary>
+        public static string FormUser_LblSeniorTeamArena_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblSeniorTeamArena_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country:.
+        /// </summary>
+        public static string FormUser_LblSeniorTeamCountry_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblSeniorTeamCountry_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to League:.
+        /// </summary>
+        public static string FormUser_LblSeniorTeamLeague_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblSeniorTeamLeague_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region:.
+        /// </summary>
+        public static string FormUser_LblSeniorTeamRegion_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblSeniorTeamRegion_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Series:.
+        /// </summary>
+        public static string FormUser_LblSeniorTeamSeries_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblSeniorTeamSeries_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supporter Tier:.
+        /// </summary>
+        public static string FormUser_LblSupporterTier_Text {
+            get {
+                return ResourceManager.GetString("FormUser_LblSupporterTier_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string FormUser_Text {
+            get {
+                return ResourceManager.GetString("FormUser_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error has occurred while attempting to perform the required action.
+        ///Error message: {0}.
+        /// </summary>
+        public static string Message_AnErrorHasOccurred {
+            get {
+                return ResourceManager.GetString("Message_AnErrorHasOccurred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hattrick Ultimate has been authorized successfully..
+        /// </summary>
+        public static string Message_Authorized {
+            get {
+                return ResourceManager.GetString("Message_Authorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hattrick is expecting an authorized OAuth Session..
+        /// </summary>
+        public static string Message_AuthorizedOAuthSessionExpected {
+            get {
+                return ResourceManager.GetString("Message_AuthorizedOAuthSessionExpected", resourceCulture);
             }
         }
         
@@ -219,6 +382,16 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string Message_CannotSetDataFolder {
             get {
                 return ResourceManager.GetString("Message_CannotSetDataFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hattrick Ultimate is able to access your account data.
+        ///Since: {0} - Until: {1}..
+        /// </summary>
+        public static string Message_CheckToken {
+            get {
+                return ResourceManager.GetString("Message_CheckToken", resourceCulture);
             }
         }
         
@@ -250,11 +423,38 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string Message_Information {
+            get {
+                return ResourceManager.GetString("Message_Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LocalDb instance not found. Hattrick Ultimate cannot continue..
         /// </summary>
         public static string Message_LocalDbInstanceNotFound {
             get {
                 return ResourceManager.GetString("Message_LocalDbInstanceNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hattrick Ultimate was unauthorized successfully..
+        /// </summary>
+        public static string Message_TokenRevokedSuccessfully {
+            get {
+                return ResourceManager.GetString("Message_TokenRevokedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hattrick Ultimate is not authorized to access your account data..
+        /// </summary>
+        public static string Message_Unauthorized {
+            get {
+                return ResourceManager.GetString("Message_Unauthorized", resourceCulture);
             }
         }
     }
