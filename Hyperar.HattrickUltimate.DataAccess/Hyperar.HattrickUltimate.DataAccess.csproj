@@ -47,6 +47,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,20 +56,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chpp\ChppManager.cs" />
+    <Compile Include="Chpp\ChppUrlBuilder.cs" />
     <Compile Include="Chpp\Constants\Generic.cs" />
     <Compile Include="Chpp\Constants\OAuth.cs" />
+    <Compile Include="Chpp\Constants\QueryStringParameterName.cs" />
+    <Compile Include="Chpp\Constants\QueryStringParameterValue\File.cs" />
+    <Compile Include="Chpp\Constants\QueryStringParameterValue\Version.cs" />
     <Compile Include="Chpp\Constants\Url.cs" />
     <Compile Include="Chpp\Constants\XmlFileName.cs" />
     <Compile Include="Chpp\Constants\XmlTag.cs" />
     <Compile Include="Chpp\Factory\EntityFactory.cs" />
+    <Compile Include="Chpp\Factory\ProtectedResourceUrlBuildFactory.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Chpp\Factory\XmlParserFactory.cs" />
     <Compile Include="Chpp\Interface\IEntityFactory.cs" />
+    <Compile Include="Chpp\Interface\IProtectedResourceUrlBuildFactory.cs" />
+    <Compile Include="Chpp\Interface\IProtectedResourceUrlBuildStrategy.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Chpp\Interface\IXmlParserFactory.cs" />
     <Compile Include="Chpp\Interface\IXmlParserStrategy.cs" />
+    <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\WorldDetails.cs" />
+    <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\CheckToken.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\WorldDetails.cs" />
-    <Compile Include="Chpp\XmlParserBase.cs" />
+    <Compile Include="Chpp\ChppXmlParser.cs" />
     <Compile Include="Database\Constants\ColumnLength.cs" />
     <Compile Include="Database\Constants\ColumnName.cs" />
     <Compile Include="Database\Constants\ColumnType.cs" />
@@ -81,11 +95,19 @@
     <Compile Include="Database\Interface\IRepository.cs" />
     <Compile Include="Database\Interface\IRollbackStrategy.cs" />
     <Compile Include="Database\Interface\IRollbackStrategyFactory.cs" />
+    <Compile Include="Database\Mapping\Continent.cs" />
+    <Compile Include="Database\Mapping\Country.cs" />
+    <Compile Include="Database\Mapping\Currency.cs" />
+    <Compile Include="Database\Mapping\DateFormat.cs" />
     <Compile Include="Database\Mapping\Entity.cs" />
     <Compile Include="Database\Mapping\HattrickEntity.cs" />
+    <Compile Include="Database\Mapping\League.cs" />
     <Compile Include="Database\Mapping\Manager.cs" />
+    <Compile Include="Database\Mapping\Region.cs" />
+    <Compile Include="Database\Mapping\TimeFormat.cs" />
     <Compile Include="Database\Mapping\Token.cs" />
     <Compile Include="Database\Mapping\User.cs" />
+    <Compile Include="Database\Mapping\Zone.cs" />
     <Compile Include="Database\Repository.cs" />
     <Compile Include="Database\Strategy\Rollback\AddedEntryRollbackStrategy.cs" />
     <Compile Include="Database\Strategy\Rollback\ModifiedEntryRollbackStrategy.cs" />

@@ -57,7 +57,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
-            return this.GetType().FullName.ToString();
+            return this.GetType().FullName;
         }
 
         #endregion Public Methods

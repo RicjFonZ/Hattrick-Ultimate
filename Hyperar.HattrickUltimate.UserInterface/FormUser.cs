@@ -7,6 +7,7 @@
 namespace Hyperar.HattrickUltimate.UserInterface
 {
     using System;
+    using System.Collections.Generic;
     using System.Windows.Forms;
     using Interface;
 
@@ -16,6 +17,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
     public partial class FormUser : Form, ILocalizedForm
     {
         #region Private Fields
+
+        /// <summary>
+        /// Download manager.
+        /// </summary>
+        private BusinessLogic.DownloadManager downloadManager;
 
         /// <summary>
         /// User manager.
@@ -29,11 +35,17 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Initializes a new instance of the <see cref="FormUser" /> class.
         /// </summary>
+        /// <param name="downloadManager">Download manager.</param>
         /// <param name="userManager">User manager.</param>
-        public FormUser(BusinessLogic.UserManager userManager)
+        public FormUser(BusinessLogic.DownloadManager downloadManager, BusinessLogic.UserManager userManager)
         {
             this.InitializeComponent();
+
+            this.downloadManager = downloadManager;
             this.userManager = userManager;
+
+            this.downloadManager.DownloadProgressChanged += new BusinessLogic.DownloadProgressChangedEventHandler(this.DownloadProgressChanged_EventHandler);
+            this.downloadManager.DownloadCompleted += new BusinessLogic.DownloadCompletedEventHandler(this.DownloadCompleted_EventHandler);
 
             this.PopulateLanguage();
         }
@@ -91,6 +103,24 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         /// <summary>
+        /// Download Completed event handler.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Event args.</param>
+        private void DownloadCompleted_EventHandler(object sender, BusinessLogic.DownloadCompletedEventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// Download ProgressChanged event handler.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Event args.</param>
+        private void DownloadProgressChanged_EventHandler(object sender, EventArgs e)
+        {
+        }
+
+        /// <summary>
         /// FormUser Load event handler.
         /// </summary>
         /// <param name="sender">Control that raised the event.</param>
@@ -104,7 +134,20 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 using (var form = ApplicationObjects.Container.GetInstance<FormToken>())
                 {
                     form.ShowDialog(this);
+                    user = this.userManager.GetUser();
                 }
+            }
+
+            if (user != null && user.Manager == null && user.Token != null)
+            {
+                List<BusinessLogic.DownloadFile> downloadFileList = new List<BusinessLogic.DownloadFile>();
+
+                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.WorldDetails));
+                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.ManagerCompendium));
+
+                var taskId = Guid.NewGuid();
+
+                this.downloadManager.DownloadFileAsync(user.Token, downloadFileList, taskId);
             }
         }
 

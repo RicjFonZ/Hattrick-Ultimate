@@ -83,12 +83,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                         // Skips RegionList opening node.
                         reader.Read();
 
+                        newLeague.Country.RegionList = new System.Collections.Generic.List<BusinessObjects.Hattrick.WorldDetails.Region>();
+
                         while (reader.Name.Equals(XmlTag.Region, StringComparison.OrdinalIgnoreCase))
                         {
                             // Skips Region opening node.
                             reader.Read();
-
-                            newLeague.Country.RegionList = new System.Collections.Generic.List<BusinessObjects.Hattrick.WorldDetails.Region>();
 
                             var newRegion = new BusinessObjects.Hattrick.WorldDetails.Region();
 

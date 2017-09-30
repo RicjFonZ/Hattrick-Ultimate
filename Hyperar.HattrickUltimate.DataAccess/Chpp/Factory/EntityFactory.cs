@@ -7,6 +7,7 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
 {
     using System;
+    using BusinessObjects.Hattrick.Enums;
     using BusinessObjects.Hattrick.Interface;
     using Constants;
     using Interface;
@@ -57,6 +58,40 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
             result.FileName = fileName;
 
             return result;
+        }
+
+        /// <summary>
+        /// Gets the corresponding Hattrick entity for the specified XmlFile.
+        /// </summary>
+        /// <param name="xmlFile">XmlFile object.</param>
+        /// <returns>IHattrickEntity object.</returns>
+        public IXmlEntity GetEntity(XmlFile xmlFile)
+        {
+            IXmlEntity entity = null;
+
+            switch (xmlFile)
+            {
+                case XmlFile.CheckToken:
+                    entity = new BusinessObjects.Hattrick.CheckToken.Root();
+                    break;
+
+                case XmlFile.ManagerCompendium:
+                    entity = new BusinessObjects.Hattrick.ManagerCompendium.Root();
+                    break;
+
+                case XmlFile.WorldDetails:
+                    entity = new BusinessObjects.Hattrick.WorldDetails.Root();
+                    break;
+
+                default:
+                    throw new NotImplementedException(
+                                  string.Format(
+                                             Localization.Strings.Message_NotImplemented,
+                                             "IXmlEntity",
+                                             xmlFile.ToString()));
+            }
+
+            return entity;
         }
 
         #endregion Public Methods

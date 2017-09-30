@@ -1,17 +1,17 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="Manager.cs" company="Hyperar">
+// <copyright file="Region.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
-    using Interface;
+    using Hyperar.HattrickUltimate.BusinessObjects.App.Interface;
 
     /// <summary>
-    /// Represents a Manager
+    /// Represents a Country Region.
     /// </summary>
-    public class Manager : HattrickEntityBase, IEntity, IHattrickEntity
+    public class Region : HattrickEntityBase, IEntity, IHattrickEntity
     {
         #region Public Properties
 
@@ -21,19 +21,14 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public virtual Country Country { get; set; }
 
         /// <summary>
-        /// Gets or sets the Country Id.
+        /// Gets or sets the Country ID.
         /// </summary>
         public int CountryId { get; set; }
 
         /// <summary>
-        /// Gets or sets the User.
+        /// Gets or sets the name.
         /// </summary>
-        public virtual User User { get; set; }
-
-        /// <summary>
-        /// Gets or sets the username.
-        /// </summary>
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         #endregion Public Properties
 
@@ -45,7 +40,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
-            return $"{this.UserName} ({this.HattrickId})";
+            return $"{this.Name} ({this.HattrickId})";
         }
 
         #endregion Public Methods

@@ -468,11 +468,29 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parameter &apos;{0}&apos; has no value..
+        /// </summary>
+        public static string Message_NullValueParameter {
+            get {
+                return ResourceManager.GetString("Message_NullValueParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is already an active transaction on the context..
         /// </summary>
         public static string Message_OverlappingTransaction {
             get {
                 return ResourceManager.GetString("Message_OverlappingTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Missing required parameter &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_RequiredParameterMissing {
+            get {
+                return ResourceManager.GetString("Message_RequiredParameterMissing", resourceCulture);
             }
         }
         
@@ -500,6 +518,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string Message_UnknownOAuthScope {
             get {
                 return ResourceManager.GetString("Message_UnknownOAuthScope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown parameter &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_UnknownParameter {
+            get {
+                return ResourceManager.GetString("Message_UnknownParameter", resourceCulture);
             }
         }
         

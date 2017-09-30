@@ -257,6 +257,9 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_OverlappingTransaction" xml:space="preserve">
     <value>There is already an active transaction on the context.</value>
   </data>
+  <data name="Message_RequiredParameterMissing" xml:space="preserve">
+    <value>Missing required parameter '{0}'.</value>
+  </data>
   <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
     <value>Hattrick Ultimate was unauthorized successfully.</value>
   </data>
@@ -266,7 +269,13 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_UnknownOAuthScope" xml:space="preserve">
     <value>Unknown OAuth Scope '{0}'.</value>
   </data>
+  <data name="Message_UnknownParameter" xml:space="preserve">
+    <value>Unknown parameter '{0}'.</value>
+  </data>
   <data name="Message_UnknownSupporterTier" xml:space="preserve">
     <value>Unknown Supporter Tier '{0}'.</value>
+  </data>
+  <data name="Message_NullValueParameter" xml:space="preserve">
+    <value>Parameter '{0}' has no value.</value>
   </data>
 </root>
