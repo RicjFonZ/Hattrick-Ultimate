@@ -25,6 +25,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private BusinessObjects.OAuth.GetAuthorizationUrlResponse getAuthorizationUrlResponse;
 
         /// <summary>
+        /// Token manager.
+        /// </summary>
+        private BusinessLogic.TokenManager tokenManager;
+
+        /// <summary>
         /// User manager.
         /// </summary>
         private BusinessLogic.UserManager userManager;
@@ -36,17 +41,21 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Initializes a new instance of the <see cref="FormToken" /> class.
         /// </summary>
+        /// <param name="tokenManager">Token Manager.</param>
         /// <param name="userManager">User Manager.</param>
-        public FormToken(BusinessLogic.UserManager userManager)
+        public FormToken(
+                   BusinessLogic.TokenManager tokenManager,
+                   BusinessLogic.UserManager userManager)
         {
             this.InitializeComponent();
             this.PopulateLanguage();
 
+            this.tokenManager = tokenManager;
             this.userManager = userManager;
 
-            var user = this.userManager.GetUser();
+            var token = this.tokenManager.GetToken();
 
-            if (user == null || user.Token == null)
+            if (token == null)
             {
                 this.BtnCheckToken.Enabled =
                 this.BtnRevokeToken.Enabled = false;
@@ -129,7 +138,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
                                                            this.getAuthorizationUrlResponse.Token,
                                                            this.getAuthorizationUrlResponse.TokenSecret));
 
-                this.userManager.SetUserToken(accessToken);
+                var user = this.userManager.GetUser();
+
+                this.tokenManager.SetUserToken(accessToken, user);
             }
             catch (Exception ex)
             {

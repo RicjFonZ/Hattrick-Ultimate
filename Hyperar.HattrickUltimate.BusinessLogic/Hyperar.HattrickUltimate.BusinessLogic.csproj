@@ -50,6 +50,7 @@
     <Compile Include="ExtensionMethods\OAuthScopeExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\SupporterTierExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenManager.cs" />
     <Compile Include="UserManager.cs" />
   </ItemGroup>
   <ItemGroup>

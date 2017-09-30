@@ -70,6 +70,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private static void RegisterBusinessObjectsManagers()
         {
             Container.Register(typeof(BusinessLogic.DownloadManager));
+            Container.Register(typeof(BusinessLogic.TokenManager));
             Container.Register(typeof(BusinessLogic.UserManager));
         }
 

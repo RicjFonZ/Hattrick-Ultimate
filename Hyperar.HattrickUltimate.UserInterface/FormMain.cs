@@ -18,6 +18,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Private Fields
 
         /// <summary>
+        /// Token manager.
+        /// </summary>
+        private BusinessLogic.TokenManager tokenManager;
+
+        /// <summary>
         /// User manager.
         /// </summary>
         private BusinessLogic.UserManager userManager;
@@ -29,13 +34,17 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Initializes a new instance of the <see cref="FormMain" /> class.
         /// </summary>
+        /// <param name="tokenManager">Token Manager.</param>
         /// <param name="userManager">User Manager.</param>
-        public FormMain(BusinessLogic.UserManager userManager)
+        public FormMain(
+                   BusinessLogic.TokenManager tokenManager,
+                   BusinessLogic.UserManager userManager)
         {
             this.InitializeComponent();
 
             this.Text = AppDomain.CurrentDomain.GetData("AppName").ToString();
 
+            this.tokenManager = tokenManager;
             this.userManager = userManager;
         }
 
@@ -64,12 +73,30 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             var user = this.userManager.GetUser();
 
-            if (user == null || user.Manager == null)
+            if (user == null)
             {
-                using (var form = ApplicationObjects.Container.GetInstance<FormUser>())
+                user = this.userManager.CreateUser();
+            }
+
+            if (user.Token == null)
+            {
+                using (var formToken = ApplicationObjects.Container.GetInstance<FormToken>())
                 {
-                    form.ShowDialog(this);
+                    formToken.ShowDialog();
+
+                    user.Token = this.tokenManager.GetToken();
+
+                    if (user.Token == null)
+                    {
+                        Application.Exit();
+
+                        return;
+                    }
                 }
+            }
+
+            if (user.Manager == null)
+            {
             }
         }
 

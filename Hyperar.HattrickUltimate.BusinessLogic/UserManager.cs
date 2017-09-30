@@ -6,7 +6,6 @@
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessLogic
 {
-    using System;
     using System.Linq;
     using System.Net;
     using DataAccess.Database.Interface;
@@ -92,6 +91,35 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         }
 
         /// <summary>
+        /// Creates the user.
+        /// </summary>
+        /// <returns>Created user.</returns>
+        public BusinessObjects.App.User CreateUser()
+        {
+            var user = new BusinessObjects.App.User();
+
+            try
+            {
+                this.context.BeginTransaction();
+
+                this.userRepository.Insert(user);
+
+                this.context.Save();
+            }
+            catch
+            {
+                this.context.Cancel();
+                throw;
+            }
+            finally
+            {
+                this.context.EndTransaction();
+            }
+
+            return user;
+        }
+
+        /// <summary>
         /// Gets the Access Token from Hattrick.
         /// </summary>
         /// <param name="request">Request token and verification code.</param>
@@ -147,80 +175,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             }
         }
 
-        /// <summary>
-        /// Creates an user with an access token.
-        /// </summary>
-        /// <param name="accessToken">Access token.</param>
-        public void SetUserToken(BusinessObjects.App.Token accessToken)
-        {
-            try
-            {
-                if (accessToken == null ||
-                    string.IsNullOrWhiteSpace(accessToken.Key) ||
-                    string.IsNullOrWhiteSpace(accessToken.Secret))
-                {
-                    throw new ArgumentNullException(nameof(accessToken));
-                }
-
-                var user = this.GetUser();
-
-                this.context.BeginTransaction();
-
-                if (user == null)
-                {
-                    user = new BusinessObjects.App.User();
-
-                    this.userRepository.Insert(user);
-                }
-
-                var existingToken = this.tokenRepository.Get().SingleOrDefault();
-
-                if (existingToken == null)
-                {
-                    accessToken.User = user;
-                    this.tokenRepository.Insert(accessToken);
-                }
-                else
-                {
-                    existingToken.CreatedOn = accessToken.CreatedOn;
-                    existingToken.ExpiresOn = accessToken.ExpiresOn;
-                    existingToken.Key = accessToken.Key;
-                    existingToken.Scope = accessToken.Scope;
-                    existingToken.Secret = accessToken.Secret;
-
-                    this.tokenRepository.Update(existingToken);
-                }
-
-                this.context.Save();
-            }
-            catch
-            {
-                this.context.Cancel();
-
-                throw;
-            }
-            finally
-            {
-                this.context.EndTransaction();
-            }
-        }
-
         #endregion Public Methods
 
         #region Private Methods
-
-        /// <summary>
-        /// Creates the user.
-        /// </summary>
-        /// <returns>Created user.</returns>
-        private BusinessObjects.App.User CreateUser()
-        {
-            var user = new BusinessObjects.App.User();
-
-            this.userRepository.Insert(user);
-
-            return user;
-        }
 
         /// <summary>
         /// Deletes user access token.
