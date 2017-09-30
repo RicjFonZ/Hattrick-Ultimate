@@ -6,6 +6,8 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
+    using Constants;
+
     /// <summary>
     /// Token entity mapping definition.
     /// </summary>
@@ -32,35 +34,35 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         private void RegisterProperties()
         {
             this.Property(e => e.Key)
-                .HasColumnName(Constants.ColumnName.Token)
+                .HasColumnName(ColumnName.Token)
                 .HasColumnOrder(2)
-                .HasColumnType(Constants.ColumnType.UnicodeChar)
-                .HasMaxLength(Constants.ColumnLength.Token)
+                .HasColumnType(ColumnType.UnicodeChar)
+                .HasMaxLength(ColumnLength.Token)
                 .IsRequired();
 
             this.Property(e => e.Secret)
-                .HasColumnName(Constants.ColumnName.TokenSecret)
+                .HasColumnName(ColumnName.TokenSecret)
                 .HasColumnOrder(3)
-                .HasColumnType(Constants.ColumnType.UnicodeChar)
-                .HasMaxLength(Constants.ColumnLength.Token)
+                .HasColumnType(ColumnType.UnicodeChar)
+                .HasMaxLength(ColumnLength.Token)
                 .IsRequired();
 
             this.Property(e => e.Scope)
-                .HasColumnName(Constants.ColumnName.AccessScope)
+                .HasColumnName(ColumnName.AccessScope)
                 .HasColumnOrder(4)
-                .HasColumnType(Constants.ColumnType.TinyInteger)
+                .HasColumnType(ColumnType.TinyInteger)
                 .IsRequired();
 
             this.Property(e => e.CreatedOn)
-                .HasColumnName(Constants.ColumnName.CreatedOn)
+                .HasColumnName(ColumnName.CreatedOn)
                 .HasColumnOrder(5)
-                .HasColumnType(Constants.ColumnType.DateTime)
+                .HasColumnType(ColumnType.DateTime)
                 .IsRequired();
 
             this.Property(e => e.ExpiresOn)
-                .HasColumnName(Constants.ColumnName.ExpiresOn)
+                .HasColumnName(ColumnName.ExpiresOn)
                 .HasColumnOrder(6)
-                .HasColumnType(Constants.ColumnType.DateTime)
+                .HasColumnType(ColumnType.DateTime)
                 .IsRequired();
         }
 
@@ -69,7 +71,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         private void RegisterTable()
         {
-            this.ToTable(Constants.TableName.Token);
+            this.ToTable(TableName.Token);
         }
 
         #endregion Private Methods

@@ -257,6 +257,9 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_OverlappingTransaction" xml:space="preserve">
     <value>Ya hay una transacción activa en el contexto.</value>
   </data>
+  <data name="Message_RequiredParameterMissing" xml:space="preserve">
+    <value>Parámetro requerido faltante '{0}'.</value>
+  </data>
   <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
     <value>Hattrick Ultimate fue desautorizado correctamente.</value>
   </data>
@@ -266,7 +269,13 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_UnknownOAuthScope" xml:space="preserve">
     <value>Permiso OAuth desconocido '{0}'.</value>
   </data>
+  <data name="Message_UnknownParameter" xml:space="preserve">
+    <value>Parámetro desconocido '{0}'.</value>
+  </data>
   <data name="Message_UnknownSupporterTier" xml:space="preserve">
     <value>Nivel Supporter desconocido '{0}'.</value>
+  </data>
+  <data name="Message_NullValueParameter" xml:space="preserve">
+    <value>El parámetro '{0}' no tiene valor.</value>
   </data>
 </root>

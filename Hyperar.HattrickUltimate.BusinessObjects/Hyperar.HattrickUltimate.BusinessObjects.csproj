@@ -40,16 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Continent.cs" />
+    <Compile Include="App\Country.cs" />
+    <Compile Include="App\Currency.cs" />
+    <Compile Include="App\DateFormat.cs" />
     <Compile Include="App\Enums\OAuthScope.cs" />
     <Compile Include="App\Enums\SupporterTier.cs" />
     <Compile Include="App\EntityBase.cs" />
     <Compile Include="App\HattrickEntityBase.cs" />
     <Compile Include="App\Interface\IEntity.cs" />
     <Compile Include="App\Interface\IHattrickEntity.cs" />
+    <Compile Include="App\League.cs" />
     <Compile Include="App\Manager.cs" />
+    <Compile Include="App\Region.cs" />
+    <Compile Include="App\TimeFormat.cs" />
     <Compile Include="App\Token.cs" />
     <Compile Include="App\User.cs" />
+    <Compile Include="App\Zone.cs" />
     <Compile Include="Hattrick\CheckToken\Root.cs" />
+    <Compile Include="Hattrick\Enums\XmlFile.cs" />
     <Compile Include="Hattrick\XmlEntityBase.cs" />
     <Compile Include="Hattrick\Interface\IXmlEntity.cs" />
     <Compile Include="Hattrick\ManagerCompendium\Arena.cs" />

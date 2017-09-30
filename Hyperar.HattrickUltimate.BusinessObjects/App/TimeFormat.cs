@@ -1,29 +1,30 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="User.cs" company="Hyperar">
+﻿// -----------------------------------------------------------------------
+// <copyright file="TimeFormat.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
-//-----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
-    using Interface;
+    using System.Collections.Generic;
+    using Hyperar.HattrickUltimate.BusinessObjects.App.Interface;
 
     /// <summary>
-    /// App User.
+    /// Represents a Time Format.
     /// </summary>
-    public class User : EntityBase, IEntity
+    public class TimeFormat : EntityBase, IEntity
     {
         #region Public Properties
 
         /// <summary>
-        /// Gets or sets the Manager.
+        /// Gets or sets the Countries that use the Time Format.
         /// </summary>
-        public virtual Manager Manager { get; set; }
+        public virtual ICollection<Country> Countries { get; set; } = new HashSet<Country>();
 
         /// <summary>
-        /// Gets or sets the Token.
+        /// Gets or sets the mask.
         /// </summary>
-        public virtual Token Token { get; set; }
+        public string Mask { get; set; }
 
         #endregion Public Properties
 
@@ -35,7 +36,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
-            return this.GetType().FullName;
+            return $"{this.Mask} ({this.Id})";
         }
 
         #endregion Public Methods

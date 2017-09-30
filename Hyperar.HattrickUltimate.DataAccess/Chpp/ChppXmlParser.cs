@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="XmlParserBase.cs" company="Hyperar">
+// <copyright file="ChppXmlParser.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
     /// <summary>
     /// Hattrick XML file base parser.
     /// </summary>
-    internal class XmlParserBase
+    internal class ChppXmlParser
     {
         #region Private Fields
 
@@ -35,9 +35,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="XmlParserBase"/> class.
+        /// Initializes a new instance of the <see cref="ChppXmlParser"/> class.
         /// </summary>
-        internal XmlParserBase()
+        internal ChppXmlParser()
         {
             this.entityFactory = new EntityFactory();
             this.parserFactory = new XmlParserFactory();

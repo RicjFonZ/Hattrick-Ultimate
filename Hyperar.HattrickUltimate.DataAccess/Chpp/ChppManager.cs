@@ -7,8 +7,10 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Chpp
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Net;
+    using BusinessObjects.Hattrick.Enums;
     using BusinessObjects.Hattrick.Interface;
     using DevDefined.OAuth.Consumer;
     using DevDefined.OAuth.Framework;
@@ -21,9 +23,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         #region Private Fields
 
         /// <summary>
+        /// Hattrick OAuth URL builder.
+        /// </summary>
+        private ChppUrlBuilder chppUrlBuilder;
+
+        /// <summary>
         /// Hattrick XML file parser.
         /// </summary>
-        private XmlParserBase baseParser;
+        private ChppXmlParser chppXmlParser;
 
         #endregion Private Fields
 
@@ -34,7 +41,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// </summary>
         public ChppManager()
         {
-            this.baseParser = new XmlParserBase();
+            this.chppXmlParser = new ChppXmlParser();
+            this.chppUrlBuilder = new ChppUrlBuilder();
         }
 
         #endregion Public Constructors
@@ -57,7 +65,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
 
             var session = this.CreateOAuthSession(accessToken);
 
-            return this.baseParser.Parse(
+            return this.chppXmlParser.Parse(
                                        this.GetResponseContentForUrl(
                                                 Constants.Url.CheckToken,
                                                 session));
@@ -131,6 +139,22 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                           requestToken.TokenSecret);
 
             return response;
+        }
+
+        /// <summary>
+        /// Access the specified protected resource file with the specified parameters.
+        /// </summary>
+        /// <param name="accessToken">Access token.</param>
+        /// <param name="file">File to fetch.</param>
+        /// <param name="parameters">File fetch parameters.</param>
+        /// <returns>IXmlEntity object with the Hattrick response.</returns>
+        public IXmlEntity GetProtectedResource(BusinessObjects.App.Token accessToken, XmlFile file, params KeyValuePair<string, string>[] parameters)
+        {
+            var url = this.chppUrlBuilder.GetUrlFor(file, parameters);
+            var session = this.CreateOAuthSession(accessToken);
+
+            return this.chppXmlParser.Parse(
+                                          this.GetResponseContentForUrl(url, session));
         }
 
         /// <summary>

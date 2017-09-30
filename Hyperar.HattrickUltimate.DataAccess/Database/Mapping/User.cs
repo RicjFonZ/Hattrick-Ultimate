@@ -6,6 +6,8 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
+    using Constants;
+
     /// <summary>
     /// User entity mapping definition.
     /// </summary>
@@ -35,16 +37,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .WithOptionalDependent(r => r.User)
                 .Map(r =>
                 {
-                    r.MapKey(Constants.ColumnName.ManagerId);
-                    r.ToTable(Constants.TableName.User);
+                    r.MapKey(ColumnName.ManagerId);
+                    r.ToTable(TableName.User);
                 });
 
             this.HasOptional(r => r.Token)
                 .WithRequired(r => r.User)
                 .Map(r =>
                 {
-                    r.MapKey(Constants.ColumnName.UserId);
-                    r.ToTable(Constants.TableName.Token);
+                    r.MapKey(ColumnName.UserId);
+                    r.ToTable(TableName.Token);
                 });
         }
 
@@ -53,7 +55,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         private void RegisterTable()
         {
-            this.ToTable(Constants.TableName.User);
+            this.ToTable(TableName.User);
         }
 
         #endregion Private Methods

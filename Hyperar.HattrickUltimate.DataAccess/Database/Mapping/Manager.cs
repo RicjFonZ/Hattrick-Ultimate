@@ -6,6 +6,8 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
+    using Constants;
+
     /// <summary>
     /// Manager entity mapping definition.
     /// </summary>
@@ -24,6 +26,20 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 
         #endregion Internal Constructors
 
+        #region Public Methods
+
+        /// <summary>
+        /// Registers the Entity relationships.
+        /// </summary>
+        public void RegisterRelationships()
+        {
+            this.HasRequired(r => r.Country)
+                .WithMany(r => r.Managers)
+                .HasForeignKey(r => r.CountryId);
+        }
+
+        #endregion Public Methods
+
         #region Private Methods
 
         /// <summary>
@@ -32,10 +48,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         private void RegisterProperties()
         {
             this.Property(e => e.UserName)
-                .HasColumnName(Constants.ColumnName.UserName)
-                .HasColumnOrder(3)
-                .HasColumnType(Constants.ColumnType.UnicodeVarChar)
-                .HasMaxLength(Constants.ColumnLength.MediumText)
+                .HasColumnName(ColumnName.UserName)
+                .HasColumnOrder(2)
+                .HasColumnType(ColumnType.UnicodeVarChar)
+                .HasMaxLength(ColumnLength.MediumText)
                 .IsRequired();
         }
 
@@ -44,7 +60,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         private void RegisterTable()
         {
-            this.ToTable(Constants.TableName.Manager);
+            this.ToTable(TableName.Manager);
         }
 
         #endregion Private Methods
