@@ -70,6 +70,12 @@
     <Compile Include="FormDataFolder.Designer.cs">
       <DependentUpon>FormDataFolder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGenericProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenericProgress.Designer.cs">
+      <DependentUpon>FormGenericProgress.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDataFolder.resx">
       <DependentUpon>FormDataFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenericProgress.resx">
+      <DependentUpon>FormGenericProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

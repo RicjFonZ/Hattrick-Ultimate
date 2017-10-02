@@ -180,7 +180,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 var user = this.userManager.GetUser();
 
-                var token = this.userManager.CheckToken(user.Token);
+                var token = this.tokenManager.CheckToken(user.Token);
 
                 text = string.Format(
                                   Localization.Strings.Message_CheckToken,
@@ -277,7 +277,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 var user = this.userManager.GetUser();
 
-                this.userManager.RevokeToken(user.Token);
+                this.tokenManager.RevokeToken(user.Token);
 
                 this.BtnCheckToken.Enabled =
                 this.BtnRevokeToken.Enabled = false;

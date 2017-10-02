@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenManager.cs" />
     <Compile Include="UserManager.cs" />
+    <Compile Include="WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hyperar.HattrickUltimate.BusinessObjects\Hyperar.HattrickUltimate.BusinessObjects.csproj">

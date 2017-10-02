@@ -278,4 +278,10 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_NullValueParameter" xml:space="preserve">
     <value>Parameter '{0}' has no value.</value>
   </data>
+  <data name="FormGenericProgress_Text" xml:space="preserve">
+    <value>Executing background tasks</value>
+  </data>
+  <data name="Message_TaskStarting" xml:space="preserve">
+    <value>Starting...</value>
+  </data>
 </root>

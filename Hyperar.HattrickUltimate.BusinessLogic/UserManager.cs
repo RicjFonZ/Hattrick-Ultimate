@@ -7,7 +7,6 @@
 namespace Hyperar.HattrickUltimate.BusinessLogic
 {
     using System.Linq;
-    using System.Net;
     using DataAccess.Database.Interface;
 
     /// <summary>
@@ -28,9 +27,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         private IDatabaseContext context;
 
         /// <summary>
-        /// Token repository.
+        /// Country repository.
         /// </summary>
-        private IRepository<BusinessObjects.App.Token> tokenRepository;
+        private IRepository<BusinessObjects.App.Country> countryRepository;
+
+        /// <summary>
+        /// Manager repository.
+        /// </summary>
+        private IRepository<BusinessObjects.App.Manager> managerRepository;
 
         /// <summary>
         /// User repository.
@@ -45,15 +49,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// Initializes a new instance of the <see cref="UserManager" /> class.
         /// </summary>
         /// <param name="context">Database context.</param>
-        /// <param name="tokenRepository">Token repository.</param>
         /// <param name="userRepository">User repository.</param>
         public UserManager(
             IDatabaseContext context,
-            IRepository<BusinessObjects.App.Token> tokenRepository,
+            IRepository<BusinessObjects.App.Country> countryRepository,
+            IRepository<BusinessObjects.App.Manager> managerRepository,
             IRepository<BusinessObjects.App.User> userRepository)
         {
             this.context = context;
-            this.tokenRepository = tokenRepository;
+            this.countryRepository = countryRepository;
+            this.managerRepository = managerRepository;
             this.userRepository = userRepository;
 
             this.chppManager = new DataAccess.Chpp.ChppManager();
@@ -62,33 +67,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         #endregion Public Constructors
 
         #region Public Methods
-
-        /// <summary>
-        /// Checks the specified Access Token validity.
-        /// </summary>
-        /// <param name="accessToken">Access token.</param>
-        /// <returns>The valid access token with creation and expiration dates.</returns>
-        public BusinessObjects.App.Token CheckToken(BusinessObjects.App.Token accessToken)
-        {
-            try
-            {
-                var checkTokenResponse = (BusinessObjects.Hattrick.CheckToken.Root)this.chppManager.CheckToken(accessToken);
-
-                accessToken.CreatedOn = checkTokenResponse.Created;
-                accessToken.ExpiresOn = checkTokenResponse.Expires;
-            }
-            catch (WebException ex)
-            {
-                if (ex.Response is HttpWebResponse && (ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    this.RemoveToken(accessToken);
-                }
-
-                throw;
-            }
-
-            return accessToken;
-        }
 
         /// <summary>
         /// Creates the user.
@@ -149,56 +127,44 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             return this.userRepository.Get().SingleOrDefault();
         }
 
-        /// <summary>
-        /// Revokes the Access Token in Hattrick and deletes it from the database.
-        /// </summary>
-        /// <param name="accessToken">Access Token to revoke.</param>
-        public void RevokeToken(BusinessObjects.App.Token accessToken)
-        {
-            try
-            {
-                this.chppManager.RevokeToken(accessToken);
-
-                this.RemoveToken(accessToken);
-            }
-            catch (WebException ex)
-            {
-                // Already invalid token.
-                if (ex.Response is HttpWebResponse && (ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    this.RemoveToken(accessToken);
-                }
-                else
-                {
-                    throw;
-                }
-            }
-        }
-
-        #endregion Public Methods
-
-        #region Private Methods
-
-        /// <summary>
-        /// Deletes user access token.
-        /// </summary>
-        /// <param name="accessToken">Access token to remove.</param>
-        private void RemoveToken(BusinessObjects.App.Token accessToken)
+        public void ProcessManagerCompendium(BusinessObjects.Hattrick.ManagerCompendium.Root managerCompendium)
         {
             try
             {
                 this.context.BeginTransaction();
 
-                this.tokenRepository.Delete(accessToken.Id);
+                var storedManager = this.managerRepository.Get(m => m.HattrickId == managerCompendium.Manager.UserId)
+                                                          .SingleOrDefault();
+
+                if (storedManager == null)
+                {
+                    var country = this.countryRepository.Get(c => c.HattrickId == managerCompendium.Manager.Country.CountryId)
+                                                        .SingleOrDefault();
+
+                    var user = this.userRepository.Get().SingleOrDefault();
+
+                    storedManager = new BusinessObjects.App.Manager
+                    {
+                        Country = country,
+                        HattrickId = managerCompendium.Manager.UserId,
+                        User = user,
+                        UserName = managerCompendium.Manager.LoginName
+                    };
+
+                    this.managerRepository.Insert(storedManager);
+                }
+                else
+                {
+                    storedManager.UserName = managerCompendium.Manager.LoginName;
+
+                    this.managerRepository.Update(storedManager);
+                }
 
                 this.context.Save();
-
-                accessToken = null;
             }
             catch
             {
                 this.context.Cancel();
-
                 throw;
             }
             finally
@@ -207,6 +173,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             }
         }
 
-        #endregion Private Methods
+        #endregion Public Methods
     }
 }

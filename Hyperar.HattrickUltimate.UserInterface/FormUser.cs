@@ -23,10 +23,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private BusinessLogic.DownloadManager downloadManager;
 
+        private FormGenericProgress formGenericProgress;
+
         /// <summary>
         /// User manager.
         /// </summary>
         private BusinessLogic.UserManager userManager;
+
+        private BusinessLogic.WorldManager worldManager;
 
         #endregion Private Fields
 
@@ -37,12 +41,19 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         /// <param name="downloadManager">Download manager.</param>
         /// <param name="userManager">User manager.</param>
-        public FormUser(BusinessLogic.DownloadManager downloadManager, BusinessLogic.UserManager userManager)
+        /// <param name="worldManager">World manager.</param>
+        public FormUser(
+                   BusinessLogic.DownloadManager downloadManager,
+                   BusinessLogic.UserManager userManager,
+                   BusinessLogic.WorldManager worldManager)
         {
             this.InitializeComponent();
 
             this.downloadManager = downloadManager;
             this.userManager = userManager;
+            this.worldManager = worldManager;
+
+            this.formGenericProgress = ApplicationObjects.Container.GetInstance<FormGenericProgress>();
 
             this.downloadManager.DownloadProgressChanged += new BusinessLogic.DownloadProgressChangedEventHandler(this.DownloadProgressChanged_EventHandler);
             this.downloadManager.DownloadCompleted += new BusinessLogic.DownloadCompletedEventHandler(this.DownloadCompleted_EventHandler);
@@ -109,6 +120,19 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event args.</param>
         private void DownloadCompleted_EventHandler(object sender, BusinessLogic.DownloadCompletedEventArgs e)
         {
+            foreach (var curFile in e.DownloadedFiles)
+            {
+                if (curFile is BusinessObjects.Hattrick.WorldDetails.Root)
+                {
+                    this.worldManager.ProcessWorldDetails(curFile as BusinessObjects.Hattrick.WorldDetails.Root);
+                }
+                else
+                {
+                    this.userManager.ProcessManagerCompendium(curFile as BusinessObjects.Hattrick.ManagerCompendium.Root);
+                }
+            }
+
+            this.formGenericProgress.Close();
         }
 
         /// <summary>
@@ -118,6 +142,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event args.</param>
         private void DownloadProgressChanged_EventHandler(object sender, EventArgs e)
         {
+            var arguments = e as BusinessLogic.DownloadProgressChangedEventArgs;
+
+            this.formGenericProgress.SetProgress(arguments.LastDownloadedFile, arguments.ProgressPercentage);
         }
 
         /// <summary>
@@ -146,6 +173,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.ManagerCompendium));
 
                 var taskId = Guid.NewGuid();
+
+                formGenericProgress.Show(this);
 
                 this.downloadManager.DownloadFileAsync(user.Token, downloadFileList, taskId);
             }

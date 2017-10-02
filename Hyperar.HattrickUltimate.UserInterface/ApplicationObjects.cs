@@ -88,8 +88,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private static void RegisterForms()
         {
             Container.Register<FormDataFolder>(Lifestyle.Transient);
+            container.Register<FormGenericProgress>(Lifestyle.Transient);
             Container.Register<FormMain>(Lifestyle.Transient);
             Container.Register<FormToken>(Lifestyle.Transient);
+            container.Register<FormUser>(Lifestyle.Transient);
         }
 
         /// <summary>
