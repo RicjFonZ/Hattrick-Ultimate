@@ -15,6 +15,7 @@
       <Value>loginname</Value>
       <Value>oob</Value>
       <Value>queryable</Value>
+      <Value>transferlisted</Value>
     </CollectionProperty>
   </GlobalSettings>
 </StyleCopSettings>

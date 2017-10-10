@@ -69,6 +69,11 @@
     <Compile Include="App\Zone.cs" />
     <Compile Include="Hattrick\CheckToken\Root.cs" />
     <Compile Include="Hattrick\Enums\XmlFile.cs" />
+    <Compile Include="Hattrick\Players\LastMatch.cs" />
+    <Compile Include="Hattrick\Players\Player.cs" />
+    <Compile Include="Hattrick\Players\Root.cs" />
+    <Compile Include="Hattrick\Players\Team.cs" />
+    <Compile Include="Hattrick\Players\TrainerData.cs" />
     <Compile Include="Hattrick\TeamDetails\NationalTeam.cs" />
     <Compile Include="Hattrick\TeamDetails\BotStatus.cs" />
     <Compile Include="Hattrick\TeamDetails\Language.cs" />
