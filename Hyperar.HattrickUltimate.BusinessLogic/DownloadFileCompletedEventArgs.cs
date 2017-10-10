@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="DownloadCompletedEventArgs.cs" company="Hyperar">
+// <copyright file="DownloadFileCompletedEventArgs.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// <summary>
     /// Download completed event arguments.
     /// </summary>
-    public class DownloadCompletedEventArgs : AsyncCompletedEventArgs
+    public class DownloadFileCompletedEventArgs : AsyncCompletedEventArgs
     {
         #region Private Fields
 
@@ -28,13 +28,13 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DownloadCompletedEventArgs" /> class.
+        /// Initializes a new instance of the <see cref="DownloadFileCompletedEventArgs" /> class.
         /// </summary>
         /// <param name="downloadedFiles">Downloaded files.</param>
         /// <param name="error">Any error that occurred during the asynchronous operation.</param>
         /// <param name="cancelled">A value indicating whether the asynchronous operation was canceled.</param>
         /// <param name="userState">The optional user-supplied state object passed to the System.ComponentModel.BackgroundWorker.RunWorkerAsync(System.Object) method.</param>
-        public DownloadCompletedEventArgs(List<IXmlEntity> downloadedFiles, Exception error, bool cancelled, object userState) : base(error, cancelled, userState)
+        public DownloadFileCompletedEventArgs(List<IXmlEntity> downloadedFiles, Exception error, bool cancelled, object userState) : base(error, cancelled, userState)
         {
             this.downloadedFiles = downloadedFiles;
         }

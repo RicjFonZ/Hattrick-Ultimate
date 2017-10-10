@@ -34,9 +34,34 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string DateFormat = "DateFormat";
 
         /// <summary>
+        /// JuniorSeries database table name.
+        /// </summary>
+        internal const string JuniorSeries = "JuniorSeries";
+
+        /// <summary>
+        /// JuniorTeam database table name.
+        /// </summary>
+        internal const string JuniorTeam = "JuniorTeam";
+
+        /// <summary>
         /// League database table name.
         /// </summary>
         internal const string League = "League";
+
+        /// <summary>
+        /// LeagueCup database table name.
+        /// </summary>
+        internal const string LeagueCup = "LeagueCup";
+
+        /// <summary>
+        /// LeagueNationalTeam database table name.
+        /// </summary>
+        internal const string LeagueNationalTeam = "LeagueNationalTeam";
+
+        /// <summary>
+        /// LeagueSchedule database table name.
+        /// </summary>
+        internal const string LeagueSchedule = "LeagueSchedule";
 
         /// <summary>
         /// Manager database table name.
@@ -47,6 +72,21 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// Region database table name.
         /// </summary>
         internal const string Region = "Region";
+
+        /// <summary>
+        /// SeniorArena database table name.
+        /// </summary>
+        internal const string SeniorArena = "SeniorArena";
+
+        /// <summary>
+        /// SeniorSeries database table name.
+        /// </summary>
+        internal const string SeniorSeries = "SeniorSeries";
+
+        /// <summary>
+        /// SeniorTeam database table name.
+        /// </summary>
+        internal const string SeniorTeam = "SeniorTeam";
 
         /// <summary>
         /// TimeFormat database table name.

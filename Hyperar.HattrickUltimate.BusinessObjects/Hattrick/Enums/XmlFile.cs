@@ -22,6 +22,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Enums
         ManagerCompendium,
 
         /// <summary>
+        /// Team Details XML file.
+        /// </summary>
+        TeamDetails,
+
+        /// <summary>
         /// World Details XML file.
         /// </summary>
         WorldDetails

@@ -16,14 +16,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
     /// IEntity base mapping.
     /// </summary>
     /// <typeparam name="TEntity">IEntity entity.</typeparam>
-    public class Entity<TEntity> : EntityTypeConfiguration<TEntity> where TEntity : EntityBase, IEntity
+    internal class Entity<TEntity> : EntityTypeConfiguration<TEntity> where TEntity : EntityBase, IEntity
     {
-        #region Public Constructors
+        #region Internal Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity{TEntity}"/> class.
         /// </summary>
-        public Entity()
+        internal Entity()
         {
             this.Property(p => p.Id)
                 .HasColumnOrder(0)
@@ -32,6 +32,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .IsRequired();
         }
 
-        #endregion Public Constructors
+        #endregion Internal Constructors
     }
 }

@@ -17,11 +17,43 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
         #region Public Methods
 
         /// <summary>
-        /// Gets the string representation of the current Supporter Tier value.
+        /// Gets an SupporterTier value from the specified string.
         /// </summary>
-        /// <param name="value">Value to convert to string.</param>
-        /// <returns>String representation of the current value.</returns>
-        public static string GetStringValue(this SupporterTier value)
+        /// <param name="value">Supporter Tier value in a System.String object.</param>
+        /// <returns>SupporterTier value.</returns>
+        public static SupporterTier GetEnum(this string value)
+        {
+            switch (value)
+            {
+                case Constants.SupporterTier.None:
+                    return SupporterTier.None;
+
+                case Constants.SupporterTier.Silver:
+                    return SupporterTier.Silver;
+
+                case Constants.SupporterTier.Gold:
+                    return SupporterTier.Gold;
+
+                case Constants.SupporterTier.Platinum:
+                    return SupporterTier.Platinum;
+
+                case Constants.SupporterTier.Diamond:
+                    return SupporterTier.Diamond;
+
+                default:
+                    throw new ArgumentException(
+                                  string.Format(
+                                             Localization.Strings.Message_UnknownSupporterTier,
+                                             value));
+            }
+        }
+
+        /// <summary>
+        /// Gets an string value from the specified SupporterTier.
+        /// </summary>
+        /// <param name="value">SupporterTier value.</param>
+        /// <returns>System.String representation of the specified SupporterTier.</returns>
+        public static string GetString(this SupporterTier value)
         {
             switch (value)
             {
@@ -41,7 +73,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
                     return Constants.SupporterTier.Diamond;
 
                 default:
-                    throw new NotImplementedException(
+                    throw new ArgumentNullException(
                               string.Format(
                                          Localization.Strings.Message_UnknownSupporterTier,
                                          value.ToString()));

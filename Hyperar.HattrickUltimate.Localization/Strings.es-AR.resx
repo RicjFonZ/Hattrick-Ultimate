@@ -141,6 +141,9 @@
   <data name="FormGeneral_BtnOk_Text" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="FormGenericProgress_Text" xml:space="preserve">
+    <value>Ejecutando tareas en segundo plano</value>
+  </data>
   <data name="FormToken_AdvTxtBoxVerificationCode_EmptyMessage" xml:space="preserve">
     <value>Pegue el código de verificación generado por Hattrick.</value>
   </data>
@@ -236,6 +239,9 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_DataFolderNotSet" xml:space="preserve">
     <value>No se ha elegido una carpeta para la base de datos. Hattrick Ultimate no puede continuar.</value>
   </data>
+  <data name="Message_Downloading" xml:space="preserve">
+    <value>Descargando '{0}'</value>
+  </data>
   <data name="Message_EntityIdNotFound" xml:space="preserve">
     <value>No se ha encontrado una entidad de tipo '{0}' con el ID '{1}'.</value>
   </data>
@@ -244,6 +250,9 @@ Desde: {0} - Hasta: {1}.</value>
   </data>
   <data name="Message_Error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="Message_IncompatibleParameters" xml:space="preserve">
+    <value>Los siguientes parámetros son incompatibles: {0}.</value>
   </data>
   <data name="Message_Information" xml:space="preserve">
     <value>Información</value>
@@ -254,11 +263,20 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_NotImplemented" xml:space="preserve">
     <value>No se ha encontrado una clase del tipo '{0}' para el parámetro '{1}'.</value>
   </data>
+  <data name="Message_NullValueParameter" xml:space="preserve">
+    <value>El parámetro '{0}' no tiene valor.</value>
+  </data>
   <data name="Message_OverlappingTransaction" xml:space="preserve">
     <value>Ya hay una transacción activa en el contexto.</value>
   </data>
   <data name="Message_RequiredParameterMissing" xml:space="preserve">
     <value>Parámetro requerido faltante '{0}'.</value>
+  </data>
+  <data name="Message_TaskIdMustBeUnique" xml:space="preserve">
+    <value>El Identificador de Tarea debe ser único.</value>
+  </data>
+  <data name="Message_TaskStarting" xml:space="preserve">
+    <value>Comenzando tarea…</value>
   </data>
   <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
     <value>Hattrick Ultimate fue desautorizado correctamente.</value>
@@ -266,22 +284,22 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_Unauthorized" xml:space="preserve">
     <value>Hattrick Ultimate no está autorizado para acceder a la información de tu cuenta.</value>
   </data>
+  <data name="Message_UnavailableValue" xml:space="preserve">
+    <value>N/D</value>
+  </data>
+  <data name="Message_UnexpectedXmlElement" xml:space="preserve">
+    <value>Elemento Xml inesperado '{0}'.</value>
+  </data>
   <data name="Message_UnknownOAuthScope" xml:space="preserve">
     <value>Permiso OAuth desconocido '{0}'.</value>
   </data>
   <data name="Message_UnknownParameter" xml:space="preserve">
     <value>Parámetro desconocido '{0}'.</value>
   </data>
+  <data name="Message_UnknownParametersForFile" xml:space="preserve">
+    <value>Parámetros desconocidos para el archivo '{0}'.</value>
+  </data>
   <data name="Message_UnknownSupporterTier" xml:space="preserve">
     <value>Nivel Supporter desconocido '{0}'.</value>
-  </data>
-  <data name="Message_NullValueParameter" xml:space="preserve">
-    <value>El parámetro '{0}' no tiene valor.</value>
-  </data>
-  <data name="FormGenericProgress_Text" xml:space="preserve">
-    <value>Ejecutando tareas en segundo plano</value>
-  </data>
-  <data name="Message_TaskStarting" xml:space="preserve">
-    <value>Comenzando...</value>
   </data>
 </root>

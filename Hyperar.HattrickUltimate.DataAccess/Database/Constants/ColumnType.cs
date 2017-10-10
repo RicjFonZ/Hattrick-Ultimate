@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// <summary>
         /// Big integer column data type.
         /// </summary>
-        internal const string BigInteger = "bigint";
+        internal const string BigInt = "bigint";
 
         /// <summary>
         /// Boolean column data type.
@@ -39,9 +39,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string Numeric = "numeric";
 
         /// <summary>
+        /// Time column data type.
+        /// </summary>
+        internal const string Time = "time";
+
+        /// <summary>
         /// Tiny integer column data type.
         /// </summary>
-        internal const string TinyInteger = "tinyint";
+        internal const string TinyInt = "tinyint";
 
         /// <summary>
         /// Unicode char column data type.

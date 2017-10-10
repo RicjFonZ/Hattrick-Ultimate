@@ -93,6 +93,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                         new KeyValuePair<string, string>(Constants.QueryStringParameterName.Version, Constants.QueryStringParameterValue.Version.ManagerCompendium)
                     };
 
+                case XmlFile.TeamDetails:
+                    return new KeyValuePair<string, string>[]
+                    {
+                        new KeyValuePair<string, string>(Constants.QueryStringParameterName.File, Constants.QueryStringParameterValue.File.TeamDetails),
+                        new KeyValuePair<string, string>(Constants.QueryStringParameterName.Version, Constants.QueryStringParameterValue.Version.TeamDetails)
+                    };
+
                 case XmlFile.WorldDetails:
                     return new KeyValuePair<string, string>[]
                     {
@@ -101,7 +108,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                     };
 
                 default:
-                    throw new NotImplementedException("%UNKOWN PARAMETERS FOR FILE%");
+                    throw new NotImplementedException(Localization.Strings.Message_UnknownParametersForFile);
             }
         }
 

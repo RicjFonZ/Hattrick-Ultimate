@@ -24,14 +24,34 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string File = "file";
 
         /// <summary>
+        /// Include Domestic Flags query string parameter.
+        /// </summary>
+        internal const string IncludeDomesticFlags = "includedomesticflags";
+
+        /// <summary>
+        /// Include Flags query string parameter.
+        /// </summary>
+        internal const string IncludeFlags = "includeflags";
+
+        /// <summary>
         /// Include Regions query string parameter.
         /// </summary>
         internal const string IncludeRegions = "includeRegions";
 
         /// <summary>
+        /// Include Supporters query string parameter.
+        /// </summary>
+        internal const string IncludeSupporters = "includesupporters";
+
+        /// <summary>
         /// League ID query string parameter.
         /// </summary>
         internal const string LeagueId = "leagueid";
+
+        /// <summary>
+        /// Team ID query string parameter.
+        /// </summary>
+        internal const string TeamId = "teamid";
 
         /// <summary>
         /// User ID query string parameter.

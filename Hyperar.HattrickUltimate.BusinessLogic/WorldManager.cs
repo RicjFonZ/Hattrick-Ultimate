@@ -8,36 +8,105 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 {
     using System;
     using System.Linq;
+    using BusinessObjects.App.Enums;
     using DataAccess.Database.Interface;
 
     /// <summary>
-    /// TODO: Update summary.
+    /// Provides functionality to interact with Hattrick World entities.
     /// </summary>
     public class WorldManager
     {
         #region Private Fields
 
+        /// <summary>
+        /// Database context.
+        /// </summary>
         private IDatabaseContext context;
+
+        /// <summary>
+        /// Continent repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.Continent> continentRepository;
+
+        /// <summary>
+        /// Country repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.Country> countryRepository;
+
+        /// <summary>
+        /// Currency repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.Currency> currencyRepository;
+
+        /// <summary>
+        /// DateFormat repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.DateFormat> dateFormatRepository;
+
+        /// <summary>
+        /// LeagueCup repository.
+        /// </summary>
+        private IRepository<BusinessObjects.App.LeagueCup> leagueCupRepository;
+
+        /// <summary>
+        /// LeagueNationalTeam repository.
+        /// </summary>
+        private IRepository<BusinessObjects.App.LeagueNationalTeam> leagueNationalTeamRepository;
+
+        /// <summary>
+        /// League repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.League> leagueRepository;
+
+        /// <summary>
+        /// LeagueSchedule repository.
+        /// </summary>
+        private IRepository<BusinessObjects.App.LeagueSchedule> leagueScheduleRepository;
+
+        /// <summary>
+        /// Region repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.Region> regionRepository;
+
+        /// <summary>
+        /// TimeFormat repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.TimeFormat> timeFormatRepository;
+
+        /// <summary>
+        /// Zone repository.
+        /// </summary>
         private IRepository<BusinessObjects.App.Zone> zoneRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorldManager" /> class.
+        /// </summary>
+        /// <param name="context">Database context.</param>
+        /// <param name="continentRepository">Continent repository.</param>
+        /// <param name="countryRepository">Country repository.</param>
+        /// <param name="currencyRepository">Currency repository.</param>
+        /// <param name="dateFormatRepository">DateFormat repository.</param>
+        /// <param name="leagueCupRepository">LeagueCup repository.</param>
+        /// <param name="leagueNationalTeamRepository">LeagueNationalTeam repository.</param>
+        /// <param name="leagueRepository">League repository.</param>
+        /// <param name="leagueScheduleRepository">LeagueSchedule repository.</param>
+        /// <param name="regionRepository">Region repository.</param>
+        /// <param name="timeFormatRepository">TimeFormat repository.</param>
+        /// <param name="zoneRepository">Zone repository.</param>
         public WorldManager(
                    IDatabaseContext context,
                    IRepository<BusinessObjects.App.Continent> continentRepository,
                    IRepository<BusinessObjects.App.Country> countryRepository,
                    IRepository<BusinessObjects.App.Currency> currencyRepository,
                    IRepository<BusinessObjects.App.DateFormat> dateFormatRepository,
+                   IRepository<BusinessObjects.App.LeagueCup> leagueCupRepository,
+                   IRepository<BusinessObjects.App.LeagueNationalTeam> leagueNationalTeamRepository,
                    IRepository<BusinessObjects.App.League> leagueRepository,
+                   IRepository<BusinessObjects.App.LeagueSchedule> leagueScheduleRepository,
                    IRepository<BusinessObjects.App.Region> regionRepository,
                    IRepository<BusinessObjects.App.TimeFormat> timeFormatRepository,
                    IRepository<BusinessObjects.App.Zone> zoneRepository)
@@ -47,7 +116,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             this.countryRepository = countryRepository;
             this.currencyRepository = currencyRepository;
             this.dateFormatRepository = dateFormatRepository;
+            this.leagueCupRepository = leagueCupRepository;
+            this.leagueNationalTeamRepository = leagueNationalTeamRepository;
             this.leagueRepository = leagueRepository;
+            this.leagueScheduleRepository = leagueScheduleRepository;
             this.regionRepository = regionRepository;
             this.timeFormatRepository = timeFormatRepository;
             this.zoneRepository = zoneRepository;
@@ -57,6 +129,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 
         #region Public Methods
 
+        /// <summary>
+        /// Process WorldDetails XML File.
+        /// </summary>
+        /// <param name="worldDetails">Parsed file to process.</param>
         public void ProcessWorldDetails(BusinessObjects.Hattrick.WorldDetails.Root worldDetails)
         {
             if (worldDetails == null)
@@ -80,11 +156,21 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 
                     var league = this.ProcessLeague(curLeague, continent, zone);
 
-                    if (curLeague.Country != null)
+                    if (league.Cups != null)
+                    {
+                        foreach (var cup in curLeague.Cups)
+                        {
+                            this.ProcessLeagueCup(cup, league);
+                        }
+                    }
+
+                    // If there's a country to process and wasn't processed before.
+                    if (curLeague.Country != null && league.Country == null)
                     {
                         var currency = this.ProcessCurrency(curLeague.Country.CurrencyName, curLeague.Country.CurrencyRate);
                         var dateFormat = this.ProcessDateFormat(curLeague.Country.DateFormat);
                         var timeFormat = this.ProcessTimeFormat(curLeague.Country.TimeFormat);
+
                         var country = this.ProcessCountry(curLeague.Country, currency, dateFormat, timeFormat, league);
 
                         if (curLeague.Country.RegionList != null)
@@ -112,10 +198,15 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 
         #region Private Methods
 
+        /// <summary>
+        /// Process the specified Continent name.
+        /// </summary>
+        /// <param name="continentName">Continent name to process.</param>
+        /// <returns>BusinessObjects.App.Continent object.</returns>
         private BusinessObjects.App.Continent ProcessContinent(string continentName)
         {
             var storedContinent = this.continentRepository.Get()
-                                                          .SingleOrDefault(c => c.Name.Equals(
+                                                          .SingleOrDefault(z => z.Name.Equals(
                                                                                            continentName,
                                                                                            StringComparison.OrdinalIgnoreCase));
 
@@ -134,12 +225,21 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             return storedContinent;
         }
 
+        /// <summary>
+        /// Process Country object.
+        /// </summary>
+        /// <param name="country">Country to process.</param>
+        /// <param name="currency">Stored currency.</param>
+        /// <param name="dateFormat">Stored date format.</param>
+        /// <param name="timeFormat">Stored time format.</param>
+        /// <param name="league">Stored league.</param>
+        /// <returns>Business.App.Country object.</returns>
         private BusinessObjects.App.Country ProcessCountry(
-                                                BusinessObjects.Hattrick.WorldDetails.Country country,
-                                                BusinessObjects.App.Currency currency,
-                                                BusinessObjects.App.DateFormat dateFormat,
-                                                BusinessObjects.App.TimeFormat timeFormat,
-                                                BusinessObjects.App.League league)
+                                                        BusinessObjects.Hattrick.WorldDetails.Country country,
+                                                        BusinessObjects.App.Currency currency,
+                                                        BusinessObjects.App.DateFormat dateFormat,
+                                                        BusinessObjects.App.TimeFormat timeFormat,
+                                                        BusinessObjects.App.League league)
         {
             var storedCountry = this.countryRepository.Get(c => c.HattrickId == country.CountryId)
                                                       .SingleOrDefault();
@@ -165,6 +265,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             return storedCountry;
         }
 
+        /// <summary>
+        /// Process Currency object.
+        /// </summary>
+        /// <param name="currencyName">Currency name.</param>
+        /// <param name="currencyRate">Currency exchange rate.</param>
+        /// <returns>BusinessObjects.App.Currency object.</returns>
         private BusinessObjects.App.Currency ProcessCurrency(string currencyName, decimal currencyRate)
         {
             var storedCurrency = this.currencyRepository.Get()
@@ -189,6 +295,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             return storedCurrency;
         }
 
+        /// <summary>
+        /// Process the specified DateFormat mask.
+        /// </summary>
+        /// <param name="dateFormatMask">DateFormat mask to process.</param>
+        /// <returns>BusinessObjects.App.DateFormat object.</returns>
         private BusinessObjects.App.DateFormat ProcessDateFormat(string dateFormatMask)
         {
             var storedDateFormat = this.dateFormatRepository.Get()
@@ -211,6 +322,13 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             return storedDateFormat;
         }
 
+        /// <summary>
+        /// Process the specified League, LeagueSchedule and LeagueNationalTeam.
+        /// </summary>
+        /// <param name="league">League to process.</param>
+        /// <param name="continent">League continent.</param>
+        /// <param name="zone">Zone to process</param>
+        /// <returns>BusinessObjects.App.League object.</returns>
         private BusinessObjects.App.League ProcessLeague(
                                                BusinessObjects.Hattrick.WorldDetails.League league,
                                                BusinessObjects.App.Continent continent,
@@ -226,13 +344,29 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                     ActiveTeams = league.ActiveTeams,
                     ActiveUsers = league.ActiveUsers,
                     Continent = continent,
+                    CurrentRound = league.MatchRound,
+                    CurrentSeason = league.Season,
                     Divisions = league.NumberOfLevels,
                     EnglishName = league.EnglishName,
                     FullName = league.LeagueName,
                     HattrickId = league.LeagueId,
-                    JuniorNationalTeamId = league.U20TeamId,
+                    NationalTeam = new BusinessObjects.App.LeagueNationalTeam
+                    {
+                        JuniorNationalTeamId = league.U20TeamId,
+                        SeniorNationalTeamId = league.NationalTeamId
+                    },
+                    Schedule = new BusinessObjects.App.LeagueSchedule
+                    {
+                        CupMatchDayOfWeek = (byte)league.CupMatchDate.DayOfWeek,
+                        CupMatchTimeOfDay = league.CupMatchDate.TimeOfDay,
+                        EconomyUpdateDayOfWeek = (byte)league.EconomyDate.DayOfWeek,
+                        EconomyUpdateTimeOfDay = league.EconomyDate.TimeOfDay,
+                        SeriesMatchDayOfWeek = (byte)league.SeriesMatchDate.DayOfWeek,
+                        SeriesMatchTimeOfDay = league.SeriesMatchDate.TimeOfDay,
+                        TrainingUpdateDayOfWeek = (byte)league.TrainingDate.DayOfWeek,
+                        TrainingUpdateTimeOfDay = league.TrainingDate.TimeOfDay
+                    },
                     SeasonOffset = league.SeasonOffset,
-                    SeniorNationalTeamId = league.NationalTeamId,
                     ShortName = league.ShortName,
                     WaitingUsers = league.WaitingUsers,
                     Zone = zone
@@ -244,10 +378,23 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             {
                 storedLeague.ActiveTeams = league.ActiveTeams;
                 storedLeague.ActiveUsers = league.ActiveUsers;
+                storedLeague.CurrentRound = league.MatchRound;
+                storedLeague.CurrentSeason = league.Season;
                 storedLeague.Divisions = league.NumberOfLevels;
                 storedLeague.WaitingUsers = league.WaitingUsers;
 
                 this.leagueRepository.Update(storedLeague);
+
+                storedLeague.Schedule.CupMatchDayOfWeek = (byte)league.CupMatchDate.DayOfWeek;
+                storedLeague.Schedule.CupMatchTimeOfDay = league.CupMatchDate.TimeOfDay;
+                storedLeague.Schedule.EconomyUpdateDayOfWeek = (byte)league.EconomyDate.DayOfWeek;
+                storedLeague.Schedule.EconomyUpdateTimeOfDay = league.EconomyDate.TimeOfDay;
+                storedLeague.Schedule.SeriesMatchDayOfWeek = (byte)league.SeriesMatchDate.DayOfWeek;
+                storedLeague.Schedule.SeriesMatchTimeOfDay = league.SeriesMatchDate.TimeOfDay;
+                storedLeague.Schedule.TrainingUpdateDayOfWeek = (byte)league.TrainingDate.DayOfWeek;
+                storedLeague.Schedule.TrainingUpdateTimeOfDay = league.TrainingDate.TimeOfDay;
+
+                this.leagueScheduleRepository.Update(storedLeague.Schedule);
             }
 
             this.context.Save();
@@ -255,7 +402,53 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             return storedLeague;
         }
 
-        private BusinessObjects.App.Region ProcessRegion(BusinessObjects.Hattrick.WorldDetails.Region region, BusinessObjects.App.Country country)
+        /// <summary>
+        /// Process the specified Cup.
+        /// </summary>
+        /// <param name="cup">Cup to process.</param>
+        /// <param name="league">Cup owning league.</param>
+        private void ProcessLeagueCup(BusinessObjects.Hattrick.WorldDetails.Cup cup, BusinessObjects.App.League league)
+        {
+            var storedCup = this.leagueCupRepository.Get()
+                                                    .SingleOrDefault(l => l.HattrickId == cup.CupId);
+
+            if (storedCup == null)
+            {
+                storedCup = new BusinessObjects.App.LeagueCup
+                {
+                    CurrentRound = cup.MatchRound,
+                    Division = cup.CupLevel == (byte)LeagueCupType.Official && cup.CupLevelIndex != 0
+                             ? (byte?)cup.CupLevelIndex
+                             : null,
+                    HattrickId = cup.CupId,
+                    League = league,
+                    Name = cup.CupName,
+                    RoundsLeft = cup.MatchRoundsLeft,
+                    Tier = cup.CupLevel == (byte)LeagueCupType.Challenger
+                         ? (LeagueCupTier?)cup.CupLevelIndex
+                         : null,
+                    Type = (LeagueCupType)cup.CupLevel
+                };
+
+                this.leagueCupRepository.Insert(storedCup);
+            }
+            else
+            {
+                storedCup.CurrentRound = cup.MatchRound;
+                storedCup.RoundsLeft = cup.MatchRoundsLeft;
+
+                this.leagueCupRepository.Update(storedCup);
+            }
+
+            this.context.Save();
+        }
+
+        /// <summary>
+        /// Process the specified Region.
+        /// </summary>
+        /// <param name="region">Region to process.</param>
+        /// <param name="country">Region owning country.</param>
+        private void ProcessRegion(BusinessObjects.Hattrick.WorldDetails.Region region, BusinessObjects.App.Country country)
         {
             var storedRegion = this.regionRepository.Get()
                                                     .SingleOrDefault(r => r.HattrickId == region.RegionId);
@@ -273,10 +466,13 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 
                 this.context.Save();
             }
-
-            return storedRegion;
         }
 
+        /// <summary>
+        /// Process the specified TimeFormat mask.
+        /// </summary>
+        /// <param name="timeFormatMask">TimeFormat mask to process.</param>
+        /// <returns>BusinessObjects.App.TimeFormat object.</returns>
         private BusinessObjects.App.TimeFormat ProcessTimeFormat(string timeFormatMask)
         {
             var storedTimeFormat = this.timeFormatRepository.Get()
@@ -299,6 +495,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             return storedTimeFormat;
         }
 
+        /// <summary>
+        /// Process the specified Zone name.
+        /// </summary>
+        /// <param name="zoneName">Zone name to process.</param>
+        /// <returns>BusinessObjects.App.Zone object.</returns>
         private BusinessObjects.App.Zone ProcessZone(string zoneName)
         {
             var storedZone = this.zoneRepository.Get()

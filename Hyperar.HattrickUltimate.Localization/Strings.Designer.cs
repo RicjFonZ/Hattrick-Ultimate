@@ -133,7 +133,7 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Executing background tasks.
+        ///   Looks up a localized string similar to Executing background task.
         /// </summary>
         public static string FormGenericProgress_Text {
             get {
@@ -423,6 +423,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading &apos;{0}&apos;.
+        /// </summary>
+        public static string Message_Downloading {
+            get {
+                return ResourceManager.GetString("Message_Downloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No entity of type &apos;{0}&apos; found with ID &apos;{1}&apos;..
         /// </summary>
         public static string Message_EntityIdNotFound {
@@ -446,6 +455,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string Message_Error {
             get {
                 return ResourceManager.GetString("Message_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The following parameters are incompatible: {0}..
+        /// </summary>
+        public static string Message_IncompatibleParameters {
+            get {
+                return ResourceManager.GetString("Message_IncompatibleParameters", resourceCulture);
             }
         }
         
@@ -504,7 +522,16 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Starting....
+        ///   Looks up a localized string similar to Task ID must be unique..
+        /// </summary>
+        public static string Message_TaskIdMustBeUnique {
+            get {
+                return ResourceManager.GetString("Message_TaskIdMustBeUnique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task starting….
         /// </summary>
         public static string Message_TaskStarting {
             get {
@@ -531,6 +558,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to N/A.
+        /// </summary>
+        public static string Message_UnavailableValue {
+            get {
+                return ResourceManager.GetString("Message_UnavailableValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected Xml element &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_UnexpectedXmlElement {
+            get {
+                return ResourceManager.GetString("Message_UnexpectedXmlElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown OAuth Scope &apos;{0}&apos;..
         /// </summary>
         public static string Message_UnknownOAuthScope {
@@ -545,6 +590,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string Message_UnknownParameter {
             get {
                 return ResourceManager.GetString("Message_UnknownParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown parameters for file &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_UnknownParametersForFile {
+            get {
+                return ResourceManager.GetString("Message_UnknownParametersForFile", resourceCulture);
             }
         }
         

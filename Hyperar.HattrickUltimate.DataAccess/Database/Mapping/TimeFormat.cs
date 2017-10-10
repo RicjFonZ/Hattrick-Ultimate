@@ -7,41 +7,51 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// TimeFormat entity mapping.
+    /// TimeFormat entity mapping implementation.
     /// </summary>
-    public class TimeFormat : Entity<BusinessObjects.App.TimeFormat>
+    internal class TimeFormat : Entity<BusinessObjects.App.TimeFormat>, IMapping
     {
-        #region Public Constructors
+        #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TimeFormat"/> class.
+        /// Initializes a new instance of the <see cref="TimeFormat" /> class.
         /// </summary>
-        public TimeFormat()
+        internal TimeFormat()
         {
             this.RegisterTable();
             this.RegisterProperties();
+            this.RegisterRelationships();
         }
 
-        #endregion Public Constructors
+        #endregion Internal Constructors
 
         #region Public Methods
 
         /// <summary>
-        /// Registers the Entity database table columns.
+        /// Registers property column mapping.
         /// </summary>
         public void RegisterProperties()
         {
             this.Property(p => p.Mask)
+                .HasColumnName(ColumnName.Mask)
                 .HasColumnOrder(1)
                 .HasColumnType(ColumnType.UnicodeVarChar)
-                .HasMaxLength(ColumnLength.ShortText)
+                .HasMaxLength(ColumnLength.Mask)
                 .IsRequired();
         }
 
         /// <summary>
-        /// Registers the Entity to it's database table.
+        /// Register entity relationships.
+        /// </summary>
+        public void RegisterRelationships()
+        {
+        }
+
+        /// <summary>
+        /// Register entity table mapping.
         /// </summary>
         public void RegisterTable()
         {

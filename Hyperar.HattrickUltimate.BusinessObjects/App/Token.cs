@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     using Interface;
 
     /// <summary>
-    /// OAuth Token.
+    /// Represents a OAuth Token.
     /// </summary>
     public class Token : EntityBase, IEntity
     {
@@ -46,6 +46,17 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the User.
         /// </summary>
         public virtual User User { get; set; }
+
+        /// <summary>
+        /// Gets the User Id.
+        /// </summary>
+        public int? UserId
+        {
+            get
+            {
+                return this.User?.Id;
+            }
+        }
 
         #endregion Public Properties
 

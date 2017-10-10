@@ -7,7 +7,7 @@
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
     using System.Collections.Generic;
-    using Hyperar.HattrickUltimate.BusinessObjects.App.Interface;
+    using Interface;
 
     /// <summary>
     /// Represents a Time Format.

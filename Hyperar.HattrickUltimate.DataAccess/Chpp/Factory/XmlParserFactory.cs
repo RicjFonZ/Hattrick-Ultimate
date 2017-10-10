@@ -64,6 +64,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                         this.parserDictionary.Add(fileName, new ManagerCompendium());
                         break;
 
+                    case XmlFileName.TeamDetails:
+                        this.parserDictionary.Add(fileName, new TeamDetails());
+                        break;
+
                     case XmlFileName.WorldDetails:
                         this.parserDictionary.Add(fileName, new WorldDetails());
                         break;

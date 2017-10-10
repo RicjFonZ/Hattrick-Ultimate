@@ -10,7 +10,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     using Interface;
 
     /// <summary>
-    /// Represents a Geographical Zone.
+    /// Represents a Zone.
     /// </summary>
     public class Zone : EntityBase, IEntity
     {

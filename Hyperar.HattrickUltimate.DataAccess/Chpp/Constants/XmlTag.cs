@@ -49,14 +49,29 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string Avatar = "Avatar";
 
         /// <summary>
+        /// AwayFlags tag.
+        /// </summary>
+        internal const string AwayFlags = "AwayFlags";
+
+        /// <summary>
         /// BackgroundImage tag.
         /// </summary>
         internal const string BackgroundImage = "BackgroundImage";
 
         /// <summary>
+        /// BotStatus tag.
+        /// </summary>
+        internal const string BotStatus = "BotStatus";
+
+        /// <summary>
         /// Continent tag.
         /// </summary>
         internal const string Continent = "Continent";
+
+        /// <summary>
+        /// Count tag.
+        /// </summary>
+        internal const string Count = "Count";
 
         /// <summary>
         /// Country tag.
@@ -159,6 +174,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string ExtendedPermissions = "ExtendedPermissions";
 
         /// <summary>
+        /// Fanclub tag.
+        /// </summary>
+        internal const string Fanclub = "Fanclub";
+
+        /// <summary>
         /// FetchedDate tag.
         /// </summary>
         internal const string FetchedDate = "FetcheDdate";
@@ -169,14 +189,44 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string FileName = "FileName";
 
         /// <summary>
+        /// Flag tag.
+        /// </summary>
+        internal const string Flag = "Flag";
+
+        /// <summary>
+        /// Flags tag.
+        /// </summary>
+        internal const string Flags = "Flags";
+
+        /// <summary>
+        /// Guestbook tag.
+        /// </summary>
+        internal const string Guestbook = "Guestbook";
+
+        /// <summary>
         /// HattrickData tag.
         /// </summary>
         internal const string HattrickData = "HattrickData";
 
         /// <summary>
+        /// HomeFlags tag.
+        /// </summary>
+        internal const string HomeFlags = "HomeFlags";
+
+        /// <summary>
         /// Image tag.
         /// </summary>
         internal const string Image = "Image";
+
+        /// <summary>
+        /// ImageUrl tag.
+        /// </summary>
+        internal const string ImageUrl = "ImageUrl";
+
+        /// <summary>
+        /// Index tag.
+        /// </summary>
+        internal const string Index = "Index";
 
         /// <summary>
         /// Language tag.
@@ -197,6 +247,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// LastLogins tag.
         /// </summary>
         internal const string LastLogins = "LastLogins";
+
+        /// <summary>
+        /// LastMatch tag.
+        /// </summary>
+        internal const string LastMatch = "LastMatch";
 
         /// <summary>
         /// Layer tag.
@@ -264,6 +319,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string MatchRoundsLeft = "MatchRoundsLeft";
 
         /// <summary>
+        /// MaxItems tag.
+        /// </summary>
+        internal const string MaxItems = "MaxItems";
+
+        /// <summary>
+        /// MySupporters tag.
+        /// </summary>
+        internal const string MySupporters = "MySupporters";
+
+        /// <summary>
         /// NationalTeam tag.
         /// </summary>
         internal const string NationalTeam = "NationalTeam";
@@ -284,9 +349,19 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string NationalTeamName = "NationalTeamName";
 
         /// <summary>
+        /// NextMatch tag.
+        /// </summary>
+        internal const string NextMatch = "NextMatch";
+
+        /// <summary>
         /// NumberOfLevels tag.
         /// </summary>
         internal const string NumberOfLevels = "NumberOfLevels";
+
+        /// <summary>
+        /// PressAnnouncement tag.
+        /// </summary>
+        internal const string PressAnnouncement = "PressAnnouncement";
 
         /// <summary>
         /// Region tag.
@@ -329,6 +404,26 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string ShortName = "ShortName";
 
         /// <summary>
+        /// Subject tag.
+        /// </summary>
+        internal const string Subject = "Subject";
+
+        /// <summary>
+        /// SupportedTeam tag.
+        /// </summary>
+        internal const string SupportedTeam = "SupportedTeam";
+
+        /// <summary>
+        /// SupportedTeams tag.
+        /// </summary>
+        internal const string SupportedTeams = "SupportedTeams";
+
+        /// <summary>
+        /// SupporterTeam tag.
+        /// </summary>
+        internal const string SupporterTeam = "SupporterTeam";
+
+        /// <summary>
         /// SupporterTier tag.
         /// </summary>
         internal const string SupporterTier = "SupporterTier";
@@ -337,6 +432,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// Team tag.
         /// </summary>
         internal const string Team = "Team";
+
+        /// <summary>
+        /// TeamColors tag.
+        /// </summary>
+        internal const string TeamColors = "TeamColors";
 
         /// <summary>
         /// TeamId tag.
@@ -364,9 +464,29 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string Token = "Token";
 
         /// <summary>
+        /// TotalItems tag.
+        /// </summary>
+        internal const string TotalItems = "TotalItems";
+
+        /// <summary>
+        /// Trainer tag.
+        /// </summary>
+        internal const string Trainer = "Trainer";
+
+        /// <summary>
         /// TrainingDate tag.
         /// </summary>
         internal const string TrainingDate = "TrainingDate";
+
+        /// <summary>
+        /// Trophy tag.
+        /// </summary>
+        internal const string Trophy = "Trophy";
+
+        /// <summary>
+        /// TrophyList tag.
+        /// </summary>
+        internal const string TrophyList = "TrophyList";
 
         /// <summary>
         /// U20TeamId tag.

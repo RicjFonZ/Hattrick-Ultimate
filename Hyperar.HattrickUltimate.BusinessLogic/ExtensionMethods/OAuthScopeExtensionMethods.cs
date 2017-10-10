@@ -22,7 +22,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
         /// </summary>
         /// <param name="values">OAuth scopes tags.</param>
         /// <returns>OAuthScope object.</returns>
-        public static OAuthScope GetOAuthScopes(this List<string> values)
+        public static OAuthScope GetEnum(this List<string> values)
         {
             if (values == null)
             {
@@ -72,7 +72,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
         /// </summary>
         /// <param name="value">OAuthScope state to convert.</param>
         /// <returns>Query String value of the current OAuthScope state.</returns>
-        public static string GetQueryStringValue(this OAuthScope value)
+        public static string GetString(this OAuthScope value)
         {
             List<string> result = new List<string>();
 

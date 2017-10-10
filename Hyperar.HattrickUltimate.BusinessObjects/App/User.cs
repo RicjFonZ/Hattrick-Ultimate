@@ -9,7 +9,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
     using Interface;
 
     /// <summary>
-    /// App User.
+    /// Represents the App User.
     /// </summary>
     public class User : EntityBase, IEntity
     {
@@ -19,6 +19,17 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Manager.
         /// </summary>
         public virtual Manager Manager { get; set; }
+
+        /// <summary>
+        /// Gets the Manager Id.
+        /// </summary>
+        public int? ManagerId
+        {
+            get
+            {
+                return this.Manager?.Id;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the Token.

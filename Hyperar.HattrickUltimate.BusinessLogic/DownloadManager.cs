@@ -19,7 +19,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// </summary>
     /// <param name="sender">Object that raised the event.</param>
     /// <param name="e">Event arguments</param>
-    public delegate void DownloadCompletedEventHandler(object sender, DownloadCompletedEventArgs e);
+    public delegate void DownloadCompletedEventHandler(object sender, DownloadFileCompletedEventArgs e);
 
     /// <summary>
     /// DownloadProgressChanged event handler delegate.
@@ -134,7 +134,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             {
                 if (this.userStateToLifetime.Contains(taskId))
                 {
-                    throw new ArgumentException("Task ID parameter must be unique", nameof(taskId));
+                    throw new ArgumentException(Localization.Strings.Message_TaskIdMustBeUnique, nameof(taskId));
                 }
 
                 this.userStateToLifetime[taskId] = asyncOperation;
@@ -159,7 +159,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// Reports that the download completed.
         /// </summary>
         /// <param name="e">Event arguments.</param>
-        protected void OnDownloadCompleted(DownloadCompletedEventArgs e)
+        protected void OnDownloadCompleted(DownloadFileCompletedEventArgs e)
         {
             this.DownloadCompleted?.Invoke(this, e);
         }
@@ -198,11 +198,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 
             // Package the results of the operation in a
             // CalculatePrimeCompletedEventArgs.
-            DownloadCompletedEventArgs e = new DownloadCompletedEventArgs(
-                                               downloadedFiles,
-                                               exception,
-                                               canceled,
-                                               asyncOperation.UserSuppliedState);
+            DownloadFileCompletedEventArgs e = new DownloadFileCompletedEventArgs(
+                                                       downloadedFiles,
+                                                       exception,
+                                                       canceled,
+                                                       asyncOperation.UserSuppliedState);
 
             // End the task. The asyncOp object is responsible for marshaling the call.
             asyncOperation.PostOperationCompleted(this.onCompletedDelegate, e);
@@ -214,7 +214,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <param name="operationState">Operation state.</param>
         private void DownloadProcessCompleted(object operationState)
         {
-            var e = operationState as DownloadCompletedEventArgs;
+            var e = operationState as DownloadFileCompletedEventArgs;
 
             this.OnDownloadCompleted(e);
         }
@@ -240,10 +240,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                 try
                 {
                     result.Add(
-                              this.chppManager.GetProtectedResource(
-                                                   accessToken,
-                                                   currentFile.File,
-                                                   currentFile.Parameters?.ToArray()));
+                               this.chppManager.GetProtectedResource(
+                                                    accessToken,
+                                                    currentFile.File,
+                                                    currentFile.Parameters?.ToArray()));
 
                     var eventArgs = new DownloadProgressChangedEventArgs(
                                         result.Last().FileName,

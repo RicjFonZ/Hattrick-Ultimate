@@ -6,10 +6,12 @@
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
+    using System.Collections.Generic;
+    using Enums;
     using Interface;
 
     /// <summary>
-    /// Represents a Manager
+    /// Represents a Manager.
     /// </summary>
     public class Manager : HattrickEntityBase, IEntity, IHattrickEntity
     {
@@ -24,6 +26,16 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Country Id.
         /// </summary>
         public int CountryId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Senior Teams.
+        /// </summary>
+        public virtual ICollection<SeniorTeam> SeniorTeams { get; set; } = new HashSet<SeniorTeam>();
+
+        /// <summary>
+        /// Gets or sets the Supporter Tier.
+        /// </summary>
+        public SupporterTier SupporterTier { get; set; }
 
         /// <summary>
         /// Gets or sets the User.

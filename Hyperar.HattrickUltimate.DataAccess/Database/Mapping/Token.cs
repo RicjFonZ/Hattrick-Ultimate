@@ -7,11 +7,12 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// Token entity mapping definition.
+    /// Token entity mapping implementation.
     /// </summary>
-    internal class Token : Entity<BusinessObjects.App.Token>
+    internal class Token : Entity<BusinessObjects.App.Token>, IMapping
     {
         #region Internal Constructors
 
@@ -22,58 +23,73 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         {
             this.RegisterTable();
             this.RegisterProperties();
+            this.RegisterRelationships();
         }
 
         #endregion Internal Constructors
 
-        #region Private Methods
+        #region Public Methods
 
         /// <summary>
-        /// Registers entity properties.
+        /// Registers property column mapping.
         /// </summary>
-        private void RegisterProperties()
+        public void RegisterProperties()
         {
-            this.Property(e => e.Key)
-                .HasColumnName(ColumnName.Token)
+            this.Property(p => p.Key)
+                .HasColumnName(ColumnName.Key)
+                .HasColumnOrder(1)
+                .HasColumnType(ColumnType.UnicodeVarChar)
+                .HasMaxLength(ColumnLength.Token)
+                .IsRequired();
+
+            this.Property(p => p.Secret)
+                .HasColumnName(ColumnName.Secret)
                 .HasColumnOrder(2)
-                .HasColumnType(ColumnType.UnicodeChar)
+                .HasColumnType(ColumnType.UnicodeVarChar)
                 .HasMaxLength(ColumnLength.Token)
                 .IsRequired();
 
-            this.Property(e => e.Secret)
-                .HasColumnName(ColumnName.TokenSecret)
+            this.Property(p => p.Scope)
+                .HasColumnName(ColumnName.Scope)
                 .HasColumnOrder(3)
-                .HasColumnType(ColumnType.UnicodeChar)
-                .HasMaxLength(ColumnLength.Token)
+                .HasColumnType(ColumnType.TinyInt)
                 .IsRequired();
 
-            this.Property(e => e.Scope)
-                .HasColumnName(ColumnName.AccessScope)
-                .HasColumnOrder(4)
-                .HasColumnType(ColumnType.TinyInteger)
-                .IsRequired();
-
-            this.Property(e => e.CreatedOn)
+            this.Property(p => p.CreatedOn)
                 .HasColumnName(ColumnName.CreatedOn)
+                .HasColumnOrder(4)
+                .HasColumnType(ColumnType.DateTime)
+                .IsOptional();
+
+            this.Property(p => p.ExpiresOn)
+                .HasColumnName(ColumnName.ExpiresOn)
                 .HasColumnOrder(5)
                 .HasColumnType(ColumnType.DateTime)
-                .IsRequired();
-
-            this.Property(e => e.ExpiresOn)
-                .HasColumnName(ColumnName.ExpiresOn)
-                .HasColumnOrder(6)
-                .HasColumnType(ColumnType.DateTime)
-                .IsRequired();
+                .IsOptional();
         }
 
         /// <summary>
-        /// Register entity table.
+        /// Register entity relationships.
         /// </summary>
-        private void RegisterTable()
+        public void RegisterRelationships()
+        {
+            this.HasRequired(r => r.User)
+                .WithOptional(r => r.Token)
+                .Map(m =>
+                {
+                    m.ToTable(TableName.Token);
+                    m.MapKey(ColumnName.UserId);
+                });
+        }
+
+        /// <summary>
+        /// Register entity table mapping.
+        /// </summary>
+        public void RegisterTable()
         {
             this.ToTable(TableName.Token);
         }
 
-        #endregion Private Methods
+        #endregion Public Methods
     }
 }

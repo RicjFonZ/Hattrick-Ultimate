@@ -409,6 +409,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.CmbBoxTeam.Name = "CmbBoxTeam";
             this.CmbBoxTeam.Size = new System.Drawing.Size(398, 21);
             this.CmbBoxTeam.TabIndex = 0;
+            this.CmbBoxTeam.SelectedIndexChanged += new System.EventHandler(this.CmbBoxTeam_SelectedIndexChanged);
             // 
             // BtnManageToken
             // 

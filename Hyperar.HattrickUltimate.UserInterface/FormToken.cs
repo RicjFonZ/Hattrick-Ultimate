@@ -141,6 +141,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 var user = this.userManager.GetUser();
 
                 this.tokenManager.SetUserToken(accessToken, user);
+
+                MessageBox.Show(
+                               this,
+                               Localization.Strings.Message_Authorized,
+                               Localization.Strings.Message_Information,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

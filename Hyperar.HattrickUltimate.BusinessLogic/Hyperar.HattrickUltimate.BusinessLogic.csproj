@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Constants\OAuthScope.cs" />
     <Compile Include="Constants\SupporterTier.cs" />
-    <Compile Include="DownloadCompletedEventArgs.cs" />
     <Compile Include="DownloadFile.cs" />
+    <Compile Include="DownloadFileCompletedEventArgs.cs" />
     <Compile Include="DownloadManager.cs" />
     <Compile Include="DownloadProgressChangedEventArgs.cs" />
     <Compile Include="ExtensionMethods\OAuthScopeExtensionMethods.cs" />

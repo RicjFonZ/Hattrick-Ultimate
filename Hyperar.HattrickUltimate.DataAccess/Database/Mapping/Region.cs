@@ -7,38 +7,31 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// Region entity mapping.
+    /// Region entity mapping implementation.
     /// </summary>
-    internal class Region : HattrickEntity<BusinessObjects.App.Region>
+    internal class Region : HattrickEntity<BusinessObjects.App.Region>, IMapping
     {
-        #region Public Constructors
+        #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Region"/> class.
+        /// Initializes a new instance of the <see cref="Region" /> class.
         /// </summary>
-        public Region()
+        internal Region()
         {
             this.RegisterTable();
             this.RegisterProperties();
             this.RegisterRelationships();
         }
 
-        #endregion Public Constructors
+        #endregion Internal Constructors
 
         #region Public Methods
 
         /// <summary>
-        /// Registers the Entity Key.
-        /// </summary>
-        public void RegisterKey()
-        {
-            this.HasKey(p => p.Id);
-        }
-
-        /// <summary>
-        /// Registers the Entity database table columns.
+        /// Registers property column mapping.
         /// </summary>
         public void RegisterProperties()
         {
@@ -46,22 +39,23 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnName(ColumnName.Name)
                 .HasColumnOrder(2)
                 .HasColumnType(ColumnType.UnicodeVarChar)
-                .HasMaxLength(ColumnLength.MediumText)
+                .HasMaxLength(ColumnLength.ShortText)
                 .IsRequired();
         }
 
         /// <summary>
-        /// Registers the Entity relationships.
+        /// Register entity relationships.
         /// </summary>
         public void RegisterRelationships()
         {
             this.HasRequired(r => r.Country)
                 .WithMany(r => r.Regions)
-                .HasForeignKey(r => r.CountryId);
+                .HasForeignKey(r => r.CountryId)
+                .WillCascadeOnDelete(false);
         }
 
         /// <summary>
-        /// Registers the Entity to it's database table.
+        /// Register entity table mapping.
         /// </summary>
         public void RegisterTable()
         {

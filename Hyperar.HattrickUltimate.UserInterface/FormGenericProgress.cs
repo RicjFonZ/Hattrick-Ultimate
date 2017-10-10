@@ -30,12 +30,20 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
         #region Public Methods
 
+        /// <summary>
+        /// Populates controls' properties with the corresponding localized string.
+        /// </summary>
         public void PopulateLanguage()
         {
             this.Text = Localization.Strings.FormGenericProgress_Text;
             this.LblTask.Text = Localization.Strings.Message_TaskStarting;
         }
 
+        /// <summary>
+        /// Updates controls to reflect progress.
+        /// </summary>
+        /// <param name="task">Task description.</param>
+        /// <param name="completedPercentage">Current progress percentage.</param>
         public void SetProgress(string task, int completedPercentage)
         {
             if (string.IsNullOrWhiteSpace(task))

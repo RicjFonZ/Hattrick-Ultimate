@@ -6,7 +6,8 @@
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
-    using Hyperar.HattrickUltimate.BusinessObjects.App.Interface;
+    using System.Collections.Generic;
+    using Interface;
 
     /// <summary>
     /// Represents a League.
@@ -18,12 +19,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the number of active teams.
         /// </summary>
-        public int? ActiveTeams { get; set; }
+        public int ActiveTeams { get; set; }
 
         /// <summary>
         /// Gets or sets the number of active users.
         /// </summary>
-        public int? ActiveUsers { get; set; }
+        public int ActiveUsers { get; set; }
 
         /// <summary>
         /// Gets or sets the Continent.
@@ -41,9 +42,24 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public virtual Country Country { get; set; }
 
         /// <summary>
+        /// Gets or sets the Cups.
+        /// </summary>
+        public virtual ICollection<LeagueCup> Cups { get; set; } = new HashSet<LeagueCup>();
+
+        /// <summary>
+        /// Gets or sets the current round.
+        /// </summary>
+        public byte CurrentRound { get; set; }
+
+        /// <summary>
+        /// Gets or sets the current Season.
+        /// </summary>
+        public int CurrentSeason { get; set; }
+
+        /// <summary>
         /// Gets or sets the number of divisions.
         /// </summary>
-        public int Divisions { get; set; }
+        public byte Divisions { get; set; }
 
         /// <summary>
         /// Gets or sets the English Name.
@@ -56,9 +72,14 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public string FullName { get; set; }
 
         /// <summary>
-        /// Gets or sets the Junior National Team Id.
+        /// Gets or sets the National Team.
         /// </summary>
-        public long? JuniorNationalTeamId { get; set; }
+        public virtual LeagueNationalTeam NationalTeam { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Schedule.
+        /// </summary>
+        public virtual LeagueSchedule Schedule { get; set; }
 
         /// <summary>
         /// Gets or sets the season offset.
@@ -66,9 +87,14 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public int SeasonOffset { get; set; }
 
         /// <summary>
-        /// Gets or sets the Senior National Team Id.
+        /// Gets or sets the Senior Series.
         /// </summary>
-        public long? SeniorNationalTeamId { get; set; }
+        public virtual ICollection<SeniorSeries> SeniorSeries { get; set; } = new HashSet<SeniorSeries>();
+
+        /// <summary>
+        /// Gets or sets the Senior Teams.
+        /// </summary>
+        public virtual ICollection<SeniorTeam> SeniorTeams { get; set; } = new HashSet<SeniorTeam>();
 
         /// <summary>
         /// Gets or sets the Short Name.
@@ -78,7 +104,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the number of waiting users.
         /// </summary>
-        public int? WaitingUsers { get; set; }
+        public int WaitingUsers { get; set; }
 
         /// <summary>
         /// Gets or sets the Zone.

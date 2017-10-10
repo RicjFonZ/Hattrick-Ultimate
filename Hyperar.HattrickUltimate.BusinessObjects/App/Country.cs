@@ -7,7 +7,7 @@
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
     using System.Collections.Generic;
-    using Hyperar.HattrickUltimate.BusinessObjects.App.Interface;
+    using Interface;
 
     /// <summary>
     /// Represents a Country.
@@ -47,9 +47,20 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public virtual League League { get; set; }
 
         /// <summary>
+        /// Gets the League Id.
+        /// </summary>
+        public int? LeagueId
+        {
+            get
+            {
+                return this.League?.Id;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the Managers.
         /// </summary>
-        public ICollection<Manager> Managers { get; set; } = new HashSet<Manager>();
+        public virtual ICollection<Manager> Managers { get; set; } = new HashSet<Manager>();
 
         /// <summary>
         /// Gets or sets the name.

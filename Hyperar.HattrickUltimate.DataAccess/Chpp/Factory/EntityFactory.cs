@@ -43,6 +43,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                     result = new BusinessObjects.Hattrick.ManagerCompendium.Root();
                     break;
 
+                case XmlFileName.TeamDetails:
+                    result = new BusinessObjects.Hattrick.TeamDetails.Root();
+                    break;
+
                 case XmlFileName.WorldDetails:
                     result = new BusinessObjects.Hattrick.WorldDetails.Root();
                     break;

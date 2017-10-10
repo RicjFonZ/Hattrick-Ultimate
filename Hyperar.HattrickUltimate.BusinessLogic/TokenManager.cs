@@ -18,6 +18,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     {
         #region Private Fields
 
+        /// <summary>
+        /// Provides functionality to interact with Hattrick.
+        /// </summary>
         private DataAccess.Chpp.ChppManager chppManager;
 
         /// <summary>

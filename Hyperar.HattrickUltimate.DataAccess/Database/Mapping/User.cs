@@ -7,11 +7,12 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// User entity mapping definition.
+    /// User entity mapping implementation.
     /// </summary>
-    internal class User : Entity<BusinessObjects.App.User>
+    internal class User : Entity<BusinessObjects.App.User>, IMapping
     {
         #region Internal Constructors
 
@@ -21,43 +22,43 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         internal User()
         {
             this.RegisterTable();
+            this.RegisterProperties();
             this.RegisterRelationships();
         }
 
         #endregion Internal Constructors
 
-        #region Private Methods
+        #region Public Methods
+
+        /// <summary>
+        /// Registers property column mapping.
+        /// </summary>
+        public void RegisterProperties()
+        {
+        }
 
         /// <summary>
         /// Register entity relationships.
         /// </summary>
-        private void RegisterRelationships()
+        public void RegisterRelationships()
         {
             this.HasOptional(r => r.Manager)
                 .WithOptionalDependent(r => r.User)
-                .Map(r =>
+                .Map(m =>
                 {
-                    r.MapKey(ColumnName.ManagerId);
-                    r.ToTable(TableName.User);
-                });
-
-            this.HasOptional(r => r.Token)
-                .WithRequired(r => r.User)
-                .Map(r =>
-                {
-                    r.MapKey(ColumnName.UserId);
-                    r.ToTable(TableName.Token);
+                    m.ToTable(TableName.User);
+                    m.MapKey(ColumnName.ManagerId);
                 });
         }
 
         /// <summary>
-        /// Register entity table.
+        /// Register entity table mapping.
         /// </summary>
-        private void RegisterTable()
+        public void RegisterTable()
         {
             this.ToTable(TableName.User);
         }
 
-        #endregion Private Methods
+        #endregion Public Methods
     }
 }

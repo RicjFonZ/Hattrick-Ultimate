@@ -19,6 +19,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const int LongText = 512;
 
         /// <summary>
+        /// Mask column length.
+        /// </summary>
+        internal const int Mask = 20;
+
+        /// <summary>
         /// Medium text column length.
         /// </summary>
         internal const int MediumText = 256;
@@ -37,6 +42,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// Token column length.
         /// </summary>
         internal const int Token = 16;
+
+        /// <summary>
+        /// Two char code column length.
+        /// </summary>
+        internal const int TwoCharCode = 2;
 
         #endregion Internal Fields
     }

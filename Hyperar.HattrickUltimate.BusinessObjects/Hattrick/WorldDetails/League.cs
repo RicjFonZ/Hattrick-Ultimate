@@ -69,7 +69,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the current match round.
         /// </summary>
-        public int MatchRound { get; set; }
+        public byte MatchRound { get; set; }
 
         /// <summary>
         /// Gets or sets the National Team ID.
@@ -79,7 +79,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the number of divisions within the League.
         /// </summary>
-        public int NumberOfLevels { get; set; }
+        public byte NumberOfLevels { get; set; }
 
         /// <summary>
         /// Gets or sets the current season of the League.

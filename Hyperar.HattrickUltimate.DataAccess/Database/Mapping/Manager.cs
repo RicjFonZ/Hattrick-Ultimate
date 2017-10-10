@@ -7,11 +7,12 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// Manager entity mapping definition.
+    /// Manager entity mapping implementation.
     /// </summary>
-    internal class Manager : HattrickEntity<BusinessObjects.App.Manager>
+    internal class Manager : HattrickEntity<BusinessObjects.App.Manager>, IMapping
     {
         #region Internal Constructors
 
@@ -22,6 +23,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         {
             this.RegisterTable();
             this.RegisterProperties();
+            this.RegisterRelationships();
         }
 
         #endregion Internal Constructors
@@ -29,7 +31,26 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         #region Public Methods
 
         /// <summary>
-        /// Registers the Entity relationships.
+        /// Registers property column mapping.
+        /// </summary>
+        public void RegisterProperties()
+        {
+            this.Property(p => p.UserName)
+                .HasColumnName(ColumnName.UserName)
+                .HasColumnOrder(2)
+                .HasColumnType(ColumnType.UnicodeVarChar)
+                .HasMaxLength(ColumnLength.ShortText)
+                .IsRequired();
+
+            this.Property(p => p.SupporterTier)
+                .HasColumnName(ColumnName.SupporterTier)
+                .HasColumnOrder(3)
+                .HasColumnType(ColumnType.TinyInt)
+                .IsRequired();
+        }
+
+        /// <summary>
+        /// Register entity relationships.
         /// </summary>
         public void RegisterRelationships()
         {
@@ -38,31 +59,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasForeignKey(r => r.CountryId);
         }
 
-        #endregion Public Methods
-
-        #region Private Methods
-
         /// <summary>
-        /// Registers entity properties.
+        /// Register entity table mapping.
         /// </summary>
-        private void RegisterProperties()
-        {
-            this.Property(e => e.UserName)
-                .HasColumnName(ColumnName.UserName)
-                .HasColumnOrder(2)
-                .HasColumnType(ColumnType.UnicodeVarChar)
-                .HasMaxLength(ColumnLength.MediumText)
-                .IsRequired();
-        }
-
-        /// <summary>
-        /// Register entity table.
-        /// </summary>
-        private void RegisterTable()
+        public void RegisterTable()
         {
             this.ToTable(TableName.Manager);
         }
 
-        #endregion Private Methods
+        #endregion Public Methods
     }
 }

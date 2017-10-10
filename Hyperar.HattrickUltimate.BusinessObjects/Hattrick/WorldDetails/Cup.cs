@@ -25,7 +25,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// For National cups (Levels 1 through 6) DO NOT have a League Level, and Hattrick
         /// represents this with a 0 instead of a NULL.
         /// </remarks>
-        public int CupLeagueLevel { get; set; }
+        public byte CupLeagueLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the Cup Level.
@@ -34,7 +34,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// DO NOT mistake with CupLeagueLevel. National/Divisional Cups: 1. Challenger Cups: 2.
         /// Consolation Cups: 3.
         /// </remarks>
-        public int CupLevel { get; set; }
+        public byte CupLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the CupLevelIndex
@@ -45,7 +45,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// Ruby: 2.
         /// Sapphire: 3.
         /// </remarks>
-        public int CupLevelIndex { get; set; }
+        public byte CupLevelIndex { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the Cup.
@@ -55,12 +55,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the current match round of the Cup.
         /// </summary>
-        public int MatchRound { get; set; }
+        public byte MatchRound { get; set; }
 
         /// <summary>
         /// Gets or sets the number of match rounds of the Cup left to be played.
         /// </summary>
-        public int MatchRoundsLeft { get; set; }
+        public byte MatchRoundsLeft { get; set; }
 
         #endregion Public Properties
     }

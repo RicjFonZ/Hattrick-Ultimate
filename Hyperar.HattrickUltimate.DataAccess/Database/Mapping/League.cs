@@ -7,30 +7,31 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// League entity mapping.
+    /// League entity mapping implementation.
     /// </summary>
-    internal class League : HattrickEntity<BusinessObjects.App.League>
+    internal class League : HattrickEntity<BusinessObjects.App.League>, IMapping
     {
-        #region Public Constructors
+        #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="League"/> class.
+        /// Initializes a new instance of the <see cref="League" /> class.
         /// </summary>
-        public League()
+        internal League()
         {
             this.RegisterTable();
             this.RegisterProperties();
             this.RegisterRelationships();
         }
 
-        #endregion Public Constructors
+        #endregion Internal Constructors
 
         #region Public Methods
 
         /// <summary>
-        /// Registers the Entity database table columns.
+        /// Registers property column mapping.
         /// </summary>
         public void RegisterProperties()
         {
@@ -55,51 +56,51 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasMaxLength(ColumnLength.ShortText)
                 .IsRequired();
 
-            this.Property(p => p.SeasonOffset)
-                .HasColumnName(ColumnName.SeasonOffset)
+            this.Property(p => p.CurrentSeason)
+                .HasColumnName(ColumnName.CurrentSeason)
                 .HasColumnOrder(5)
                 .HasColumnType(ColumnType.Integer)
-                .IsOptional();
+                .IsRequired();
 
-            this.Property(p => p.SeniorNationalTeamId)
-                .HasColumnName(ColumnName.SeniorNationalTeamId)
+            this.Property(p => p.SeasonOffset)
+                .HasColumnName(ColumnName.SeasonOffset)
                 .HasColumnOrder(6)
-                .HasColumnType(ColumnType.BigInteger)
-                .IsOptional();
+                .HasColumnType(ColumnType.Integer)
+                .IsRequired();
 
-            this.Property(p => p.JuniorNationalTeamId)
-                .HasColumnName(ColumnName.JuniorNationalTeamId)
+            this.Property(p => p.CurrentRound)
+                .HasColumnName(ColumnName.CurrentRound)
                 .HasColumnOrder(7)
-                .HasColumnType(ColumnType.BigInteger)
-                .IsOptional();
-
-            this.Property(p => p.ActiveTeams)
-                .HasColumnName(ColumnName.ActiveTeams)
-                .HasColumnOrder(8)
-                .HasColumnType(ColumnType.Integer)
-                .IsOptional();
-
-            this.Property(p => p.ActiveUsers)
-                .HasColumnName(ColumnName.ActiveUsers)
-                .HasColumnOrder(9)
-                .HasColumnType(ColumnType.Integer)
-                .IsOptional();
-
-            this.Property(p => p.WaitingUsers)
-                .HasColumnName(ColumnName.WaitingUsers)
-                .HasColumnOrder(10)
-                .HasColumnType(ColumnType.Integer)
-                .IsOptional();
+                .HasColumnType(ColumnType.TinyInt)
+                .IsRequired();
 
             this.Property(p => p.Divisions)
                 .HasColumnName(ColumnName.Divisions)
+                .HasColumnOrder(8)
+                .HasColumnType(ColumnType.TinyInt)
+                .IsRequired();
+
+            this.Property(p => p.ActiveTeams)
+                .HasColumnName(ColumnName.ActiveTeams)
+                .HasColumnOrder(9)
+                .HasColumnType(ColumnType.Integer)
+                .IsRequired();
+
+            this.Property(p => p.ActiveUsers)
+                .HasColumnName(ColumnName.ActiveUsers)
+                .HasColumnOrder(10)
+                .HasColumnType(ColumnType.Integer)
+                .IsRequired();
+
+            this.Property(p => p.WaitingUsers)
+                .HasColumnName(ColumnName.WaitingUsers)
                 .HasColumnOrder(11)
                 .HasColumnType(ColumnType.Integer)
                 .IsRequired();
         }
 
         /// <summary>
-        /// Registers the Entity relationships.
+        /// Register entity relationships.
         /// </summary>
         public void RegisterRelationships()
         {
@@ -113,7 +114,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         }
 
         /// <summary>
-        /// Registers the Entity to it's database table.
+        /// Register entity table mapping.
         /// </summary>
         public void RegisterTable()
         {

@@ -6,10 +6,11 @@
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
-    using Hyperar.HattrickUltimate.BusinessObjects.App.Interface;
+    using System.Collections.Generic;
+    using Interface;
 
     /// <summary>
-    /// Represents a Country Region.
+    /// Represents a Region.
     /// </summary>
     public class Region : HattrickEntityBase, IEntity, IHattrickEntity
     {
@@ -29,6 +30,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the name.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Senior Teams.
+        /// </summary>
+        public virtual ICollection<SeniorTeam> SeniorTeams { get; set; } = new HashSet<SeniorTeam>();
 
         #endregion Public Properties
 

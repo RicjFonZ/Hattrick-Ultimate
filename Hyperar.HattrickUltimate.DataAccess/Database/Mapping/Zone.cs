@@ -7,41 +7,51 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// Zone entity mapping.
+    /// Zone entity mapping implementation.
     /// </summary>
-    public class Zone : Entity<BusinessObjects.App.Zone>
+    internal class Zone : Entity<BusinessObjects.App.Zone>, IMapping
     {
-        #region Public Constructors
+        #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Zone"/> class.
+        /// Initializes a new instance of the <see cref="Zone" /> class.
         /// </summary>
-        public Zone()
+        internal Zone()
         {
             this.RegisterTable();
             this.RegisterProperties();
+            this.RegisterRelationships();
         }
 
-        #endregion Public Constructors
+        #endregion Internal Constructors
 
         #region Public Methods
 
         /// <summary>
-        /// Registers the Entity database table columns.
+        /// Registers property column mapping.
         /// </summary>
         public void RegisterProperties()
         {
             this.Property(p => p.Name)
-                .HasColumnOrder(2)
+                .HasColumnName(ColumnName.Name)
+                .HasColumnOrder(1)
                 .HasColumnType(ColumnType.UnicodeVarChar)
                 .HasMaxLength(ColumnLength.ShortText)
                 .IsRequired();
         }
 
         /// <summary>
-        /// Registers the Entity to it's database table.
+        /// Register entity relationships.
+        /// </summary>
+        public void RegisterRelationships()
+        {
+        }
+
+        /// <summary>
+        /// Register entity table mapping.
         /// </summary>
         public void RegisterTable()
         {

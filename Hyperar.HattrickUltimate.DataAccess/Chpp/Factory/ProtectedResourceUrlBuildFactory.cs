@@ -29,6 +29,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                 case XmlFile.ManagerCompendium:
                     return new Strategy.ProtectedResourceUrlBuild.ManagerCompendium();
 
+                case XmlFile.TeamDetails:
+                    return new Strategy.ProtectedResourceUrlBuild.TeamDetails();
+
                 case XmlFile.WorldDetails:
                     return new Strategy.ProtectedResourceUrlBuild.WorldDetails();
 

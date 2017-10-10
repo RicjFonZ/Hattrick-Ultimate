@@ -7,30 +7,31 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
 {
     using Constants;
+    using Interface;
 
     /// <summary>
-    /// Country entity mapping.
+    /// Country entity mapping implementation.
     /// </summary>
-    internal class Country : HattrickEntity<BusinessObjects.App.Country>
+    internal class Country : HattrickEntity<BusinessObjects.App.Country>, IMapping
     {
-        #region Public Constructors
+        #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Country"/> class
+        /// Initializes a new instance of the <see cref="Country" /> class.
         /// </summary>
-        public Country()
+        internal Country()
         {
             this.RegisterTable();
             this.RegisterProperties();
             this.RegisterRelationships();
         }
 
-        #endregion Public Constructors
+        #endregion Internal Constructors
 
         #region Public Methods
 
         /// <summary>
-        /// Registers the Entity database table columns.
+        /// Registers property column mapping.
         /// </summary>
         public void RegisterProperties()
         {
@@ -38,30 +39,22 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnName(ColumnName.Name)
                 .HasColumnOrder(2)
                 .HasColumnType(ColumnType.UnicodeVarChar)
-                .HasMaxLength(ColumnLength.MediumText)
+                .HasMaxLength(ColumnLength.ShortText)
                 .IsRequired();
 
             this.Property(p => p.Code)
                 .HasColumnName(ColumnName.Code)
                 .HasColumnOrder(3)
-                .HasColumnType(ColumnType.UnicodeVarChar)
-                .HasMaxLength(ColumnLength.MiniText)
+                .HasColumnType(ColumnType.UnicodeChar)
+                .HasMaxLength(ColumnLength.TwoCharCode)
                 .IsRequired();
         }
 
         /// <summary>
-        /// Registers the Entity relationships.
+        /// Register entity relationships.
         /// </summary>
         public void RegisterRelationships()
         {
-            this.HasRequired(r => r.League)
-                .WithOptional(r => r.Country)
-                .Map(r =>
-                {
-                    r.MapKey(ColumnName.LeagueId);
-                    r.ToTable(TableName.Country);
-                });
-
             this.HasRequired(r => r.Currency)
                 .WithMany(r => r.Countries)
                 .HasForeignKey(r => r.CurrencyId);
@@ -70,13 +63,21 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .WithMany(r => r.Countries)
                 .HasForeignKey(r => r.DateFormatId);
 
+            this.HasRequired(r => r.League)
+                .WithOptional(r => r.Country)
+                .Map(m =>
+                {
+                    m.ToTable(TableName.Country);
+                    m.MapKey(ColumnName.LeagueId);
+                });
+
             this.HasRequired(r => r.TimeFormat)
                 .WithMany(r => r.Countries)
                 .HasForeignKey(r => r.TimeFormatId);
         }
 
         /// <summary>
-        /// Registers the Entity to it's database table.
+        /// Register entity table mapping.
         /// </summary>
         public void RegisterTable()
         {

@@ -8,8 +8,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Xml;
+    using Constants;
     using Interface;
 
     /// <summary>
@@ -33,246 +33,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var result = (BusinessObjects.Hattrick.ManagerCompendium.Root)entity;
 
-            // Skips Manager opening node.
-            reader.Read();
-
-            result.Manager = new BusinessObjects.Hattrick.ManagerCompendium.Manager();
-
-            result.Manager.UserId = uint.Parse(reader.ReadElementContentAsString());
-            result.Manager.LoginName = reader.ReadElementContentAsString();
-            result.Manager.SupporterTier = reader.ReadElementContentAsString();
-
-            if (reader.Name.Equals(Constants.XmlTag.LastLogins, StringComparison.OrdinalIgnoreCase))
+            if (reader.Name.Equals(XmlTag.Manager, StringComparison.OrdinalIgnoreCase))
             {
-                // Skips LastLogins opening tag.
-                reader.Read();
-
-                result.Manager.LastLogins = new List<string>();
-
-                while (reader.Name.Equals(Constants.XmlTag.LoginTime, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.Manager.LastLogins.Add(reader.ReadElementContentAsString());
-                }
-
-                // Skips LastLogins closing tag.
-                reader.Read();
-            }
-
-            if (reader.Name.Equals(Constants.XmlTag.Language, StringComparison.OrdinalIgnoreCase))
-            {
-                // Skips Language opening tag.
-                reader.Read();
-
-                result.Manager.Language = new BusinessObjects.Hattrick.ManagerCompendium.Language();
-
-                result.Manager.Language.LanguageId = uint.Parse(reader.ReadElementContentAsString());
-                result.Manager.Language.LanguageName = reader.ReadElementContentAsString();
-
-                // Skips Language opening tag.
-                reader.Read();
-            }
-
-            if (reader.Name.Equals(Constants.XmlTag.Country, StringComparison.OrdinalIgnoreCase))
-            {
-                // Skips Country opening tag.
-                reader.Read();
-
-                result.Manager.Country = new BusinessObjects.Hattrick.ManagerCompendium.Country();
-
-                result.Manager.Country.CountryId = uint.Parse(reader.ReadElementContentAsString());
-                result.Manager.Country.CountryName = reader.ReadElementContentAsString();
-
-                // Skips Country opening tag.
-                reader.Read();
-            }
-
-            if (reader.Name.Equals(Constants.XmlTag.Teams, StringComparison.OrdinalIgnoreCase))
-            {
-                // Skips Teams opening tag.
-                reader.Read();
-
-                result.Manager.Teams = new List<BusinessObjects.Hattrick.ManagerCompendium.Team>();
-
-                while (reader.Name.Equals(Constants.XmlTag.Team, StringComparison.OrdinalIgnoreCase))
-                {
-                    // Skips Team opening node.
-                    reader.Read();
-
-                    var newTeam = new BusinessObjects.Hattrick.ManagerCompendium.Team();
-
-                    newTeam.TeamId = uint.Parse(reader.ReadElementContentAsString());
-                    newTeam.TeamName = reader.ReadElementContentAsString();
-
-                    if (reader.Name.Equals(Constants.XmlTag.Arena, StringComparison.OrdinalIgnoreCase))
-                    {
-                        // Skips Arena opening node.
-                        reader.Read();
-
-                        newTeam.Arena = new BusinessObjects.Hattrick.ManagerCompendium.Arena();
-
-                        newTeam.Arena.ArenaId = uint.Parse(reader.ReadElementContentAsString());
-                        newTeam.Arena.ArenaName = reader.ReadElementContentAsString();
-
-                        // Skips Arena closing node.
-                        reader.Read();
-                    }
-
-                    if (reader.Name.Equals(Constants.XmlTag.League, StringComparison.OrdinalIgnoreCase))
-                    {
-                        // Skips League opening node.
-                        reader.Read();
-
-                        newTeam.League = new BusinessObjects.Hattrick.ManagerCompendium.League();
-
-                        newTeam.League.LeagueId = uint.Parse(reader.ReadElementContentAsString());
-                        newTeam.League.LeagueName = reader.ReadElementContentAsString();
-
-                        // Skips League closing node.
-                        reader.Read();
-                    }
-
-                    if (reader.Name.Equals(Constants.XmlTag.LeagueLevelUnit, StringComparison.OrdinalIgnoreCase))
-                    {
-                        // Skips LeagueLevelUnit opening node.
-                        reader.Read();
-
-                        newTeam.LeagueLevelUnit = new BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit();
-
-                        newTeam.LeagueLevelUnit.LeagueLevelUnitId = uint.Parse(reader.ReadElementContentAsString());
-                        newTeam.LeagueLevelUnit.LeagueLevelUnitName = reader.ReadElementContentAsString();
-
-                        // Skips LeagueLevelUnit closing node.
-                        reader.Read();
-                    }
-
-                    if (reader.Name.Equals(Constants.XmlTag.Region, StringComparison.OrdinalIgnoreCase))
-                    {
-                        // Skips Region opening node.
-                        reader.Read();
-
-                        newTeam.Region = new BusinessObjects.Hattrick.ManagerCompendium.Region();
-
-                        newTeam.Region.RegionId = uint.Parse(reader.ReadElementContentAsString());
-                        newTeam.Region.RegionName = reader.ReadElementContentAsString();
-
-                        // Skips Region closing node.
-                        reader.Read();
-                    }
-
-                    if (reader.Name.Equals(Constants.XmlTag.YouthTeam, StringComparison.OrdinalIgnoreCase) &&
-                        !reader.IsEmptyElement)
-                    {
-                        // Skips YouthTeam opening node.
-                        reader.Read();
-
-                        newTeam.YouthTeam = new BusinessObjects.Hattrick.ManagerCompendium.YouthTeam();
-
-                        newTeam.YouthTeam.YouthTeamId = uint.Parse(reader.ReadElementContentAsString());
-                        newTeam.YouthTeam.YouthTeamName = reader.ReadElementContentAsString();
-
-                        if (reader.Name.Equals(Constants.XmlTag.YouthLeague, StringComparison.OrdinalIgnoreCase) &&
-                            !reader.IsEmptyElement)
-                        {
-                            // Skips YouthLeague opening node.
-                            reader.Read();
-
-                            newTeam.YouthTeam.YouthLeague = new BusinessObjects.Hattrick.ManagerCompendium.YouthLeague();
-
-                            newTeam.YouthTeam.YouthLeague.YouthLeagueId = uint.Parse(reader.ReadElementContentAsString());
-                            newTeam.YouthTeam.YouthLeague.YouthLeagueName = reader.ReadElementContentAsString();
-                        }
-
-                        // Skips YouthLeague closing node.
-                        reader.Read();
-                    }
-
-                    // Skips YouthTeam closing node.
-                    reader.Read();
-
-                    result.Manager.Teams.Add(newTeam);
-
-                    // Skips Team closing node.
-                    reader.Read();
-                }
-            }
-
-            // Skips Teams opening tag.
-            reader.Read();
-
-            if (reader.Name.Equals(Constants.XmlTag.NationalTeamCoach, StringComparison.OrdinalIgnoreCase) &&
-                !reader.IsEmptyElement)
-            {
-                // Skips NationalTeamCoach opening tag.
-                reader.Read();
-
-                result.Manager.NationalTeamCoach = new List<BusinessObjects.Hattrick.ManagerCompendium.NationalTeam>();
-
-                while (reader.Name.Equals(Constants.XmlTag.NationalTeam, StringComparison.OrdinalIgnoreCase))
-                {
-                    // Skips NationalTeam opening node.
-                    reader.Read();
-
-                    var newNationalTeam = new BusinessObjects.Hattrick.ManagerCompendium.NationalTeam();
-
-                    newNationalTeam = new BusinessObjects.Hattrick.ManagerCompendium.NationalTeam();
-
-                    newNationalTeam.NationalTeamId = uint.Parse(reader.ReadElementContentAsString());
-                    newNationalTeam.NationalTeamName = reader.ReadElementContentAsString();
-
-                    result.Manager.NationalTeamCoach.Add(newNationalTeam);
-
-                    // Skips NationalTeam closing node.
-                    reader.Read();
-                }
-            }
-
-            // Skips NationalTeamCoach closing tag.
-            reader.Read();
-
-            if (reader.Name.Equals(Constants.XmlTag.Avatar, StringComparison.OrdinalIgnoreCase))
-            {
-                // Skips Avatar opening tag.
-                reader.Read();
-
-                result.Manager.Avatar = new BusinessObjects.Hattrick.ManagerCompendium.Avatar();
-
-                result.Manager.Avatar.BackgroundImage = reader.ReadElementContentAsString();
-
-                result.Manager.Avatar.Layers = new List<BusinessObjects.Hattrick.ManagerCompendium.Layer>();
-
-                while (reader.Name.Equals(Constants.XmlTag.Layer, StringComparison.OrdinalIgnoreCase))
-                {
-                    var newLayer = new BusinessObjects.Hattrick.ManagerCompendium.Layer();
-
-                    List<KeyValuePair<string, int>> positionAttributes = new List<KeyValuePair<string, int>>();
-
-                    for (int i = 0; i < reader.AttributeCount; i++)
-                    {
-                        reader.MoveToNextAttribute();
-
-                        positionAttributes.Add(this.ParseLayerAttributes(reader));
-                    }
-
-                    if (positionAttributes.Any(p => p.Key.Equals(Constants.XmlTag.X, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        newLayer.X = positionAttributes.Single(p => p.Key.Equals(Constants.XmlTag.X, StringComparison.OrdinalIgnoreCase)).Value;
-                    }
-
-                    if (positionAttributes.Any(p => p.Key.Equals(Constants.XmlTag.Y, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        newLayer.Y = positionAttributes.Single(p => p.Key.Equals(Constants.XmlTag.Y, StringComparison.OrdinalIgnoreCase)).Value;
-                    }
-
-                    // Skips Layer opening tag.
-                    reader.Read();
-
-                    newLayer.Image = reader.ReadElementContentAsString();
-
-                    result.Manager.Avatar.Layers.Add(newLayer);
-
-                    // Skips Layer closing tag.
-                    reader.Read();
-                }
+                result.Manager = this.ParseManagerNode(reader);
             }
         }
 
@@ -281,23 +44,498 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
         #region Private Methods
 
         /// <summary>
-        /// Parses the attributes on Layer node within Manager Compendium Hattrick XML file.
+        /// Parses Arena node.
         /// </summary>
-        /// <param name="reader">XmlReader object.</param>
-        /// <returns>
-        /// A collection of KeyValuePair objects that contain name and value of each attribute.
-        /// </returns>
-        private KeyValuePair<string, int> ParseLayerAttributes(XmlReader reader)
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Arena with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Arena ParseArenaNode(XmlReader reader)
         {
-            string name = reader.Name;
+            if (!reader.Name.Equals(XmlTag.Arena, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
 
-            int value = 0;
+            // Skips Arena opening node.
+            reader.Read();
 
-            int.TryParse(reader.Value, out value);
+            var newArena = new BusinessObjects.Hattrick.ManagerCompendium.Arena();
 
-            var result = new KeyValuePair<string, int>(name, value);
+            newArena.ArenaId = uint.Parse(reader.ReadElementContentAsString());
+            newArena.ArenaName = reader.ReadElementContentAsString();
 
-            return result;
+            // Skips Arena closing node.
+            reader.Read();
+
+            return newArena;
+        }
+
+        /// <summary>
+        /// Parses Avatar node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Avatar with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Avatar ParseAvatarNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.Avatar, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips Avatar opening tag.
+            reader.Read();
+
+            var newAvatar = new BusinessObjects.Hattrick.ManagerCompendium.Avatar();
+
+            newAvatar.BackgroundImage = reader.ReadElementContentAsString();
+
+            newAvatar.Layers = new List<BusinessObjects.Hattrick.ManagerCompendium.Layer>();
+
+            while (reader.Name.Equals(XmlTag.Layer, StringComparison.OrdinalIgnoreCase))
+            {
+                newAvatar.Layers.Add(
+                                     this.ParseLayerNode(reader));
+            }
+
+            // Skips Avatar closing tag.
+            reader.Read();
+
+            return newAvatar;
+        }
+
+        /// <summary>
+        /// Parses Country node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Country with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Country ParseCountryNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.Country, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips Country opening node.
+            reader.Read();
+
+            var newCountry = new BusinessObjects.Hattrick.ManagerCompendium.Country();
+
+            newCountry.CountryId = uint.Parse(reader.ReadElementContentAsString());
+            newCountry.CountryName = reader.ReadElementContentAsString();
+
+            // Skips Country closing node.
+            reader.Read();
+
+            return newCountry;
+        }
+
+        /// <summary>
+        /// Parses Language node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Language with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Language ParseLanguageNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.Language, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips Language opening node.
+            reader.Read();
+
+            var newLanguage = new BusinessObjects.Hattrick.ManagerCompendium.Language();
+
+            newLanguage.LanguageId = uint.Parse(reader.ReadElementContentAsString());
+            newLanguage.LanguageName = reader.ReadElementContentAsString();
+
+            // Skips Language closing node.
+            reader.Read();
+
+            return newLanguage;
+        }
+
+        /// <summary>
+        /// Parses Layer node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Layer with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Layer ParseLayerNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.Layer, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            var newLayer = new BusinessObjects.Hattrick.ManagerCompendium.Layer();
+
+            List<KeyValuePair<string, int>> positionAttributes = new List<KeyValuePair<string, int>>();
+
+            if (!string.IsNullOrWhiteSpace(reader.GetAttribute(XmlTag.X)))
+            {
+                newLayer.X = int.Parse(reader.GetAttribute(XmlTag.X));
+            }
+
+            if (!string.IsNullOrWhiteSpace(reader.GetAttribute(XmlTag.Y)))
+            {
+                newLayer.X = int.Parse(reader.GetAttribute(XmlTag.Y));
+            }
+
+            // Skips Layer opening tag.
+            reader.Read();
+
+            newLayer.Image = reader.ReadElementContentAsString();
+
+            // Skips Layer closing tag.
+            reader.Read();
+
+            return newLayer;
+        }
+
+        /// <summary>
+        /// Parses LeagueLevelUnit node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit ParseLeagueLevelUnitNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.LeagueLevelUnit, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips LeagueLevelUnit opening node.
+            reader.Read();
+
+            var newLeagueLevelUnit = new BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit();
+
+            newLeagueLevelUnit.LeagueLevelUnitId = uint.Parse(reader.ReadElementContentAsString());
+            newLeagueLevelUnit.LeagueLevelUnitName = reader.ReadElementContentAsString();
+
+            // Skips LeagueLevelUnit closing node.
+            reader.Read();
+
+            return newLeagueLevelUnit;
+        }
+
+        /// <summary>
+        /// Parses League node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.League with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.League ParseLeagueNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.League, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips League opening node.
+            reader.Read();
+
+            var newLeague = new BusinessObjects.Hattrick.ManagerCompendium.League();
+
+            newLeague.LeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newLeague.LeagueName = reader.ReadElementContentAsString();
+
+            // Skips League closing node.
+            reader.Read();
+
+            return newLeague;
+        }
+
+        /// <summary>
+        /// Parses Manager node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Manager with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Manager ParseManagerNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.Manager, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips Manager opening node.
+            reader.Read();
+
+            var newManager = new BusinessObjects.Hattrick.ManagerCompendium.Manager();
+
+            newManager.UserId = uint.Parse(reader.ReadElementContentAsString());
+            newManager.LoginName = reader.ReadElementContentAsString();
+            newManager.SupporterTier = reader.ReadElementContentAsString();
+
+            if (reader.Name.Equals(XmlTag.LastLogins, StringComparison.OrdinalIgnoreCase))
+            {
+                // Skips LastLogins opening tag.
+                reader.Read();
+
+                newManager.LastLogins = new List<string>();
+
+                while (reader.Name.Equals(XmlTag.LoginTime, StringComparison.OrdinalIgnoreCase))
+                {
+                    newManager.LastLogins.Add(reader.ReadElementContentAsString());
+                }
+
+                // Skips LastLogins closing tag.
+                reader.Read();
+            }
+
+            if (reader.Name.Equals(XmlTag.Language, StringComparison.OrdinalIgnoreCase))
+            {
+                newManager.Language = this.ParseLanguageNode(reader);
+            }
+
+            if (reader.Name.Equals(XmlTag.Country, StringComparison.OrdinalIgnoreCase))
+            {
+                newManager.Country = this.ParseCountryNode(reader);
+            }
+
+            if (reader.Name.Equals(XmlTag.Teams, StringComparison.OrdinalIgnoreCase) &&
+                !reader.IsEmptyElement)
+            {
+                // Skips Teams opening tag.
+                reader.Read();
+
+                newManager.Teams = new List<BusinessObjects.Hattrick.ManagerCompendium.Team>();
+
+                while (reader.Name.Equals(XmlTag.Team, StringComparison.OrdinalIgnoreCase))
+                {
+                    newManager.Teams.Add(
+                                         this.ParseTeamNode(reader));
+                }
+            }
+
+            // Skips Teams opening tag.
+            reader.Read();
+
+            if (reader.Name.Equals(XmlTag.NationalTeamCoach, StringComparison.OrdinalIgnoreCase) &&
+                !reader.IsEmptyElement)
+            {
+                newManager.NationalTeamCoach = new List<BusinessObjects.Hattrick.ManagerCompendium.NationalTeam>();
+
+                // Skips NationalTeamCoach opening tag.
+                reader.Read();
+
+                while (reader.Name.Equals(XmlTag.NationalTeam, StringComparison.OrdinalIgnoreCase))
+                {
+                    newManager.NationalTeamCoach.Add(
+                                                     this.ParseNationalTeamNode(reader));
+                }
+            }
+
+            // Skips NationalTeamCoach closing tag.
+            reader.Read();
+
+            if (reader.Name.Equals(XmlTag.Avatar, StringComparison.OrdinalIgnoreCase))
+            {
+                newManager.Avatar = this.ParseAvatarNode(reader);
+            }
+
+            // Skips Manager closing tag.
+            reader.Read();
+
+            return newManager;
+        }
+
+        /// <summary>
+        /// Parses NationalTeam node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.NationalTeam with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.NationalTeam ParseNationalTeamNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.NationalTeam, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            var newNationalTeam = new BusinessObjects.Hattrick.ManagerCompendium.NationalTeam();
+
+            // Skips NationalTeam opening node.
+            reader.Read();
+
+            newNationalTeam.NationalTeamId = uint.Parse(reader.ReadElementContentAsString());
+            newNationalTeam.NationalTeamName = reader.ReadElementContentAsString();
+
+            // Skips NationalTeam closing node.
+            reader.Read();
+
+            return newNationalTeam;
+        }
+
+        /// <summary>
+        /// Parses Region node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Region with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Region ParseRegionNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.Region, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips Region opening node.
+            reader.Read();
+
+            var newRegion = new BusinessObjects.Hattrick.ManagerCompendium.Region();
+
+            newRegion.RegionId = uint.Parse(reader.ReadElementContentAsString());
+            newRegion.RegionName = reader.ReadElementContentAsString();
+
+            // Skips Region closing node.
+            reader.Read();
+
+            return newRegion;
+        }
+
+        /// <summary>
+        /// Parses Team node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.Team with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.Team ParseTeamNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.Team, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips Team opening node.
+            reader.Read();
+
+            var newTeam = new BusinessObjects.Hattrick.ManagerCompendium.Team();
+
+            newTeam.TeamId = uint.Parse(reader.ReadElementContentAsString());
+            newTeam.TeamName = reader.ReadElementContentAsString();
+
+            if (reader.Name.Equals(XmlTag.Arena, StringComparison.OrdinalIgnoreCase))
+            {
+                newTeam.Arena = this.ParseArenaNode(reader);
+            }
+
+            if (reader.Name.Equals(XmlTag.League, StringComparison.OrdinalIgnoreCase))
+            {
+                newTeam.League = this.ParseLeagueNode(reader);
+            }
+
+            if (reader.Name.Equals(XmlTag.LeagueLevelUnit, StringComparison.OrdinalIgnoreCase))
+            {
+                newTeam.LeagueLevelUnit = this.ParseLeagueLevelUnitNode(reader);
+            }
+
+            if (reader.Name.Equals(XmlTag.Region, StringComparison.OrdinalIgnoreCase))
+            {
+                newTeam.Region = this.ParseRegionNode(reader);
+            }
+
+            if (reader.Name.Equals(XmlTag.YouthTeam, StringComparison.OrdinalIgnoreCase) &&
+                !reader.IsEmptyElement)
+            {
+                newTeam.YouthTeam = this.ParseYouthTeamNode(reader);
+            }
+
+            // Skips Team closing node.
+            reader.Read();
+
+            return newTeam;
+        }
+
+        /// <summary>
+        /// Parses YouthLeague node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.YouthLeague with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.YouthLeague ParseYouthLeagueNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.YouthLeague, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips YouthLeague opening node.
+            reader.Read();
+
+            var newYouthLeague = new BusinessObjects.Hattrick.ManagerCompendium.YouthLeague();
+
+            newYouthLeague.YouthLeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newYouthLeague.YouthLeagueName = reader.ReadElementContentAsString();
+
+            // Skips YouthLeague closing node.
+            reader.Read();
+
+            return newYouthLeague;
+        }
+
+        /// <summary>
+        /// Parses YouthTeam node.
+        /// </summary>
+        /// <param name="reader">XmlReader object loaded with the Xml file.</param>
+        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.YouthTeam with the parsed data.</returns>
+        private BusinessObjects.Hattrick.ManagerCompendium.YouthTeam ParseYouthTeamNode(XmlReader reader)
+        {
+            if (!reader.Name.Equals(XmlTag.YouthTeam, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception(
+                              string.Format(
+                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         reader.Name));
+            }
+
+            // Skips YouthTeam opening node.
+            reader.Read();
+
+            var newYouthTeam = new BusinessObjects.Hattrick.ManagerCompendium.YouthTeam();
+
+            newYouthTeam.YouthTeamId = uint.Parse(reader.ReadElementContentAsString());
+            newYouthTeam.YouthTeamName = reader.ReadElementContentAsString();
+
+            if (reader.Name.Equals(XmlTag.YouthLeague, StringComparison.OrdinalIgnoreCase) &&
+                !reader.IsEmptyElement)
+            {
+                newYouthTeam.YouthLeague = this.ParseYouthLeagueNode(reader);
+            }
+
+            // Skips YouthTeam closing node.
+            reader.Read();
+
+            return newYouthTeam;
         }
 
         #endregion Private Methods

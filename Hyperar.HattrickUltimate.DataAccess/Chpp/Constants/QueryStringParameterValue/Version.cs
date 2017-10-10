@@ -19,6 +19,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants.QueryStringParamete
         internal const string ManagerCompendium = "1.1";
 
         /// <summary>
+        /// Team Details Version query string parameter value.
+        /// </summary>
+        internal const string TeamDetails = "3.4";
+
+        /// <summary>
         /// World Details Version query string parameter value.
         /// </summary>
         internal const string WorldDetails = "1.8";
