@@ -1,0 +1,155 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E34E05D3-B534-0D62-18C2-237F9F50F4EA" name="LeagueCup">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>5E4DB620-F1F3-8B6E-2A21-02C55B69FE66</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="055DC3AB-220B-E444-5018-35F588C297E2">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>E95EB290-C26C-B5E0-2CB5-E4B899C8BE12</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="HattrickId" id="F6C2AE42-7A26-0DE7-0CB1-E12EC2F63027">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>A4788995-8E9E-ACE9-B142-33B56BBA0CE5</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<domain>FB054634-CC29-4C58-03CA-91E7F1B62999</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Name" id="64BBD724-3497-EEB8-EE58-6CFFBB90A6B0">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>37D0DCD0-83C0-5129-08DA-30172AFC173F</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>C802DA8B-B800-AAE9-C085-8CA6ED653B12</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Type" id="605D3429-CABE-B10F-9F86-A27E32DCE80A">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>D00CE491-1F58-4509-441B-8051E764FD90</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tier" id="C263DC32-88FE-5EE5-19A6-72146C08D120">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>46E05A9E-1F0A-7993-71EA-A24F15C05C61</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Division" id="12843030-E320-E7B8-E7A7-25DD56D59BD1">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>60D69C37-6A67-C79C-8A45-79409B303A8E</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CurrentRound" id="2DACEFCF-75AE-732C-91C1-CD4AC87AB27E">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>616E8567-486B-5DFC-3409-21104FBB56EE</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RoundsLeft" id="B782583D-9FB3-708F-53C5-BDA17180C8E7">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>CD33BF7D-4618-E265-26AC-B10FEA03917D</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LeagueId" id="578ED98E-086E-17A0-11BC-CA9732F14B65">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>19FECD2F-8B7A-EE68-B4F7-BDD3E8F51D2C</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<referedAttribute>628D6D6B-0830-6EC7-62E6-3290582C7357</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8DAADF5B-8C6F-2DD7-0C15-79795EAAF359" name="LeagueCup PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>0FD9A26B-1E4D-0A91-4FBA-CD84485CB447</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>055DC3AB-220B-E444-5018-35F588C297E2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

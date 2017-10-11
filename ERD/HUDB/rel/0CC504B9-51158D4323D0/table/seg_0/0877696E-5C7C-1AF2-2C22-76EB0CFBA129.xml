@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0877696E-5C7C-1AF2-2C22-76EB0CFBA129" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="LeagueSchedule">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:34:44 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_16</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="643F0C6B-234E-4FEE-DCF1-29AF6C6ABD96">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TrainingUpdateDayOfWeek" id="BB4F3F60-47E5-0514-8464-52A2B4709763">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TrainingUpdateTimeOfDay" id="C6746C7F-B370-0093-4DE6-40230F8C97EB">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<domain>67AB6B51-0791-724E-A832-82B34428C2A6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EconomyUpdateDayOfWeek" id="E9B24C01-CCF5-652F-6271-D15F2B5E5C39">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EconomyUpdateTimeOfDay" id="5A89D93B-3E6B-68FD-7DFF-29868DA3C66B">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<domain>67AB6B51-0791-724E-A832-82B34428C2A6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SeriesMatchDayOfWeek" id="428D456D-51B4-E779-7A82-BA5DD7A91C40">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SeriesMatchTimeOfDay" id="873248C4-8625-1DC4-2F9E-23AA7ACF9890">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<domain>67AB6B51-0791-724E-A832-82B34428C2A6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CupMatchDayOfWeek" id="6D28F8FF-F7EE-2ACC-D2D9-6B5368771859">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CupMatchTimeOfDay" id="D88AD19D-2516-35F9-D261-B84A339891F7">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<domain>67AB6B51-0791-724E-A832-82B34428C2A6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LeagueId" id="749710AA-563F-217B-A965-BDB3EA422E3D">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:35:48 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="96958BEF-5C09-E90A-6415-2B4AB53B5A01" referredColumn="396E39D4-912F-8D47-30B2-D3B9FDD8DD01"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F11C28A0-9FF3-44E8-E564-ADEA7BEDF023" name="LeagueSchedule_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 13:45:29 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="643F0C6B-234E-4FEE-DCF1-29AF6C6ABD96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="14E898FE-4025-9FB4-D92A-02056DC2813E" name="LeagueSchedule_League_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:22:05 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="749710AA-563F-217B-A965-BDB3EA422E3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

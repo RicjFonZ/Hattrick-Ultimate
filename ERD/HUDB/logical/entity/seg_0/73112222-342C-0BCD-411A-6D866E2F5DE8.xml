@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="73112222-342C-0BCD-411A-6D866E2F5DE8" name="User">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>65C0FBC9-FE43-F4C2-D1E4-B4AEF664F469</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="2E11E916-B183-09E8-0D56-4D967E2865BD">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>8E12751C-BE24-0BBB-9882-1019FF3C1487</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ManagerId" id="284D23BE-D322-787D-DF2B-AE21BFC47E87">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>4C495B37-61CE-8130-EE68-D104311BA873</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>CEB0ABD5-CB4A-BB80-4637-13D5939B36D6</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DB2123CD-4FD2-B9FB-8D92-2C385DB3B1B4" name="User PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>315E44FB-48BB-94F2-E7E5-A8E1292D3156</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2E11E916-B183-09E8-0D56-4D967E2865BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

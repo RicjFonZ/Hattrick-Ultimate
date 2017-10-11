@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="57538511-257A-5DE4-6B55-1CA91FB13456" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="Token">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:35:07 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_19</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="1E01681F-7423-964C-F93B-44715CCE8AB8">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:36:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Key" id="76D68D25-0B92-3D97-C5A2-83436742AF69">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:36:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<domain>A9EB51B8-6A45-2527-2A4A-942FA12F09DD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Secret" id="0642278E-75FF-2CDD-8481-AB86323C6FBD">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:36:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<domain>A9EB51B8-6A45-2527-2A4A-942FA12F09DD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Scope" id="BF1ECC59-4AE2-90A4-3EFB-0D647AF95EF0">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:36:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<domain>FEEBE184-5FA9-6D52-35BA-EC95F277AC2D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CreatedOn" id="7A4058B0-06F5-1E70-197D-6702987EAD20">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:36:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<domain>A55A8907-EC58-8D81-F81D-BF86745C9723</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ExpiresOn" id="BB199E1E-F323-FD7F-D3F4-3AFFED481C98">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:36:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<domain>A55A8907-EC58-8D81-F81D-BF86745C9723</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UserId" id="EFF89DFA-2AA9-B039-4C61-67D10FEC317B">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:37:33 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="269CFB50-577F-D504-F871-3E0CF2200A30" referredColumn="8E12751C-BE24-0BBB-9882-1019FF3C1487"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="073E3D2A-A6F0-7F74-5340-3C67F4C042FE" name="Token_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:36:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E01681F-7423-964C-F93B-44715CCE8AB8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B7051454-A799-B8D3-22B0-67B6335DB107" name="Token_User_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:37:39 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFF89DFA-2AA9-B039-4C61-67D10FEC317B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

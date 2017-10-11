@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SeniorArena_SeniorTeam_FK" directorySegmentName="seg_0" id="FDD26763-A2BC-FF12-0ED0-EFFA7A6C3932">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>5E4E86A6-2590-7B6B-FC12-4E8693633116</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<sourcePk>A5FE9663-F47D-4327-3674-FA8729ED319D</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>9E794074-7DED-CD03-AF99-68AB42B83715</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2EA32E8C-7E3D-45FA-436E-7AB471199342</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

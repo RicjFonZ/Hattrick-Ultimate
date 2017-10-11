@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CBD608B1-0E0C-BF8B-2598-A71AB44B2F86" containerWithKeyObject="4FF5094C-237F-838C-348B-B7BAB37FB37F" localFKIndex="65AD2622-EEDB-A251-247E-9367C8A6F894" name="SeniorPlayerSkills_SeniorPlayer_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-11 18:47:34 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<referredTableLongName>dbo.SeniorPlayer</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C72EA09A-D578-4218-95A2-0C33A0D5E777</referredTableID>
+<keyObject>EDC8D537-11A8-4EAB-5A2F-0EF1D9194EAA</keyObject>
+<referredKeyID>EDC8D537-11A8-4EAB-5A2F-0EF1D9194EAA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

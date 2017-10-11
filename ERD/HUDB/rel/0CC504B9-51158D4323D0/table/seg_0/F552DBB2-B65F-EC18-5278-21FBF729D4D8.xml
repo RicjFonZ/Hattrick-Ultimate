@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F552DBB2-B65F-EC18-5278-21FBF729D4D8" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="TimeFormat">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:11:45 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_22</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="E09C4714-9436-BF03-6C5E-18382BCE86F7">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:12:17 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mask" id="FBF89CF0-D97D-513A-63FE-046281DA1973">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:12:17 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>C802DA8B-B800-AAE9-C085-8CA6ED653B12</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="57ADF90B-D3D1-DEC2-B899-908C21FED9FC" name="TimeFormat_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:12:17 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E09C4714-9436-BF03-6C5E-18382BCE86F7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

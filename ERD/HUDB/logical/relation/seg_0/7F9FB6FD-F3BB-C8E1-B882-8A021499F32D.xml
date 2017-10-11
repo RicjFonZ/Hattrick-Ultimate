@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Manager_Country_FK" directorySegmentName="seg_0" id="7F9FB6FD-F3BB-C8E1-B882-8A021499F32D">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>B44AFA47-C655-4348-0CEB-1FEE90F5CC84</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<sourcePk>145564CE-3DAE-22C5-0D35-36BDFD69E072</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B08C439F-171A-A590-F8D5-25D78B68D344</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2C3FB040-65B4-C445-2BC2-179BE7757294</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

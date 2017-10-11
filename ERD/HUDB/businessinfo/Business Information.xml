@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="746D3737-D6E8-C4A4-F6F4-6084E785FEFC">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 14:28:27 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

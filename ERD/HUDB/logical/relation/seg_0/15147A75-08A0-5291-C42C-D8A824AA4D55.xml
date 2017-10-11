@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="LeagueSchedule_League_FK" directorySegmentName="seg_0" id="15147A75-08A0-5291-C42C-D8A824AA4D55">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>96958BEF-5C09-E90A-6415-2B4AB53B5A01</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<sourcePk>5293C3D1-7331-A06B-A202-C671CF78775D</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F9FC1203-7335-867B-1D3A-5C083C569CC7</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CC0A405E-7470-FC67-1CF4-542C6506CE4B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

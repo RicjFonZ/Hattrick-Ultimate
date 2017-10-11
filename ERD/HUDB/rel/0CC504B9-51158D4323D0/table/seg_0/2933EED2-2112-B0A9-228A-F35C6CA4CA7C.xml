@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2933EED2-2112-B0A9-228A-F35C6CA4CA7C" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="SeniorTeam">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:29:47 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_28</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="164F8F69-D5B3-8723-C4BF-E952549607F9">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:32:26 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HattrickId" id="A9FB722A-6E5D-1A92-3944-EF644AD11D62">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:32:26 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<domain>FB054634-CC29-4C58-03CA-91E7F1B62999</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FullName" id="BFE16823-6B70-3137-E7B7-67CE2B3D4F27">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:32:26 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>C802DA8B-B800-AAE9-C085-8CA6ED653B12</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ShortName" id="7D58DD94-9CA1-77D7-CBAD-A92F2E20E14A">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:32:26 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>C802DA8B-B800-AAE9-C085-8CA6ED653B12</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsPrimary" id="8F5F4204-2BE6-8481-DF94-E497E1506FF7">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:32:26 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<domain>1F200212-3823-802C-C58C-452429B9DACA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EstablishedOn" id="487F4E56-09B4-AA62-70AD-88A08E76B137">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:32:26 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<domain>A55A8907-EC58-8D81-F81D-BF86745C9723</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WinsInRow" id="99AA1CCE-803D-F67B-4E4F-E6DDDA9C0117">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:39:32 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UndefeatedInRow" id="2777A368-6763-D0C4-2C3A-FFEA87CFF946">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:39:32 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LeagueRank" id="AD5C8766-2F66-2F4C-FE49-9E523A152805">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:39:32 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ManagerId" id="AEE99A64-A752-29AD-54A7-2169C96AA6B6">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:39:32 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="84800A9D-99AE-B4AE-34BD-0DEB435961FF" referredColumn="2CBCF26D-D69A-DC00-7A2D-AE3AF204D009"/>
+</associations>
+</Column>
+<Column name="SeniorSeriesId" id="2DAFD0E9-4ED3-95BD-0D1D-D317369C4323">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:39:32 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7A476EA3-96A4-E0BD-E6FB-81DAD790946B" referredColumn="DF4CACCC-09FA-06D4-4AD3-9D6AD0BAC665"/>
+</associations>
+</Column>
+<Column name="RegionId" id="A4D034E8-99F6-ED6F-8A7A-20264E6D651F">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:39:32 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6084EECC-8F5E-1155-CB9C-45BCE4814BCC" referredColumn="34C38B8C-FE39-5AC6-9A32-CE2CBE847A64"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="19839777-0CC3-2B66-3883-B04B8EEF7CF0" name="SeniorTeam_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:32:26 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="164F8F69-D5B3-8723-C4BF-E952549607F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4741427A-23BD-F415-B8A8-B138CFF54954" name="SeniorTeam_SeniorSeries_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:43:02 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2DAFD0E9-4ED3-95BD-0D1D-D317369C4323"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B2836D55-7C8F-D2B9-BA32-0D04CBF155CA" name="SeniorTeam_Region_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:43:02 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A4D034E8-99F6-ED6F-8A7A-20264E6D651F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BB4EC479-B5C4-26EA-0690-0BFA9A73CCF2" name="SeniorTeam_Manager_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:43:02 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AEE99A64-A752-29AD-54A7-2169C96AA6B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

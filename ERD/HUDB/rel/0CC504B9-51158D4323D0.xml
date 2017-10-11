@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="SQL Server 2012" id="0CC504B9-4AB8-CC5F-8967-51158D4323D0" mainViewID="FDBB8370-9E74-5F9B-FF0F-974A18EB3B0B">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 14:28:27 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<shouldBeOpen>true</shouldBeOpen>
+<selectedRDBMSSite>980FCE9E-D688-BDF0-C89A-C9FB2DCAED45</selectedRDBMSSite>
+</relationalModel>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B219C2B3-E41D-F659-4D0B-3651BA25E65A" containerWithKeyObject="C72EA09A-D578-4218-95A2-0C33A0D5E777" localFKIndex="57F6079F-23AD-193D-35F9-A08ABCD34D88" name="SeniorPlayer_Country_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-11 18:34:46 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<referredTableLongName>dbo.Country</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C94528AF-B5B4-4FC6-86FD-13538BFD7838</referredTableID>
+<keyObject>73D4E057-4CE4-0FBA-F9FC-29124538F230</keyObject>
+<referredKeyID>73D4E057-4CE4-0FBA-F9FC-29124538F230</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="269CFB50-577F-D504-F871-3E0CF2200A30" containerWithKeyObject="57538511-257A-5DE4-6B55-1CA91FB13456" localFKIndex="B7051454-A799-B8D3-22B0-67B6335DB107" name="Token_User_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:37:39 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<referredTableLongName>dbo.User</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>65C0FBC9-FE43-F4C2-D1E4-B4AEF664F469</referredTableID>
+<keyObject>315E44FB-48BB-94F2-E7E5-A8E1292D3156</keyObject>
+<referredKeyID>315E44FB-48BB-94F2-E7E5-A8E1292D3156</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="JuniorTeam_JuniorSeries_FK" directorySegmentName="seg_0" id="FCD9B407-9820-D845-5C4D-7A58AAAA53EB">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>BB0A4C54-E88C-E88A-F853-80BF51C7C63D</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<sourcePk>4F73E65A-9BB8-0DA8-B585-A5FD14EB2BF4</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>9EA78580-BEEC-9B0F-0C23-9FE9CADC59F0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>1E927BAD-3812-AA54-BA9D-1C9E1869A8F8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

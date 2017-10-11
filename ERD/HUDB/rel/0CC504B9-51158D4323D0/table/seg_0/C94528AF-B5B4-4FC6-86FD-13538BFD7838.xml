@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C94528AF-B5B4-4FC6-86FD-13538BFD7838" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="Country">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:48:50 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_19</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="CD2AA315-F8EB-3548-AF12-71C6C382AD0A">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HattrickId" id="8D8956A9-B66E-143F-B7AA-A0E391FA9FF5">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<domain>FB054634-CC29-4C58-03CA-91E7F1B62999</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="BDD0FC11-EE75-63F4-3013-CB6F6B39E15A">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 13:57:28 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>C802DA8B-B800-AAE9-C085-8CA6ED653B12</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Code" id="FCBA6B7C-FAB8-8CA5-9D46-490F44F046E7">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<domain>7FB8BEBC-6DD4-12A4-6CFB-FF1F4B331088</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CurrencyId" id="B7726E8E-2D47-6693-05A9-760E045A4502">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="327DC365-BE17-ECC5-7581-14E7EF3B7370" referredColumn="AD198675-69AA-6FD3-C66D-70D058BE6773"/>
+</associations>
+</Column>
+<Column name="DateFormatId" id="DFD544EF-7236-06B7-A3FE-BEEEC9A48DD0">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="94FDFE22-BD8F-36CA-ED3F-BA5FA2A32A91" referredColumn="E2688190-17FF-8C2C-388F-393F167A9885"/>
+</associations>
+</Column>
+<Column name="LeagueId" id="B2D668C9-D6C1-7E42-20EE-E97586201B62">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="726517F6-AD28-C6C7-6F9A-BA72F10E0465" referredColumn="396E39D4-912F-8D47-30B2-D3B9FDD8DD01"/>
+</associations>
+</Column>
+<Column name="TimeFormatId" id="2FBB16E9-1619-3492-C2B2-546988C2C75B">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="84EC8022-B16B-B7F3-63DD-065BE8BB95CA" referredColumn="E09C4714-9436-BF03-6C5E-18382BCE86F7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="73D4E057-4CE4-0FBA-F9FC-29124538F230" name="Country_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:49:42 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD2AA315-F8EB-3548-AF12-71C6C382AD0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D43693DE-43ED-BE63-EA98-BFE4AD3AE056" name="Country_League_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:22:22 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2D668C9-D6C1-7E42-20EE-E97586201B62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="192F3A72-3967-0D9E-7A5C-B2AA91F07611" name="Country_Currency_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:22:44 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7726E8E-2D47-6693-05A9-760E045A4502"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5EA9AFB8-86F1-C70C-9E6F-A005CFC9E38C" name="Country_DateFormat_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:22:44 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DFD544EF-7236-06B7-A3FE-BEEEC9A48DD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D10F70D8-1280-74E9-4182-432FD267FF68" name="Country_TimeFormat_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:22:44 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2FBB16E9-1619-3492-C2B2-546988C2C75B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

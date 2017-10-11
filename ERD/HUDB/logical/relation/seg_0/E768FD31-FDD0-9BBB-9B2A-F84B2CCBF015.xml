@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Country_Currency_FK" directorySegmentName="seg_0" id="E768FD31-FDD0-9BBB-9B2A-F84B2CCBF015">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>327DC365-BE17-ECC5-7581-14E7EF3B7370</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<sourcePk>7093215D-BEBE-B21A-0832-196A93A89703</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>73FEC595-2E50-85E7-A26D-67C188F79926</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B08C439F-171A-A590-F8D5-25D78B68D344</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

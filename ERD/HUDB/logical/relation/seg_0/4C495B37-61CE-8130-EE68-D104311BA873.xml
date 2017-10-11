@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="User_Manager_FK" directorySegmentName="seg_0" id="4C495B37-61CE-8130-EE68-D104311BA873">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 20:07:15 UTC</createdTime>
+<generatorID>1991A4E7-653F-5DCD-96A8-A6ECEC7C0808</generatorID>
+<ownerDesignName>HUDB</ownerDesignName>
+<engineerTo>
+<item key="0CC504B9-4AB8-CC5F-8967-51158D4323D0" value="true"/>
+</engineerTo>
+<sourcePk>029D5386-D03E-34E2-09D4-0266902AB75E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2C3FB040-65B4-C445-2BC2-179BE7757294</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>73112222-342C-0BCD-411A-6D866E2F5DE8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

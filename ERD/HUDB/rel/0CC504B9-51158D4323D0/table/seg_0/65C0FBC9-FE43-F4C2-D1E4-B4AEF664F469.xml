@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="65C0FBC9-FE43-F4C2-D1E4-B4AEF664F469" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="_User">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:30:38 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="8E12751C-BE24-0BBB-9882-1019FF3C1487">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:31:01 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ManagerId" id="43E8665A-DE2D-CEB6-95B0-1443A470C175">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:44:19 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1991A4E7-653F-5DCD-96A8-A6ECEC7C0808" referredColumn="2CBCF26D-D69A-DC00-7A2D-AE3AF204D009"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="315E44FB-48BB-94F2-E7E5-A8E1292D3156" name="User_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 18:31:01 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E12751C-BE24-0BBB-9882-1019FF3C1487"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D05E5B4A-BED1-6880-9D56-D75EB84DA2D7" name="User_Manager_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:44:19 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="43E8665A-DE2D-CEB6-95B0-1443A470C175"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="05B48857-3218-99F4-7607-864BC51152FC" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="Zone">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:20:30 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_25</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="9585A6D8-C4E5-1586-9073-EB5E5F2C6570">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:20:52 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="38DCAB30-DA3B-B350-5DA0-249E8A781F45">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:20:52 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>C802DA8B-B800-AAE9-C085-8CA6ED653B12</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C0262326-36BC-13C0-3D1B-630CE3A0F2A4" name="Zone_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-03 19:20:52 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9585A6D8-C4E5-1586-9073-EB5E5F2C6570"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

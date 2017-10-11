@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D2C092B4-6ABB-F159-DA91-A83FA2E22233" schemaObject="2BA650C2-596B-AE79-50B6-849873A80B9F" name="SeniorArena">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:00:40 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<ordsAlias>table_18</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="6CB197D4-8B4D-AEB0-C988-CFCB6AF8C586">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:01:05 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HattrickId" id="763ADDF7-27DB-F002-898F-2AB074F92F2D">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:01:05 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<domain>FB054634-CC29-4C58-03CA-91E7F1B62999</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="3350E843-3265-0BB7-B3B3-F9B34576E8AA">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:01:05 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>C802DA8B-B800-AAE9-C085-8CA6ED653B12</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SeniorTeamId" id="D7A264A5-E324-EC0D-B7AC-872E7E5EEB46">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:11:50 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>463035E2-A4E8-B249-E439-542DDBCEE421</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5E4E86A6-2590-7B6B-FC12-4E8693633116" referredColumn="164F8F69-D5B3-8723-C4BF-E952549607F9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="959E025F-0272-34CF-B299-FAB7EDDEDB21" name="SeniorArena_PK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:01:05 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6CB197D4-8B4D-AEB0-C988-CFCB6AF8C586"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B2505179-3C8F-6126-C0F4-5A422169F287" name="SeniorArena_SeniorTeam_FK">
+<createdBy>matias.e.x.sanchez</createdBy>
+<createdTime>2017-10-04 15:11:50 UTC</createdTime>
+<ownerDesignName>HUDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7A264A5-E324-EC0D-B7AC-872E7E5EEB46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
