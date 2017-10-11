@@ -79,6 +79,21 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string SeniorArena = "SeniorArena";
 
         /// <summary>
+        /// SeniorPlayer database table name.
+        /// </summary>
+        internal const string SeniorPlayer = "SeniorPlayer";
+
+        /// <summary>
+        /// SeniorPlayerSeasonGoals database table name.
+        /// </summary>
+        internal const string SeniorPlayerSeasonGoals = "SeniorPlayerSeasonGoals";
+
+        /// <summary>
+        /// SeniorPlayerSkills database table name.
+        /// </summary>
+        internal const string SeniorPlayerSkills = "SeniorPlayerSkills";
+
+        /// <summary>
         /// SeniorSeries database table name.
         /// </summary>
         internal const string SeniorSeries = "SeniorSeries";

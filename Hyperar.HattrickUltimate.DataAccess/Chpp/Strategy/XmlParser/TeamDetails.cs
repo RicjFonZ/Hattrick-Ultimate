@@ -383,26 +383,26 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                                          reader.Name));
             }
 
-            var nextMatch = new BusinessObjects.Hattrick.TeamDetails.LastMatch();
+            var lastMatch = new BusinessObjects.Hattrick.TeamDetails.LastMatch();
 
             // Skips LastMatch opening node.
             reader.Read();
 
-            nextMatch = new BusinessObjects.Hattrick.TeamDetails.LastMatch();
+            lastMatch = new BusinessObjects.Hattrick.TeamDetails.LastMatch();
 
-            nextMatch.LastMatchId = uint.Parse(reader.ReadElementContentAsString());
-            nextMatch.LastMatchDate = DateTime.Parse(reader.ReadElementContentAsString());
-            nextMatch.LastMatchHomeTeamId = uint.Parse(reader.ReadElementContentAsString());
-            nextMatch.LastMatchHomeTeamName = reader.ReadElementContentAsString();
-            nextMatch.LastMatchHomeTeamGoals = byte.Parse(reader.ReadElementContentAsString());
-            nextMatch.LastMatchAwayTeamId = uint.Parse(reader.ReadElementContentAsString());
-            nextMatch.LastMatchAwayTeamName = reader.ReadElementContentAsString();
-            nextMatch.LastMatchAwayTeamGoals = byte.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchId = uint.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchDate = DateTime.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchHomeTeamId = uint.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchHomeTeamName = reader.ReadElementContentAsString();
+            lastMatch.LastMatchHomeTeamGoals = byte.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchAwayTeamId = uint.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchAwayTeamName = reader.ReadElementContentAsString();
+            lastMatch.LastMatchAwayTeamGoals = byte.Parse(reader.ReadElementContentAsString());
 
             // Skips LastMatch opening node.
             reader.Read();
 
-            return nextMatch;
+            return lastMatch;
         }
 
         /// <summary>

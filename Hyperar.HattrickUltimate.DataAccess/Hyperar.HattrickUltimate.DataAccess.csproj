@@ -77,10 +77,12 @@
     </Compile>
     <Compile Include="Chpp\Interface\IXmlParserFactory.cs" />
     <Compile Include="Chpp\Interface\IXmlParserStrategy.cs" />
+    <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\Players.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\TeamDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\WorldDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\CheckToken.cs" />
+    <Compile Include="Chpp\Strategy\XmlParser\Players.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\TeamDetails.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\WorldDetails.cs" />
@@ -98,6 +100,9 @@
     <Compile Include="Database\Interface\IRepository.cs" />
     <Compile Include="Database\Interface\IRollbackStrategy.cs" />
     <Compile Include="Database\Interface\IRollbackStrategyFactory.cs" />
+    <Compile Include="Database\Mapping\SeniorPlayerSeasonGoals.cs" />
+    <Compile Include="Database\Mapping\SeniorPlayerSkills.cs" />
+    <Compile Include="Database\Mapping\SeniorPlayer.cs" />
     <Compile Include="Database\Mapping\SeniorTeam.cs" />
     <Compile Include="Database\Mapping\SeniorSeries.cs" />
     <Compile Include="Database\Mapping\SeniorArena.cs" />

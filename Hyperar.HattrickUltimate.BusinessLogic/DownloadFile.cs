@@ -24,7 +24,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Parameter list.
         /// </summary>
-        private readonly List<KeyValuePair<string, string>> parameters;
+        private readonly Dictionary<string, string> parameters;
 
         #endregion Private Fields
 
@@ -35,7 +35,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         /// <param name="file">Xml file to download.</param>
         /// <param name="parameters">Parameter list.</param>
-        public DownloadFile(XmlFile file, List<KeyValuePair<string, string>> parameters = null)
+        public DownloadFile(XmlFile file, Dictionary<string, string> parameters = null)
         {
             this.file = file;
             this.parameters = parameters;
@@ -59,7 +59,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Gets the parameter list.
         /// </summary>
-        public List<KeyValuePair<string, string>> Parameters
+        public Dictionary<string, string> Parameters
         {
             get
             {

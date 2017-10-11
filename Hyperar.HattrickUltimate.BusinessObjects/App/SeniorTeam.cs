@@ -7,6 +7,7 @@
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
     using System;
+    using System.Collections.Generic;
     using Interface;
 
     /// <summary>
@@ -65,6 +66,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Arena.
         /// </summary>
         public virtual SeniorArena SeniorArena { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Senior Players.
+        /// </summary>
+        public ICollection<SeniorPlayer> SeniorPlayers { get; set; } = new HashSet<SeniorPlayer>();
 
         /// <summary>
         /// Gets or sets the Series.

@@ -36,12 +36,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the number of caps for the Senior National Team.
         /// </summary>
-        public short Caps { get; set; }
+        public ushort Caps { get; set; }
 
         /// <summary>
         /// Gets or sets the number of caps for the Junior National Team.
         /// </summary>
-        public short CapsU20 { get; set; }
+        public ushort CapsU20 { get; set; }
 
         /// <summary>
         /// Gets or sets the number of bookings.
@@ -56,12 +56,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the number of goals on his career.
         /// </summary>
-        public short CareerGoals { get; set; }
+        public ushort CareerGoals { get; set; }
 
         /// <summary>
         /// Gets or sets the number of hattricks on his career.
         /// </summary>
-        public short CareerHattricks { get; set; }
+        public ushort CareerHattricks { get; set; }
 
         /// <summary>
         /// Gets or sets the Country Id.

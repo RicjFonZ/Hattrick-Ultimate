@@ -93,6 +93,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                         new KeyValuePair<string, string>(Constants.QueryStringParameterName.Version, Constants.QueryStringParameterValue.Version.ManagerCompendium)
                     };
 
+                case XmlFile.Players:
+                    return new KeyValuePair<string, string>[]
+                    {
+                        new KeyValuePair<string, string>(Constants.QueryStringParameterName.File, Constants.QueryStringParameterValue.File.Players),
+                        new KeyValuePair<string, string>(Constants.QueryStringParameterName.Version, Constants.QueryStringParameterValue.Version.Players)
+                    };
+
                 case XmlFile.TeamDetails:
                     return new KeyValuePair<string, string>[]
                     {

@@ -55,6 +55,9 @@
     <Compile Include="App\LeagueCup.cs" />
     <Compile Include="App\LeagueNationalTeam.cs" />
     <Compile Include="App\LeagueSchedule.cs" />
+    <Compile Include="App\SeniorPlayer.cs" />
+    <Compile Include="App\SeniorPlayerSeasonGoals.cs" />
+    <Compile Include="App\SeniorPlayerSkills.cs" />
     <Compile Include="App\SeniorTeam.cs" />
     <Compile Include="App\JuniorTeam.cs" />
     <Compile Include="App\League.cs" />

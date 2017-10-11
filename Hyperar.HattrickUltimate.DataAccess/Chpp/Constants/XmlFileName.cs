@@ -24,6 +24,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string ManagerCompendium = "managercompendium.xml";
 
         /// <summary>
+        /// Players XML file name.
+        /// </summary>
+        internal const string Players = "players.xml";
+
+        /// <summary>
         /// Hattrick Team Details XML file name.
         /// </summary>
         internal const string TeamDetails = "teamdetails.xml";

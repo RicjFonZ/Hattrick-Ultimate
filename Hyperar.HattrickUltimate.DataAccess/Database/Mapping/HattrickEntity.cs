@@ -26,12 +26,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         internal HattrickEntity()
         {
             this.Property(p => p.Id)
+                .HasColumnName(ColumnName.Id)
                 .HasColumnOrder(0)
                 .HasColumnType(ColumnType.Integer)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
 
             this.Property(p => p.HattrickId)
+                .HasColumnName(ColumnName.HattrickId)
                 .HasColumnOrder(1)
                 .HasColumnType(ColumnType.BigInt)
                 .IsRequired();

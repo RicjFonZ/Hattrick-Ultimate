@@ -143,6 +143,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             modelBuilder.Configurations.Add(new Mapping.Manager());
             modelBuilder.Configurations.Add(new Mapping.Region());
             modelBuilder.Configurations.Add(new Mapping.SeniorArena());
+            modelBuilder.Configurations.Add(new Mapping.SeniorPlayer());
+            modelBuilder.Configurations.Add(new Mapping.SeniorPlayerSeasonGoals());
+            modelBuilder.Configurations.Add(new Mapping.SeniorPlayerSkills());
             modelBuilder.Configurations.Add(new Mapping.SeniorSeries());
             modelBuilder.Configurations.Add(new Mapping.SeniorTeam());
             modelBuilder.Configurations.Add(new Mapping.TimeFormat());

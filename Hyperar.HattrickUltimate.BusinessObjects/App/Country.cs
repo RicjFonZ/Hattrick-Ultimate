@@ -73,6 +73,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public virtual ICollection<Region> Regions { get; set; } = new HashSet<Region>();
 
         /// <summary>
+        /// Gets or sets the Senior Players.
+        /// </summary>
+        public ICollection<SeniorPlayer> SeniorPlayers { get; set; } = new HashSet<SeniorPlayer>();
+
+        /// <summary>
         /// Gets or sets the Time Format
         /// </summary>
         public virtual TimeFormat TimeFormat { get; set; }

@@ -18,6 +18,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// </summary>
         internal const string Comma = ",";
 
+        /// <summary>
+        /// Dot constant.
+        /// </summary>
+        internal const string Dot = ".";
+
         #endregion Internal Fields
     }
 }

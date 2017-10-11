@@ -26,6 +26,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         internal Entity()
         {
             this.Property(p => p.Id)
+                .HasColumnName(ColumnName.Id)
                 .HasColumnOrder(0)
                 .HasColumnType(ColumnType.Integer)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)

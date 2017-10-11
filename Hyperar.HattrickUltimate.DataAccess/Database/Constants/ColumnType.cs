@@ -39,6 +39,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string Numeric = "numeric";
 
         /// <summary>
+        /// Small Integer column data type.
+        /// </summary>
+        internal const string SmallInt = "smallint";
+
+        /// <summary>
         /// Time column data type.
         /// </summary>
         internal const string Time = "time";
