@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Trainer Id.
         /// </summary>
-        public long PlayerId { get; set; }
+        public uint PlayerId { get; set; }
 
         #endregion Public Properties
     }

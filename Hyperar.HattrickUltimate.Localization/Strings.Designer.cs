@@ -459,6 +459,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Finishing….
+        /// </summary>
+        public static string Message_Finishing {
+            get {
+                return ResourceManager.GetString("Message_Finishing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The following parameters are incompatible: {0}..
         /// </summary>
         public static string Message_IncompatibleParameters {

@@ -251,6 +251,9 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="Message_Finishing" xml:space="preserve">
+    <value>Finishing…</value>
+  </data>
   <data name="Message_IncompatibleParameters" xml:space="preserve">
     <value>The following parameters are incompatible: {0}.</value>
   </data>

@@ -21,7 +21,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the League Id.
         /// </summary>
-        public long LeagueId { get; set; }
+        public uint LeagueId { get; set; }
 
         /// <summary>
         /// Gets or sets the League Name.

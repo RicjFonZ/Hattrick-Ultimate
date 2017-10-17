@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Junior.cs" />
+    <Compile Include="Actions\Senior.cs" />
+    <Compile Include="Actions\World.cs" />
     <Compile Include="Constants\OAuthScope.cs" />
     <Compile Include="Constants\SupporterTier.cs" />
     <Compile Include="DownloadFile.cs" />

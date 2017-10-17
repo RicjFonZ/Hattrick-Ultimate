@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the number of guestbook items.
         /// </summary>
-        public long NumberOfGuestbookItems { get; set; }
+        public uint NumberOfGuestbookItems { get; set; }
 
         #endregion Public Properties
     }

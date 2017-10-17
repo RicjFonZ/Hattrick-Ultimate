@@ -251,6 +251,9 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="Message_Finishing" xml:space="preserve">
+    <value>Terminando…</value>
+  </data>
   <data name="Message_IncompatibleParameters" xml:space="preserve">
     <value>Los siguientes parámetros son incompatibles: {0}.</value>
   </data>

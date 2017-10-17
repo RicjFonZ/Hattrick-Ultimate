@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Fan club Id.
         /// </summary>
-        public long FanclubId { get; set; }
+        public uint FanclubId { get; set; }
 
         /// <summary>
         /// Gets or sets the Fan club name.
@@ -26,7 +26,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Fan club size.
         /// </summary>
-        public long FanclubSize { get; set; }
+        public uint FanclubSize { get; set; }
 
         #endregion Public Properties
     }
