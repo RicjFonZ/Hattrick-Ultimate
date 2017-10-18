@@ -549,6 +549,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is playing a match. Players data is unavailable..
+        /// </summary>
+        public static string Message_TeamIsPlayingMatchCannotProcessPlayers {
+            get {
+                return ResourceManager.GetString("Message_TeamIsPlayingMatchCannotProcessPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hattrick Ultimate was unauthorized successfully..
         /// </summary>
         public static string Message_TokenRevokedSuccessfully {
@@ -572,6 +581,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string Message_UnavailableValue {
             get {
                 return ResourceManager.GetString("Message_UnavailableValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected object type..
+        /// </summary>
+        public static string Message_UnexpectedObjectType {
+            get {
+                return ResourceManager.GetString("Message_UnexpectedObjectType", resourceCulture);
             }
         }
         

@@ -80,7 +80,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             if (user.Token == null)
             {
-                using (var formToken = ApplicationObjects.Container.GetInstance<FormToken>())
+                using (var formToken = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
                 {
                     formToken.ShowDialog();
 
@@ -97,7 +97,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             if (user.Manager == null)
             {
-                using (var formUser = ApplicationObjects.Container.GetInstance<FormUser>())
+                using (var formUser = BusinessLogic.ApplicationObjects.Container.GetInstance<FormUser>())
                 {
                     formUser.ShowDialog();
                 }

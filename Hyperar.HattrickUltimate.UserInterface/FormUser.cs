@@ -34,11 +34,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private BusinessLogic.UserManager userManager;
 
-        /// <summary>
-        /// World manager.
-        /// </summary>
-        private BusinessLogic.WorldManager worldManager;
-
         #endregion Private Fields
 
         #region Public Constructors
@@ -48,19 +43,16 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         /// <param name="downloadManager">Download manager.</param>
         /// <param name="userManager">User manager.</param>
-        /// <param name="worldManager">World manager.</param>
         public FormUser(
                    BusinessLogic.DownloadManager downloadManager,
-                   BusinessLogic.UserManager userManager,
-                   BusinessLogic.WorldManager worldManager)
+                   BusinessLogic.UserManager userManager)
         {
             this.InitializeComponent();
 
             this.downloadManager = downloadManager;
             this.userManager = userManager;
-            this.worldManager = worldManager;
 
-            this.formGenericProgress = ApplicationObjects.Container.GetInstance<FormGenericProgress>();
+            this.formGenericProgress = BusinessLogic.ApplicationObjects.Container.GetInstance<FormGenericProgress>();
 
             this.downloadManager.DownloadProgressChanged += new BusinessLogic.DownloadProgressChangedEventHandler(this.DownloadProgressChanged_EventHandler);
             this.downloadManager.DownloadCompleted += new BusinessLogic.DownloadCompletedEventHandler(this.DownloadCompleted_EventHandler);
@@ -83,7 +75,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             if (user == null || user.Token == null)
             {
-                using (var form = ApplicationObjects.Container.GetInstance<FormToken>())
+                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
                 {
                     form.ShowDialog(this);
                     user = this.userManager.GetUser();
@@ -163,7 +155,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void BtnManageToken_Click(object sender, EventArgs e)
         {
-            using (var form = ApplicationObjects.Container.GetInstance<FormToken>())
+            using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
             {
                 form.ShowDialog(this);
             }

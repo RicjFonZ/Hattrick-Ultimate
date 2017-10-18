@@ -281,6 +281,9 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_TaskStarting" xml:space="preserve">
     <value>Task starting…</value>
   </data>
+  <data name="Message_TeamIsPlayingMatchCannotProcessPlayers" xml:space="preserve">
+    <value>{0} is playing a match. Players data is unavailable.</value>
+  </data>
   <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
     <value>Hattrick Ultimate was unauthorized successfully.</value>
   </data>
@@ -289,6 +292,9 @@ Since: {0} - Until: {1}.</value>
   </data>
   <data name="Message_UnavailableValue" xml:space="preserve">
     <value>N/A</value>
+  </data>
+  <data name="Message_UnexpectedObjectType" xml:space="preserve">
+    <value>Unexpected object type.</value>
   </data>
   <data name="Message_UnexpectedXmlElement" xml:space="preserve">
     <value>Unexpected Xml element '{0}'.</value>

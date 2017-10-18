@@ -4,7 +4,7 @@
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 //-----------------------------------------------------------------------
-namespace Hyperar.HattrickUltimate.UserInterface
+namespace Hyperar.HattrickUltimate.BusinessLogic
 {
     using DataAccess.Database;
     using DataAccess.Database.Interface;
@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// Provides application objects across the layer.
     /// </summary>
-    internal static class ApplicationObjects
+    public static class ApplicationObjects
     {
         #region Private Fields
 
@@ -24,12 +24,12 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
         #endregion Private Fields
 
-        #region Internal Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets the Dependency injection container.
         /// </summary>
-        internal static Container Container
+        public static Container Container
         {
             get
             {
@@ -45,22 +45,21 @@ namespace Hyperar.HattrickUltimate.UserInterface
             }
         }
 
-        #endregion Internal Properties
+        #endregion Public Properties
 
-        #region Internal Methods
+        #region Public Methods
 
         /// <summary>
         /// Registers dependency injection container objects.
         /// </summary>
-        internal static void RegisterContainer()
+        public static void RegisterContainer()
         {
             RegisterDatabaseContexts();
             RegisterRepositories();
-            RegisterForms();
             RegisterBusinessObjectsManagers();
         }
 
-        #endregion Internal Methods
+        #endregion Public Methods
 
         #region Private Methods
 
@@ -69,9 +68,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private static void RegisterBusinessObjectsManagers()
         {
-            Container.Register(typeof(BusinessLogic.DownloadManager));
-            Container.Register(typeof(BusinessLogic.TokenManager));
-            Container.Register(typeof(BusinessLogic.UserManager));
+            Container.Register(typeof(DownloadManager));
+            Container.Register(typeof(TokenManager));
+            Container.Register(typeof(UserManager));
         }
 
         /// <summary>
@@ -80,18 +79,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private static void RegisterDatabaseContexts()
         {
             Container.Register<IDatabaseContext, DatabaseContext>(Lifestyle.Scoped);
-        }
-
-        /// <summary>
-        /// Registers application forms.
-        /// </summary>
-        private static void RegisterForms()
-        {
-            Container.Register<FormDataFolder>(Lifestyle.Transient);
-            container.Register<FormGenericProgress>(Lifestyle.Transient);
-            Container.Register<FormMain>(Lifestyle.Transient);
-            Container.Register<FormToken>(Lifestyle.Transient);
-            container.Register<FormUser>(Lifestyle.Transient);
         }
 
         /// <summary>

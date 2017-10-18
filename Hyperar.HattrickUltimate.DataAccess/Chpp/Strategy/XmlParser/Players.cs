@@ -130,14 +130,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             newPlayer.LeagueGoals = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.CupGoals = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.FriendliesGoals = byte.Parse(reader.ReadElementContentAsString());
-            newPlayer.CareerGoals = ushort.Parse(reader.ReadElementContentAsString());
-            newPlayer.CareerHattricks = ushort.Parse(reader.ReadElementContentAsString());
+            newPlayer.CareerGoals = short.Parse(reader.ReadElementContentAsString());
+            newPlayer.CareerHattricks = short.Parse(reader.ReadElementContentAsString());
             newPlayer.Specialty = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.TransferListed = reader.ReadElementContentAsString() == "1";
             newPlayer.NationalTeamId = uint.Parse(reader.ReadElementContentAsString());
             newPlayer.CountryId = uint.Parse(reader.ReadElementContentAsString());
-            newPlayer.Caps = ushort.Parse(reader.ReadElementContentAsString());
-            newPlayer.CapsU20 = ushort.Parse(reader.ReadElementContentAsString());
+            newPlayer.Caps = short.Parse(reader.ReadElementContentAsString());
+            newPlayer.CapsU20 = short.Parse(reader.ReadElementContentAsString());
             newPlayer.Cards = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.InjuryLevel = sbyte.Parse(reader.ReadElementContentAsString());
             newPlayer.StaminaSkill = byte.Parse(reader.ReadElementContentAsString());

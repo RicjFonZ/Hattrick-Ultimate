@@ -149,7 +149,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the Wage.
         /// </summary>
-        public byte Wage { get; set; }
+        public int Wage { get; set; }
 
         #endregion Public Properties
 

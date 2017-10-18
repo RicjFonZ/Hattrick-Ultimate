@@ -9,6 +9,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using System;
     using System.IO;
     using System.Windows.Forms;
+    using SimpleInjector;
     using SimpleInjector.Lifestyles;
 
     /// <summary>
@@ -17,6 +18,17 @@ namespace Hyperar.HattrickUltimate.UserInterface
     internal static class Program
     {
         #region Private Methods
+        /// <summary>
+        /// Registers application forms.
+        /// </summary>
+        private static void RegisterForms()
+        {
+            BusinessLogic.ApplicationObjects.Container.Register<FormDataFolder>(Lifestyle.Transient);
+            BusinessLogic.ApplicationObjects.Container.Register<FormGenericProgress>(Lifestyle.Transient);
+            BusinessLogic.ApplicationObjects.Container.Register<FormMain>(Lifestyle.Transient);
+            BusinessLogic.ApplicationObjects.Container.Register<FormToken>(Lifestyle.Transient);
+            BusinessLogic.ApplicationObjects.Container.Register<FormUser>(Lifestyle.Transient);
+        }
 
         /// <summary>
         /// Gets the best LocalDb instance.
@@ -51,7 +63,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 if (string.IsNullOrWhiteSpace(dataFolder))
                 {
-                    using (var form = ApplicationObjects.Container.GetInstance<FormDataFolder>())
+                    using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormDataFolder>())
                     {
                         if (form.ShowDialog() == DialogResult.OK)
                         {
@@ -100,12 +112,12 @@ namespace Hyperar.HattrickUltimate.UserInterface
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ApplicationObjects.RegisterContainer();
+            BusinessLogic.ApplicationObjects.RegisterContainer();
 
-            using (var scope = ThreadScopedLifestyle.BeginScope(ApplicationObjects.Container))
+            using (var scope = ThreadScopedLifestyle.BeginScope(BusinessLogic.ApplicationObjects.Container))
             {
                 Initialize();
-                Application.Run(ApplicationObjects.Container.GetInstance<FormMain>());
+                Application.Run(BusinessLogic.ApplicationObjects.Container.GetInstance<FormMain>());
             }
         }
 

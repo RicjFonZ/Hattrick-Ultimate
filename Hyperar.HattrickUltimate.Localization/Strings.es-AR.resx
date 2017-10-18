@@ -281,6 +281,9 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_TaskStarting" xml:space="preserve">
     <value>Comenzando tarea…</value>
   </data>
+  <data name="Message_TeamIsPlayingMatchCannotProcessPlayers" xml:space="preserve">
+    <value>{0} está jugando un partido. La información de los jugadores no está disponible.</value>
+  </data>
   <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
     <value>Hattrick Ultimate fue desautorizado correctamente.</value>
   </data>
@@ -289,6 +292,9 @@ Desde: {0} - Hasta: {1}.</value>
   </data>
   <data name="Message_UnavailableValue" xml:space="preserve">
     <value>N/D</value>
+  </data>
+  <data name="Message_UnexpectedObjectType" xml:space="preserve">
+    <value>Tipo de objeto inesperado.</value>
   </data>
   <data name="Message_UnexpectedXmlElement" xml:space="preserve">
     <value>Elemento Xml inesperado '{0}'.</value>
