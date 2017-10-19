@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="66230E6D-5FE0-9F03-8695-91E38D922126">
-<createdBy>matias.e.x.sanchez</createdBy>
-<createdTime>2017-10-03 14:28:27 UTC</createdTime>
-<ownerDesignName>HUDB</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>
