@@ -9,7 +9,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using System;
     using System.IO;
     using System.Windows.Forms;
-    using SimpleInjector;
+    using BusinessLogic;
     using SimpleInjector.Lifestyles;
 
     /// <summary>
@@ -20,15 +20,17 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Private Methods
 
         /// <summary>
-        /// Registers application forms.
+        /// Gets the App Name.
         /// </summary>
-        private static void RegisterForms()
+        private static void GetAppName()
         {
-            BusinessLogic.ApplicationObjects.Container.Register<FormDataFolder>(Lifestyle.Transient);
-            BusinessLogic.ApplicationObjects.Container.Register<FormGenericProgress>(Lifestyle.Transient);
-            BusinessLogic.ApplicationObjects.Container.Register<FormMain>(Lifestyle.Transient);
-            BusinessLogic.ApplicationObjects.Container.Register<FormToken>(Lifestyle.Transient);
-            BusinessLogic.ApplicationObjects.Container.Register<FormUser>(Lifestyle.Transient);
+            string appName = $"{Application.ProductName}";
+
+#if DEBUG
+            appName += " [DEBUG]";
+#endif
+
+            AppDomain.CurrentDomain.SetData(Constants.Settings.AppName, appName);
         }
 
         /// <summary>
@@ -45,7 +47,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
                     throw new Exception(Localization.Strings.Message_LocalDbInstanceNotFound);
                 }
 
-                AppDomain.CurrentDomain.SetData("LocalDbInstance", localDbInstance);
+                AppDomain.CurrentDomain.SetData(Constants.Settings.LocalDbInstance, localDbInstance);
             }
             catch (Exception ex)
             {
@@ -60,11 +62,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             try
             {
-                string dataFolder = Properties.Settings.Default["DataFolder"].ToString();
+                string dataFolder = Properties.Settings.Default[Constants.Settings.DataDirectory].ToString();
 
                 if (string.IsNullOrWhiteSpace(dataFolder))
                 {
-                    using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormDataFolder>())
+                    using (var form = ApplicationObjects.Container.GetInstance<FormDataFolder>())
                     {
                         if (form.ShowDialog() == DialogResult.OK)
                         {
@@ -82,9 +84,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
                     }
                 }
 
-                AppDomain.CurrentDomain.SetData("DataDirectory", dataFolder);
+                AppDomain.CurrentDomain.SetData(Constants.Settings.DataDirectory, dataFolder);
 
-                Properties.Settings.Default["DataFolder"] = dataFolder;
+                Properties.Settings.Default[Constants.Settings.DataDirectory] = dataFolder;
 
                 Properties.Settings.Default.Save();
             }
@@ -101,8 +103,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             GetAppName();
             GetDatabaseInstance();
-            GetDataFolder();
-            RegisterForms();
         }
 
         /// <summary>
@@ -114,27 +114,36 @@ namespace Hyperar.HattrickUltimate.UserInterface
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            BusinessLogic.ApplicationObjects.RegisterContainer();
+            Initialize();
+            RegisterDependencies();
 
-            using (var scope = ThreadScopedLifestyle.BeginScope(BusinessLogic.ApplicationObjects.Container))
+            using (var scope = ThreadScopedLifestyle.BeginScope(ApplicationObjects.Container))
             {
-                Initialize();
-                Application.Run(BusinessLogic.ApplicationObjects.Container.GetInstance<FormMain>());
+                GetDataFolder();
+                Application.Run(ApplicationObjects.Container.GetInstance<FormMain>());
             }
         }
 
         /// <summary>
-        /// Gets the App Name.
+        /// Registers dependencies.
         /// </summary>
-        private static void GetAppName()
+        private static void RegisterDependencies()
         {
-            string appName = $"{Application.ProductName} v{Application.ProductVersion}";
+            ApplicationObjects.RegisterContainer();
+            RegisterForms();
+            ApplicationObjects.Finish();
+        }
 
-#if DEBUG
-            appName += " [DEBUG]";
-#endif
-
-            AppDomain.CurrentDomain.SetData("AppName", appName);
+        /// <summary>
+        /// Registers application forms.
+        /// </summary>
+        private static void RegisterForms()
+        {
+            ApplicationObjects.RegisterForm<FormDataFolder>();
+            ApplicationObjects.RegisterForm<FormGenericProgress>();
+            ApplicationObjects.RegisterForm<FormMain>();
+            ApplicationObjects.RegisterForm<FormToken>();
+            ApplicationObjects.RegisterForm<FormUser>();
         }
 
         #endregion Private Methods

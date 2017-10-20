@@ -26,12 +26,12 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DataFolder {
+        public string DataDirectory {
             get {
-                return ((string)(this["DataFolder"]));
+                return ((string)(this["DataDirectory"]));
             }
             set {
-                this["DataFolder"] = value;
+                this["DataDirectory"] = value;
             }
         }
     }

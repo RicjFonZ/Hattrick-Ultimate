@@ -61,12 +61,12 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.GrpBoxToken.TabStop = false;
             this.GrpBoxToken.Text = "GrpBoxToken";
             // 
-            // BtnCopyAuthorizationUrl
+            // BtnCopyAuthorizationLink
             // 
             this.BtnCopyAuthorizationLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCopyAuthorizationLink.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.CopyAuthorizationLink_16px;
             this.BtnCopyAuthorizationLink.Location = new System.Drawing.Point(405, 49);
-            this.BtnCopyAuthorizationLink.Name = "BtnCopyAuthorizationUrl";
+            this.BtnCopyAuthorizationLink.Name = "BtnCopyAuthorizationLink";
             this.BtnCopyAuthorizationLink.Size = new System.Drawing.Size(24, 24);
             this.BtnCopyAuthorizationLink.TabIndex = 6;
             this.BtnCopyAuthorizationLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -205,6 +205,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Name = "FormToken";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormToken";
+            this.Load += new System.EventHandler(this.FormToken_Load);
             this.GrpBoxToken.ResumeLayout(false);
             this.GrpBoxToken.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrProvToken)).EndInit();

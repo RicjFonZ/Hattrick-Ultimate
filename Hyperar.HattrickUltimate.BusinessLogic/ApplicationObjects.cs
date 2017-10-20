@@ -6,9 +6,11 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessLogic
 {
+    using System;
     using DataAccess.Database;
     using DataAccess.Database.Interface;
     using SimpleInjector;
+    using SimpleInjector.Diagnostics;
 
     /// <summary>
     /// Provides application objects across the layer.
@@ -16,6 +18,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     public static class ApplicationObjects
     {
         #region Private Fields
+
+        /// <summary>
+        /// Ignore parameter constant.
+        /// </summary>
+        private const string Ignore = "ignore";
 
         /// <summary>
         /// Dependency injection container.
@@ -50,6 +57,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         #region Public Methods
 
         /// <summary>
+        /// Finished and verifies the container.
+        /// </summary>
+        public static void Finish()
+        {
+            Container.Verify(VerificationOption.VerifyAndDiagnose);
+        }
+
+        /// <summary>
         /// Registers dependency injection container objects.
         /// </summary>
         public static void RegisterContainer()
@@ -57,6 +72,21 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             RegisterDatabaseContexts();
             RegisterRepositories();
             RegisterBusinessObjectsManagers();
+        }
+
+        /// <summary>
+        /// Registers forms in the container.
+        /// </summary>
+        /// <typeparam name="T">Form type.</typeparam>
+        public static void RegisterForm<T>() where T : class, IDisposable
+        {
+            Container.Register<T>(Lifestyle.Transient);
+
+            var registration = Lifestyle.Transient.CreateRegistration<T>(Container);
+
+            registration.SuppressDiagnosticWarning(DiagnosticType.DisposableTransientComponent, Ignore);
+
+            Container.RegisterInitializer<T>(o => Lifestyle.Scoped.RegisterForDisposal(Container, o));
         }
 
         #endregion Public Methods

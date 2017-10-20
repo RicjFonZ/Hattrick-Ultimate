@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Settings.cs" />
     <Compile Include="DatabaseUtils.cs" />
     <Compile Include="FormDataFolder.cs">
       <SubType>Form</SubType>

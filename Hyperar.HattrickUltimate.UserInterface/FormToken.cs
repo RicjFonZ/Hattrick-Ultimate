@@ -52,18 +52,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             this.tokenManager = tokenManager;
             this.userManager = userManager;
-
-            var token = this.tokenManager.GetToken();
-
-            if (token == null)
-            {
-                this.BtnCheckToken.Enabled =
-                this.BtnRevokeToken.Enabled = false;
-            }
-
-            this.AdvTxtBoxVerificationCode.Enabled =
-            this.BtnAllowToken.Enabled =
-            this.BtnCopyAuthorizationLink.Enabled = false;
         }
 
         #endregion Public Constructors
@@ -304,6 +292,26 @@ namespace Hyperar.HattrickUltimate.UserInterface
             }
 
             MessageBox.Show(this, text, title, buttons, icon);
+        }
+
+        /// <summary>
+        /// FormToken Load event handler.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void FormToken_Load(object sender, EventArgs e)
+        {
+            var token = this.tokenManager.GetToken();
+
+            if (token == null)
+            {
+                this.BtnCheckToken.Enabled =
+                this.BtnRevokeToken.Enabled = false;
+            }
+
+            this.AdvTxtBoxVerificationCode.Enabled =
+            this.BtnAllowToken.Enabled =
+            this.BtnCopyAuthorizationLink.Enabled = false;
         }
 
         /// <summary>

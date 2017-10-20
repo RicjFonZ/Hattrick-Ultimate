@@ -12,7 +12,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     using System.ComponentModel;
     using System.Threading;
     using BusinessObjects.Hattrick.Interface;
-    using DataAccess.Database;
+    using DataAccess.Database.Interface;
 
     /// <summary>
     /// FileProcessCompleted event handler delegate.
@@ -43,7 +43,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Database context.
         /// </summary>
-        private DatabaseContext context;
+        private IDatabaseContext context;
 
         /// <summary>
         /// On Complete delegate.
@@ -71,7 +71,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <param name="context">Database context.</param>
         public FileProcessManager(
                    Chpp.ChppFileProcesser chppFileProcesser,
-                   DatabaseContext context)
+                   IDatabaseContext context)
         {
             this.onCompletedDelegate = new SendOrPostCallback(this.ProcessCompleted);
             this.onProgressChangedDelegate = new SendOrPostCallback(this.ReportProcessProgress);

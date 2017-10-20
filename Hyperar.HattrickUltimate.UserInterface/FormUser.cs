@@ -171,27 +171,32 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event args.</param>
         private void DownloadCompleted_EventHandler(object sender, BusinessLogic.DownloadFileCompletedEventArgs e)
         {
-            if (e.Cancelled)
+            if (!e.Cancelled && e.Error == null)
             {
-                MessageBox.Show(
-                               this,
-                               Localization.Strings.Message_TaskCancelled,
-                               Localization.Strings.Message_Information,
-                               MessageBoxButtons.OK,
-                               MessageBoxIcon.Information);
+                this.fileProcessManager.ProcessFilesAsync(e.DownloadedFiles, Guid.NewGuid());
             }
-
-            if (e.Error != null)
+            else
             {
-                MessageBox.Show(
-                               this,
-                               string.Format(Localization.Strings.Message_AnErrorHasOccurred, e.Error.Message),
-                               Localization.Strings.Message_Error,
-                               MessageBoxButtons.OK,
-                               MessageBoxIcon.Error);
-            }
+                if (e.Cancelled)
+                {
+                    MessageBox.Show(
+                                   this,
+                                   Localization.Strings.Message_TaskCancelled,
+                                   Localization.Strings.Message_Information,
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Information);
+                }
 
-            this.fileProcessManager.ProcessFilesAsync(e.DownloadedFiles, Guid.NewGuid());
+                if (e.Error != null)
+                {
+                    MessageBox.Show(
+                                   this,
+                                   string.Format(Localization.Strings.Message_AnErrorHasOccurred, e.Error.Message),
+                                   Localization.Strings.Message_Error,
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+                }
+            }
         }
 
         /// <summary>
@@ -253,36 +258,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         /// <summary>
-        /// Populates controls' values.
+        /// FormUser Shown event handler.
         /// </summary>
-        private void PopulateControls()
-        {
-            var user = this.userManager.GetUser();
-
-            if (user != null)
-            {
-                if (user.Manager != null)
-                {
-                    this.LblManagerCountryValue.Text = user.Manager.Country.ToString();
-                    this.LblSupporterTierValue.Text = user.Manager.SupporterTier.ToString();
-                    this.LblManagerValue.Text = user.Manager.ToString();
-
-                    if (user.Manager.SeniorTeams != null && user.Manager.SeniorTeams.Count > 0)
-                    {
-                        this.CmbBoxTeam.DisplayMember = "Display";
-                        this.CmbBoxTeam.ValueMember = "Value";
-                        this.CmbBoxTeam.DataSource = user.Manager.SeniorTeams.Select(st => new
-                        {
-                            Display = st.ToString(),
-                            Value = st
-                        }).ToArray();
-                    }
-                }
-            }
-        }
-
-        #endregion Private Methods
-
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
         private void FormUser_Shown(object sender, EventArgs e)
         {
             var user = this.userManager.GetUser();
@@ -314,5 +293,36 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 this.PopulateControls();
             }
         }
+
+        /// <summary>
+        /// Populates controls' values.
+        /// </summary>
+        private void PopulateControls()
+        {
+            var user = this.userManager.GetUser();
+
+            if (user != null)
+            {
+                if (user.Manager != null)
+                {
+                    this.LblManagerCountryValue.Text = user.Manager.Country.ToString();
+                    this.LblSupporterTierValue.Text = user.Manager.SupporterTier.ToString();
+                    this.LblManagerValue.Text = user.Manager.ToString();
+
+                    if (user.Manager.SeniorTeams != null && user.Manager.SeniorTeams.Count > 0)
+                    {
+                        this.CmbBoxTeam.DisplayMember = "Display";
+                        this.CmbBoxTeam.ValueMember = "Value";
+                        this.CmbBoxTeam.DataSource = user.Manager.SeniorTeams.Select(st => new
+                        {
+                            Display = st.ToString(),
+                            Value = st
+                        }).ToArray();
+                    }
+                }
+            }
+        }
+
+        #endregion Private Methods
     }
 }

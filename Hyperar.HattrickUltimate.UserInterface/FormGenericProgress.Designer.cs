@@ -65,6 +65,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Name = "FormGenericProgress";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGenericProgress";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGenericProgress_FormClosing);
+            this.Shown += new System.EventHandler(this.FormGenericProgress_Shown);
             this.ResumeLayout(false);
 
         }

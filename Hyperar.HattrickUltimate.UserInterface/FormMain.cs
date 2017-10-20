@@ -42,7 +42,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             this.InitializeComponent();
 
-            this.Text = AppDomain.CurrentDomain.GetData("AppName").ToString();
+            this.Text = AppDomain.CurrentDomain.GetData(Constants.Settings.AppName).ToString();
 
             this.tokenManager = tokenManager;
             this.userManager = userManager;
