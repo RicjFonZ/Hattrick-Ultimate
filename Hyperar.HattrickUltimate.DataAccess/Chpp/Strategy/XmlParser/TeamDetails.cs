@@ -991,8 +991,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newTrophy = new BusinessObjects.Hattrick.TeamDetails.Trophy();
 
-            newTrophy.TrophyTypeId = int.Parse(reader.ReadElementContentAsString());
-            newTrophy.Season = int.Parse(reader.ReadElementContentAsString());
+            newTrophy.TrophyTypeId = short.Parse(reader.ReadElementContentAsString());
+            newTrophy.Season = short.Parse(reader.ReadElementContentAsString());
             newTrophy.LeagueLevel = byte.Parse(reader.ReadElementContentAsString());
             newTrophy.LeagueLevelUnitName = reader.ReadElementContentAsString();
             newTrophy.GainedDate = DateTime.Parse(reader.ReadElementContentAsString());

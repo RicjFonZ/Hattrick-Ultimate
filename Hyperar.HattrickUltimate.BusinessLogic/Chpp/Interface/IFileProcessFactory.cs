@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Interface
     /// <summary>
     /// File Process Factory definition.
     /// </summary>
-    internal interface IFileProcessFactory
+    public interface IFileProcessFactory
     {
         #region Public Methods
 

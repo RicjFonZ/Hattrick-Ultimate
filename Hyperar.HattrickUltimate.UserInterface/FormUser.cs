@@ -8,6 +8,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Windows.Forms;
     using Interface;
@@ -23,6 +24,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// Download manager.
         /// </summary>
         private BusinessLogic.DownloadManager downloadManager;
+
+        /// <summary>
+        /// File Process manager.
+        /// </summary>
+        private BusinessLogic.FileProcessManager fileProcessManager;
 
         /// <summary>
         /// Generic task progress window,
@@ -42,20 +48,25 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// Initializes a new instance of the <see cref="FormUser" /> class.
         /// </summary>
         /// <param name="downloadManager">Download manager.</param>
+        /// <param name="fileProcessManager">File Process manager.</param>
         /// <param name="userManager">User manager.</param>
         public FormUser(
                    BusinessLogic.DownloadManager downloadManager,
+                   BusinessLogic.FileProcessManager fileProcessManager,
                    BusinessLogic.UserManager userManager)
         {
             this.InitializeComponent();
 
             this.downloadManager = downloadManager;
+            this.fileProcessManager = fileProcessManager;
             this.userManager = userManager;
 
             this.formGenericProgress = BusinessLogic.ApplicationObjects.Container.GetInstance<FormGenericProgress>();
 
             this.downloadManager.DownloadProgressChanged += new BusinessLogic.DownloadProgressChangedEventHandler(this.DownloadProgressChanged_EventHandler);
             this.downloadManager.DownloadCompleted += new BusinessLogic.DownloadCompletedEventHandler(this.DownloadCompleted_EventHandler);
+            this.fileProcessManager.FileProcessProgressChanged += new BusinessLogic.FileProcessProgressChangedEventHandler(this.FileProcessProgressChanged_EventHandler);
+            this.fileProcessManager.FileProcessCompleted += new BusinessLogic.FileProcessCompletedEventHandler(this.FileProcessCompleted_EventHandler);
 
             this.PopulateLanguage();
         }
@@ -63,43 +74,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #endregion Public Constructors
 
         #region Public Methods
-
-        /// <summary>
-        /// FormUser Load event handler.
-        /// </summary>
-        /// <param name="sender">Control that raised the event.</param>
-        /// <param name="e">Event arguments.</param>
-        public void FormUser_Load(object sender, EventArgs e)
-        {
-            var user = this.userManager.GetUser();
-
-            if (user == null || user.Token == null)
-            {
-                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
-                {
-                    form.ShowDialog(this);
-                    user = this.userManager.GetUser();
-                }
-            }
-
-            if (user != null && user.Manager == null && user.Token != null)
-            {
-                List<BusinessLogic.DownloadFile> downloadFileList = new List<BusinessLogic.DownloadFile>();
-
-                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.WorldDetails));
-                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.ManagerCompendium));
-                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.TeamDetails));
-
-                this.formGenericProgress.Show(this);
-
-                this.downloadManager.DownloadFileAsync(user.Token, downloadFileList, Guid.NewGuid());
-            }
-
-            if (user.Manager != null)
-            {
-                this.PopulateControls();
-            }
-        }
 
         /// <summary>
         /// Populates controls' properties with the corresponding localized string.
@@ -197,24 +171,70 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event args.</param>
         private void DownloadCompleted_EventHandler(object sender, BusinessLogic.DownloadFileCompletedEventArgs e)
         {
-            foreach (var curFile in e.DownloadedFiles)
+            if (e.Cancelled)
             {
-                if (curFile is BusinessObjects.Hattrick.ManagerCompendium.Root)
-                {
-                    this.userManager.ProcessManagerCompendium(curFile as BusinessObjects.Hattrick.ManagerCompendium.Root);
-                }
-                else if (curFile is BusinessObjects.Hattrick.TeamDetails.Root)
-                {
-                    this.userManager.ProcessTeamDetails(curFile as BusinessObjects.Hattrick.TeamDetails.Root);
-                }
-                else if (curFile is BusinessObjects.Hattrick.WorldDetails.Root)
-                {
-                    this.worldManager.ProcessWorldDetails(curFile as BusinessObjects.Hattrick.WorldDetails.Root);
-                }
-                else
-                {
-                    throw new NotImplementedException();
-                }
+                MessageBox.Show(
+                               this,
+                               Localization.Strings.Message_TaskCancelled,
+                               Localization.Strings.Message_Information,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+            }
+
+            if (e.Error != null)
+            {
+                MessageBox.Show(
+                               this,
+                               string.Format(Localization.Strings.Message_AnErrorHasOccurred, e.Error.Message),
+                               Localization.Strings.Message_Error,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
+
+            this.fileProcessManager.ProcessFilesAsync(e.DownloadedFiles, Guid.NewGuid());
+        }
+
+        /// <summary>
+        /// Download ProgressChanged event handler.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Event args.</param>
+        private void DownloadProgressChanged_EventHandler(object sender, BusinessLogic.FileTaskProgressChangedEventArgs e)
+        {
+            this.formGenericProgress.SetProgress(
+                                         e.FileTask,
+                                         e.ProgressPercentage);
+        }
+
+        /// <summary>
+        /// File Process Completed Event Handler.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void FileProcessCompleted_EventHandler(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox.Show(
+                               this,
+                               Localization.Strings.Message_TaskCancelled,
+                               Localization.Strings.Message_Information,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+
+                return;
+            }
+
+            if (e.Error != null)
+            {
+                MessageBox.Show(
+                               this,
+                               string.Format(Localization.Strings.Message_AnErrorHasOccurred, e.Error.Message),
+                               Localization.Strings.Message_Error,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+
+                return;
             }
 
             this.PopulateControls();
@@ -223,19 +243,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         /// <summary>
-        /// Download ProgressChanged event handler.
+        /// File Process Progress Changed Event Handler.
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
-        /// <param name="e">Event args.</param>
-        private void DownloadProgressChanged_EventHandler(object sender, EventArgs e)
+        /// <param name="e">Event arguments.</param>
+        private void FileProcessProgressChanged_EventHandler(object sender, BusinessLogic.FileTaskProgressChangedEventArgs e)
         {
-            var arguments = e as BusinessLogic.DownloadProgressChangedEventArgs;
-
-            this.formGenericProgress.SetProgress(
-                                         string.Format(
-                                                    Localization.Strings.Message_Downloading,
-                                                    arguments.LastDownloadedFile),
-                                         arguments.ProgressPercentage);
+            this.formGenericProgress.SetProgress(e.FileTask, e.ProgressPercentage);
         }
 
         /// <summary>
@@ -268,5 +282,37 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         #endregion Private Methods
+
+        private void FormUser_Shown(object sender, EventArgs e)
+        {
+            var user = this.userManager.GetUser();
+
+            if (user == null || user.Token == null)
+            {
+                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
+                {
+                    form.ShowDialog(this);
+                    user = this.userManager.GetUser();
+                }
+            }
+
+            if (user != null && user.Manager == null && user.Token != null)
+            {
+                List<BusinessLogic.DownloadFile> downloadFileList = new List<BusinessLogic.DownloadFile>();
+
+                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.WorldDetails));
+                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.ManagerCompendium));
+                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.TeamDetails));
+
+                this.formGenericProgress.Show(this);
+
+                this.downloadManager.DownloadFileAsync(user.Token, downloadFileList, Guid.NewGuid());
+            }
+
+            if (user.Manager != null)
+            {
+                this.PopulateControls();
+            }
+        }
     }
 }

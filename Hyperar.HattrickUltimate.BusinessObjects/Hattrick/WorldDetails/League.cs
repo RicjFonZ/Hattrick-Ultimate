@@ -84,12 +84,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the current season of the League.
         /// </summary>
-        public int Season { get; set; }
+        public short Season { get; set; }
 
         /// <summary>
         /// Gets or sets the difference between the season of the League and the global season.
         /// </summary>
-        public int SeasonOffset { get; set; }
+        public short SeasonOffset { get; set; }
 
         /// <summary>
         /// Gets or sets the date and time of the next series match date of the League.

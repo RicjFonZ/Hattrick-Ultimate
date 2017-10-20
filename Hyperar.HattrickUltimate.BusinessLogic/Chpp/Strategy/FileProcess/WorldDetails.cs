@@ -7,7 +7,6 @@
 namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using BusinessObjects.App;
     using BusinessObjects.App.Enums;
@@ -154,8 +153,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// Process World Details file.
         /// </summary>
         /// <param name="fileToProcess">File to process.</param>
-        /// <param name="parameters">Process parameters.</param>
-        public void ProcessFile(IXmlEntity fileToProcess, Dictionary<string, object> parameters = null)
+        public void ProcessFile(IXmlEntity fileToProcess)
         {
             if (fileToProcess == null)
             {

@@ -59,13 +59,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
             this.Property(p => p.CurrentSeason)
                 .HasColumnName(ColumnName.CurrentSeason)
                 .HasColumnOrder(5)
-                .HasColumnType(ColumnType.Integer)
+                .HasColumnType(ColumnType.SmallInt)
                 .IsRequired();
 
             this.Property(p => p.SeasonOffset)
                 .HasColumnName(ColumnName.SeasonOffset)
                 .HasColumnOrder(6)
-                .HasColumnType(ColumnType.Integer)
+                .HasColumnType(ColumnType.SmallInt)
                 .IsRequired();
 
             this.Property(p => p.CurrentRound)

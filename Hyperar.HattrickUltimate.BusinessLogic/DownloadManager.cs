@@ -26,7 +26,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// </summary>
     /// <param name="sender">Object that raised the event.</param>
     /// <param name="e">Event arguments</param>
-    public delegate void DownloadProgressChangedEventHandler(object sender, EventArgs e);
+    public delegate void DownloadProgressChangedEventHandler(object sender, FileTaskProgressChangedEventArgs e);
 
     /// <summary>
     /// Provides functionality to download CHPP files from Hattrick.
@@ -53,7 +53,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Tasks dictionary.
         /// </summary>
-        private HybridDictionary userStateToLifetime = new HybridDictionary();
+        private HybridDictionary userStateToLifetime;
 
         #endregion Private Fields
 
@@ -67,6 +67,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         {
             this.onCompletedDelegate = new SendOrPostCallback(this.DownloadProcessCompleted);
             this.onProgressReportDelegate = new SendOrPostCallback(this.ReportProcessProgress);
+
+            this.userStateToLifetime = new HybridDictionary();
             this.chppManager = chppManager;
         }
 
@@ -168,7 +170,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// Reports that the download progress changed.
         /// </summary>
         /// <param name="e">Event args.</param>
-        protected void OnDownloadProgressChanged(ProgressChangedEventArgs e)
+        protected void OnDownloadProgressChanged(FileTaskProgressChangedEventArgs e)
         {
             this.DownloadProgressChanged?.Invoke(this, e);
         }
@@ -228,25 +230,37 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         private void DownloadWorker(BusinessObjects.App.Token accessToken, List<DownloadFile> filesToDownload, AsyncOperation asyncOperation)
         {
             List<IXmlEntity> result = new List<IXmlEntity>();
-            Exception e = null;
-
+            Exception exception = null;
+            FileTaskProgressChangedEventArgs eventArgs = null;
             int i = 0;
 
-            while (!this.IsTaskCanceled(asyncOperation.UserSuppliedState) && i < filesToDownload.Count)
+            while (!this.IsCanceled(asyncOperation.UserSuppliedState) && i < filesToDownload.Count)
             {
                 DownloadFile currentFile = filesToDownload[i];
-                i++;
 
                 try
                 {
+                    eventArgs = new FileTaskProgressChangedEventArgs(
+                                        string.Format(
+                                                   Localization.Strings.Message_Downloading,
+                                                   currentFile.File.ToString()),
+                                        (int)Math.Round(((float)i / (float)filesToDownload.Count) * (float)100),
+                                        asyncOperation.UserSuppliedState);
+
+                    asyncOperation.Post(this.onProgressReportDelegate, eventArgs);
+
                     result.Add(
                                this.chppManager.GetProtectedResource(
                                                     accessToken,
                                                     currentFile.File,
                                                     currentFile.Parameters?.ToArray()));
 
-                    var eventArgs = new DownloadProgressChangedEventArgs(
-                                        result.Last().FileName,
+                    i++;
+
+                    eventArgs = new FileTaskProgressChangedEventArgs(
+                                        string.Format(
+                                                   Localization.Strings.Message_Downloaded,
+                                                   currentFile.File.ToString()),
                                         (int)Math.Round(((float)i / (float)filesToDownload.Count) * (float)100),
                                         asyncOperation.UserSuppliedState);
 
@@ -254,15 +268,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                 }
                 catch (Exception ex)
                 {
-                    e = ex;
+                    exception = ex;
+                    break;
                 }
             }
 
             this.CompletionMethod(
-                    result,
-                    e,
-                    this.IsTaskCanceled(asyncOperation.UserSuppliedState),
-                    asyncOperation);
+                     result,
+                     exception,
+                     this.IsCanceled(asyncOperation.UserSuppliedState),
+                     asyncOperation);
         }
 
         /// <summary>
@@ -270,7 +285,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         /// <param name="taskId">ID of the task.</param>
         /// <returns>A value indicating whether the task is cancelled or not.</returns>
-        private bool IsTaskCanceled(object taskId)
+        private bool IsCanceled(object taskId)
         {
             return this.userStateToLifetime[taskId] == null;
         }
@@ -281,7 +296,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <param name="operationState">Operation state.</param>
         private void ReportProcessProgress(object operationState)
         {
-            var e = operationState as ProgressChangedEventArgs;
+            var e = operationState as FileTaskProgressChangedEventArgs;
 
             this.OnDownloadProgressChanged(e);
         }

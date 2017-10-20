@@ -36,7 +36,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             result.UserSupporterTier = reader.ReadElementContentAsString();
             result.IsYouth = bool.Parse(reader.ReadElementContentAsString());
-            result.UserSupporterTier = reader.ReadElementContentAsString();
+            result.ActionType = reader.ReadElementContentAsString();
             result.IsPlayingMatch = bool.Parse(reader.ReadElementContentAsString());
             result.Team = this.ParseTeamNode(reader);
         }

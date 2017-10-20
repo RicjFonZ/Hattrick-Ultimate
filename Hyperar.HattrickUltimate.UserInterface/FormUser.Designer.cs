@@ -443,7 +443,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Name = "FormUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUser";
-            this.Load += new System.EventHandler(this.FormUser_Load);
+            this.Shown += new System.EventHandler(this.FormUser_Shown);
             this.GrpBoxManager.ResumeLayout(false);
             this.TabLayPanManager.ResumeLayout(false);
             this.GrpBoxTeams.ResumeLayout(false);

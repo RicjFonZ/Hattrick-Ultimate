@@ -7,11 +7,9 @@
 namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using BusinessObjects.App;
     using BusinessObjects.Hattrick.Interface;
-    using Constants;
     using DataAccess.Database.Interface;
     using ExtensionMethods;
     using Interface;
@@ -74,8 +72,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// Process Manager Compendium file.
         /// </summary>
         /// <param name="fileToProcess">File to process.</param>
-        /// <param name="parameters">Process parameters.</param>
-        public void ProcessFile(IXmlEntity fileToProcess, Dictionary<string, object> parameters = null)
+        public void ProcessFile(IXmlEntity fileToProcess)
         {
             if (fileToProcess == null)
             {
@@ -89,9 +86,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentException(Localization.Strings.Message_UnexpectedObjectType, nameof(fileToProcess));
             }
 
-            var isUser = parameters != null && parameters.ContainsKey(ParameterName.IsUser)
-                       ? Convert.ToBoolean(parameters[ParameterName.IsUser])
-                       : false;
+            var isUser = file.UserID == file.Manager.UserId;
 
             this.ProcessManager(file.Manager, isUser);
         }

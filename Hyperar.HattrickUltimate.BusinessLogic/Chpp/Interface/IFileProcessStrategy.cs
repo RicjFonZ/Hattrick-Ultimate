@@ -6,13 +6,12 @@
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Interface
 {
-    using System.Collections.Generic;
     using BusinessObjects.Hattrick.Interface;
 
     /// <summary>
     /// Provides functionality to process Hattrick Xml files.
     /// </summary>
-    internal interface IFileProcessStrategy
+    public interface IFileProcessStrategy
     {
         #region Public Methods
 
@@ -20,8 +19,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Interface
         /// Process the specified file.
         /// </summary>
         /// <param name="fileToProcess">File to process.</param>
-        /// <param name="parameters">Process parameters.</param>
-        void ProcessFile(IXmlEntity fileToProcess, Dictionary<string, object> parameters = null);
+        void ProcessFile(IXmlEntity fileToProcess);
 
         #endregion Public Methods
     }

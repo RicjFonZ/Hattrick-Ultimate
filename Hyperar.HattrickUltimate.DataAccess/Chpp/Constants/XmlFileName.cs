@@ -9,35 +9,35 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
     /// <summary>
     /// Hattrick XML file names.
     /// </summary>
-    internal class XmlFileName
+    public class XmlFileName
     {
-        #region Internal Fields
+        #region Public Fields
 
         /// <summary>
         /// Hattrick Check Token XML file name.
         /// </summary>
-        internal const string CheckToken = "check_token";
+        public const string CheckToken = "check_token";
 
         /// <summary>
         /// Hattrick Manager Compendium XML file name.
         /// </summary>
-        internal const string ManagerCompendium = "managercompendium.xml";
+        public const string ManagerCompendium = "managercompendium.xml";
 
         /// <summary>
         /// Players XML file name.
         /// </summary>
-        internal const string Players = "players.xml";
+        public const string Players = "players.xml";
 
         /// <summary>
         /// Hattrick Team Details XML file name.
         /// </summary>
-        internal const string TeamDetails = "teamdetails.xml";
+        public const string TeamDetails = "teamdetails.xml";
 
         /// <summary>
         /// Hattrick World Details XML file name.
         /// </summary>
-        internal const string WorldDetails = "worlddetails.xml";
+        public const string WorldDetails = "worlddetails.xml";
 
-        #endregion Internal Fields
+        #endregion Public Fields
     }
 }

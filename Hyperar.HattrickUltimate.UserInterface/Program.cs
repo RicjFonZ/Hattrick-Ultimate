@@ -18,6 +18,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     internal static class Program
     {
         #region Private Methods
+
         /// <summary>
         /// Registers application forms.
         /// </summary>
@@ -101,6 +102,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             GetAppName();
             GetDatabaseInstance();
             GetDataFolder();
+            RegisterForms();
         }
 
         /// <summary>

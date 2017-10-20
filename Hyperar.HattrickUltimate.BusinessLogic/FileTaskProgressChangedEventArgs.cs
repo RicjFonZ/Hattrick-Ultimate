@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="DownloadProgressChangedEventArgs.cs" company="Hyperar">
+// <copyright file="FileTaskProgressChangedEventArgs.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -11,19 +11,19 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// <summary>
     /// Download progress changed event arguments.
     /// </summary>
-    public class DownloadProgressChangedEventArgs : ProgressChangedEventArgs
+    public class FileTaskProgressChangedEventArgs : ProgressChangedEventArgs
     {
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DownloadProgressChangedEventArgs" /> class.
+        /// Initializes a new instance of the <see cref="FileTaskProgressChangedEventArgs" /> class.
         /// </summary>
-        /// <param name="lastDownloadedFile">The name of the last downloaded file.</param>
+        /// <param name="fileTask">The name of the task's file.</param>
         /// <param name="progressPercentage">The percentage of an asynchronous task that has been completed.</param>
         /// <param name="userState">A unique user state.</param>
-        public DownloadProgressChangedEventArgs(string lastDownloadedFile, int progressPercentage, object userState) : base(progressPercentage, userState)
+        public FileTaskProgressChangedEventArgs(string fileTask, int progressPercentage, object userState) : base(progressPercentage, userState)
         {
-            this.LastDownloadedFile = lastDownloadedFile;
+            this.FileTask = fileTask;
         }
 
         #endregion Public Constructors
@@ -31,9 +31,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         #region Public Properties
 
         /// <summary>
-        /// Gets the name of the latest downloaded file.
+        /// Gets the name of the task's file.
         /// </summary>
-        public string LastDownloadedFile { get; private set; }
+        public string FileTask { get; private set; }
 
         #endregion Public Properties
     }

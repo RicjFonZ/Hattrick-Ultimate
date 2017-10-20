@@ -110,7 +110,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <returns>Stored user.</returns>
         public BusinessObjects.App.User GetUser()
         {
-            return this.userRepository.Get().SingleOrDefault();
+            return this.userRepository.Get()
+                                      .SingleOrDefault();
         }
 
         #endregion Public Methods

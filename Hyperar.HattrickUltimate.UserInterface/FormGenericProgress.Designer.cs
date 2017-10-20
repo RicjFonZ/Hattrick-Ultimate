@@ -33,17 +33,18 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblTask = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // PgrsBarTasks
+            // PrgBarPercentage
             // 
             this.PrgBarPercentage.Location = new System.Drawing.Point(12, 32);
-            this.PrgBarPercentage.Name = "PgrsBarTasks";
+            this.PrgBarPercentage.MarqueeAnimationSpeed = 10;
+            this.PrgBarPercentage.Name = "PrgBarPercentage";
             this.PrgBarPercentage.Size = new System.Drawing.Size(460, 20);
             this.PrgBarPercentage.TabIndex = 0;
             // 
-            // label1
+            // LblTask
             // 
             this.LblTask.Location = new System.Drawing.Point(12, 9);
-            this.LblTask.Name = "label1";
+            this.LblTask.Name = "LblTask";
             this.LblTask.Size = new System.Drawing.Size(460, 20);
             this.LblTask.TabIndex = 1;
             this.LblTask.Text = "LblTask";
@@ -57,7 +58,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ControlBox = false;
             this.Controls.Add(this.LblTask);
             this.Controls.Add(this.PrgBarPercentage);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Working;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormGenericProgress";

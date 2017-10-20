@@ -133,7 +133,7 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Executing background task.
+        ///   Looks up a localized string similar to Executing tasks.
         /// </summary>
         public static string FormGenericProgress_Text {
             get {
@@ -423,6 +423,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloaded &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_Downloaded {
+            get {
+                return ResourceManager.GetString("Message_Downloaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Downloading &apos;{0}&apos;.
         /// </summary>
         public static string Message_Downloading {
@@ -522,11 +531,38 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Procesado &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_Processed {
+            get {
+                return ResourceManager.GetString("Message_Processed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing &apos;{0}&apos;..
+        /// </summary>
+        public static string Message_Processing {
+            get {
+                return ResourceManager.GetString("Message_Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Missing required parameter &apos;{0}&apos;..
         /// </summary>
         public static string Message_RequiredParameterMissing {
             get {
                 return ResourceManager.GetString("Message_RequiredParameterMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The task was cancelled..
+        /// </summary>
+        public static string Message_TaskCancelled {
+            get {
+                return ResourceManager.GetString("Message_TaskCancelled", resourceCulture);
             }
         }
         

@@ -38,7 +38,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Season.
         /// </summary>
-        public int Season { get; set; }
+        public short Season { get; set; }
 
         /// <summary>
         /// Gets or sets the Trophy Type Id.

@@ -142,7 +142,7 @@
     <value>Aceptar</value>
   </data>
   <data name="FormGenericProgress_Text" xml:space="preserve">
-    <value>Ejecutando tareas en segundo plano</value>
+    <value>Ejecutando tareas</value>
   </data>
   <data name="FormToken_AdvTxtBoxVerificationCode_EmptyMessage" xml:space="preserve">
     <value>Pegue el código de verificación generado por Hattrick.</value>
@@ -239,6 +239,9 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_DataFolderNotSet" xml:space="preserve">
     <value>No se ha elegido una carpeta para la base de datos. Hattrick Ultimate no puede continuar.</value>
   </data>
+  <data name="Message_Downloaded" xml:space="preserve">
+    <value>Descargado '{0}'.</value>
+  </data>
   <data name="Message_Downloading" xml:space="preserve">
     <value>Descargando '{0}'</value>
   </data>
@@ -272,8 +275,17 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_OverlappingTransaction" xml:space="preserve">
     <value>Ya hay una transacción activa en el contexto.</value>
   </data>
+  <data name="Message_Processed" xml:space="preserve">
+    <value>Procesado '{0}'.</value>
+  </data>
+  <data name="Message_Processing" xml:space="preserve">
+    <value>Procesando '{0}'.</value>
+  </data>
   <data name="Message_RequiredParameterMissing" xml:space="preserve">
     <value>Parámetro requerido faltante '{0}'.</value>
+  </data>
+  <data name="Message_TaskCancelled" xml:space="preserve">
+    <value>La tarea fue cancelada.</value>
   </data>
   <data name="Message_TaskIdMustBeUnique" xml:space="preserve">
     <value>El Identificador de Tarea debe ser único.</value>

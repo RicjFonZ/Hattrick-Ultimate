@@ -165,8 +165,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             newLeague.LeagueId = uint.Parse(reader.ReadElementContentAsString());
             newLeague.LeagueName = reader.ReadElementContentAsString();
-            newLeague.Season = reader.ReadElementContentAsInt();
-            newLeague.SeasonOffset = reader.ReadElementContentAsInt();
+            newLeague.Season = short.Parse(reader.ReadElementContentAsString());
+            newLeague.SeasonOffset = short.Parse(reader.ReadElementContentAsString());
             newLeague.MatchRound = byte.Parse(reader.ReadElementContentAsString());
             newLeague.ShortName = reader.ReadElementContentAsString();
             newLeague.Continent = reader.ReadElementContentAsString();

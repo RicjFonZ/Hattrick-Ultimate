@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
     /// </summary>
     public class QueryStringParameterName
     {
-        #region Internal Fields
+        #region Public Fields
 
         /// <summary>
         /// Action Type query string parameter.
@@ -78,6 +78,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// </summary>
         public const string Version = "version";
 
-        #endregion Internal Fields
+        #endregion Public Fields
     }
 }

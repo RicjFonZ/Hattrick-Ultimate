@@ -7,7 +7,6 @@
 namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 {
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using BusinessObjects.App;
@@ -31,6 +30,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// Country repository.
         /// </summary>
         private IRepository<Country> countryRepository;
+
+        /// <summary>
+        /// League repository.
+        /// </summary>
+        private IRepository<League> leagueRepository;
+
+        /// <summary>
+        /// Global season number.
+        /// </summary>
+        private short seasonNumber;
 
         /// <summary>
         /// Senior Player repository.
@@ -59,15 +68,17 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Initializes a new instance of the <see cref="Players" /> class.
         /// </summary>
-        /// <param name="context">Database context</param>
-        /// <param name="countryRepository">Country repository</param>
-        /// <param name="seniorPlayerRepository">Senior Player repository</param>
-        /// <param name="seniorPlayerSeasonGoalsRepository">Senior Player Season Goals repository</param>
-        /// <param name="seniorPlayerSkillsRepository">Senior Player Skills repository</param>
-        /// <param name="seniorTeamRepository">Senior Team repository</param>
+        /// <param name="context">Database context.</param>
+        /// <param name="countryRepository">Country repository.</param>
+        /// <param name="leagueRepository">League repository.</param>
+        /// <param name="seniorPlayerRepository">Senior Player repository.</param>
+        /// <param name="seniorPlayerSeasonGoalsRepository">Senior Player Season Goals repository.</param>
+        /// <param name="seniorPlayerSkillsRepository">Senior Player Skills repository.</param>
+        /// <param name="seniorTeamRepository">Senior Team repository.</param>
         public Players(
                    IDatabaseContext context,
                    IRepository<Country> countryRepository,
+                   IRepository<League> leagueRepository,
                    IRepository<SeniorPlayer> seniorPlayerRepository,
                    IRepository<SeniorPlayerSeasonGoals> seniorPlayerSeasonGoalsRepository,
                    IRepository<SeniorPlayerSkills> seniorPlayerSkillsRepository,
@@ -75,6 +86,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         {
             this.context = context;
             this.countryRepository = countryRepository;
+            this.leagueRepository = leagueRepository;
             this.seniorPlayerRepository = seniorPlayerRepository;
             this.seniorPlayerSeasonGoalsRepository = seniorPlayerSeasonGoalsRepository;
             this.seniorPlayerSkillsRepository = seniorPlayerSkillsRepository;
@@ -89,8 +101,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// Process Players file.
         /// </summary>
         /// <param name="fileToProcess">File to process.</param>
-        /// <param name="parameters">Process parameters.</param>
-        public void ProcessFile(IXmlEntity fileToProcess, Dictionary<string, object> parameters = null)
+        public void ProcessFile(IXmlEntity fileToProcess)
         {
             if (fileToProcess == null)
             {
@@ -110,6 +121,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                           string.Format(
                                      Localization.Strings.Message_TeamIsPlayingMatchCannotProcessPlayers,
                                      file.Team.TeamName));
+            }
+
+            this.seasonNumber = this.leagueRepository.Get(1).CurrentSeason;
+
+            var seniorTeam = this.seniorTeamRepository.Get(st => st.HattrickId == file.Team.TeamId)
+                                                       .Single();
+
+            foreach (var curPlayer in file.Team.PlayerList)
+            {
+                this.ProcessPlayer(curPlayer, seniorTeam.Id);
             }
         }
 
@@ -175,6 +196,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 {
                     CupGoals = player.CupGoals,
                     FriendlyGoals = player.FriendliesGoals,
+                    Season = Convert.ToByte(this.seasonNumber),
                     SeniorPlayerId = seniorPlayer.Id,
                     SeriesGoals = player.LeagueGoals
                 };
@@ -209,6 +231,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 
                 this.seniorPlayerRepository.Update(seniorPlayer);
             }
+
+            this.context.Save();
 
             if (player.DefenderSkill.HasValue)
             {

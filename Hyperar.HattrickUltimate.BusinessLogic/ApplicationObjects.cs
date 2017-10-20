@@ -68,9 +68,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         private static void RegisterBusinessObjectsManagers()
         {
-            Container.Register(typeof(DownloadManager));
-            Container.Register(typeof(TokenManager));
-            Container.Register(typeof(UserManager));
+            Container.Register<Chpp.Interface.IFileProcessFactory, Chpp.Factory.FileProcessFactory>(Lifestyle.Transient);
+            Container.Register<Chpp.Strategy.FileProcess.ManagerCompendium>(Lifestyle.Transient);
+            Container.Register<Chpp.Strategy.FileProcess.Players>(Lifestyle.Transient);
+            Container.Register<Chpp.Strategy.FileProcess.TeamDetails>(Lifestyle.Transient);
+            Container.Register<Chpp.Strategy.FileProcess.WorldDetails>(Lifestyle.Transient);
+            Container.Register<Chpp.ChppFileProcesser>(Lifestyle.Transient);
+            Container.Register<DownloadManager>(Lifestyle.Transient);
+            Container.Register<FileProcessManager>(Lifestyle.Transient);
+            Container.Register<TokenManager>(Lifestyle.Transient);
+            Container.Register<UserManager>(Lifestyle.Transient);
         }
 
         /// <summary>

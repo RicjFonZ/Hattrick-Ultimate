@@ -54,7 +54,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the current Season.
         /// </summary>
-        public int CurrentSeason { get; set; }
+        public short CurrentSeason { get; set; }
 
         /// <summary>
         /// Gets or sets the number of divisions.
@@ -84,7 +84,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the season offset.
         /// </summary>
-        public int SeasonOffset { get; set; }
+        public short SeasonOffset { get; set; }
 
         /// <summary>
         /// Gets or sets the Senior Series.
