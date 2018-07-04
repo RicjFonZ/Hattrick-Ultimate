@@ -18,7 +18,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Away Team Id.
         /// </summary>
-        public uint NextMatchAwayTeamId { get; set; }
+        public long NextMatchAwayTeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the Away Team Name.
@@ -33,7 +33,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Home Team Id.
         /// </summary>
-        public uint NextMatchHomeTeamId { get; set; }
+        public long NextMatchHomeTeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the Home Team Name.
@@ -43,7 +43,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Next Match Id.
         /// </summary>
-        public uint NextMatchId { get; set; }
+        public long NextMatchId { get; set; }
 
         #endregion Public Properties
     }

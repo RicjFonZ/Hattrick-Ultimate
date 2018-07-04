@@ -23,7 +23,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Team Id.
         /// </summary>
-        public uint TeamId { get; set; }
+        public long TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the Team name.

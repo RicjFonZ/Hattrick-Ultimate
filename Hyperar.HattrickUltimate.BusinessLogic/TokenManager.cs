@@ -88,7 +88,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <returns>Access Token.</returns>
         public BusinessObjects.App.Token GetToken()
         {
-            return this.tokenRepository.Get().SingleOrDefault();
+            return this.tokenRepository.Query().SingleOrDefault();
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             {
                 this.context.BeginTransaction();
 
-                var existingToken = this.tokenRepository.Get().SingleOrDefault();
+                var existingToken = this.tokenRepository.Query().SingleOrDefault();
 
                 if (existingToken == null)
                 {

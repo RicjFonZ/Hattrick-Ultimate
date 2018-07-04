@@ -81,7 +81,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newArena = new BusinessObjects.Hattrick.TeamDetails.Arena();
 
-            newArena.ArenaId = uint.Parse(reader.ReadElementContentAsString());
+            newArena.ArenaId = long.Parse(reader.ReadElementContentAsString());
             newArena.ArenaName = reader.ReadElementContentAsString();
 
             // Skips Arena closing node.
@@ -143,7 +143,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newCountry = new BusinessObjects.Hattrick.TeamDetails.Country();
 
-            newCountry.CountryId = uint.Parse(reader.ReadElementContentAsString());
+            newCountry.CountryId = long.Parse(reader.ReadElementContentAsString());
             newCountry.CountryName = reader.ReadElementContentAsString();
 
             // Skips Country closing node.
@@ -176,7 +176,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             if (newCup.StillInCup)
             {
-                newCup.CupId = uint.Parse(reader.ReadElementContentAsString());
+                newCup.CupId = long.Parse(reader.ReadElementContentAsString());
                 newCup.CupName = reader.ReadElementContentAsString();
                 newCup.CupLeagueLevel = byte.Parse(reader.ReadElementContentAsString());
                 newCup.CupLevel = byte.Parse(reader.ReadElementContentAsString());
@@ -211,9 +211,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newFanclub = new BusinessObjects.Hattrick.TeamDetails.Fanclub();
 
-            newFanclub.FanclubId = uint.Parse(reader.ReadElementContentAsString());
+            newFanclub.FanclubId = long.Parse(reader.ReadElementContentAsString());
             newFanclub.FanclubName = reader.ReadElementContentAsString();
-            newFanclub.FanclubSize = uint.Parse(reader.ReadElementContentAsString());
+            newFanclub.FanclubSize = long.Parse(reader.ReadElementContentAsString());
 
             // Skips Fanclub closing node.
             reader.Read();
@@ -241,7 +241,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newFlag = new BusinessObjects.Hattrick.TeamDetails.Flag();
 
-            newFlag.LeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newFlag.LeagueId = long.Parse(reader.ReadElementContentAsString());
             newFlag.LeagueName = reader.ReadElementContentAsString();
             newFlag.CountryCode = reader.ReadElementContentAsString();
 
@@ -331,7 +331,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newGuestbook = new BusinessObjects.Hattrick.TeamDetails.Guestbook();
 
-            newGuestbook.NumberOfGuestbookItems = uint.Parse(reader.ReadElementContentAsString());
+            newGuestbook.NumberOfGuestbookItems = long.Parse(reader.ReadElementContentAsString());
 
             // Skips Guestbook closing node.
             reader.Read();
@@ -359,7 +359,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newLanguage = new BusinessObjects.Hattrick.TeamDetails.Language();
 
-            newLanguage.LanguageId = uint.Parse(reader.ReadElementContentAsString());
+            newLanguage.LanguageId = long.Parse(reader.ReadElementContentAsString());
             newLanguage.LanguageName = reader.ReadElementContentAsString();
 
             // Skips Language closing node.
@@ -390,12 +390,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             lastMatch = new BusinessObjects.Hattrick.TeamDetails.LastMatch();
 
-            lastMatch.LastMatchId = uint.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchId = long.Parse(reader.ReadElementContentAsString());
             lastMatch.LastMatchDate = DateTime.Parse(reader.ReadElementContentAsString());
-            lastMatch.LastMatchHomeTeamId = uint.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchHomeTeamId = long.Parse(reader.ReadElementContentAsString());
             lastMatch.LastMatchHomeTeamName = reader.ReadElementContentAsString();
             lastMatch.LastMatchHomeTeamGoals = byte.Parse(reader.ReadElementContentAsString());
-            lastMatch.LastMatchAwayTeamId = uint.Parse(reader.ReadElementContentAsString());
+            lastMatch.LastMatchAwayTeamId = long.Parse(reader.ReadElementContentAsString());
             lastMatch.LastMatchAwayTeamName = reader.ReadElementContentAsString();
             lastMatch.LastMatchAwayTeamGoals = byte.Parse(reader.ReadElementContentAsString());
 
@@ -425,7 +425,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newLeagueLevelUnit = new BusinessObjects.Hattrick.TeamDetails.LeagueLevelUnit();
 
-            newLeagueLevelUnit.LeagueLevelUnitId = uint.Parse(reader.ReadElementContentAsString());
+            newLeagueLevelUnit.LeagueLevelUnitId = long.Parse(reader.ReadElementContentAsString());
             newLeagueLevelUnit.LeagueLevelUnitName = reader.ReadElementContentAsString();
             newLeagueLevelUnit.LeagueLevelUnitLevel = byte.Parse(reader.ReadElementContentAsString());
 
@@ -455,7 +455,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newLeague = new BusinessObjects.Hattrick.TeamDetails.League();
 
-            newLeague.LeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newLeague.LeagueId = long.Parse(reader.ReadElementContentAsString());
             newLeague.LeagueName = reader.ReadElementContentAsString();
 
             // Skips League closing node.
@@ -533,7 +533,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             // Skips NationalTeam opening node.
             reader.Read();
 
-            newNationalTeam.NationalTeamId = uint.Parse(reader.ReadElementContentAsString());
+            newNationalTeam.NationalTeamId = long.Parse(reader.ReadElementContentAsString());
             newNationalTeam.NationalTeamName = reader.ReadElementContentAsString();
 
             // Skips NationalTeam closing node.
@@ -564,11 +564,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             nextMatch = new BusinessObjects.Hattrick.TeamDetails.NextMatch();
 
-            nextMatch.NextMatchId = uint.Parse(reader.ReadElementContentAsString());
+            nextMatch.NextMatchId = long.Parse(reader.ReadElementContentAsString());
             nextMatch.NextMatchDate = DateTime.Parse(reader.ReadElementContentAsString());
-            nextMatch.NextMatchHomeTeamId = uint.Parse(reader.ReadElementContentAsString());
+            nextMatch.NextMatchHomeTeamId = long.Parse(reader.ReadElementContentAsString());
             nextMatch.NextMatchHomeTeamName = reader.ReadElementContentAsString();
-            nextMatch.NextMatchAwayTeamId = uint.Parse(reader.ReadElementContentAsString());
+            nextMatch.NextMatchAwayTeamId = long.Parse(reader.ReadElementContentAsString());
             nextMatch.NextMatchAwayTeamName = reader.ReadElementContentAsString();
 
             // Skips NextMatch opening node.
@@ -637,7 +637,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newRegion = new BusinessObjects.Hattrick.TeamDetails.Region();
 
-            newRegion.RegionId = uint.Parse(reader.ReadElementContentAsString());
+            newRegion.RegionId = long.Parse(reader.ReadElementContentAsString());
             newRegion.RegionName = reader.ReadElementContentAsString();
 
             // Skips Region closing node.
@@ -666,13 +666,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newSupportedTeam = new BusinessObjects.Hattrick.TeamDetails.SupportedTeam();
 
-            newSupportedTeam.UserId = uint.Parse(reader.ReadElementContentAsString());
+            newSupportedTeam.UserId = long.Parse(reader.ReadElementContentAsString());
             newSupportedTeam.LoginName = reader.ReadElementContentAsString();
-            newSupportedTeam.TeamId = uint.Parse(reader.ReadElementContentAsString());
+            newSupportedTeam.TeamId = long.Parse(reader.ReadElementContentAsString());
             newSupportedTeam.TeamName = reader.ReadElementContentAsString();
-            newSupportedTeam.LeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newSupportedTeam.LeagueId = long.Parse(reader.ReadElementContentAsString());
             newSupportedTeam.LeagueName = reader.ReadElementContentAsString();
-            newSupportedTeam.LeagueLevelUnitId = uint.Parse(reader.ReadElementContentAsString());
+            newSupportedTeam.LeagueLevelUnitId = long.Parse(reader.ReadElementContentAsString());
             newSupportedTeam.LeagueLevelUnitName = reader.ReadElementContentAsString();
 
             if (reader.Name.Equals(XmlTag.LastMatch, StringComparison.OrdinalIgnoreCase))
@@ -760,13 +760,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newSupporterTeam = new BusinessObjects.Hattrick.TeamDetails.SupporterTeam();
 
-            newSupporterTeam.UserId = uint.Parse(reader.ReadElementContentAsString());
+            newSupporterTeam.UserId = long.Parse(reader.ReadElementContentAsString());
             newSupporterTeam.LoginName = reader.ReadElementContentAsString();
-            newSupporterTeam.TeamId = uint.Parse(reader.ReadElementContentAsString());
+            newSupporterTeam.TeamId = long.Parse(reader.ReadElementContentAsString());
             newSupporterTeam.TeamName = reader.ReadElementContentAsString();
-            newSupporterTeam.LeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newSupporterTeam.LeagueId = long.Parse(reader.ReadElementContentAsString());
             newSupporterTeam.LeagueName = reader.ReadElementContentAsString();
-            newSupporterTeam.LeagueLevelUnitId = uint.Parse(reader.ReadElementContentAsString());
+            newSupporterTeam.LeagueLevelUnitId = long.Parse(reader.ReadElementContentAsString());
             newSupporterTeam.LeagueLevelUnitName = reader.ReadElementContentAsString();
 
             // Skips SupportedTeam closing node.
@@ -824,7 +824,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newTeam = new BusinessObjects.Hattrick.TeamDetails.Team();
 
-            newTeam.TeamId = uint.Parse(reader.ReadElementContentAsString());
+            newTeam.TeamId = long.Parse(reader.ReadElementContentAsString());
             newTeam.TeamName = reader.ReadElementContentAsString();
             newTeam.ShortTeamName = reader.ReadElementContentAsString();
             newTeam.IsPrimaryClub = bool.Parse(reader.ReadElementContentAsString());
@@ -874,7 +874,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                 newTeam.Cup = this.ParseCupNode(reader);
             }
 
-            newTeam.FriendlyTeamId = uint.Parse(reader.ReadElementContentAsString());
+            newTeam.FriendlyTeamId = long.Parse(reader.ReadElementContentAsString());
             newTeam.NumberOfVictories = int.Parse(reader.ReadElementContentAsString());
             newTeam.NumberOfUndefeated = int.Parse(reader.ReadElementContentAsString());
             newTeam.TeamRank = int.Parse(reader.ReadElementContentAsString());
@@ -901,7 +901,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                 newTeam.TeamColors = this.ParseTeamColorsNode(reader);
             }
 
-            newTeam.YouthTeamId = uint.Parse(reader.ReadElementContentAsString());
+            newTeam.YouthTeamId = long.Parse(reader.ReadElementContentAsString());
             newTeam.YouthTeamName = reader.ReadElementContentAsString();
             newTeam.NumberOfVisits = int.Parse(reader.ReadElementContentAsString());
 
@@ -963,7 +963,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newTrainer = new BusinessObjects.Hattrick.TeamDetails.Trainer();
 
-            newTrainer.PlayerId = uint.Parse(reader.ReadElementContentAsString());
+            newTrainer.PlayerId = long.Parse(reader.ReadElementContentAsString());
 
             // Skips Trainer closing node.
             reader.Read();
@@ -1028,7 +1028,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newUser = new BusinessObjects.Hattrick.TeamDetails.User();
 
-            newUser.UserId = uint.Parse(reader.ReadElementContentAsString());
+            newUser.UserId = long.Parse(reader.ReadElementContentAsString());
 
             if (reader.Name.Equals(XmlTag.Language, StringComparison.OrdinalIgnoreCase))
             {

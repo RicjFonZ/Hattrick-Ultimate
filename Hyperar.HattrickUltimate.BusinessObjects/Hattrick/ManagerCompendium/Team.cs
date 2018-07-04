@@ -36,7 +36,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// <summary>
         /// Gets or sets the ID.
         /// </summary>
-        public uint TeamId { get; set; }
+        public long TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

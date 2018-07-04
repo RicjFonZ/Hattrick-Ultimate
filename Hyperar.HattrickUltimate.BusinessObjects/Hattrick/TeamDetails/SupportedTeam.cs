@@ -21,12 +21,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the League Id.
         /// </summary>
-        public uint LeagueId { get; set; }
+        public long LeagueId { get; set; }
 
         /// <summary>
         /// Gets or sets the LeagueLevelUnit Id.
         /// </summary>
-        public uint LeagueLevelUnitId { get; set; }
+        public long LeagueLevelUnitId { get; set; }
 
         /// <summary>
         /// Gets or sets the LeagueLevelUnit Name.
@@ -56,7 +56,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Team Id.
         /// </summary>
-        public uint TeamId { get; set; }
+        public long TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the Team Name.
@@ -66,7 +66,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the User Id.
         /// </summary>
-        public uint UserId { get; set; }
+        public long UserId { get; set; }
 
         #endregion Public Properties
     }

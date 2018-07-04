@@ -29,12 +29,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Country repository.
         /// </summary>
-        private IRepository<Country> countryRepository;
+        private IHattrickRepository<Country> countryRepository;
 
         /// <summary>
         /// Manager repository.
         /// </summary>
-        private IRepository<Manager> managerRepository;
+        private IHattrickRepository<Manager> managerRepository;
 
         /// <summary>
         /// User repository.
@@ -54,8 +54,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="userRepository">User repository.</param>
         public ManagerCompendium(
                    IDatabaseContext context,
-                   IRepository<Country> countryRepository,
-                   IRepository<Manager> managerRepository,
+                   IHattrickRepository<Country> countryRepository,
+                   IHattrickRepository<Manager> managerRepository,
                    IRepository<User> userRepository)
         {
             this.context = context;
@@ -107,18 +107,17 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(manager));
             }
 
-            var storedManager = this.managerRepository.Get(m => m.HattrickId == manager.UserId)
-                                                      .SingleOrDefault();
+            var storedManager = this.managerRepository.GetByHattrickId(manager.UserId);
 
             if (storedManager == null)
             {
                 storedManager = new Manager
                 {
-                    CountryId = this.countryRepository.Get(c => c.HattrickId == manager.Country.CountryId).Single().Id,
+                    CountryId = this.countryRepository.GetByHattrickId(manager.Country.CountryId).Id,
                     HattrickId = manager.UserId,
                     SupporterTier = manager.SupporterTier.GetEnum(),
                     User = isUser
-                         ? this.userRepository.Get().Single()
+                         ? this.userRepository.Query().Single()
                          : null,
                     UserName = manager.LoginName,
                 };

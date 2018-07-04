@@ -29,7 +29,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick
         /// <summary>
         /// Gets or sets the ID of the User that fetched the file.
         /// </summary>
-        public uint UserID { get; set; }
+        public long UserID { get; set; }
 
         /// <summary>
         /// Gets or sets the version number.

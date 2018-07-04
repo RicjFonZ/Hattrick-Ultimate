@@ -124,6 +124,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         private static void RegisterRepositories()
         {
             Container.Register(typeof(IRepository<>), typeof(Repository<>), Lifestyle.Scoped);
+            Container.Register(typeof(IHattrickRepository<>), typeof(HattrickRepository<>), Lifestyle.Scoped);
         }
 
         #endregion Private Methods

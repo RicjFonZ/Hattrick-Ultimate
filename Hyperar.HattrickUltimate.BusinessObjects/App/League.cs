@@ -92,11 +92,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public virtual ICollection<SeniorSeries> SeniorSeries { get; set; } = new HashSet<SeniorSeries>();
 
         /// <summary>
-        /// Gets or sets the Senior Teams.
-        /// </summary>
-        public virtual ICollection<SeniorTeam> SeniorTeams { get; set; } = new HashSet<SeniorTeam>();
-
-        /// <summary>
         /// Gets or sets the Short Name.
         /// </summary>
         public string ShortName { get; set; }

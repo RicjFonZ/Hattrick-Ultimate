@@ -95,7 +95,9 @@
     <Compile Include="Database\Constants\TableName.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
     <Compile Include="Database\Factory\RollbackStrategyFactory.cs" />
+    <Compile Include="Database\HattrickRepository.cs" />
     <Compile Include="Database\Interface\IDatabaseContext.cs" />
+    <Compile Include="Database\Interface\IHattrickRepository.cs" />
     <Compile Include="Database\Interface\IMapping.cs" />
     <Compile Include="Database\Interface\IRepository.cs" />
     <Compile Include="Database\Interface\IRollbackStrategy.cs" />

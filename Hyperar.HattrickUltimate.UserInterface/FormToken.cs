@@ -221,7 +221,19 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             if (link != null)
             {
-                Clipboard.SetText(link.LinkData.ToString());
+                try
+                {
+                    Clipboard.SetText(link.LinkData.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show(
+                                   this,
+                                   Localization.Strings.Message_CopyToClipboardFailed,
+                                   Localization.Strings.Message_Error,
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+                }
             }
         }
 

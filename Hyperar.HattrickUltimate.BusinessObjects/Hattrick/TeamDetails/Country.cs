@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Country ID.
         /// </summary>
-        public uint CountryId { get; set; }
+        public long CountryId { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the Country.

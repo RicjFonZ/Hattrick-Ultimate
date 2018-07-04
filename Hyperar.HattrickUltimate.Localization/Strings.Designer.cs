@@ -405,6 +405,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy to clipboard failed..
+        /// </summary>
+        public static string Message_CopyToClipboardFailed {
+            get {
+                return ResourceManager.GetString("Message_CopyToClipboardFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Database folder:.
         /// </summary>
         public static string Message_DatabaseFolderGroup {

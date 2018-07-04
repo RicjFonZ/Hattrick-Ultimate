@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// <summary>
         /// Gets or sets the ID.
         /// </summary>
-        public uint RegionId { get; set; }
+        public long RegionId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

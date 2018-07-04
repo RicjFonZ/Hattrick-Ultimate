@@ -29,14 +29,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
         /// </summary>
         /// <param name="predicate">Query filters.</param>
         /// <returns>IQueryable object with the entities that satisfy the specified predicate.</returns>
-        IQueryable<TEntity> Get(Func<TEntity, bool> predicate = null);
+        IQueryable<TEntity> Query(Func<TEntity, bool> predicate = null);
 
         /// <summary>
         /// Gets the object with the specified ID, if any.
         /// </summary>
         /// <param name="id">ID of the desired object.</param>
         /// <returns>Entity with the specified ID, if any.</returns>
-        TEntity Get(int id);
+        TEntity GetById(int id);
 
         /// <summary>
         /// Inserts the specified entity on the database.

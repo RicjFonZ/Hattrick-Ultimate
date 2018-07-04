@@ -323,4 +323,7 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_UnknownSupporterTier" xml:space="preserve">
     <value>Nivel Supporter desconocido '{0}'.</value>
   </data>
+  <data name="Message_CopyToClipboardFailed" xml:space="preserve">
+    <value>Copiar al portapapeles falló.</value>
+  </data>
 </root>

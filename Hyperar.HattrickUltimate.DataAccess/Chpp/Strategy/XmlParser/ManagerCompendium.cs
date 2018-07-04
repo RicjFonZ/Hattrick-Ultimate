@@ -63,7 +63,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newArena = new BusinessObjects.Hattrick.ManagerCompendium.Arena();
 
-            newArena.ArenaId = uint.Parse(reader.ReadElementContentAsString());
+            newArena.ArenaId = long.Parse(reader.ReadElementContentAsString());
             newArena.ArenaName = reader.ReadElementContentAsString();
 
             // Skips Arena closing node.
@@ -128,7 +128,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newCountry = new BusinessObjects.Hattrick.ManagerCompendium.Country();
 
-            newCountry.CountryId = uint.Parse(reader.ReadElementContentAsString());
+            newCountry.CountryId = long.Parse(reader.ReadElementContentAsString());
             newCountry.CountryName = reader.ReadElementContentAsString();
 
             // Skips Country closing node.
@@ -157,7 +157,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newLanguage = new BusinessObjects.Hattrick.ManagerCompendium.Language();
 
-            newLanguage.LanguageId = uint.Parse(reader.ReadElementContentAsString());
+            newLanguage.LanguageId = long.Parse(reader.ReadElementContentAsString());
             newLanguage.LanguageName = reader.ReadElementContentAsString();
 
             // Skips Language closing node.
@@ -226,7 +226,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newLeagueLevelUnit = new BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit();
 
-            newLeagueLevelUnit.LeagueLevelUnitId = uint.Parse(reader.ReadElementContentAsString());
+            newLeagueLevelUnit.LeagueLevelUnitId = long.Parse(reader.ReadElementContentAsString());
             newLeagueLevelUnit.LeagueLevelUnitName = reader.ReadElementContentAsString();
 
             // Skips LeagueLevelUnit closing node.
@@ -255,7 +255,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newLeague = new BusinessObjects.Hattrick.ManagerCompendium.League();
 
-            newLeague.LeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newLeague.LeagueId = long.Parse(reader.ReadElementContentAsString());
             newLeague.LeagueName = reader.ReadElementContentAsString();
 
             // Skips League closing node.
@@ -284,7 +284,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newManager = new BusinessObjects.Hattrick.ManagerCompendium.Manager();
 
-            newManager.UserId = uint.Parse(reader.ReadElementContentAsString());
+            newManager.UserId = long.Parse(reader.ReadElementContentAsString());
             newManager.LoginName = reader.ReadElementContentAsString();
             newManager.SupporterTier = reader.ReadElementContentAsString();
 
@@ -381,7 +381,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             // Skips NationalTeam opening node.
             reader.Read();
 
-            newNationalTeam.NationalTeamId = uint.Parse(reader.ReadElementContentAsString());
+            newNationalTeam.NationalTeamId = long.Parse(reader.ReadElementContentAsString());
             newNationalTeam.NationalTeamName = reader.ReadElementContentAsString();
 
             // Skips NationalTeam closing node.
@@ -410,7 +410,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newRegion = new BusinessObjects.Hattrick.ManagerCompendium.Region();
 
-            newRegion.RegionId = uint.Parse(reader.ReadElementContentAsString());
+            newRegion.RegionId = long.Parse(reader.ReadElementContentAsString());
             newRegion.RegionName = reader.ReadElementContentAsString();
 
             // Skips Region closing node.
@@ -439,7 +439,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newTeam = new BusinessObjects.Hattrick.ManagerCompendium.Team();
 
-            newTeam.TeamId = uint.Parse(reader.ReadElementContentAsString());
+            newTeam.TeamId = long.Parse(reader.ReadElementContentAsString());
             newTeam.TeamName = reader.ReadElementContentAsString();
 
             if (reader.Name.Equals(XmlTag.Arena, StringComparison.OrdinalIgnoreCase))
@@ -494,7 +494,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newYouthLeague = new BusinessObjects.Hattrick.ManagerCompendium.YouthLeague();
 
-            newYouthLeague.YouthLeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newYouthLeague.YouthLeagueId = long.Parse(reader.ReadElementContentAsString());
             newYouthLeague.YouthLeagueName = reader.ReadElementContentAsString();
 
             // Skips YouthLeague closing node.
@@ -523,7 +523,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newYouthTeam = new BusinessObjects.Hattrick.ManagerCompendium.YouthTeam();
 
-            newYouthTeam.YouthTeamId = uint.Parse(reader.ReadElementContentAsString());
+            newYouthTeam.YouthTeamId = long.Parse(reader.ReadElementContentAsString());
             newYouthTeam.YouthTeamName = reader.ReadElementContentAsString();
 
             if (reader.Name.Equals(XmlTag.YouthLeague, StringComparison.OrdinalIgnoreCase) &&

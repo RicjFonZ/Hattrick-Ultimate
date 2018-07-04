@@ -23,7 +23,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Match Id.
         /// </summary>
-        public uint MatchId { get; set; }
+        public long MatchId { get; set; }
 
         /// <summary>
         /// Gets or sets the minutes played on the last match.

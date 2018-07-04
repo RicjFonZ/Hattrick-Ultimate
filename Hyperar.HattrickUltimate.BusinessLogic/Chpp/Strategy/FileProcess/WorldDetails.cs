@@ -35,7 +35,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Country repository.
         /// </summary>
-        private IRepository<Country> countryRepository;
+        private IHattrickRepository<Country> countryRepository;
 
         /// <summary>
         /// Currency repository.
@@ -50,7 +50,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// LeagueCup repository.
         /// </summary>
-        private IRepository<LeagueCup> leagueCupRepository;
+        private IHattrickRepository<LeagueCup> leagueCupRepository;
 
         /// <summary>
         /// LeagueNationalTeam repository.
@@ -60,7 +60,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// League repository.
         /// </summary>
-        private IRepository<League> leagueRepository;
+        private IHattrickRepository<League> leagueRepository;
 
         /// <summary>
         /// LeagueSchedule repository.
@@ -70,12 +70,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Manager repository.
         /// </summary>
-        private IRepository<Manager> managerRepository;
+        private IHattrickRepository<Manager> managerRepository;
 
         /// <summary>
         /// Region repository.
         /// </summary>
-        private IRepository<Region> regionRepository;
+        private IHattrickRepository<Region> regionRepository;
 
         /// <summary>
         /// TimeFormat repository.
@@ -116,15 +116,15 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         public WorldDetails(
                    IDatabaseContext context,
                    IRepository<Continent> continentRepository,
-                   IRepository<Country> countryRepository,
+                   IHattrickRepository<Country> countryRepository,
                    IRepository<Currency> currencyRepository,
                    IRepository<DateFormat> dateFormatRepository,
-                   IRepository<LeagueCup> leagueCupRepository,
+                   IHattrickRepository<LeagueCup> leagueCupRepository,
                    IRepository<LeagueNationalTeam> leagueNationalTeamRepository,
-                   IRepository<League> leagueRepository,
+                   IHattrickRepository<League> leagueRepository,
                    IRepository<LeagueSchedule> leagueScheduleRepository,
-                   IRepository<Manager> managerRepository,
-                   IRepository<Region> regionRepository,
+                   IHattrickRepository<Manager> managerRepository,
+                   IHattrickRepository<Region> regionRepository,
                    IRepository<TimeFormat> timeFormatRepository,
                    IRepository<User> userRepository,
                    IRepository<Zone> zoneRepository)
@@ -182,8 +182,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 }
 
                 // If there's a country to process and it doesn't already exists.
-                if (curLeague.Country != null &&
-                    !this.countryRepository.Get().Any(c => c.HattrickId == curLeague.Country.CountryId))
+                if (curLeague.Country != null && this.countryRepository.GetByHattrickId(curLeague.Country.CountryId) == null)
                 {
                     var currency = this.ProcessCurrency(
                                             curLeague.Country.CurrencyName,
@@ -221,7 +220,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>Continent object.</returns>
         private Continent ProcessContinent(string continentName)
         {
-            var storedContinent = this.continentRepository.Get()
+            var storedContinent = this.continentRepository.Query()
                                                           .SingleOrDefault(z => z.Name.Equals(
                                                                                            continentName,
                                                                                            StringComparison.OrdinalIgnoreCase));
@@ -257,8 +256,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                             int timeFormatId,
                             int leagueId)
         {
-            var storedCountry = this.countryRepository.Get(c => c.HattrickId == country.CountryId)
-                                                      .SingleOrDefault();
+            var storedCountry = this.countryRepository.GetByHattrickId(country.CountryId);
 
             if (storedCountry == null)
             {
@@ -268,7 +266,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     CurrencyId = currencyId,
                     DateFormatId = dateFormatId,
                     HattrickId = country.CountryId,
-                    League = this.leagueRepository.Get(leagueId),
+                    League = this.leagueRepository.GetById(leagueId),
                     Name = country.CountryName,
                     TimeFormatId = timeFormatId
                 };
@@ -289,7 +287,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>Currency object.</returns>
         private Currency ProcessCurrency(string currencyName, decimal currencyRate)
         {
-            var storedCurrency = this.currencyRepository.Get()
+            var storedCurrency = this.currencyRepository.Query()
                                                         .SingleOrDefault(z => z.Name.Equals(
                                                                                          currencyName,
                                                                                          StringComparison.OrdinalIgnoreCase)
@@ -318,7 +316,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>DateFormat object.</returns>
         private DateFormat ProcessDateFormat(string dateFormatMask)
         {
-            var storedDateFormat = this.dateFormatRepository.Get()
+            var storedDateFormat = this.dateFormatRepository.Query()
                                                             .SingleOrDefault(c => c.Mask.Equals(
                                                                                              dateFormatMask,
                                                                                              StringComparison.OrdinalIgnoreCase));
@@ -350,8 +348,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                            int continentId,
                            int zoneId)
         {
-            var storedLeague = this.leagueRepository.Get(l => l.HattrickId == league.LeagueId)
-                                                    .SingleOrDefault();
+            var storedLeague = this.leagueRepository.GetByHattrickId(league.LeagueId);
 
             if (storedLeague == null)
             {
@@ -425,8 +422,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="leagueId">League owning Id.</param>
         private void ProcessLeagueCup(BusinessObjects.Hattrick.WorldDetails.Cup cup, int leagueId)
         {
-            var storedCup = this.leagueCupRepository.Get()
-                                                    .SingleOrDefault(l => l.HattrickId == cup.CupId);
+            var storedCup = this.leagueCupRepository.GetByHattrickId(cup.CupId);
 
             if (storedCup == null)
             {
@@ -474,8 +470,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(manager));
             }
 
-            var storedManager = this.managerRepository.Get(m => m.HattrickId == manager.UserId)
-                                                      .SingleOrDefault();
+            var storedManager = this.managerRepository.GetByHattrickId(manager.UserId);
 
             if (storedManager == null)
             {
@@ -484,7 +479,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     CountryId = countryId,
                     HattrickId = manager.UserId,
                     SupporterTier = manager.SupporterTier.GetEnum(),
-                    User = this.userRepository.Get().Single(),
+                    User = this.userRepository.Query().Single(),
                     UserName = manager.LoginName,
                 };
 
@@ -511,8 +506,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>Region object</returns>
         private Region ProcessRegion(BusinessObjects.Hattrick.WorldDetails.Region region, int countryId)
         {
-            var storedRegion = this.regionRepository.Get()
-                                                    .SingleOrDefault(r => r.HattrickId == region.RegionId);
+            var storedRegion = this.regionRepository.GetByHattrickId(region.RegionId);
 
             if (storedRegion == null)
             {
@@ -538,10 +532,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="regionName">Region name.</param>
         /// <param name="countryId">Owning Country Id.</param>
         /// <returns>Region object</returns>
-        private Region ProcessRegion(uint regionId, string regionName, int countryId)
+        private Region ProcessRegion(long regionId, string regionName, int countryId)
         {
-            var storedRegion = this.regionRepository.Get()
-                                                    .SingleOrDefault(r => r.HattrickId == regionId);
+            var storedRegion = this.regionRepository.GetByHattrickId(regionId);
 
             if (storedRegion == null)
             {
@@ -567,7 +560,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>TimeFormat object.</returns>
         private TimeFormat ProcessTimeFormat(string timeFormatMask)
         {
-            var storedTimeFormat = this.timeFormatRepository.Get()
+            var storedTimeFormat = this.timeFormatRepository.Query()
                                                             .SingleOrDefault(c => c.Mask.Equals(
                                                                                              timeFormatMask,
                                                                                              StringComparison.OrdinalIgnoreCase));
@@ -594,7 +587,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>Zone object.</returns>
         private Zone ProcessZone(string zoneName)
         {
-            var storedZone = this.zoneRepository.Get()
+            var storedZone = this.zoneRepository.Query()
                                                 .SingleOrDefault(z => z.Name.Equals(
                                                                                  zoneName,
                                                                                  StringComparison.OrdinalIgnoreCase));

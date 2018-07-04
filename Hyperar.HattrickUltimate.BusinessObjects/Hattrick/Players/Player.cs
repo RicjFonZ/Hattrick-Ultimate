@@ -66,7 +66,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Country Id.
         /// </summary>
-        public uint CountryId { get; set; }
+        public long CountryId { get; set; }
 
         /// <summary>
         /// Gets or sets the league cup goals within the current season.
@@ -160,7 +160,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the National Team Id if he's selected.
         /// </summary>
-        public uint NationalTeamId { get; set; }
+        public long NationalTeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the NickName.
@@ -191,7 +191,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Player Id.
         /// </summary>
-        public uint PlayerId { get; set; }
+        public long PlayerId { get; set; }
 
         /// <summary>
         /// Gets or sets the Player Number.
@@ -215,7 +215,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <remarks>
         /// The value is given in Swedish Kroner (kr).
         /// </remarks>
-        public uint Salary { get; set; }
+        public long Salary { get; set; }
 
         /// <summary>
         /// Gets or sets the Scorer skill level.
@@ -261,7 +261,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the TSI.
         /// </summary>
-        public uint TSI { get; set; }
+        public long TSI { get; set; }
 
         /// <summary>
         /// Gets or sets the Winger skill level.

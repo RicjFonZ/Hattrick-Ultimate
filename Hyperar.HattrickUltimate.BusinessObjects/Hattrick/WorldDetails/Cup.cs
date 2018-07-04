@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the Cup ID.
         /// </summary>
-        public uint CupId { get; set; }
+        public long CupId { get; set; }
 
         /// <summary>
         /// Gets or sets the Cup League Level.

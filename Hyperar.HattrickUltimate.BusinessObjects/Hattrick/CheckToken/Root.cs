@@ -39,7 +39,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.CheckToken
         /// <summary>
         /// Gets or sets the User ID.
         /// </summary>
-        public uint User { get; set; }
+        public long User { get; set; }
 
         #endregion Public Properties
     }

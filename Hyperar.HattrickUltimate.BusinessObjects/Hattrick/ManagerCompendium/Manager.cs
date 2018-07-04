@@ -58,7 +58,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// <summary>
         /// Gets or sets the ID.
         /// </summary>
-        public uint UserId { get; set; }
+        public long UserId { get; set; }
 
         #endregion Public Properties
     }

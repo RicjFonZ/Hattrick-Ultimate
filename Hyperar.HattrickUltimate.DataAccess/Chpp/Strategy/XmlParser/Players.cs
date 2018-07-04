@@ -68,7 +68,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             lastMatch = new BusinessObjects.Hattrick.Players.LastMatch();
 
             lastMatch.Date = DateTime.Parse(reader.ReadElementContentAsString());
-            lastMatch.MatchId = uint.Parse(reader.ReadElementContentAsString());
+            lastMatch.MatchId = long.Parse(reader.ReadElementContentAsString());
             lastMatch.PositionCode = ushort.Parse(reader.ReadElementContentAsString());
             lastMatch.PlayedMinutes = byte.Parse(reader.ReadElementContentAsString());
             lastMatch.Rating = decimal.Parse(
@@ -108,21 +108,21 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newPlayer = new BusinessObjects.Hattrick.Players.Player();
 
-            newPlayer.PlayerId = uint.Parse(reader.ReadElementContentAsString());
+            newPlayer.PlayerId = long.Parse(reader.ReadElementContentAsString());
             newPlayer.FirstName = reader.ReadElementContentAsString();
             newPlayer.NickName = reader.ReadElementContentAsString();
             newPlayer.LastName = reader.ReadElementContentAsString();
             newPlayer.PlayerNumber = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.Age = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.AgeDays = byte.Parse(reader.ReadElementContentAsString());
-            newPlayer.TSI = uint.Parse(reader.ReadElementContentAsString());
+            newPlayer.TSI = long.Parse(reader.ReadElementContentAsString());
             newPlayer.PlayerForm = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.Statement = reader.ReadElementContentAsString();
             newPlayer.Experience = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.Loyalty = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.MotherClubBonus = bool.Parse(reader.ReadElementContentAsString());
             newPlayer.Leadership = byte.Parse(reader.ReadElementContentAsString());
-            newPlayer.Salary = uint.Parse(reader.ReadElementContentAsString());
+            newPlayer.Salary = long.Parse(reader.ReadElementContentAsString());
             newPlayer.IsAbroad = reader.ReadElementContentAsString() == "1";
             newPlayer.Agreeability = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.Aggressiveness = byte.Parse(reader.ReadElementContentAsString());
@@ -134,8 +134,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             newPlayer.CareerHattricks = short.Parse(reader.ReadElementContentAsString());
             newPlayer.Specialty = byte.Parse(reader.ReadElementContentAsString());
             newPlayer.TransferListed = reader.ReadElementContentAsString() == "1";
-            newPlayer.NationalTeamId = uint.Parse(reader.ReadElementContentAsString());
-            newPlayer.CountryId = uint.Parse(reader.ReadElementContentAsString());
+            newPlayer.NationalTeamId = long.Parse(reader.ReadElementContentAsString());
+            newPlayer.CountryId = long.Parse(reader.ReadElementContentAsString());
             newPlayer.Caps = short.Parse(reader.ReadElementContentAsString());
             newPlayer.CapsU20 = short.Parse(reader.ReadElementContentAsString());
             newPlayer.Cards = byte.Parse(reader.ReadElementContentAsString());
@@ -218,7 +218,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newTeam = new BusinessObjects.Hattrick.Players.Team();
 
-            newTeam.TeamId = uint.Parse(reader.ReadElementContentAsString());
+            newTeam.TeamId = long.Parse(reader.ReadElementContentAsString());
             newTeam.TeamName = reader.ReadElementContentAsString();
 
             if (reader.Name.Equals(XmlTag.PlayerList, StringComparison.OrdinalIgnoreCase))

@@ -29,12 +29,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Country repository.
         /// </summary>
-        private IRepository<Country> countryRepository;
+        private IHattrickRepository<Country> countryRepository;
 
         /// <summary>
         /// League repository.
         /// </summary>
-        private IRepository<League> leagueRepository;
+        private IHattrickRepository<League> leagueRepository;
 
         /// <summary>
         /// Global season number.
@@ -44,7 +44,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Senior Player repository.
         /// </summary>
-        private IRepository<SeniorPlayer> seniorPlayerRepository;
+        private IHattrickRepository<SeniorPlayer> seniorPlayerRepository;
 
         /// <summary>
         /// Senior Player Season Goals repository.
@@ -59,7 +59,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Senior Team repository.
         /// </summary>
-        private IRepository<SeniorTeam> seniorTeamRepository;
+        private IHattrickRepository<SeniorTeam> seniorTeamRepository;
 
         #endregion Private Fields
 
@@ -77,12 +77,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="seniorTeamRepository">Senior Team repository.</param>
         public Players(
                    IDatabaseContext context,
-                   IRepository<Country> countryRepository,
-                   IRepository<League> leagueRepository,
-                   IRepository<SeniorPlayer> seniorPlayerRepository,
+                   IHattrickRepository<Country> countryRepository,
+                   IHattrickRepository<League> leagueRepository,
+                   IHattrickRepository<SeniorPlayer> seniorPlayerRepository,
                    IRepository<SeniorPlayerSeasonGoals> seniorPlayerSeasonGoalsRepository,
                    IRepository<SeniorPlayerSkills> seniorPlayerSkillsRepository,
-                   IRepository<SeniorTeam> seniorTeamRepository)
+                   IHattrickRepository<SeniorTeam> seniorTeamRepository)
         {
             this.context = context;
             this.countryRepository = countryRepository;
@@ -123,10 +123,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                                      file.Team.TeamName));
             }
 
-            this.seasonNumber = this.leagueRepository.Get(1).CurrentSeason;
+            this.seasonNumber = this.leagueRepository.GetById(1).CurrentSeason;
 
-            var seniorTeam = this.seniorTeamRepository.Get(st => st.HattrickId == file.Team.TeamId)
-                                                       .Single();
+            var seniorTeam = this.seniorTeamRepository.GetByHattrickId(file.Team.TeamId);
 
             foreach (var curPlayer in file.Team.PlayerList)
             {
@@ -150,8 +149,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(player));
             }
 
-            var seniorPlayer = this.seniorPlayerRepository.Get(sp => sp.HattrickId == player.PlayerId)
-                                                          .SingleOrDefault();
+            var seniorPlayer = this.seniorPlayerRepository.GetByHattrickId(player.PlayerId);
 
             if (seniorPlayer == null)
             {
@@ -169,7 +167,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     Category = player.PlayerCategoryId.HasValue && player.PlayerCategoryId.Value != 0
                              ? player.PlayerCategoryId
                              : null,
-                    CountryId = this.countryRepository.Get(c => c.HattrickId == player.CountryId).Single().Id,
+                    CountryId = this.countryRepository.GetByHattrickId(player.CountryId).Id,
                     FirstName = player.FirstName,
                     HasHomegrownBonus = player.MotherClubBonus,
                     HattrickId = player.PlayerId,
@@ -270,8 +268,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="seniorPlayerId">Senior Player Id.</param>
         private void ProcessSeasonGoals(byte seriesGoals, byte cupGoals, byte friendlyGoals, byte seasonNumber, int seniorPlayerId)
         {
-            var seasonGoals = this.seniorPlayerSeasonGoalsRepository.Get(spsg => spsg.SeniorPlayerId == seniorPlayerId
-                                                                              && spsg.Season == seasonNumber)
+            var seasonGoals = this.seniorPlayerSeasonGoalsRepository.Query(spsg => spsg.SeniorPlayerId == seniorPlayerId
+                                                                                && spsg.Season == seasonNumber)
                                                                     .SingleOrDefault();
 
             if (seasonGoals == null)
@@ -330,21 +328,21 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                          int totalSkillIndex,
                          int seniorPlayerId)
         {
-            var skills = this.seniorPlayerSkillsRepository.Get(sps => sps.Defending == defending
-                                                                   && sps.Experience == experience
-                                                                   && sps.Form == form
-                                                                   && sps.Keeper == keeper
-                                                                   && sps.Loyalty == loyalty
-                                                                   && sps.Passing == passing
-                                                                   && sps.Playmaking == playmaking
-                                                                   && sps.Scoring == scoring
-                                                                   && sps.SetPieces == setPieces
-                                                                   && sps.Stamina == stamina
-                                                                   && sps.Winger == winger
-                                                                   && sps.TotalSkillIndex == totalSkillIndex
-                                                                   && sps.SeniorPlayerId == seniorPlayerId)
-                                                          .OrderBy(sps => sps.UpdatedOn)
-                                                          .LastOrDefault();
+            var skills = this.seniorPlayerSkillsRepository.Query(sps => sps.Defending == defending
+                                                                     && sps.Experience == experience
+                                                                     && sps.Form == form
+                                                                     && sps.Keeper == keeper
+                                                                     && sps.Loyalty == loyalty
+                                                                     && sps.Passing == passing
+                                                                     && sps.Playmaking == playmaking
+                                                                     && sps.Scoring == scoring
+                                                                     && sps.SetPieces == setPieces
+                                                                     && sps.Stamina == stamina
+                                                                     && sps.Winger == winger
+                                                                     && sps.TotalSkillIndex == totalSkillIndex
+                                                                     && sps.SeniorPlayerId == seniorPlayerId)
+                                                          .OrderByDescending(sps => sps.UpdatedOn)
+                                                          .FirstOrDefault();
 
             if (skills == null)
             {

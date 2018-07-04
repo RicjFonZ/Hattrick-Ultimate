@@ -75,7 +75,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newCountry = new BusinessObjects.Hattrick.WorldDetails.Country();
 
-            newCountry.CountryId = uint.Parse(reader.ReadElementContentAsString());
+            newCountry.CountryId = long.Parse(reader.ReadElementContentAsString());
             newCountry.CountryName = reader.ReadElementContentAsString();
             newCountry.CurrencyName = reader.ReadElementContentAsString();
 
@@ -129,7 +129,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newCup = new BusinessObjects.Hattrick.WorldDetails.Cup();
 
-            newCup.CupId = uint.Parse(reader.ReadElementContentAsString());
+            newCup.CupId = long.Parse(reader.ReadElementContentAsString());
             newCup.CupName = reader.ReadElementContentAsString();
             newCup.CupLeagueLevel = byte.Parse(reader.ReadElementContentAsString());
             newCup.CupLevel = byte.Parse(reader.ReadElementContentAsString());
@@ -163,7 +163,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             // Skips League opening node.
             reader.Read();
 
-            newLeague.LeagueId = uint.Parse(reader.ReadElementContentAsString());
+            newLeague.LeagueId = long.Parse(reader.ReadElementContentAsString());
             newLeague.LeagueName = reader.ReadElementContentAsString();
             newLeague.Season = short.Parse(reader.ReadElementContentAsString());
             newLeague.SeasonOffset = short.Parse(reader.ReadElementContentAsString());
@@ -196,8 +196,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                 reader.Read();
             }
 
-            newLeague.NationalTeamId = uint.Parse(reader.ReadElementContentAsString());
-            newLeague.U20TeamId = uint.Parse(reader.ReadElementContentAsString());
+            newLeague.NationalTeamId = long.Parse(reader.ReadElementContentAsString());
+            newLeague.U20TeamId = long.Parse(reader.ReadElementContentAsString());
             newLeague.ActiveTeams = reader.ReadElementContentAsInt();
             newLeague.ActiveUsers = reader.ReadElementContentAsInt();
             newLeague.WaitingUsers = reader.ReadElementContentAsInt();
@@ -233,7 +233,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newRegion = new BusinessObjects.Hattrick.WorldDetails.Region();
 
-            newRegion.RegionId = uint.Parse(reader.ReadElementContentAsString());
+            newRegion.RegionId = long.Parse(reader.ReadElementContentAsString());
             newRegion.RegionName = reader.ReadElementContentAsString();
 
             // Skips Region closing node.

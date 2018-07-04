@@ -21,7 +21,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the NationalTeam ID.
         /// </summary>
-        public uint NationalTeamId { get; set; }
+        public long NationalTeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the NationalTeam.

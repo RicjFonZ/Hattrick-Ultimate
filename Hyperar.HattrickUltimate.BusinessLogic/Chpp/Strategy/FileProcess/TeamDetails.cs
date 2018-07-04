@@ -28,42 +28,42 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Country repository.
         /// </summary>
-        private IRepository<Country> countryRepository;
+        private IHattrickRepository<Country> countryRepository;
 
         /// <summary>
         /// Junior Team repository.
         /// </summary>
-        private IRepository<JuniorTeam> juniorTeamRepository;
+        private IHattrickRepository<JuniorTeam> juniorTeamRepository;
 
         /// <summary>
         /// League repository.
         /// </summary>
-        private IRepository<League> leagueRepository;
+        private IHattrickRepository<League> leagueRepository;
 
         /// <summary>
         /// Manager repository.
         /// </summary>
-        private IRepository<Manager> managerRepository;
+        private IHattrickRepository<Manager> managerRepository;
 
         /// <summary>
         /// Region repository.
         /// </summary>
-        private IRepository<Region> regionRepository;
+        private IHattrickRepository<Region> regionRepository;
 
         /// <summary>
         /// Senior Arena repository.
         /// </summary>
-        private IRepository<SeniorArena> seniorArenaRepository;
+        private IHattrickRepository<SeniorArena> seniorArenaRepository;
 
         /// <summary>
         /// Senior Series repository.
         /// </summary>
-        private IRepository<SeniorSeries> seniorSeriesRepository;
+        private IHattrickRepository<SeniorSeries> seniorSeriesRepository;
 
         /// <summary>
         /// Senior Team repository.
         /// </summary>
-        private IRepository<SeniorTeam> seniorTeamRepository;
+        private IHattrickRepository<SeniorTeam> seniorTeamRepository;
 
         /// <summary>
         /// User repository.
@@ -89,14 +89,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="userRepository">User repository.</param>
         public TeamDetails(
                    IDatabaseContext context,
-                   IRepository<Country> countryRepository,
-                   IRepository<JuniorTeam> juniorTeamRepository,
-                   IRepository<League> leagueRepository,
-                   IRepository<Manager> managerRepository,
-                   IRepository<Region> regionRepository,
-                   IRepository<SeniorArena> seniorArenaRepository,
-                   IRepository<SeniorSeries> seniorSeriesRepository,
-                   IRepository<SeniorTeam> seniorTeamRepository,
+                   IHattrickRepository<Country> countryRepository,
+                   IHattrickRepository<JuniorTeam> juniorTeamRepository,
+                   IHattrickRepository<League> leagueRepository,
+                   IHattrickRepository<Manager> managerRepository,
+                   IHattrickRepository<Region> regionRepository,
+                   IHattrickRepository<SeniorArena> seniorArenaRepository,
+                   IHattrickRepository<SeniorSeries> seniorSeriesRepository,
+                   IHattrickRepository<SeniorTeam> seniorTeamRepository,
                    IRepository<User> userRepository)
         {
             this.context = context;
@@ -133,13 +133,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentException(Localization.Strings.Message_UnexpectedObjectType, nameof(fileToProcess));
             }
 
-            var manager = this.managerRepository.Get(m => m.HattrickId == file.User.UserId)
-                                                .Single();
+            var manager = this.managerRepository.GetByHattrickId(file.User.UserId);
 
             foreach (var curTeam in file.Teams)
             {
-                var league = this.leagueRepository.Get(l => l.HattrickId == curTeam.League.LeagueId).Single();
-                var country = this.countryRepository.Get(l => l.HattrickId == curTeam.Country.CountryId).Single();
+                var league = this.leagueRepository.GetByHattrickId(curTeam.League.LeagueId);
+                var country = this.countryRepository.GetByHattrickId(curTeam.Country.CountryId);
 
                 var region = this.ProcessRegion(curTeam.Region, country.Id);
                 var seniorSeries = this.ProcessLeagueLevelUnit(curTeam.LeagueLevelUnit, league.Id);
@@ -160,13 +159,13 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="juniorTeamId">Junior Team Id.</param>
         /// <param name="juniorTeamName">Junior Team Name</param>
         /// <param name="seniorTeamId">Senior Team Id.</param>
-        private void CreateJuniorTeam(uint juniorTeamId, string juniorTeamName, int seniorTeamId)
+        private void CreateJuniorTeam(long juniorTeamId, string juniorTeamName, int seniorTeamId)
         {
             var juniorTeam = new JuniorTeam
             {
                 FullName = juniorTeamName,
                 HattrickId = juniorTeamId,
-                SeniorTeam = this.seniorTeamRepository.Get(seniorTeamId)
+                SeniorTeam = this.seniorTeamRepository.GetById(seniorTeamId)
             };
 
             this.juniorTeamRepository.Insert(juniorTeam);
@@ -193,8 +192,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>BusinessObjects.App.SeniorSeries object.</returns>
         private SeniorSeries ProcessLeagueLevelUnit(BusinessObjects.Hattrick.TeamDetails.LeagueLevelUnit leagueLevelUnit, int leagueId)
         {
-            var seniorSeries = this.seniorSeriesRepository.Get(ss => ss.HattrickId == leagueLevelUnit.LeagueLevelUnitId)
-                                                          .SingleOrDefault();
+            var seniorSeries = this.seniorSeriesRepository.GetByHattrickId(leagueLevelUnit.LeagueLevelUnitId);
 
             if (seniorSeries == null)
             {
@@ -222,8 +220,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <returns>BusinessObjects.App.Region object</returns>
         private Region ProcessRegion(BusinessObjects.Hattrick.TeamDetails.Region region, int countryId)
         {
-            var storedRegion = this.regionRepository.Get()
-                                                    .SingleOrDefault(r => r.HattrickId == region.RegionId);
+            var storedRegion = this.regionRepository.GetByHattrickId(region.RegionId);
 
             if (storedRegion == null)
             {
@@ -255,8 +252,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(arena));
             }
 
-            var seniorArena = this.seniorArenaRepository.Get(ss => ss.HattrickId == arena.ArenaId)
-                                                        .SingleOrDefault();
+            var seniorArena = this.seniorArenaRepository.GetByHattrickId(arena.ArenaId);
 
             if (seniorArena == null)
             {
@@ -264,7 +260,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 {
                     HattrickId = arena.ArenaId,
                     Name = arena.ArenaName,
-                    SeniorTeam = this.seniorTeamRepository.Get(seniorTeamId)
+                    SeniorTeam = this.seniorTeamRepository.GetById(seniorTeamId)
                 };
 
                 this.seniorArenaRepository.Insert(seniorArena);
@@ -294,8 +290,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(team));
             }
 
-            var seniorTeam = this.seniorTeamRepository.Get(st => st.HattrickId == team.TeamId)
-                                                      .SingleOrDefault();
+            var seniorTeam = this.seniorTeamRepository.GetByHattrickId(team.TeamId);
 
             if (seniorTeam == null)
             {
@@ -340,9 +335,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="youthTeamId">Youth Team Id.</param>
         /// <param name="youthTeamName">Youth Team Name.</param>
         /// <param name="seniorTeamId">Senior Team Id.</param>
-        private void ProcessYouthTeam(uint? youthTeamId, string youthTeamName, int seniorTeamId)
+        private void ProcessYouthTeam(long? youthTeamId, string youthTeamName, int seniorTeamId)
         {
-            var juniorTeam = this.juniorTeamRepository.Get(jt => jt.SeniorTeamId == seniorTeamId)
+            var juniorTeam = this.juniorTeamRepository.Query(jt => jt.SeniorTeamId == seniorTeamId)
                                                       .SingleOrDefault();
 
             if (youthTeamId.HasValue)
@@ -377,10 +372,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// </summary>
         /// <param name="youthTeamId">Junior Team Id.</param>
         /// <param name="youthTeamName">Junior Team Name.</param>
-        private void UpdateJuniorTeam(uint youthTeamId, string youthTeamName)
+        private void UpdateJuniorTeam(long youthTeamId, string youthTeamName)
         {
-            var juniorTeam = this.juniorTeamRepository.Get(jt => jt.HattrickId == youthTeamId)
-                                                      .Single();
+            var juniorTeam = this.juniorTeamRepository.GetByHattrickId(youthTeamId);
 
             juniorTeam.FullName = youthTeamName;
 

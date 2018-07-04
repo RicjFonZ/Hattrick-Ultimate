@@ -59,7 +59,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the League ID.
         /// </summary>
-        public uint LeagueId { get; set; }
+        public long LeagueId { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the League.
@@ -74,7 +74,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the National Team ID.
         /// </summary>
-        public uint NationalTeamId { get; set; }
+        public long NationalTeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of divisions within the League.
@@ -113,7 +113,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         /// <summary>
         /// Gets or sets the U20 National Team ID.
         /// </summary>
-        public uint U20TeamId { get; set; }
+        public long U20TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of users waiting to join the League.

@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.ManagerCompendium
         /// <summary>
         /// Gets or sets the ID.
         /// </summary>
-        public uint YouthLeagueId { get; set; }
+        public long YouthLeagueId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Language ID.
         /// </summary>
-        public uint LanguageId { get; set; }
+        public long LanguageId { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the Language.

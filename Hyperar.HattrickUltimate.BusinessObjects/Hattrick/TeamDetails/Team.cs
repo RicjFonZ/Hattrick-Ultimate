@@ -64,7 +64,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Friendly Team Id.
         /// </summary>
-        public uint? FriendlyTeamId { get; set; }
+        public long? FriendlyTeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the Guestbook.
@@ -144,7 +144,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Team Id.
         /// </summary>
-        public uint TeamId { get; set; }
+        public long TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the Team Name.
@@ -169,7 +169,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         /// <summary>
         /// Gets or sets the Youth Team Id.
         /// </summary>
-        public uint? YouthTeamId { get; set; }
+        public long? YouthTeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the Youth Team Name.

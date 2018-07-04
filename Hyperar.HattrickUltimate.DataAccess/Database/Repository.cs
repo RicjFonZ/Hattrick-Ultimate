@@ -7,6 +7,7 @@
 namespace Hyperar.HattrickUltimate.DataAccess.Database
 {
     using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using BusinessObjects.App.Interface;
@@ -36,9 +37,19 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         public Repository(IDatabaseContext context)
         {
             this.context = context;
+            this.EntityCollection = this.context.CreateSet<TEntity>();
         }
 
         #endregion Public Constructors
+
+        #region Protected Properties
+
+        /// <summary>
+        /// Gets the entity collection.
+        /// </summary>
+        protected IDbSet<TEntity> EntityCollection { get; private set; }
+
+        #endregion Protected Properties
 
         #region Public Methods
 
@@ -48,7 +59,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <param name="id">ID of the object to delete.</param>
         public void Delete(int id)
         {
-            TEntity entity = this.Get(id);
+            TEntity entity = this.GetById(id);
 
             if (entity == null)
             {
@@ -69,9 +80,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// </summary>
         /// <param name="id">ID of the desired object.</param>
         /// <returns>Entity with the specified ID, if any.</returns>
-        public TEntity Get(int id)
+        public TEntity GetById(int id)
         {
-            return this.context.CreateSet<TEntity>()
+            return this.EntityCollection
                        .Where(e => e.Id == id)
                        .SingleOrDefault();
         }
@@ -81,9 +92,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// </summary>
         /// <param name="predicate">Query filters.</param>
         /// <returns>IQueryable object with the entities that satisfy the specified predicate.</returns>
-        public IQueryable<TEntity> Get(Func<TEntity, bool> predicate = null)
+        public IQueryable<TEntity> Query(Func<TEntity, bool> predicate = null)
         {
-            IQueryable<TEntity> query = this.context.CreateSet<TEntity>();
+            IQueryable<TEntity> query = this.EntityCollection.AsQueryable();
 
             if (predicate != null)
             {
@@ -99,7 +110,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <param name="entity">Entity to insert.</param>
         public void Insert(TEntity entity)
         {
-            this.context.CreateSet<TEntity>().Add(entity);
+            this.EntityCollection.Add(entity);
         }
 
         /// <summary>
@@ -108,7 +119,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <param name="entity">Entity to update.</param>
         public void Update(TEntity entity)
         {
-            this.context.CreateSet<TEntity>().AddOrUpdate(entity);
+            this.EntityCollection.AddOrUpdate(entity);
         }
 
         #endregion Public Methods

@@ -35,7 +35,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             result.Token = reader.ReadElementContentAsString();
             result.Created = DateTime.Parse(reader.ReadElementContentAsString());
-            result.User = uint.Parse(reader.ReadElementContentAsString());
+            result.User = long.Parse(reader.ReadElementContentAsString());
             result.Expires = DateTime.Parse(reader.ReadElementContentAsString());
             result.ExtendedPermissions = new List<string>(
                                             reader.ReadElementContentAsString()
