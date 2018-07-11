@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ILocalizedForm.cs" company="Hyperar">
+// <copyright file="ILocalizableForm.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -9,7 +9,7 @@ namespace Hyperar.HattrickUltimate.UserInterface.Interface
     /// <summary>
     /// Localized form definition.
     /// </summary>
-    internal interface ILocalizedForm
+    internal interface ILocalizableForm
     {
         #region Public Methods
 

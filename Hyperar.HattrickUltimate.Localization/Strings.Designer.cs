@@ -61,6 +61,33 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hattrick World.
+        /// </summary>
+        public static string DownloadItemCategory_HattrickWorld {
+            get {
+                return ResourceManager.GetString("DownloadItemCategory_HattrickWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This setting will force the download of all region of all countries instead of downloading the regions of the teams&apos; countries..
+        /// </summary>
+        public static string DownloadItemDescription_DescriptionDownloadAllRegions {
+            get {
+                return ResourceManager.GetString("DownloadItemDescription_DescriptionDownloadAllRegions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download all regions.
+        /// </summary>
+        public static string DownloadItemDisplayName_DownloadAllRegions {
+            get {
+                return ResourceManager.GetString("DownloadItemDisplayName_DownloadAllRegions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Database folder.
         /// </summary>
         public static string FormDataFolder_AdvTxtBoxDataFolder_Placeholder {

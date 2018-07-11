@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// Main window.
     /// </summary>
-    public partial class FormMain : Form, ILocalizedForm
+    public partial class FormMain : Form, ILocalizableForm
     {
         #region Private Fields
 
@@ -101,6 +101,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 {
                     formUser.ShowDialog();
                 }
+            }
+
+            using (var formDownload = BusinessLogic.ApplicationObjects.Container.GetInstance<FormDownload>())
+            {
+                formDownload.ShowDialog(this);
             }
         }
 

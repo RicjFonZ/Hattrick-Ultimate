@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public partial class FormGenericProgress : Form, ILocalizedForm
+    public partial class FormGenericProgress : Form, ILocalizableForm
     {
         #region Public Constructors
 

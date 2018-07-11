@@ -326,4 +326,13 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_CopyToClipboardFailed" xml:space="preserve">
     <value>Copy to clipboard failed.</value>
   </data>
+  <data name="DownloadItemCategory_HattrickWorld" xml:space="preserve">
+    <value>Hattrick World</value>
+  </data>
+  <data name="DownloadItemDescription_DescriptionDownloadAllRegions" xml:space="preserve">
+    <value>This setting will force the download of all region of all countries instead of downloading the regions of the teams' countries.</value>
+  </data>
+  <data name="DownloadItemDisplayName_DownloadAllRegions" xml:space="preserve">
+    <value>Download all regions</value>
+  </data>
 </root>

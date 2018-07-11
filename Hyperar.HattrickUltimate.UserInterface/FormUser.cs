@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// User management window.
     /// </summary>
-    public partial class FormUser : Form, ILocalizedForm
+    public partial class FormUser : Form, ILocalizableForm
     {
         #region Private Fields
 

@@ -135,11 +135,17 @@
     <Compile Include="Hattrick\YouthTeamDetails\YouthArena.cs" />
     <Compile Include="Hattrick\YouthTeamDetails\YouthTeam.cs" />
     <Compile Include="Hattrick\YouthTeamDetails\YouthTrainer.cs" />
+    <Compile Include="OAuth\DownloadSettings.cs" />
     <Compile Include="OAuth\GetAccessTokenRequest.cs" />
     <Compile Include="OAuth\GetAuthorizationUrlResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Hyperar.HattrickUltimate.Localization\Hyperar.HattrickUltimate.Localization.csproj">
+      <Project>{46129115-1267-4de3-923e-07d9e1a0c9d9}</Project>
+      <Name>Hyperar.HattrickUltimate.Localization</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

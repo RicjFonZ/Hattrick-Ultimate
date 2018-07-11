@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// Data folder selection folder.
     /// </summary>
-    public partial class FormDataFolder : Form, ILocalizedForm
+    public partial class FormDataFolder : Form, ILocalizableForm
     {
         #region Public Constructors
 

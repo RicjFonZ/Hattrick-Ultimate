@@ -15,7 +15,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// Manage token window.
     /// </summary>
-    public partial class FormToken : Form, ILocalizedForm
+    public partial class FormToken : Form, ILocalizableForm
     {
         #region Private Fields
 
