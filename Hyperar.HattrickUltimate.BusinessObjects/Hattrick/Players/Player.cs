@@ -112,7 +112,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         public sbyte InjuryLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the player is foreign or not.s
+        /// Gets or sets a value indicating whether the player is foreign or not.
         /// </summary>
         /// <remarks>
         /// The value is a binary in the Xml file.
@@ -244,7 +244,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         public byte StaminaSkill { get; set; }
 
         /// <summary>
-        /// Gets or sets the Statement.s
+        /// Gets or sets the Statement.
         /// </summary>
         public string Statement { get; set; }
 

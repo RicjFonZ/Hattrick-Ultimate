@@ -20,7 +20,7 @@ namespace Hyperar.HattrickUltimate.Controls
         /// <summary>
         /// This member overrides System.Windows.Forms.Control.WndProc(System.Windows.Forms.Message@).
         /// </summary>
-        /// <param name="m">A Windows Message Object</param>
+        /// <param name="m">A Windows Message Object.</param>
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Overriden method can't be renamed.")]
         protected override void WndProc(ref Message m)
         {

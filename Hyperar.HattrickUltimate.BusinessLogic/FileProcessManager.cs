@@ -18,14 +18,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// FileProcessCompleted event handler delegate.
     /// </summary>
     /// <param name="sender">Object that raised the event.</param>
-    /// <param name="e">Event arguments</param>
+    /// <param name="e">Event arguments.</param>
     public delegate void FileProcessCompletedEventHandler(object sender, AsyncCompletedEventArgs e);
 
     /// <summary>
     /// FileProcessProgressChanged event handler delegate.
     /// </summary>
     /// <param name="sender">Object that raised the event.</param>
-    /// <param name="e">Event arguments</param>
+    /// <param name="e">Event arguments.</param>
     public delegate void FileProcessProgressChangedEventHandler(object sender, FileTaskProgressChangedEventArgs e);
 
     /// <summary>

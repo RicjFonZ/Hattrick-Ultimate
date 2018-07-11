@@ -37,7 +37,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.WorldDetails
         public byte CupLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets the CupLevelIndex
+        /// Gets or sets the CupLevelIndex.
         /// </summary>
         /// <remarks>
         /// Only Consolation Cups have a Level Index, for the rest the value is always 1.

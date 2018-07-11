@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="HattrickRepository.cs" company="Accenture">
-//     Copyright (c) Accenture. All rights reserved.
+// <copyright file="HattrickRepository.cs" company="Hyperar">
+//     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 //-----------------------------------------------------------------------

@@ -31,7 +31,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private BusinessLogic.FileProcessManager fileProcessManager;
 
         /// <summary>
-        /// Generic task progress window,
+        /// Generic task progress window.
         /// </summary>
         private FormGenericProgress formGenericProgress;
 
@@ -282,6 +282,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.WorldDetails));
                 downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.ManagerCompendium));
                 downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.TeamDetails));
+                downloadFileList.Add(new BusinessLogic.DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.YouthTeamDetails));
 
                 this.formGenericProgress.Show(this);
 

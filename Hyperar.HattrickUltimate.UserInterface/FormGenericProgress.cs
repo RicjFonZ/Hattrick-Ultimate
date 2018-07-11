@@ -68,7 +68,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// FormGenericProgress FormClosing event handler.
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
-        /// <param name="e">Event arguments</param>
+        /// <param name="e">Event arguments.</param>
         private void FormGenericProgress_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.Owner != null)
@@ -81,7 +81,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// FormGenericProgress Shown event handler.
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
-        /// <param name="e">Event arguments</param>
+        /// <param name="e">Event arguments.</param>
         private void FormGenericProgress_Shown(object sender, EventArgs e)
         {
             if (this.Owner != null)

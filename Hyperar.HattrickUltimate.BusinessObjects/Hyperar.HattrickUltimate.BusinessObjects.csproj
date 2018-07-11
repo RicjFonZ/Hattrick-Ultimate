@@ -125,6 +125,16 @@
     <Compile Include="Hattrick\WorldDetails\League.cs" />
     <Compile Include="Hattrick\WorldDetails\Region.cs" />
     <Compile Include="Hattrick\WorldDetails\Root.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\Country.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\OwningTeam.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\Region.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\Root.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\Scout.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\Travel.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\YouthLeague.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\YouthArena.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\YouthTeam.cs" />
+    <Compile Include="Hattrick\YouthTeamDetails\YouthTrainer.cs" />
     <Compile Include="OAuth\GetAccessTokenRequest.cs" />
     <Compile Include="OAuth\GetAuthorizationUrlResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

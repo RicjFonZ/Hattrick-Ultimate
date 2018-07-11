@@ -68,6 +68,7 @@
     <Compile Include="Chpp\Interface\IFileProcessStrategy.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\Players.cs" />
+    <Compile Include="Chpp\Strategy\FileProcess\YouthTeamDetails.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\WorldDetails.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\TeamDetails.cs" />
     <Compile Include="Constants\OAuthScope.cs" />

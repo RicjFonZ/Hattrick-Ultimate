@@ -153,7 +153,7 @@ namespace Hyperar.HattrickUltimate.Controls
             /// <summary>
             /// Retrieves the calling thread's last-error code value.
             /// </summary>
-            /// <returns>The calling thread's last-error code</returns>
+            /// <returns>The calling thread's last-error code.</returns>
             [DllImport(KernelLibrary)]
             public static extern uint GetLastError();
 

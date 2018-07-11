@@ -46,7 +46,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnName(ColumnName.ShortName)
                 .HasColumnOrder(3)
                 .HasColumnType(ColumnType.UnicodeChar)
-                .HasMaxLength(ColumnLength.TwoCharCode)
+                .HasMaxLength(ColumnLength.ShortText)
                 .IsOptional();
         }
 

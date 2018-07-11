@@ -38,6 +38,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         /// </summary>
         private Strategy.FileProcess.WorldDetails worldDetailsStrategy;
 
+        /// <summary>
+        /// Youth Team Details Process Strategy.
+        /// </summary>
+        private Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy;
+
         #endregion Private Fields
 
         #region Public Constructors
@@ -49,16 +54,19 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         /// <param name="playersStrategy">Players Process Strategy.</param>
         /// <param name="teamDetailsStrategy">Team Details Process Strategy.</param>
         /// <param name="worldDetailsStrategy">World Details Process Strategy.</param>
+        /// <param name="youthTeamDetailsStrategy">Youth Team Details Process Strategy.</param>
         public FileProcessFactory(
                    Strategy.FileProcess.ManagerCompendium managerCompendiumStrategy,
                    Strategy.FileProcess.Players playersStrategy,
                    Strategy.FileProcess.TeamDetails teamDetailsStrategy,
-                   Strategy.FileProcess.WorldDetails worldDetailsStrategy)
+                   Strategy.FileProcess.WorldDetails worldDetailsStrategy,
+                   Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy)
         {
             this.managerCompendiumStrategy = managerCompendiumStrategy;
             this.playersStrategy = playersStrategy;
             this.teamDetailsStrategy = teamDetailsStrategy;
             this.worldDetailsStrategy = worldDetailsStrategy;
+            this.youthTeamDetailsStrategy = youthTeamDetailsStrategy;
         }
 
         #endregion Public Constructors
@@ -85,6 +93,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
 
                 case XmlFileName.WorldDetails:
                     return this.worldDetailsStrategy;
+
+                case XmlFileName.YouthTeamDetails:
+                    return this.youthTeamDetailsStrategy;
 
                 default:
                     throw new NotImplementedException(

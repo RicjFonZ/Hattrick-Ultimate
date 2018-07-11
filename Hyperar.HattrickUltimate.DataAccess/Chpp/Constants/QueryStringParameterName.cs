@@ -64,6 +64,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         public const string OrderBy = "orderby";
 
         /// <summary>
+        /// Show Scouts query string parameter.
+        /// </summary>
+        public const string ShowScouts = "showscouts";
+
+        /// <summary>
         /// Team ID query string parameter.
         /// </summary>
         public const string TeamId = "teamid";
@@ -77,6 +82,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// Version query string parameter.
         /// </summary>
         public const string Version = "version";
+
+        /// <summary>
+        /// Youth Team Id query string parameter.
+        /// </summary>
+        public const string YouthTeamId = "youthteamid";
 
         #endregion Public Fields
     }

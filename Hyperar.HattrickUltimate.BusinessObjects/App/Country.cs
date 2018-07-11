@@ -78,7 +78,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public ICollection<SeniorPlayer> SeniorPlayers { get; set; } = new HashSet<SeniorPlayer>();
 
         /// <summary>
-        /// Gets or sets the Time Format
+        /// Gets or sets the Time Format.
         /// </summary>
         public virtual TimeFormat TimeFormat { get; set; }
 

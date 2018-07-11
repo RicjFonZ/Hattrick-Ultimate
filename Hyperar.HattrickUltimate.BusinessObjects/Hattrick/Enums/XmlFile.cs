@@ -32,6 +32,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Enums
         TeamDetails,
 
         /// <summary>
+        /// Youth Team Details XML file.
+        /// </summary>
+        YouthTeamDetails,
+
+        /// <summary>
         /// World Details XML file.
         /// </summary>
         WorldDetails

@@ -136,6 +136,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
                                Localization.Strings.Message_Information,
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Information);
+
+                this.Close();
             }
             catch (Exception ex)
             {

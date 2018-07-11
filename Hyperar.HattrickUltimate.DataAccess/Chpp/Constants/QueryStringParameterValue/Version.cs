@@ -33,6 +33,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants.QueryStringParamete
         /// </summary>
         internal const string WorldDetails = "1.8";
 
+        /// <summary>
+        /// Youth Team Details Version query string parameter value.
+        /// </summary>
+        internal const string YouthTeamDetails = "1.1";
+
         #endregion Internal Fields
     }
 }

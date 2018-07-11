@@ -35,6 +35,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                 case XmlFile.TeamDetails:
                     return new Strategy.ProtectedResourceUrlBuild.TeamDetails();
 
+                case XmlFile.YouthTeamDetails:
+                    return new Strategy.ProtectedResourceUrlBuild.YouthTeamDetails();
+
                 case XmlFile.WorldDetails:
                     return new Strategy.ProtectedResourceUrlBuild.WorldDetails();
 

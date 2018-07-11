@@ -113,7 +113,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// context or ownership was passed to this context when this context was created.
         /// </summary>
         /// <param name="disposing">
-        /// true to release both managed and unmanaged resources; false to release only unmanaged resources.
+        /// True to release both managed and unmanaged resources; false to release only unmanaged resources.
         /// </param>
         protected override void Dispose(bool disposing)
         {

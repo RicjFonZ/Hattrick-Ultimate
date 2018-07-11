@@ -99,6 +99,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string Created = "Created";
 
         /// <summary>
+        /// CreatedDate tag.
+        /// </summary>
+        internal const string CreatedDate = "CreatedDate";
+
+        /// <summary>
         /// Cup tag.
         /// </summary>
         internal const string Cup = "Cup";
@@ -229,9 +234,19 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string ImageUrl = "ImageUrl";
 
         /// <summary>
+        /// InCountry tag.
+        /// </summary>
+        internal const string InCountry = "InCountry";
+
+        /// <summary>
         /// Index tag.
         /// </summary>
         internal const string Index = "Index";
+
+        /// <summary>
+        /// InRegion tag.
+        /// </summary>
+        internal const string InRegion = "InRegion";
 
         /// <summary>
         /// KeeperSkill tag.
@@ -334,6 +349,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string MaxItems = "MaxItems";
 
         /// <summary>
+        /// MotherTeamID tag.
+        /// </summary>
+        internal const string MotherTeamId = "MotherTeamId";
+
+        /// <summary>
+        /// MotherTeamName tag.
+        /// </summary>
+        internal const string MotherTeamName = "MotherTeamName";
+
+        /// <summary>
         /// MySupporters tag.
         /// </summary>
         internal const string MySupporters = "MySupporters";
@@ -364,9 +389,19 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string NextMatch = "NextMatch";
 
         /// <summary>
+        /// NextTrainingMatchDate tag.
+        /// </summary>
+        internal const string NextTrainingMatchDate = "NextTrainingMatchDate";
+
+        /// <summary>
         /// NumberOfLevels tag.
         /// </summary>
         internal const string NumberOfLevels = "NumberOfLevels";
+
+        /// <summary>
+        /// OwningTeam tag.
+        /// </summary>
+        internal const string OwningTeam = "OwningTeam";
 
         /// <summary>
         /// PassingSkill tag.
@@ -424,6 +459,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string ScorerSkill = "ScorerSkill";
 
         /// <summary>
+        /// Scout tag.
+        /// </summary>
+        internal const string Scout = "Scout";
+
+        /// <summary>
+        /// ScoutList tag.
+        /// </summary>
+        internal const string ScoutList = "ScoutList";
+
+        /// <summary>
         /// Season tag.
         /// </summary>
         internal const string Season = "Season";
@@ -447,6 +492,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// ShortName tag.
         /// </summary>
         internal const string ShortName = "ShortName";
+
+        /// <summary>
+        /// ShortTeamName tag.
+        /// </summary>
+        internal const string ShortTeamName = "ShortTeamName";
 
         /// <summary>
         /// Subject tag.
@@ -529,6 +579,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string TrainingDate = "TrainingDate";
 
         /// <summary>
+        /// Travel tag.
+        /// </summary>
+        internal const string Travel = "Travel";
+
+        /// <summary>
         /// Trophy tag.
         /// </summary>
         internal const string Trophy = "Trophy";
@@ -569,14 +624,29 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string WingerSkill = "WingerSkill";
 
         /// <summary>
-        /// x tag.
+        /// X tag.
         /// </summary>
         internal const string X = "X";
 
         /// <summary>
-        /// y tag.
+        /// Y tag.
         /// </summary>
         internal const string Y = "Y";
+
+        /// <summary>
+        /// YouthArena tag.
+        /// </summary>
+        internal const string YouthArena = "YouthArena";
+
+        /// <summary>
+        /// YouthArenaId tag.
+        /// </summary>
+        internal const string YouthArenaId = "YouthArenaId";
+
+        /// <summary>
+        /// YouthArenaName tag.
+        /// </summary>
+        internal const string YouthArenaName = "YouthArenaName";
 
         /// <summary>
         /// YouthLeague tag.
@@ -594,6 +664,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string YouthLeagueName = "YouthLeagueName";
 
         /// <summary>
+        /// YouthLeagueStatus tag.
+        /// </summary>
+        internal const string YouthLeagueStatus = "YouthLeagueStatus";
+
+        /// <summary>
+        /// YouthPlayerId tag.
+        /// </summary>
+        internal const string YouthPlayerId = "YouthPlayerId";
+
+        /// <summary>
         /// YouthTeam tag.
         /// </summary>
         internal const string YouthTeam = "YouthTeam";
@@ -607,6 +687,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// YouthTeamName tag.
         /// </summary>
         internal const string YouthTeamName = "YouthTeamName";
+
+        /// <summary>
+        /// YouthTrainer tag.
+        /// </summary>
+        internal const string YouthTrainer = "YouthTrainer";
 
         /// <summary>
         /// ZoneName tag.

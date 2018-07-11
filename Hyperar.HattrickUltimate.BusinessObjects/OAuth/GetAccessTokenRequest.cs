@@ -35,9 +35,9 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.OAuth
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAccessTokenRequest" /> class.
         /// </summary>
-        /// <param name="verificationCode">Verification code</param>
-        /// <param name="token">Request token</param>
-        /// <param name="tokenSecret">Request token secret</param>
+        /// <param name="verificationCode">Verification code.</param>
+        /// <param name="token">Request token.</param>
+        /// <param name="tokenSecret">Request token secret.</param>
         public GetAccessTokenRequest(string verificationCode, string token, string tokenSecret)
         {
             this.verificationCode = verificationCode;

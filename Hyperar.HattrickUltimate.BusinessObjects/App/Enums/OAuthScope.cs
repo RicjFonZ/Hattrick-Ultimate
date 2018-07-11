@@ -35,7 +35,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App.Enums
         ManageYouthPlayers = 4,
 
         /// <summary>
-        /// Allows to set the training's type, intensity and stamina share
+        /// Allows to set the training's type, intensity and stamina share.
         /// </summary>
         SetTraining = 8,
 

@@ -18,14 +18,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// DownloadCompleted event handler delegate.
     /// </summary>
     /// <param name="sender">Object that raised the event.</param>
-    /// <param name="e">Event arguments</param>
+    /// <param name="e">Event arguments.</param>
     public delegate void DownloadCompletedEventHandler(object sender, DownloadFileCompletedEventArgs e);
 
     /// <summary>
     /// DownloadProgressChanged event handler delegate.
     /// </summary>
     /// <param name="sender">Object that raised the event.</param>
-    /// <param name="e">Event arguments</param>
+    /// <param name="e">Event arguments.</param>
     public delegate void DownloadProgressChangedEventHandler(object sender, FileTaskProgressChangedEventArgs e);
 
     /// <summary>
@@ -182,7 +182,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Signals that the download is complete.
         /// </summary>
-        /// <param name="downloadedFiles">List of downloaded files</param>
+        /// <param name="downloadedFiles">List of downloaded files.</param>
         /// <param name="exception">The task exception, if any.</param>
         /// <param name="canceled">A value indicating whether the task was cancelled or not.</param>
         /// <param name="asyncOperation">Async operation.</param>

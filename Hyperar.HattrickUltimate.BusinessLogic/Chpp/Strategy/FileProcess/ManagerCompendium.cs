@@ -48,9 +48,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Initializes a new instance of the <see cref="ManagerCompendium" /> class.
         /// </summary>
-        /// <param name="context">Database context</param>
-        /// <param name="countryRepository">Country repository</param>
-        /// <param name="managerRepository">Manager repository</param>
+        /// <param name="context">Database context.</param>
+        /// <param name="countryRepository">Country repository.</param>
+        /// <param name="managerRepository">Manager repository.</param>
         /// <param name="userRepository">User repository.</param>
         public ManagerCompendium(
                    IDatabaseContext context,

@@ -341,7 +341,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// </summary>
         /// <param name="league">League to process.</param>
         /// <param name="continentId">League continent.</param>
-        /// <param name="zoneId">Zone to process</param>
+        /// <param name="zoneId">Zone to process.</param>
         /// <returns>League object.</returns>
         private League ProcessLeague(
                            BusinessObjects.Hattrick.WorldDetails.League league,
@@ -456,9 +456,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         }
 
         /// <summary>
-        /// Process Manager
+        /// Process Manager.
         /// </summary>
-        /// <param name="manager">ManagerCompendium Manger.</param>
+        /// <param name="manager">ManagerCompendium Manager.</param>
         /// <param name="countryId">Country Id.</param>
         /// <returns>Manager object.</returns>
         private Manager ProcessManager(
@@ -503,7 +503,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// </summary>
         /// <param name="region">Region to process.</param>
         /// <param name="countryId">Region owning country.</param>
-        /// <returns>Region object</returns>
+        /// <returns>Region object.</returns>
         private Region ProcessRegion(BusinessObjects.Hattrick.WorldDetails.Region region, int countryId)
         {
             var storedRegion = this.regionRepository.GetByHattrickId(region.RegionId);
@@ -531,7 +531,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="regionId">Region Id.</param>
         /// <param name="regionName">Region name.</param>
         /// <param name="countryId">Owning Country Id.</param>
-        /// <returns>Region object</returns>
+        /// <returns>Region object.</returns>
         private Region ProcessRegion(long regionId, string regionName, int countryId)
         {
             var storedRegion = this.regionRepository.GetByHattrickId(regionId);
