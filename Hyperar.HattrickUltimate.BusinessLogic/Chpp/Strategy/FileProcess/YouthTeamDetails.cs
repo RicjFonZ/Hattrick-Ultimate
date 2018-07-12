@@ -96,6 +96,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         #endregion Public Methods
 
         #region Private Methods
+
         /// <summary>
         /// Process Youth League.
         /// </summary>

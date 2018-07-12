@@ -326,13 +326,34 @@ Since: {0} - Until: {1}.</value>
   <data name="Message_CopyToClipboardFailed" xml:space="preserve">
     <value>Copy to clipboard failed.</value>
   </data>
-  <data name="DownloadItemCategory_HattrickWorld" xml:space="preserve">
+  <data name="DownloadItemCategory_World" xml:space="preserve">
     <value>Hattrick World</value>
   </data>
-  <data name="DownloadItemDescription_DescriptionDownloadAllRegions" xml:space="preserve">
+  <data name="DownloadItemDescription_DownloadAllRegions" xml:space="preserve">
     <value>This setting will force the download of all region of all countries instead of downloading the regions of the teams' countries.</value>
   </data>
   <data name="DownloadItemDisplayName_DownloadAllRegions" xml:space="preserve">
     <value>Download all regions</value>
+  </data>
+  <data name="FormDownload_BtnDownload_Text" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="FormDownload_Text" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="DownloadItemCategory_SeniorTeam" xml:space="preserve">
+    <value>Senior Team</value>
+  </data>
+  <data name="DownloadItemDescription_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+    <value>Includes the country flags of the teams that you have visited to play a friendly match.</value>
+  </data>
+  <data name="DownloadItemDescription_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+    <value>Includes the country flags of the teams that have visited you to play a friendly match.</value>
+  </data>
+  <data name="DownloadItemDisplayName_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+    <value>Include Away Flags</value>
+  </data>
+  <data name="DownloadItemDisplayName_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+    <value>Include Home Flags</value>
   </data>
 </root>

@@ -6,10 +6,7 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.DataAccess.Database
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using BusinessObjects.App.Interface;
     using Interface;
 
@@ -19,6 +16,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
     /// <typeparam name="TEntity">IHattrickEntity class.</typeparam>
     public class HattrickRepository<TEntity> : Repository<TEntity>, IHattrickRepository<TEntity> where TEntity : class, IEntity, IHattrickEntity
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HattrickRepository{TEntity}"/> class.
         /// </summary>
@@ -26,6 +25,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         public HattrickRepository(IDatabaseContext context) : base(context)
         {
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         /// <summary>
         /// Gets the object with the specified Hattrick ID, if any.
@@ -36,5 +39,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         {
             return this.EntityCollection.SingleOrDefault(e => e.HattrickId == hattrickId);
         }
+
+        #endregion Public Methods
     }
 }

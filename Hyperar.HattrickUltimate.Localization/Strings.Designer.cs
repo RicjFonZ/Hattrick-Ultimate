@@ -61,20 +61,47 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Senior Team.
+        /// </summary>
+        public static string DownloadItemCategory_SeniorTeam {
+            get {
+                return ResourceManager.GetString("DownloadItemCategory_SeniorTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hattrick World.
         /// </summary>
-        public static string DownloadItemCategory_HattrickWorld {
+        public static string DownloadItemCategory_World {
             get {
-                return ResourceManager.GetString("DownloadItemCategory_HattrickWorld", resourceCulture);
+                return ResourceManager.GetString("DownloadItemCategory_World", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to This setting will force the download of all region of all countries instead of downloading the regions of the teams&apos; countries..
         /// </summary>
-        public static string DownloadItemDescription_DescriptionDownloadAllRegions {
+        public static string DownloadItemDescription_DownloadAllRegions {
             get {
-                return ResourceManager.GetString("DownloadItemDescription_DescriptionDownloadAllRegions", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDescription_DownloadAllRegions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Includes the country flags of the teams that you have visited to play a friendly match..
+        /// </summary>
+        public static string DownloadItemDescription_SeniorTeamIncludeAwayFlags {
+            get {
+                return ResourceManager.GetString("DownloadItemDescription_SeniorTeamIncludeAwayFlags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Includes the country flags of the teams that have visited you to play a friendly match..
+        /// </summary>
+        public static string DownloadItemDescription_SeniorTeamIncludeHomeFlags {
+            get {
+                return ResourceManager.GetString("DownloadItemDescription_SeniorTeamIncludeHomeFlags", resourceCulture);
             }
         }
         
@@ -84,6 +111,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string DownloadItemDisplayName_DownloadAllRegions {
             get {
                 return ResourceManager.GetString("DownloadItemDisplayName_DownloadAllRegions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include Away Flags.
+        /// </summary>
+        public static string DownloadItemDisplayName_SeniorTeamIncludeAwayFlags {
+            get {
+                return ResourceManager.GetString("DownloadItemDisplayName_SeniorTeamIncludeAwayFlags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include Home Flags.
+        /// </summary>
+        public static string DownloadItemDisplayName_SeniorTeamIncludeHomeFlags {
+            get {
+                return ResourceManager.GetString("DownloadItemDisplayName_SeniorTeamIncludeHomeFlags", resourceCulture);
             }
         }
         
@@ -120,6 +165,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string FormDataFolder_Text {
             get {
                 return ResourceManager.GetString("FormDataFolder_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string FormDownload_BtnDownload_Text {
+            get {
+                return ResourceManager.GetString("FormDownload_BtnDownload_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string FormDownload_Text {
+            get {
+                return ResourceManager.GetString("FormDownload_Text", resourceCulture);
             }
         }
         

@@ -9,7 +9,7 @@ namespace Hyperar.HattrickUltimate.Localization
     using System;
 
     /// <summary>
-    /// Localizable Property Grid Attribute.
+    /// Localizable Property Attribute.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public class LocalizablePropertyAttribute : Attribute
@@ -17,7 +17,7 @@ namespace Hyperar.HattrickUltimate.Localization
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalizablePropertyAttribute" /> class
+        /// Initializes a new instance of the <see cref="LocalizablePropertyAttribute" /> class.
         /// </summary>
         /// <param name="categoryResourceName">Category Resource Type Name.</param>
         /// <param name="displaynameResourceName">Display Name Resource Type Name.</param>
@@ -36,22 +36,22 @@ namespace Hyperar.HattrickUltimate.Localization
         #region Public Properties
 
         /// <summary>
-        /// Gets or sets the Category Resource Type Name.
+        /// Gets the Category Resource Type Name.
         /// </summary>
         public string CategoryResourceName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the Description Resource Type Name.
+        /// Gets the Description Resource Type Name.
         /// </summary>
         public string DescriptionResourceName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the Display Name Resource Type Name.
+        /// Gets the Display Name Resource Type Name.
         /// </summary>
         public string DisplayNameResourceName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the Resource Type Name.
+        /// Gets the Resource Type Name.
         /// </summary>
         public Type ResourceType { get; private set; }
 

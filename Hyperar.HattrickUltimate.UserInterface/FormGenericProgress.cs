@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using Interface;
 
     /// <summary>
-    /// TODO: Update summary.
+    /// Generic async tasks progress window.
     /// </summary>
     public partial class FormGenericProgress : Form, ILocalizableForm
     {

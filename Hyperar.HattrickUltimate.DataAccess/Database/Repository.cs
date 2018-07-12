@@ -88,6 +88,15 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         }
 
         /// <summary>
+        /// Inserts the specified entity on the database.
+        /// </summary>
+        /// <param name="entity">Entity to insert.</param>
+        public void Insert(TEntity entity)
+        {
+            this.EntityCollection.Add(entity);
+        }
+
+        /// <summary>
         /// Gets an IQueryable object with the entities that satisfy the specified predicate.
         /// </summary>
         /// <param name="predicate">Query filters.</param>
@@ -102,15 +111,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             }
 
             return query;
-        }
-
-        /// <summary>
-        /// Inserts the specified entity on the database.
-        /// </summary>
-        /// <param name="entity">Entity to insert.</param>
-        public void Insert(TEntity entity)
-        {
-            this.EntityCollection.Add(entity);
         }
 
         /// <summary>

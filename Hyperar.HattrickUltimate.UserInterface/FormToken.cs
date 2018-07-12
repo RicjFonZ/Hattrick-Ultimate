@@ -15,7 +15,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// Manage token window.
     /// </summary>
-    public partial class FormToken : Form, ILocalizableForm
+    public partial class FormToken : LocalizableFormBase, ILocalizableForm
     {
         #region Private Fields
 
@@ -48,7 +48,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
                    BusinessLogic.UserManager userManager)
         {
             this.InitializeComponent();
-            this.PopulateLanguage();
 
             this.tokenManager = tokenManager;
             this.userManager = userManager;
@@ -61,7 +60,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Populates controls' properties with the corresponding localized string.
         /// </summary>
-        public void PopulateLanguage()
+        public override void PopulateLanguage()
         {
             this.Text = Localization.Strings.FormToken_Text;
             this.AdvTxtBoxVerificationCode.Placeholder = Localization.Strings.FormToken_AdvTxtBoxVerificationCode_Placeholder;

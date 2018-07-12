@@ -6,10 +6,6 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.OAuth
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using Localization;
 
     /// <summary>
@@ -17,7 +13,17 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.OAuth
     /// </summary>
     public class DownloadSettings : LocalizableObject
     {
-        [LocalizableProperty("DownloadItemCategory_HattrickWorld", "DownloadItemDisplayName_DownloadAllRegions", "DownloadItemDescription_DescriptionDownloadAllRegions", typeof(Strings))]
+        #region Public Properties
+
+        [LocalizableProperty("DownloadItemCategory_World", "DownloadItemDisplayName_DownloadAllRegions", "DownloadItemDescription_DownloadAllRegions", typeof(Strings))]
         public bool DownloadAllRegions { get; set; }
+
+        [LocalizableProperty("DownloadItemCategory_SeniorTeam", "DownloadItemDisplayName_SeniorTeamIncludeAwayFlags", "DownloadItemDescription_SeniorTeamIncludeAwayFlags", typeof(Strings))]
+        public bool SeniorTeamIncludeAwayFlags { get; set; }
+
+        [LocalizableProperty("DownloadItemCategory_SeniorTeam", "DownloadItemDisplayName_SeniorTeamIncludeHomeFlags", "DownloadItemDescription_SeniorTeamIncludeHomeFlags", typeof(Strings))]
+        public bool SeniorTeamIncludeHomeFlags { get; set; }
+
+        #endregion Public Properties
     }
 }

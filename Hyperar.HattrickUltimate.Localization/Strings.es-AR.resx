@@ -326,13 +326,34 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_CopyToClipboardFailed" xml:space="preserve">
     <value>Copiar al portapapeles falló.</value>
   </data>
-  <data name="DownloadItemCategory_HattrickWorld" xml:space="preserve">
+  <data name="DownloadItemCategory_World" xml:space="preserve">
     <value>Mundo Hattrick</value>
   </data>
-  <data name="DownloadItemDescription_DescriptionDownloadAllRegions" xml:space="preserve">
+  <data name="DownloadItemDescription_DownloadAllRegions" xml:space="preserve">
     <value>Esta configuración forzara que se descarguen las regiones de todos los paises en lugar de descargar las regiones de los paises de los equipos.</value>
   </data>
   <data name="DownloadItemDisplayName_DownloadAllRegions" xml:space="preserve">
     <value>Descargar todas las regiones</value>
+  </data>
+  <data name="FormDownload_BtnDownload_Text" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="FormDownload_Text" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="DownloadItemCategory_SeniorTeam" xml:space="preserve">
+    <value>Equipo mayor</value>
+  </data>
+  <data name="DownloadItemDescription_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+    <value>Incluye las banderas de los países que visitaste para jugar un partido amistoso.</value>
+  </data>
+  <data name="DownloadItemDescription_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+    <value>Incluye las banderas de los países de los equipos que han jugado un partido amistoso en tu estadio.</value>
+  </data>
+  <data name="DownloadItemDisplayName_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+    <value>Incluir Banderas Visitantes</value>
+  </data>
+  <data name="DownloadItemDisplayName_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+    <value>Incluir Banderas Local</value>
   </data>
 </root>

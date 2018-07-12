@@ -12,9 +12,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using Interface;
 
     /// <summary>
-    /// Data folder selection folder.
+    /// Data folder selection form.
     /// </summary>
-    public partial class FormDataFolder : Form, ILocalizableForm
+    public partial class FormDataFolder : LocalizableFormBase, ILocalizableForm
     {
         #region Public Constructors
 
@@ -24,7 +24,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         public FormDataFolder()
         {
             this.InitializeComponent();
-            this.PopulateLanguage();
             this.PopulateControls();
         }
 
@@ -44,7 +43,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Populates controls' properties with the corresponding localized string.
         /// </summary>
-        public void PopulateLanguage()
+        public override void PopulateLanguage()
         {
             this.Text = Localization.Strings.FormDataFolder_Text;
             this.AdvTxtBoxDataFolder.Text = Localization.Strings.FormDataFolder_AdvTxtBoxDataFolder_Placeholder;

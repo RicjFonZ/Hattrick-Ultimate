@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// Main window.
     /// </summary>
-    public partial class FormMain : Form, ILocalizableForm
+    public partial class FormMain : LocalizableFormBase, ILocalizableForm
     {
         #region Private Fields
 
@@ -42,8 +42,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             this.InitializeComponent();
 
-            this.Text = AppDomain.CurrentDomain.GetData(Constants.Settings.AppName).ToString();
-
             this.tokenManager = tokenManager;
             this.userManager = userManager;
         }
@@ -55,9 +53,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Populates controls' properties with the corresponding localized string.
         /// </summary>
-        public void PopulateLanguage()
+        public override void PopulateLanguage()
         {
-            throw new NotImplementedException();
+            this.Text = AppDomain.CurrentDomain.GetData(Constants.Settings.AppName).ToString();
         }
 
         #endregion Public Methods
