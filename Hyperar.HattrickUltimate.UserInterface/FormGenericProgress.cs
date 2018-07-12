@@ -28,6 +28,15 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
         #endregion Public Constructors
 
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to disable the owner window or not.
+        /// </summary>
+        public bool ShouldDisableOwner { get; set; }
+
+        #endregion Public Properties
+
         #region Public Methods
 
         /// <summary>
@@ -37,6 +46,12 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             this.Text = Localization.Strings.FormGenericProgress_Text;
             this.LblTask.Text = Localization.Strings.Message_TaskStarting;
+        }
+
+        public void SetCancelledState()
+        {
+            this.PrgBarProgress.Style = ProgressBarStyle.Marquee;
+            this.LblTask.Text = Localization.Strings.Message_Cancelling;
         }
 
         /// <summary>
@@ -51,13 +66,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 throw new ArgumentNullException(nameof(task));
             }
 
-            if (completedPercentage > this.PrgBarPercentage.Maximum || completedPercentage < this.PrgBarPercentage.Minimum)
+            if (completedPercentage > this.PrgBarProgress.Maximum || completedPercentage < this.PrgBarProgress.Minimum)
             {
                 throw new ArgumentException(nameof(completedPercentage));
             }
 
             this.LblTask.Text = task;
-            this.PrgBarPercentage.Value = completedPercentage;
+            this.PrgBarProgress.Value = completedPercentage;
         }
 
         #endregion Public Methods
@@ -71,7 +86,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void FormGenericProgress_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.Owner != null)
+            if (this.Owner != null && !this.Owner.Enabled)
             {
                 this.Owner.Enabled = true;
             }
@@ -84,7 +99,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void FormGenericProgress_Shown(object sender, EventArgs e)
         {
-            if (this.Owner != null)
+            if (this.Owner != null && this.ShouldDisableOwner)
             {
                 this.Owner.Enabled = false;
             }

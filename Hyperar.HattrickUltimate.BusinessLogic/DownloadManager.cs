@@ -103,6 +103,48 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         #region Public Methods
 
         /// <summary>
+        /// Builds the list of files to download customized with the user settings.
+        /// </summary>
+        /// <param name="downloadSettings">User settings.</param>
+        /// <returns>List of files to download.</returns>
+        public List<DownloadFile> BuildDownloadFileList(BusinessObjects.OAuth.DownloadSettings downloadSettings)
+        {
+            var downloadFileList = new List<DownloadFile>();
+
+            downloadFileList.Add(
+                                 new DownloadFile(
+                                     BusinessObjects.Hattrick.Enums.XmlFile.WorldDetails,
+                                     new Dictionary<string, string>
+                                     {
+                                         {
+                                             DataAccess.Chpp.Constants.QueryStringParameterName.IncludeRegions,
+                                             downloadSettings.DownloadAllRegions.ToString()
+                                         }
+                                     }));
+
+            downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.ManagerCompendium));
+
+            downloadFileList.Add(
+                                 new DownloadFile(
+                                     BusinessObjects.Hattrick.Enums.XmlFile.TeamDetails,
+                                     new Dictionary<string, string>
+                                     {
+                                         {
+                                             DataAccess.Chpp.Constants.QueryStringParameterName.IncludeDomesticFlags,
+                                             downloadSettings.SeniorTeamIncludeHomeFlags.ToString()
+                                         },
+                                         {
+                                             DataAccess.Chpp.Constants.QueryStringParameterName.IncludeFlags,
+                                             downloadSettings.SeniorTeamIncludeAwayFlags.ToString()
+                                         },
+                                     }));
+
+            downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.YouthTeamDetails));
+
+            return downloadFileList;
+        }
+
+        /// <summary>
         /// Cancels the specified task.
         /// </summary>
         /// <param name="taskId">ID of the task to cancel.</param>

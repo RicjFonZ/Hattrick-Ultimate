@@ -29,17 +29,18 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private void InitializeComponent()
         {
-            this.PrgBarPercentage = new System.Windows.Forms.ProgressBar();
+            this.PrgBarProgress = new System.Windows.Forms.ProgressBar();
             this.LblTask = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // PrgBarPercentage
+            // PrgBarProgress
             // 
-            this.PrgBarPercentage.Location = new System.Drawing.Point(12, 32);
-            this.PrgBarPercentage.MarqueeAnimationSpeed = 10;
-            this.PrgBarPercentage.Name = "PrgBarPercentage";
-            this.PrgBarPercentage.Size = new System.Drawing.Size(460, 20);
-            this.PrgBarPercentage.TabIndex = 0;
+            this.PrgBarProgress.Location = new System.Drawing.Point(12, 32);
+            this.PrgBarProgress.MarqueeAnimationSpeed = 10;
+            this.PrgBarProgress.Name = "PrgBarProgress";
+            this.PrgBarProgress.Size = new System.Drawing.Size(460, 20);
+            this.PrgBarProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.PrgBarProgress.TabIndex = 0;
             // 
             // LblTask
             // 
@@ -57,7 +58,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ClientSize = new System.Drawing.Size(484, 64);
             this.ControlBox = false;
             this.Controls.Add(this.LblTask);
-            this.Controls.Add(this.PrgBarPercentage);
+            this.Controls.Add(this.PrgBarProgress);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Working;
             this.MaximizeBox = false;
@@ -73,7 +74,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
         #endregion
 
-        private System.Windows.Forms.ProgressBar PrgBarPercentage;
+        private System.Windows.Forms.ProgressBar PrgBarProgress;
         private System.Windows.Forms.Label LblTask;
     }
 }

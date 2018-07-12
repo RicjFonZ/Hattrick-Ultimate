@@ -140,6 +140,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private static void RegisterForms()
         {
             ApplicationObjects.RegisterForm<FormDataFolder>();
+            ApplicationObjects.RegisterForm<FormDownload>();
             ApplicationObjects.RegisterForm<FormGenericProgress>();
             ApplicationObjects.RegisterForm<FormMain>();
             ApplicationObjects.RegisterForm<FormToken>();

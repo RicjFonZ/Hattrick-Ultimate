@@ -31,7 +31,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDownload));
             this.PropGridDownloadSettings = new System.Windows.Forms.PropertyGrid();
-            this.BtnCancelDownload = new System.Windows.Forms.Button();
+            this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnDownload = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -47,20 +47,21 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.PropGridDownloadSettings.Size = new System.Drawing.Size(460, 349);
             this.PropGridDownloadSettings.TabIndex = 0;
             // 
-            // BtnCancelDownload
+            // BtnCancel
             // 
-            this.BtnCancelDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnCancelDownload.Enabled = false;
-            this.BtnCancelDownload.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Cancel_16px;
-            this.BtnCancelDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCancelDownload.Location = new System.Drawing.Point(12, 367);
-            this.BtnCancelDownload.Name = "BtnCancelDownload";
-            this.BtnCancelDownload.Size = new System.Drawing.Size(100, 32);
-            this.BtnCancelDownload.TabIndex = 1;
-            this.BtnCancelDownload.Text = "BtnCancelDownload";
-            this.BtnCancelDownload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCancelDownload.UseVisualStyleBackColor = true;
+            this.BtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnCancel.Enabled = false;
+            this.BtnCancel.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Cancel_16px;
+            this.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCancel.Location = new System.Drawing.Point(12, 367);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(100, 32);
+            this.BtnCancel.TabIndex = 1;
+            this.BtnCancel.Text = "BtnCancel";
+            this.BtnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // BtnDownload
             // 
@@ -90,7 +91,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // FormDownload
             // 
@@ -99,7 +100,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ClientSize = new System.Drawing.Size(484, 411);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnDownload);
-            this.Controls.Add(this.BtnCancelDownload);
+            this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.PropGridDownloadSettings);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -116,7 +117,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #endregion
 
         private System.Windows.Forms.PropertyGrid PropGridDownloadSettings;
-        private System.Windows.Forms.Button BtnCancelDownload;
+        private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnDownload;
         private System.Windows.Forms.Button BtnClose;
     }

@@ -275,10 +275,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                 {
                     exception = ex;
 
-                    this.context.Cancel();
-
                     break;
                 }
+            }
+
+            // If cancelled, perform rollback.
+            if (this.IsCanceled(asyncOperation.UserSuppliedState) || exception != null)
+            {
+                this.context.Cancel();
             }
 
             this.context.EndTransaction();

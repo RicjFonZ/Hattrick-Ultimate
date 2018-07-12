@@ -60,17 +60,17 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                 parameters = new KeyValuePair<string, string>[] { };
             }
 
-            int originalParameterLength = parameters.Length;
+            int originalParameterLength = fixedParameters.Length;
 
-            Array.Resize(ref parameters, parameters.Length + fixedParameters.Length);
-            Array.Copy(fixedParameters, 0, parameters, originalParameterLength, fixedParameters.Length);
+            Array.Resize(ref fixedParameters, parameters.Length + fixedParameters.Length);
+            Array.Copy(parameters, 0, fixedParameters, originalParameterLength, parameters.Length);
 
             if (!this.strategies.ContainsKey(file))
             {
                 this.strategies.Add(file, this.urlBuilderFactory.GetFor(file));
             }
 
-            return this.strategies[file].GetUrl(Constants.Url.ProtectedResources, parameters);
+            return this.strategies[file].GetUrl(Constants.Url.ProtectedResources, fixedParameters);
         }
 
         #endregion Internal Methods

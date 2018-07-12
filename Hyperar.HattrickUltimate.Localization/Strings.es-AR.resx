@@ -356,4 +356,7 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="DownloadItemDisplayName_SeniorTeamIncludeHomeFlags" xml:space="preserve">
     <value>Incluir Banderas Local</value>
   </data>
+  <data name="Message_Cancelling" xml:space="preserve">
+    <value>Cancelando...</value>
+  </data>
 </root>

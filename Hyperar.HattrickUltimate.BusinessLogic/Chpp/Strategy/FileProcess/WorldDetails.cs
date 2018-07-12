@@ -181,8 +181,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     }
                 }
 
-                // If there's a country to process and it doesn't already exists.
-                if (curLeague.Country != null && this.countryRepository.GetByHattrickId(curLeague.Country.CountryId) == null)
+                if (curLeague.Country != null)
                 {
                     var currency = this.ProcessCurrency(
                                             curLeague.Country.CurrencyName,

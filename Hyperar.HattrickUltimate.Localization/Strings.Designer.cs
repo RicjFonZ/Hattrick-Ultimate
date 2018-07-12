@@ -467,6 +467,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelling....
+        /// </summary>
+        public static string Message_Cancelling {
+            get {
+                return ResourceManager.GetString("Message_Cancelling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error has occurred while trying to retrieve the LocalDb instance.
         /// </summary>
         public static string Message_CannotRetrieveLocalDbInstance {
