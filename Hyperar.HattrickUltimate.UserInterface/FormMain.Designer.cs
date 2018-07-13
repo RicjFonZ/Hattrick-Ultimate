@@ -29,22 +29,142 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private void InitializeComponent()
         {
+            this.MnuStrpMain = new System.Windows.Forms.MenuStrip();
+            this.ToolStrpMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrpMenuItemDownload = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStrpMenuItemUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStrpMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrpMain = new System.Windows.Forms.ToolStrip();
+            this.ToolStrpBtnDownload = new System.Windows.Forms.ToolStripButton();
+            this.ToolStrpBtnUser = new System.Windows.Forms.ToolStripButton();
+            this.MnuStrpMain.SuspendLayout();
+            this.ToolStrpMain.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // MnuStrpMain
+            // 
+            this.MnuStrpMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStrpMenuItemFile});
+            this.MnuStrpMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.MnuStrpMain.Location = new System.Drawing.Point(0, 0);
+            this.MnuStrpMain.Name = "MnuStrpMain";
+            this.MnuStrpMain.Size = new System.Drawing.Size(884, 24);
+            this.MnuStrpMain.TabIndex = 0;
+            this.MnuStrpMain.Text = "MnuStrpMain";
+            // 
+            // ToolStrpMenuItemFile
+            // 
+            this.ToolStrpMenuItemFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ToolStrpMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStrpMenuItemDownload,
+            this.toolStripSeparator1,
+            this.ToolStrpMenuItemUser,
+            this.toolStripSeparator2,
+            this.ToolStrpMenuItemExit});
+            this.ToolStrpMenuItemFile.Name = "ToolStrpMenuItemFile";
+            this.ToolStrpMenuItemFile.Size = new System.Drawing.Size(136, 20);
+            this.ToolStrpMenuItemFile.Text = "ToolStrpMenuItemFile";
+            // 
+            // ToolStrpMenuItemDownload
+            // 
+            this.ToolStrpMenuItemDownload.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Download_16;
+            this.ToolStrpMenuItemDownload.Name = "ToolStrpMenuItemDownload";
+            this.ToolStrpMenuItemDownload.Size = new System.Drawing.Size(227, 22);
+            this.ToolStrpMenuItemDownload.Text = "ToolStrpMenuItemDownload";
+            this.ToolStrpMenuItemDownload.Click += new System.EventHandler(this.ToolStrpMenuItemDownload_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
+            // 
+            // ToolStrpMenuItemUser
+            // 
+            this.ToolStrpMenuItemUser.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Manager_16px;
+            this.ToolStrpMenuItemUser.Name = "ToolStrpMenuItemUser";
+            this.ToolStrpMenuItemUser.Size = new System.Drawing.Size(227, 22);
+            this.ToolStrpMenuItemUser.Text = "ToolStrpMenuItemUser";
+            this.ToolStrpMenuItemUser.Click += new System.EventHandler(this.ToolStrpMenuItemUser_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(224, 6);
+            // 
+            // ToolStrpMenuItemExit
+            // 
+            this.ToolStrpMenuItemExit.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Close_16px;
+            this.ToolStrpMenuItemExit.Name = "ToolStrpMenuItemExit";
+            this.ToolStrpMenuItemExit.Size = new System.Drawing.Size(227, 22);
+            this.ToolStrpMenuItemExit.Text = "ToolStrpMenuItemExit";
+            this.ToolStrpMenuItemExit.Click += new System.EventHandler(this.ToolStrpMenuItemExit_Click);
+            // 
+            // ToolStrpMain
+            // 
+            this.ToolStrpMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStrpBtnDownload,
+            this.ToolStrpBtnUser});
+            this.ToolStrpMain.Location = new System.Drawing.Point(0, 24);
+            this.ToolStrpMain.Name = "ToolStrpMain";
+            this.ToolStrpMain.Size = new System.Drawing.Size(884, 25);
+            this.ToolStrpMain.TabIndex = 1;
+            this.ToolStrpMain.Text = "ToolStrpMain";
+            // 
+            // ToolStrpBtnDownload
+            // 
+            this.ToolStrpBtnDownload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStrpBtnDownload.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Download_16;
+            this.ToolStrpBtnDownload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStrpBtnDownload.Name = "ToolStrpBtnDownload";
+            this.ToolStrpBtnDownload.Size = new System.Drawing.Size(23, 22);
+            this.ToolStrpBtnDownload.Text = "ToolStrpBtnDownload";
+            this.ToolStrpBtnDownload.Click += new System.EventHandler(this.ToolStrpBtnDownload_Click);
+            // 
+            // ToolStrpBtnUser
+            // 
+            this.ToolStrpBtnUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStrpBtnUser.Image = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Manager_16px;
+            this.ToolStrpBtnUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStrpBtnUser.Name = "ToolStrpBtnUser";
+            this.ToolStrpBtnUser.Size = new System.Drawing.Size(23, 22);
+            this.ToolStrpBtnUser.Text = "ToolStrpBtnUser";
+            this.ToolStrpBtnUser.Click += new System.EventHandler(this.ToolStrpBtnUser_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
-            this.Icon = Properties.Resources.Icon;
+            this.Controls.Add(this.ToolStrpMain);
+            this.Controls.Add(this.MnuStrpMain);
+            this.Icon = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Icon;
+            this.MainMenuStrip = this.MnuStrpMain;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);
+            this.MnuStrpMain.ResumeLayout(false);
+            this.MnuStrpMain.PerformLayout();
+            this.ToolStrpMain.ResumeLayout(false);
+            this.ToolStrpMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip MnuStrpMain;
+        private System.Windows.Forms.ToolStrip ToolStrpMain;
+        private System.Windows.Forms.ToolStripButton ToolStrpBtnUser;
+        private System.Windows.Forms.ToolStripButton ToolStrpBtnDownload;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrpMenuItemFile;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrpMenuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrpMenuItemDownload;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrpMenuItemUser;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

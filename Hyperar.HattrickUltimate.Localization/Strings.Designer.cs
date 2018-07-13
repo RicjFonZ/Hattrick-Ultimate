@@ -178,6 +178,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close window after successful download..
+        /// </summary>
+        public static string FormDownload_ChkBoxCloseOnSuccessfulDownload_Text {
+            get {
+                return ResourceManager.GetString("FormDownload_ChkBoxCloseOnSuccessfulDownload_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download.
         /// </summary>
         public static string FormDownload_Text {
@@ -228,6 +237,78 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string FormGenericProgress_Text {
             get {
                 return ResourceManager.GetString("FormGenericProgress_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string FormMain_ToolStrpBtnDownload_Text {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpBtnDownload_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opens the &apos;Download&apos; window..
+        /// </summary>
+        public static string FormMain_ToolStrpBtnDownload_ToolTipText {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpBtnDownload_ToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Profile.
+        /// </summary>
+        public static string FormMain_ToolStrpBtnUser_Text {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpBtnUser_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opens the &apos;User Profile&apos; window..
+        /// </summary>
+        public static string FormMain_ToolStrpBtnUser_ToolTipText {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpBtnUser_ToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string FormMain_ToolStrpMenuItemDownload_Text {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpMenuItemDownload_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string FormMain_ToolStrpMenuItemExit_Text {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpMenuItemExit_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File.
+        /// </summary>
+        public static string FormMain_ToolStrpMenuItemFile_Text {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpMenuItemFile_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string FormMain_ToolStrpMenuItemUser_Text {
+            get {
+                return ResourceManager.GetString("FormMain_ToolStrpMenuItemUser_Text", resourceCulture);
             }
         }
         
@@ -430,7 +511,7 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User.
+        ///   Looks up a localized string similar to User Profile.
         /// </summary>
         public static string FormUser_Text {
             get {

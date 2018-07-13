@@ -110,85 +110,117 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             if (this.CmbBoxTeam.SelectedValue != null)
             {
-                var selectedTeam = (BusinessObjects.App.SeniorTeam)this.CmbBoxTeam.SelectedValue;
+                this.PopulateTeamControls((BusinessObjects.App.SeniorTeam)this.CmbBoxTeam.SelectedValue);
+            }
+        }
 
-                if (selectedTeam.JuniorTeam != null)
+        /// <summary>
+        /// FormUser Load event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void FormUser_Load(object sender, EventArgs e)
+        {
+            var user = this.userManager.GetUser();
+
+            // If not authorized.
+            if (user.Token == null)
+            {
+                // Show authorization window.
+                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
                 {
-                    this.LblJuniorTeamValue.Text = selectedTeam.JuniorTeam.ToString();
-
-                    if (selectedTeam.JuniorTeam.JuniorSeries != null)
-                    {
-                        this.LblJuniorTeamSeriesValue.Text = selectedTeam.JuniorTeam.JuniorSeries.ToString();
-                    }
+                    form.ShowDialog(this);
                 }
 
-                this.LblSeniorTeamArenaValue.Text = selectedTeam.SeniorArena.ToString();
-                this.LblSeniorTeamCountryValue.Text = selectedTeam.Region.Country.ToString();
-                this.LblSeniorTeamLeagueValue.Text = selectedTeam.SeniorSeries.League.ToString();
-                this.LblSeniorTeamRegionValue.Text = selectedTeam.Region.ToString();
-                this.LblSeniorTeamSeriesValue.Text = selectedTeam.SeniorSeries.ToString();
+                user = this.userManager.GetUser();
+
+                // If still not authorized, close application.
+                if (user.Token == null)
+                {
+                    this.Close();
+
+                    return;
+                }
+            }
+
+            // If no download has been made.
+            if (user.Manager == null)
+            {
+                // Show download form.
+                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormDownload>())
+                {
+                    form.ShowDialog(this);
+                }
+
+                user = this.userManager.GetUser();
+
+                // If still no download has been made, close application.
+                if (user.Manager == null)
+                {
+                    this.Close();
+
+                    return;
+                }
             }
         }
 
         /// <summary>
         /// FormUser Shown event handler.
         /// </summary>
-        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="sender">Control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
         private void FormUser_Shown(object sender, EventArgs e)
         {
+            this.PopulateManagerControls();
+        }
+
+        /// <summary>
+        /// Populates manager related controls' values.
+        /// </summary>
+        private void PopulateManagerControls()
+        {
             var user = this.userManager.GetUser();
 
-            if (user == null || user.Token == null)
+            if (user != null && user.Manager != null)
             {
-                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
-                {
-                    form.ShowDialog(this);
-                    user = this.userManager.GetUser();
-                }
-            }
+                this.LblManagerCountryValue.Text = user.Manager.Country.ToString();
+                this.LblSupporterTierValue.Text = user.Manager.SupporterTier.ToString();
+                this.LblManagerValue.Text = user.Manager.ToString();
 
-            if (user.Token != null)
-            {
-                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormDownload>())
+                if (user.Manager.SeniorTeams != null && user.Manager.SeniorTeams.Count > 0)
                 {
-                    form.ShowDialog(this);
+                    this.CmbBoxTeam.DisplayMember = "Display";
+                    this.CmbBoxTeam.ValueMember = "Value";
+                    this.CmbBoxTeam.DataSource = user.Manager.SeniorTeams.Select(st => new
+                    {
+                        Display = st.ToString(),
+                        Value = st
+                    }).ToArray();
                 }
-            }
-
-            if (user.Manager != null)
-            {
-                this.PopulateControls();
             }
         }
 
         /// <summary>
-        /// Populates controls' values.
+        /// Populates team related controls' values.
         /// </summary>
-        private void PopulateControls()
+        /// <param name="selectedTeam">Selected Team.</param>
+        private void PopulateTeamControls(BusinessObjects.App.SeniorTeam selectedTeam)
         {
-            var user = this.userManager.GetUser();
-
-            if (user != null)
+            if (selectedTeam.JuniorTeam != null)
             {
-                if (user.Manager != null)
-                {
-                    this.LblManagerCountryValue.Text = user.Manager.Country.ToString();
-                    this.LblSupporterTierValue.Text = user.Manager.SupporterTier.ToString();
-                    this.LblManagerValue.Text = user.Manager.ToString();
+                this.LblJuniorTeamValue.Text = selectedTeam.JuniorTeam.ToString();
 
-                    if (user.Manager.SeniorTeams != null && user.Manager.SeniorTeams.Count > 0)
-                    {
-                        this.CmbBoxTeam.DisplayMember = "Display";
-                        this.CmbBoxTeam.ValueMember = "Value";
-                        this.CmbBoxTeam.DataSource = user.Manager.SeniorTeams.Select(st => new
-                        {
-                            Display = st.ToString(),
-                            Value = st
-                        }).ToArray();
-                    }
+                if (selectedTeam.JuniorTeam.JuniorSeries != null)
+                {
+                    this.LblJuniorTeamSeriesValue.Text = selectedTeam.JuniorTeam.JuniorSeries.ToString();
                 }
             }
+
+            this.LblSeniorTeamArenaValue.Text = selectedTeam.SeniorArena.ToString();
+            this.LblSeniorTeamCountryValue.Text = selectedTeam.Region.Country.ToString();
+            this.LblSeniorTeamLeagueValue.Text = selectedTeam.SeniorSeries.League.ToString();
+            this.LblSeniorTeamRegionValue.Text = selectedTeam.Region.ToString();
+            this.LblSeniorTeamSeriesValue.Text = selectedTeam.SeniorSeries.ToString();
         }
 
         #endregion Private Methods

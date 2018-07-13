@@ -56,6 +56,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
         public override void PopulateLanguage()
         {
             this.Text = AppDomain.CurrentDomain.GetData(Constants.Settings.AppName).ToString();
+            this.ToolStrpBtnDownload.Text = Localization.Strings.FormMain_ToolStrpBtnDownload_Text;
+            this.ToolStrpBtnDownload.ToolTipText = Localization.Strings.FormMain_ToolStrpBtnDownload_ToolTipText;
+            this.ToolStrpBtnUser.Text = Localization.Strings.FormMain_ToolStrpBtnUser_Text;
+            this.ToolStrpBtnUser.ToolTipText = Localization.Strings.FormMain_ToolStrpBtnUser_ToolTipText;
+            this.ToolStrpMenuItemFile.Text = Localization.Strings.FormMain_ToolStrpMenuItemFile_Text;
+            this.ToolStrpMenuItemDownload.Text = Localization.Strings.FormMain_ToolStrpMenuItemDownload_Text;
+            this.ToolStrpMenuItemUser.Text = Localization.Strings.FormMain_ToolStrpMenuItemUser_Text;
+            this.ToolStrpMenuItemExit.Text = Localization.Strings.FormMain_ToolStrpMenuItemExit_Text;
         }
 
         #endregion Public Methods
@@ -63,7 +71,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Private Methods
 
         /// <summary>
-        /// Form Load event handler.
+        /// FormMain Load event handler.
         /// </summary>
         /// <param name="sender">Control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
@@ -71,40 +79,105 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             var user = this.userManager.GetUser();
 
+            // If no user exists.
             if (user == null)
             {
+                // Create user.
                 user = this.userManager.CreateUser();
             }
 
-            if (user.Token == null)
+            // If not authorized or no download has been made.
+            if (user.Token == null || user.Manager == null)
             {
-                using (var formToken = BusinessLogic.ApplicationObjects.Container.GetInstance<FormToken>())
+                // Show user window.
+                using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormUser>())
                 {
-                    formToken.ShowDialog();
+                    form.ShowDialog();
 
                     user.Token = this.tokenManager.GetToken();
 
-                    if (user.Token == null)
+                    // If still not authorized or no download has been made.
+                    if (user.Token == null || user.Manager == null)
                     {
+                        // Close application.
                         Application.Exit();
 
                         return;
                     }
                 }
             }
+        }
 
-            if (user.Manager == null)
+        /// <summary>
+        /// Shows the Download window.
+        /// </summary>
+        private void ShowDownloadWindow()
+        {
+            using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormDownload>())
             {
-                using (var formUser = BusinessLogic.ApplicationObjects.Container.GetInstance<FormUser>())
-                {
-                    formUser.ShowDialog();
-                }
+                form.ShowDialog(this);
             }
+        }
 
-            using (var formDownload = BusinessLogic.ApplicationObjects.Container.GetInstance<FormDownload>())
+        /// <summary>
+        /// Shows the User window.
+        /// </summary>
+        private void ShowUserWindow()
+        {
+            using (var form = BusinessLogic.ApplicationObjects.Container.GetInstance<FormUser>())
             {
-                formDownload.ShowDialog(this);
+                form.ShowDialog(this);
             }
+        }
+
+        /// <summary>
+        /// ToolStrpBtnDownload Click event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void ToolStrpBtnDownload_Click(object sender, EventArgs e)
+        {
+            this.ShowDownloadWindow();
+        }
+
+        /// <summary>
+        /// ToolStrpBtnUser Click event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void ToolStrpBtnUser_Click(object sender, EventArgs e)
+        {
+            this.ShowUserWindow();
+        }
+
+        /// <summary>
+        /// ToolStrpMenuItemDownload Click event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void ToolStrpMenuItemDownload_Click(object sender, EventArgs e)
+        {
+            this.ShowDownloadWindow();
+        }
+
+        /// <summary>
+        /// ToolStrpMenuItemExit Click event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void ToolStrpMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// ToolStrpMenuItemUser Click event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void ToolStrpMenuItemUser_Click(object sender, EventArgs e)
+        {
+            this.ShowUserWindow();
         }
 
         #endregion Private Methods

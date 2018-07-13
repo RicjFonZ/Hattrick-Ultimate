@@ -91,6 +91,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             // 
             // TabLayPanManager
             // 
+            this.TabLayPanManager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TabLayPanManager.ColumnCount = 2;
             this.TabLayPanManager.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TabLayPanManager.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -196,6 +199,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             // 
             // TabLayPanTeams
             // 
+            this.TabLayPanTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TabLayPanTeams.ColumnCount = 2;
             this.TabLayPanTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TabLayPanTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -443,6 +449,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Name = "FormUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUser";
+            this.Load += new System.EventHandler(this.FormUser_Load);
             this.Shown += new System.EventHandler(this.FormUser_Shown);
             this.GrpBoxManager.ResumeLayout(false);
             this.TabLayPanManager.ResumeLayout(false);

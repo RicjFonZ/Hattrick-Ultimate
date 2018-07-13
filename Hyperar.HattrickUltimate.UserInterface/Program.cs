@@ -24,7 +24,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private static void GetAppName()
         {
-            string appName = $"{Application.ProductName}";
+            string appName = $"{Application.ProductName} v{Application.ProductVersion}";
 
 #if DEBUG
             appName += " [DEBUG]";

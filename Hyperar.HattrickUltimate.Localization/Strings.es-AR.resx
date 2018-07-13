@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DownloadItemCategory_SeniorTeam" xml:space="preserve">
+    <value>Equipo mayor</value>
+  </data>
+  <data name="DownloadItemCategory_World" xml:space="preserve">
+    <value>Mundo Hattrick</value>
+  </data>
+  <data name="DownloadItemDescription_DownloadAllRegions" xml:space="preserve">
+    <value>Esta configuración forzara que se descarguen las regiones de todos los paises en lugar de descargar las regiones de los paises de los equipos.</value>
+  </data>
+  <data name="DownloadItemDescription_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+    <value>Incluye las banderas de los países que visitaste para jugar un partido amistoso.</value>
+  </data>
+  <data name="DownloadItemDescription_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+    <value>Incluye las banderas de los países de los equipos que han jugado un partido amistoso en tu estadio.</value>
+  </data>
+  <data name="DownloadItemDisplayName_DownloadAllRegions" xml:space="preserve">
+    <value>Descargar todas las regiones</value>
+  </data>
+  <data name="DownloadItemDisplayName_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+    <value>Incluir Banderas Visitantes</value>
+  </data>
+  <data name="DownloadItemDisplayName_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+    <value>Incluir Banderas Local</value>
+  </data>
   <data name="FormDataFolder_AdvTxtBoxDataFolder_Placeholder" xml:space="preserve">
     <value>Carpeta de la base de datos</value>
   </data>
@@ -128,6 +152,15 @@
   </data>
   <data name="FormDataFolder_Text" xml:space="preserve">
     <value>Carpeta de la Base de Datos</value>
+  </data>
+  <data name="FormDownload_BtnDownload_Text" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="FormDownload_ChkBoxCloseOnSuccessfulDownload_Text" xml:space="preserve">
+    <value>Cerrar la ventana después de una descarga exitosa.</value>
+  </data>
+  <data name="FormDownload_Text" xml:space="preserve">
+    <value>Descargar</value>
   </data>
   <data name="FormGeneral_BtnBrowse_Text" xml:space="preserve">
     <value>Examinar</value>
@@ -143,6 +176,21 @@
   </data>
   <data name="FormGenericProgress_Text" xml:space="preserve">
     <value>Ejecutando tareas</value>
+  </data>
+  <data name="FormMain_ToolStrpBtnDownload_Text" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="FormMain_ToolStrpBtnDownload_ToolTipText" xml:space="preserve">
+    <value>Abre la ventana 'Descargar'</value>
+  </data>
+  <data name="FormMain_ToolStrpBtnUser_Text" xml:space="preserve">
+    <value>Perfíl de Usuario</value>
+  </data>
+  <data name="FormMain_ToolStrpBtnUser_ToolTipText" xml:space="preserve">
+    <value>Abre la ventana de 'Perfíl de Usuario'</value>
+  </data>
+  <data name="FormMain_ToolStrpMenuItemExit_Text" xml:space="preserve">
+    <value>Salir</value>
   </data>
   <data name="FormToken_AdvTxtBoxVerificationCode_EmptyMessage" xml:space="preserve">
     <value>Pegue el código de verificación generado por Hattrick.</value>
@@ -223,6 +271,9 @@ Mensaje de error: {0}</value>
   <data name="Message_AuthorizedOAuthSessionExpected" xml:space="preserve">
     <value>Hattrick está esperando una Sesión OAuth autorizada.</value>
   </data>
+  <data name="Message_Cancelling" xml:space="preserve">
+    <value>Cancelando...</value>
+  </data>
   <data name="Message_CannotRetrieveLocalDbInstance" xml:space="preserve">
     <value>Ocurrió un error al intentar obtener la instancia de LocalDb.</value>
   </data>
@@ -232,6 +283,9 @@ Mensaje de error: {0}</value>
   <data name="Message_CheckToken" xml:space="preserve">
     <value>Hattrick Ultimate puede acceder a los datos de su cuenta.
 Desde: {0} - Hasta: {1}.</value>
+  </data>
+  <data name="Message_CopyToClipboardFailed" xml:space="preserve">
+    <value>Copiar al portapapeles falló.</value>
   </data>
   <data name="Message_DatabaseFolderGroup" xml:space="preserve">
     <value>Carpeta de la base de datos:</value>
@@ -323,40 +377,13 @@ Desde: {0} - Hasta: {1}.</value>
   <data name="Message_UnknownSupporterTier" xml:space="preserve">
     <value>Nivel Supporter desconocido '{0}'.</value>
   </data>
-  <data name="Message_CopyToClipboardFailed" xml:space="preserve">
-    <value>Copiar al portapapeles falló.</value>
-  </data>
-  <data name="DownloadItemCategory_World" xml:space="preserve">
-    <value>Mundo Hattrick</value>
-  </data>
-  <data name="DownloadItemDescription_DownloadAllRegions" xml:space="preserve">
-    <value>Esta configuración forzara que se descarguen las regiones de todos los paises en lugar de descargar las regiones de los paises de los equipos.</value>
-  </data>
-  <data name="DownloadItemDisplayName_DownloadAllRegions" xml:space="preserve">
-    <value>Descargar todas las regiones</value>
-  </data>
-  <data name="FormDownload_BtnDownload_Text" xml:space="preserve">
+  <data name="FormMain_ToolStrpMenuItemDownload_Text" xml:space="preserve">
     <value>Descargar</value>
   </data>
-  <data name="FormDownload_Text" xml:space="preserve">
-    <value>Descargar</value>
+  <data name="FormMain_ToolStrpMenuItemFile_Text" xml:space="preserve">
+    <value>Archivo</value>
   </data>
-  <data name="DownloadItemCategory_SeniorTeam" xml:space="preserve">
-    <value>Equipo mayor</value>
-  </data>
-  <data name="DownloadItemDescription_SeniorTeamIncludeAwayFlags" xml:space="preserve">
-    <value>Incluye las banderas de los países que visitaste para jugar un partido amistoso.</value>
-  </data>
-  <data name="DownloadItemDescription_SeniorTeamIncludeHomeFlags" xml:space="preserve">
-    <value>Incluye las banderas de los países de los equipos que han jugado un partido amistoso en tu estadio.</value>
-  </data>
-  <data name="DownloadItemDisplayName_SeniorTeamIncludeAwayFlags" xml:space="preserve">
-    <value>Incluir Banderas Visitantes</value>
-  </data>
-  <data name="DownloadItemDisplayName_SeniorTeamIncludeHomeFlags" xml:space="preserve">
-    <value>Incluir Banderas Local</value>
-  </data>
-  <data name="Message_Cancelling" xml:space="preserve">
-    <value>Cancelando...</value>
+  <data name="FormMain_ToolStrpMenuItemUser_Text" xml:space="preserve">
+    <value>Perfíl de Usuario</value>
   </data>
 </root>

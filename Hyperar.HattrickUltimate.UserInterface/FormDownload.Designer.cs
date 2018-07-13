@@ -34,6 +34,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnDownload = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
+            this.ChkBoxCloseOnSuccessfulDownload = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // PropGridDownloadSettings
@@ -93,11 +94,25 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // ChkBoxCloseOnSuccessfulDownload
+            // 
+            this.ChkBoxCloseOnSuccessfulDownload.AutoSize = true;
+            this.ChkBoxCloseOnSuccessfulDownload.Checked = true;
+            this.ChkBoxCloseOnSuccessfulDownload.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkBoxCloseOnSuccessfulDownload.Location = new System.Drawing.Point(118, 367);
+            this.ChkBoxCloseOnSuccessfulDownload.MinimumSize = new System.Drawing.Size(80, 32);
+            this.ChkBoxCloseOnSuccessfulDownload.Name = "ChkBoxCloseOnSuccessfulDownload";
+            this.ChkBoxCloseOnSuccessfulDownload.Size = new System.Drawing.Size(203, 32);
+            this.ChkBoxCloseOnSuccessfulDownload.TabIndex = 4;
+            this.ChkBoxCloseOnSuccessfulDownload.Text = "ChkBoxCloseOnSuccessfulDownload";
+            this.ChkBoxCloseOnSuccessfulDownload.UseVisualStyleBackColor = true;
+            // 
             // FormDownload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 411);
+            this.Controls.Add(this.ChkBoxCloseOnSuccessfulDownload);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnDownload);
             this.Controls.Add(this.BtnCancel);
@@ -111,6 +126,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDownload";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -120,5 +136,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnDownload;
         private System.Windows.Forms.Button BtnClose;
+        private System.Windows.Forms.CheckBox ChkBoxCloseOnSuccessfulDownload;
     }
 }

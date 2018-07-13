@@ -98,6 +98,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnCancel.Text = Localization.Strings.FormGeneral_BtnCancel_Text;
             this.BtnDownload.Text = Localization.Strings.FormDownload_BtnDownload_Text;
             this.BtnClose.Text = Localization.Strings.FormGeneral_BtnClose_Text;
+            this.ChkBoxCloseOnSuccessfulDownload.Text = Localization.Strings.FormDownload_ChkBoxCloseOnSuccessfulDownload_Text;
         }
 
         #endregion Public Methods
@@ -258,6 +259,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
             if (e.Cancelled || e.Error != null)
             {
                 MessageBox.Show(this, message, title, MessageBoxButtons.OK, icon);
+            }
+            else if (this.ChkBoxCloseOnSuccessfulDownload.Checked)
+            {
+                this.Close();
             }
         }
 

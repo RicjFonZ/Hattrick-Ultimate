@@ -23,7 +23,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
         public FormGenericProgress()
         {
             this.InitializeComponent();
-            this.PopulateLanguage();
         }
 
         #endregion Public Constructors
@@ -48,6 +47,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblTask.Text = Localization.Strings.Message_TaskStarting;
         }
 
+        /// <summary>
+        /// Sets the form on cancelled state.
+        /// </summary>
         public void SetCancelledState()
         {
             this.PrgBarProgress.Style = ProgressBarStyle.Marquee;
