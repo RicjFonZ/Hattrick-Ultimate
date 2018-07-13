@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     /// <summary>
     /// Generic async tasks progress window.
     /// </summary>
-    public partial class FormGenericProgress : Form, ILocalizableForm
+    public partial class FormGenericProgress : LocalizableFormBase, ILocalizableForm
     {
         #region Public Constructors
 
@@ -41,7 +41,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Populates controls' properties with the corresponding localized string.
         /// </summary>
-        public void PopulateLanguage()
+        public override void PopulateLanguage()
         {
             this.Text = Localization.Strings.FormGenericProgress_Text;
             this.LblTask.Text = Localization.Strings.Message_TaskStarting;

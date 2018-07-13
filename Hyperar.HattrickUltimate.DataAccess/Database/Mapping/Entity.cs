@@ -31,6 +31,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnType(ColumnType.Integer)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
+
+            this.HasKey(p => p.Id);
         }
 
         #endregion Internal Constructors
