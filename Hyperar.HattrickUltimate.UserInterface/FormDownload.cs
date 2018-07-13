@@ -170,6 +170,15 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 this.downloadManager.DownloadFileAsync(user.Token, downloadFileList, this.fileDownloadAsyncTaskId);
             }
+            else
+            {
+                MessageBox.Show(
+                               this,
+                               Localization.Strings.Message_Unauthorized,
+                               Localization.Strings.Message_Error,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
