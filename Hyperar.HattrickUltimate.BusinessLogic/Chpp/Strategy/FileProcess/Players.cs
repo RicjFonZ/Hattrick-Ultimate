@@ -127,9 +127,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 
             var seniorTeam = this.seniorTeamRepository.GetByHattrickId(file.Team.TeamId);
 
+            var processingDate = DateTime.Now;
+
             foreach (var curPlayer in file.Team.PlayerList)
             {
-                this.ProcessPlayer(curPlayer, seniorTeam.Id);
+                this.ProcessPlayer(curPlayer, seniorTeam.Id, processingDate);
             }
         }
 
@@ -142,7 +144,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// </summary>
         /// <param name="player">Player to process.</param>
         /// <param name="seniorTeamId">Senior Team Id.</param>
-        private void ProcessPlayer(BusinessObjects.Hattrick.Players.Player player, int seniorTeamId)
+        /// <param name="processingDate">Processing date and time.</param>
+        private void ProcessPlayer(BusinessObjects.Hattrick.Players.Player player, int seniorTeamId, DateTime processingDate)
         {
             if (player == null)
             {
@@ -180,7 +183,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     Leadership = player.Leadership,
                     MatchesOnJuniorNationalTeam = player.CapsU20,
                     MatchesOnSeniorNationalTeam = player.Caps,
-                    NickName = player.NickName,
+                    NickName = string.IsNullOrWhiteSpace(player.NickName) ? null : player.NickName,
                     PlaysOnNationalTeam = player.NationalTeamId > 0,
                     SeniorTeamId = seniorTeamId,
                     Specialty = player.Specialty,
@@ -222,7 +225,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 seniorPlayer.LastName = player.LastName;
                 seniorPlayer.MatchesOnJuniorNationalTeam = player.CapsU20;
                 seniorPlayer.MatchesOnSeniorNationalTeam = player.Caps;
-                seniorPlayer.NickName = player.NickName;
+                seniorPlayer.NickName = string.IsNullOrWhiteSpace(player.NickName) ? null : player.NickName;
                 seniorPlayer.PlaysOnNationalTeam = player.NationalTeamId > 0;
                 seniorPlayer.Statement = player.Statement;
                 seniorPlayer.Wage = Convert.ToInt32(player.Salary);
@@ -247,7 +250,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                          player.ScorerSkill.Value,
                          player.SetPiecesSkill.Value,
                          Convert.ToInt32(player.TSI),
-                         seniorPlayer.Id);
+                         seniorPlayer.Id,
+                         processingDate);
             }
 
             this.ProcessSeasonGoals(
@@ -313,6 +317,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="setPieces">Set Pieces level.</param>
         /// <param name="totalSkillIndex">Total Skill Index.</param>
         /// <param name="seniorPlayerId">Senior Player Id.</param>
+        /// <param name="processingDate">Processing date and time.</param>
         private void ProcessSkills(
                          byte form,
                          byte stamina,
@@ -326,25 +331,28 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                          byte scoring,
                          byte setPieces,
                          int totalSkillIndex,
-                         int seniorPlayerId)
+                         int seniorPlayerId,
+                         DateTime processingDate)
         {
-            var skills = this.seniorPlayerSkillsRepository.Query(sps => sps.Defending == defending
-                                                                     && sps.Experience == experience
-                                                                     && sps.Form == form
-                                                                     && sps.Keeper == keeper
-                                                                     && sps.Loyalty == loyalty
-                                                                     && sps.Passing == passing
-                                                                     && sps.Playmaking == playmaking
-                                                                     && sps.Scoring == scoring
-                                                                     && sps.SetPieces == setPieces
-                                                                     && sps.Stamina == stamina
-                                                                     && sps.Winger == winger
-                                                                     && sps.TotalSkillIndex == totalSkillIndex
-                                                                     && sps.SeniorPlayerId == seniorPlayerId)
+            var skills = this.seniorPlayerSkillsRepository.Query(sps => sps.SeniorPlayerId == seniorPlayerId)
                                                           .OrderByDescending(sps => sps.UpdatedOn)
                                                           .FirstOrDefault();
 
-            if (skills == null)
+            bool shouldInsert = skills == null ||
+                                (skills.Form != form ||
+                                 skills.Stamina != stamina ||
+                                 skills.Keeper != keeper ||
+                                 skills.Defending != defending ||
+                                 skills.Playmaking != playmaking ||
+                                 skills.Winger != winger ||
+                                 skills.Passing != passing ||
+                                 skills.Scoring != scoring ||
+                                 skills.SetPieces != setPieces ||
+                                 skills.Loyalty != loyalty ||
+                                 skills.Experience != experience ||
+                                 skills.TotalSkillIndex != totalSkillIndex);
+
+            if (shouldInsert)
             {
                 skills = new SeniorPlayerSkills
                 {
@@ -360,7 +368,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     Stamina = stamina,
                     Winger = winger,
                     TotalSkillIndex = totalSkillIndex,
-                    UpdatedOn = DateTime.Now,
+                    UpdatedOn = processingDate,
                     SeniorPlayerId = seniorPlayerId
                 };
 

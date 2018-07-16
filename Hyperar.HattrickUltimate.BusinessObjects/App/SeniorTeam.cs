@@ -70,7 +70,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the Senior Players.
         /// </summary>
-        public ICollection<SeniorPlayer> SeniorPlayers { get; set; } = new HashSet<SeniorPlayer>();
+        public virtual ICollection<SeniorPlayer> SeniorPlayers { get; set; } = new HashSet<SeniorPlayer>();
 
         /// <summary>
         /// Gets or sets the Series.
