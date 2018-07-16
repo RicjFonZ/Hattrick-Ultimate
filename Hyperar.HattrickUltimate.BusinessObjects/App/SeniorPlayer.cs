@@ -99,12 +99,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the Matches played on the Junior National Team.
         /// </summary>
-        public long MatchesOnJuniorNationalTeam { get; set; }
+        public short MatchesOnJuniorNationalTeam { get; set; }
 
         /// <summary>
         /// Gets or sets the Matches played on the Senior National Team.
         /// </summary>
-        public long MatchesOnSeniorNationalTeam { get; set; }
+        public short MatchesOnSeniorNationalTeam { get; set; }
 
         /// <summary>
         /// Gets or sets the NickName.

@@ -59,7 +59,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .WithOptional(r => r.JuniorTeam)
                 .Map(m =>
                 {
-                    m.ToTable(TableName.JuniorTeam);
+                    m.ToTable(TableName.JuniorTeam, SchemaName.Default);
                     m.MapKey(ColumnName.SeniorTeamId);
                 });
 
@@ -73,7 +73,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.JuniorTeam);
+            this.ToTable(TableName.JuniorTeam, SchemaName.Default);
         }
 
         #endregion Public Methods

@@ -64,7 +64,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.Manager);
+            this.ToTable(TableName.Manager, SchemaName.Default);
         }
 
         #endregion Public Methods

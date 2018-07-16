@@ -58,6 +58,7 @@
     <Compile Include="App\SeniorPlayer.cs" />
     <Compile Include="App\SeniorPlayerSeasonGoals.cs" />
     <Compile Include="App\SeniorPlayerSkills.cs" />
+    <Compile Include="App\SeniorPlayerWithSkillDelta.cs" />
     <Compile Include="App\SeniorTeam.cs" />
     <Compile Include="App\JuniorTeam.cs" />
     <Compile Include="App\League.cs" />

@@ -11,9 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects
     using System.ComponentModel;
 
     /// <summary>
-    /// Provides a generic collection that supports data binding and additionally supports sorting.
-    /// See http://msdn.microsoft.com/en-us/library/ms993236.aspx
-    /// If the elements are IComparable it uses that; otherwise compares the ToString().
+    /// Provides a generic collection that supports data binding and additionally supports sorting. If the elements are IComparable it uses that; otherwise compares the ToString().
     /// </summary>
     /// <typeparam name="T">The type of elements in the list.</typeparam>
     public class SortableBindingList<T> : BindingList<T> where T : class

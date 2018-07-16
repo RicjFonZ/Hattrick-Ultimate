@@ -73,7 +73,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         /// <param name="sender">The control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
-        private void BtnBrowse_Click(object sender, System.EventArgs e)
+        private void BtnBrowse_Click(object sender, EventArgs e)
         {
             using (var form = new FolderBrowserDialog())
             {
@@ -93,7 +93,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         /// <param name="sender">The control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
-        private void BtnCancel_Click(object sender, System.EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
         }
 
@@ -102,7 +102,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         /// <param name="sender">The control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
-        private void BtnOk_Click(object sender, System.EventArgs e)
+        private void BtnOk_Click(object sender, EventArgs e)
         {
             if (this.Validate() && this.ValidateChildren())
             {

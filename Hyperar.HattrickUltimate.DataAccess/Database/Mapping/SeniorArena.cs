@@ -52,7 +52,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .WithOptional(r => r.SeniorArena)
                 .Map(m =>
                 {
-                    m.ToTable(TableName.SeniorArena);
+                    m.ToTable(TableName.SeniorArena, SchemaName.Default);
                     m.MapKey(ColumnName.SeniorTeamId);
                 });
         }
@@ -62,7 +62,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.SeniorArena);
+            this.ToTable(TableName.SeniorArena, SchemaName.Default);
         }
 
         #endregion Public Methods

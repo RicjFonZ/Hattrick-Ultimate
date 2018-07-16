@@ -84,7 +84,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.SeniorPlayerSeasonGoals);
+            this.ToTable(TableName.SeniorPlayerSeasonGoals, SchemaName.Default);
         }
 
         #endregion Public Methods

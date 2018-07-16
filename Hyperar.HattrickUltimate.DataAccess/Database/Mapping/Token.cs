@@ -77,7 +77,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .WithOptional(r => r.Token)
                 .Map(m =>
                 {
-                    m.ToTable(TableName.Token);
+                    m.ToTable(TableName.Token, SchemaName.Default);
                     m.MapKey(ColumnName.UserId);
                 });
         }
@@ -87,7 +87,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.Token);
+            this.ToTable(TableName.Token, SchemaName.Default);
         }
 
         #endregion Public Methods

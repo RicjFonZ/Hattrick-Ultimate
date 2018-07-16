@@ -118,7 +118,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.League);
+            this.ToTable(TableName.League, SchemaName.Default);
         }
 
         #endregion Public Methods

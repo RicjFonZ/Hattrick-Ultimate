@@ -46,7 +46,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .WithOptionalDependent(r => r.User)
                 .Map(m =>
                 {
-                    m.ToTable(TableName.User);
+                    m.ToTable(TableName.User, SchemaName.Application);
                     m.MapKey(ColumnName.ManagerId);
                 });
         }
@@ -56,7 +56,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.User);
+            this.ToTable(TableName.User, SchemaName.Application);
         }
 
         #endregion Public Methods

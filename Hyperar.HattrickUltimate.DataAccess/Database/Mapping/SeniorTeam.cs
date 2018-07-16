@@ -103,7 +103,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.SeniorTeam);
+            this.ToTable(TableName.SeniorTeam, SchemaName.Default);
         }
 
         #endregion Public Methods

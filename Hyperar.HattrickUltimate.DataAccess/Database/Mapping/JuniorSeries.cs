@@ -55,7 +55,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.JuniorSeries);
+            this.ToTable(TableName.JuniorSeries, SchemaName.Default);
         }
 
         #endregion Public Methods

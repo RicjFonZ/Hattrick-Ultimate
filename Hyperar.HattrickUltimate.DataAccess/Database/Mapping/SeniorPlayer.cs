@@ -151,13 +151,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
             this.Property(p => p.MatchesOnSeniorNationalTeam)
                 .HasColumnName(ColumnName.MatchesOnSeniorNationalTeam)
                 .HasColumnOrder(20)
-                .HasColumnType(ColumnType.BigInt)
+                .HasColumnType(ColumnType.SmallInt)
                 .IsRequired();
 
             this.Property(p => p.MatchesOnJuniorNationalTeam)
                 .HasColumnName(ColumnName.MatchesOnJuniorNationalTeam)
                 .HasColumnOrder(21)
-                .HasColumnType(ColumnType.BigInt)
+                .HasColumnType(ColumnType.SmallInt)
                 .IsRequired();
 
             this.Property(p => p.Category)
@@ -187,7 +187,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.SeniorPlayer);
+            this.ToTable(TableName.SeniorPlayer, SchemaName.Default);
         }
 
         #endregion Public Methods

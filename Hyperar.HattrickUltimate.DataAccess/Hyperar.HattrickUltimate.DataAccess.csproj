@@ -95,6 +95,7 @@
     <Compile Include="Database\Constants\ColumnType.cs" />
     <Compile Include="Database\Constants\Precision.cs" />
     <Compile Include="Database\Constants\Scale.cs" />
+    <Compile Include="Database\Constants\SchemaName.cs" />
     <Compile Include="Database\Constants\TableName.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
     <Compile Include="Database\Factory\RollbackStrategyFactory.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Database\Mapping\SeniorPlayerSeasonGoals.cs" />
     <Compile Include="Database\Mapping\SeniorPlayerSkills.cs" />
     <Compile Include="Database\Mapping\SeniorPlayer.cs" />
+    <Compile Include="Database\Mapping\SeniorPlayerWithSkillDelta.cs" />
     <Compile Include="Database\Mapping\SeniorTeam.cs" />
     <Compile Include="Database\Mapping\SeniorSeries.cs" />
     <Compile Include="Database\Mapping\SeniorArena.cs" />
@@ -145,7 +147,11 @@
       <Name>Hyperar.HattrickUltimate.Localization</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Database\Scripts\001_SeniorPlayerWithSkillDelta.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

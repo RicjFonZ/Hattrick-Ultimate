@@ -62,7 +62,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.Currency);
+            this.ToTable(TableName.Currency, SchemaName.Default);
         }
 
         #endregion Public Methods

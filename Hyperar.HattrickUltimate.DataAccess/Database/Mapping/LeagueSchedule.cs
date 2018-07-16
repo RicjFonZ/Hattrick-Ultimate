@@ -93,7 +93,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .WithOptional(r => r.Schedule)
                 .Map(m =>
                 {
-                    m.ToTable(TableName.LeagueSchedule);
+                    m.ToTable(TableName.LeagueSchedule, SchemaName.Default);
                     m.MapKey(ColumnName.LeagueId);
                 });
         }
@@ -103,7 +103,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         /// </summary>
         public void RegisterTable()
         {
-            this.ToTable(TableName.LeagueSchedule);
+            this.ToTable(TableName.LeagueSchedule, SchemaName.Default);
         }
 
         #endregion Public Methods
