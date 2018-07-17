@@ -34,6 +34,26 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string DateFormat = "DateFormat";
 
         /// <summary>
+        /// Grid database table name.
+        /// </summary>
+        internal const string Grid = "Grid";
+
+        /// <summary>
+        /// GridColumn database table name.
+        /// </summary>
+        internal const string GridColumn = "GridColumn";
+
+        /// <summary>
+        /// GridLayout database table name.
+        /// </summary>
+        internal const string GridLayout = "GridLayout";
+
+        /// <summary>
+        /// GridLayoutColumn database table name.
+        /// </summary>
+        internal const string GridLayoutColumn = "GridLayoutColumn";
+
+        /// <summary>
         /// JuniorSeries database table name.
         /// </summary>
         internal const string JuniorSeries = "JuniorSeries";

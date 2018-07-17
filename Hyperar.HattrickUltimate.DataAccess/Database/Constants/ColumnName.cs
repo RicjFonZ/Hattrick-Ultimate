@@ -114,6 +114,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string CurrentSeason = "CurrentSeason";
 
         /// <summary>
+        /// CustomHeaderText database table column name.
+        /// </summary>
+        internal const string CustomHeaderText = "CustomHeaderText";
+
+        /// <summary>
         /// Defending database table column name.
         /// </summary>
         internal const string Defending = "Defending";
@@ -122,6 +127,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// DefendingDelta database table column name.
         /// </summary>
         internal const string DefendingDelta = "DefendingDelta";
+
+        /// <summary>
+        /// DisplayProperty database table column name.
+        /// </summary>
+        internal const string DisplayProperty = "DisplayProperty";
 
         /// <summary>
         /// Division database table column name.
@@ -217,6 +227,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// InjuryStatus database table column name.
         /// </summary>
         internal const string InjuryStatus = "InjuryStatus";
+
+        /// <summary>
+        /// IsDefault database table column name.
+        /// </summary>
+        internal const string IsDefault = "IsDefault";
+
+        /// <summary>
+        /// IsFixed database table column name.
+        /// </summary>
+        internal const string IsFixed = "IsFixed";
 
         /// <summary>
         /// IsOnTransferMarket database table column name.
@@ -487,6 +507,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// UserName database table column name.
         /// </summary>
         internal const string UserName = "UserName";
+
+        /// <summary>
+        /// ValueProperty database table column name.
+        /// </summary>
+        internal const string ValueProperty = "ValueProperty";
 
         /// <summary>
         /// Wage database table column name.

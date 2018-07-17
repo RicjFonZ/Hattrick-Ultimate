@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="Configuration.cs" company="Hyperaar">
+// <copyright file="Configuration.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Migrations
     /// <summary>
     /// Hattrick Ultimate Database Configurations.
     /// </summary>
-    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.Database.DatabaseContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Database.DatabaseContext>
     {
         #region Public Constructors
 

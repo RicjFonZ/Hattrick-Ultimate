@@ -44,11 +44,16 @@
     <Compile Include="App\Country.cs" />
     <Compile Include="App\Currency.cs" />
     <Compile Include="App\DateFormat.cs" />
+    <Compile Include="App\Enums\Grid.cs" />
     <Compile Include="App\Enums\LeagueCupTier.cs" />
     <Compile Include="App\Enums\LeagueCupType.cs" />
     <Compile Include="App\Enums\OAuthScope.cs" />
     <Compile Include="App\Enums\SupporterTier.cs" />
     <Compile Include="App\EntityBase.cs" />
+    <Compile Include="App\Grid.cs" />
+    <Compile Include="App\GridColumn.cs" />
+    <Compile Include="App\GridLayout.cs" />
+    <Compile Include="App\GridLayoutColumn.cs" />
     <Compile Include="App\HattrickEntityBase.cs" />
     <Compile Include="App\Interface\IEntity.cs" />
     <Compile Include="App\Interface\IHattrickEntity.cs" />

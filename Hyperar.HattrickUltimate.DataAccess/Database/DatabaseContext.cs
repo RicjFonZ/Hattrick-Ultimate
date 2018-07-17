@@ -134,6 +134,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             modelBuilder.Configurations.Add(new Mapping.Country());
             modelBuilder.Configurations.Add(new Mapping.Currency());
             modelBuilder.Configurations.Add(new Mapping.DateFormat());
+            modelBuilder.Configurations.Add(new Mapping.Grid());
+            modelBuilder.Configurations.Add(new Mapping.GridColumn());
+            modelBuilder.Configurations.Add(new Mapping.GridLayout());
+            modelBuilder.Configurations.Add(new Mapping.GridLayoutColumn());
             modelBuilder.Configurations.Add(new Mapping.JuniorSeries());
             modelBuilder.Configurations.Add(new Mapping.JuniorTeam());
             modelBuilder.Configurations.Add(new Mapping.League());

@@ -34,7 +34,10 @@
           </RuleSettings>
         </Rule>
       </Rules>
-      <AnalyzerSettings />
+      <AnalyzerSettings>
+        <StringProperty Name="CompanyName">Hyperar</StringProperty>
+        <StringProperty Name="Copyright">Copyright (c) Hyperar. All rights reserved.</StringProperty>
+      </AnalyzerSettings>
     </Analyzer>
   </Analyzers>
 </StyleCopSettings>
