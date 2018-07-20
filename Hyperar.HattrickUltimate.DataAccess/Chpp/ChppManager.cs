@@ -236,7 +236,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                 string.IsNullOrWhiteSpace(session.AccessToken.Token) ||
                 string.IsNullOrWhiteSpace(session.AccessToken.TokenSecret))
             {
-                throw new Exception(Localization.Strings.Message_AuthorizedOAuthSessionExpected);
+                throw new Exception(Localization.Messages.AuthorizedOAuthSessionExpected);
             }
 
             return session.Request()

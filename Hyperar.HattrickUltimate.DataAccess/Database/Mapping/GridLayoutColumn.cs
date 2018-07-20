@@ -47,6 +47,30 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnOrder(2)
                 .HasColumnType(ColumnType.Boolean)
                 .IsRequired();
+
+            this.Property(p => p.Alignment)
+                .HasColumnName(ColumnName.Alignment)
+                .HasColumnOrder(3)
+                .HasColumnType(ColumnType.Integer)
+                .IsRequired();
+
+            this.Property(p => p.DisplayIndex)
+                .HasColumnName(ColumnName.DisplayIndex)
+                .HasColumnOrder(4)
+                .HasColumnType(ColumnType.Integer)
+                .IsRequired();
+
+            this.Property(p => p.DisplayMode)
+                .HasColumnName(ColumnName.DisplayMode)
+                .HasColumnOrder(5)
+                .HasColumnType(ColumnType.TinyInt)
+                .IsRequired();
+
+            this.Property(p => p.Width)
+                .HasColumnName(ColumnName.Width)
+                .HasColumnOrder(6)
+                .HasColumnType(ColumnType.Integer)
+                .IsRequired();
         }
 
         /// <summary>

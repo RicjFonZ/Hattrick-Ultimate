@@ -72,7 +72,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -101,7 +101,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -134,7 +134,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -163,7 +163,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -202,7 +202,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -232,7 +232,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -262,7 +262,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -322,7 +322,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -350,7 +350,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -379,7 +379,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -416,7 +416,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -446,7 +446,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -475,7 +475,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -519,7 +519,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -553,7 +553,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -588,7 +588,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -628,7 +628,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -657,7 +657,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -707,7 +707,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -751,7 +751,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -786,7 +786,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -815,7 +815,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -954,7 +954,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -982,7 +982,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 
@@ -1019,7 +1019,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             {
                 throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnexpectedXmlElement,
+                                         Localization.Messages.UnexpectedXmlElement,
                                          reader.Name));
             }
 

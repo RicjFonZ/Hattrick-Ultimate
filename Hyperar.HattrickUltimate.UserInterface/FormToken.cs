@@ -62,14 +62,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         public override void PopulateLanguage()
         {
-            this.Text = Localization.Strings.FormToken_Text;
-            this.AdvTxtBoxVerificationCode.Placeholder = Localization.Strings.FormToken_AdvTxtBoxVerificationCode_Placeholder;
-            this.BtnAllowToken.Text = Localization.Strings.FormToken_BtnAllowToken_Text;
-            this.BtnCheckToken.Text = Localization.Strings.FormToken_BtnCheckToken_Text;
-            this.BtnClose.Text = Localization.Strings.FormGeneral_BtnClose_Text;
-            this.BtnGetAuthorizationLink.Text = Localization.Strings.FormToken_BtnGetAuthorizationLink_Text;
-            this.BtnRevokeToken.Text = Localization.Strings.FormToken_BtnRevokeToken_Text;
-            this.GrpBoxToken.Text = Localization.Strings.FormToken_GrpBoxToken_Text;
+            this.Text = Localization.Controls.FormToken_Text;
+            this.AdvTxtBoxVerificationCode.Placeholder = Localization.Controls.FormToken_AdvTxtBoxVerificationCode_Placeholder;
+            this.BtnAllowToken.Text = Localization.Controls.FormToken_BtnAllowToken_Text;
+            this.BtnCheckToken.Text = Localization.Controls.FormToken_BtnCheckToken_Text;
+            this.BtnClose.Text = Localization.Controls.FormGeneral_BtnClose_Text;
+            this.BtnGetAuthorizationLink.Text = Localization.Controls.FormToken_BtnGetAuthorizationLink_Text;
+            this.BtnRevokeToken.Text = Localization.Controls.FormToken_BtnRevokeToken_Text;
+            this.GrpBoxToken.Text = Localization.Controls.FormToken_GrpBoxToken_Text;
         }
 
         #endregion Public Methods
@@ -105,7 +105,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             if (string.IsNullOrWhiteSpace(this.AdvTxtBoxVerificationCode.Text))
             {
-                this.ErrProvToken.SetError((Control)sender, Localization.Strings.FormToken_AdvTxtBoxVerificationCode_EmptyMessage);
+                this.ErrProvToken.SetError((Control)sender, Localization.Controls.FormToken_AdvTxtBoxVerificationCode_EmptyMessage);
                 e.Cancel = true;
             }
         }
@@ -131,8 +131,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 MessageBox.Show(
                                this,
-                               Localization.Strings.Message_Authorized,
-                               Localization.Strings.Message_Information,
+                               Localization.Messages.Authorized,
+                               Localization.Messages.Information,
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Information);
 
@@ -142,8 +142,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 MessageBox.Show(
                                this,
-                               string.Format(Localization.Strings.Message_AnErrorHasOccurred, ex.Message),
-                               Localization.Strings.Message_Error,
+                               string.Format(Localization.Messages.AnErrorHasOccurred, ex.Message),
+                               Localization.Messages.Error,
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
             }
@@ -179,19 +179,19 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 var token = this.tokenManager.CheckToken(user.Token);
 
                 text = string.Format(
-                                  Localization.Strings.Message_CheckToken,
+                                  Localization.Messages.CheckToken,
                                   token.CreatedOn.ToString(),
                                   token.ExpiresOn.ToString());
 
-                title = Localization.Strings.Message_Information;
+                title = Localization.Messages.Information;
             }
             catch (Exception ex)
             {
                 text = string.Format(
-                                  Localization.Strings.Message_AnErrorHasOccurred,
+                                  Localization.Messages.AnErrorHasOccurred,
                                   ex.Message);
 
-                title = Localization.Strings.Message_Error;
+                title = Localization.Messages.Error;
 
                 icon = MessageBoxIcon.Error;
             }
@@ -230,8 +230,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 {
                     MessageBox.Show(
                                    this,
-                                   Localization.Strings.Message_CopyToClipboardFailed,
-                                   Localization.Strings.Message_Error,
+                                   Localization.Messages.CopyToClipboardFailed,
+                                   Localization.Messages.Error,
                                    MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
                 }
@@ -249,7 +249,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 this.getAuthorizationUrlResponse = this.userManager.GetAuthorizationUrl();
 
-                this.LnkLblAuthorizationLink.Text = Localization.Strings.FormToken_LnkLabelAuthorizationUrl_Text;
+                this.LnkLblAuthorizationLink.Text = Localization.Controls.FormToken_LnkLabelAuthorizationUrl_Text;
 
                 this.LnkLblAuthorizationLink.Links.Add(
                                                        0,
@@ -263,8 +263,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 MessageBox.Show(
                                this,
-                               string.Format(Localization.Strings.Message_AnErrorHasOccurred, ex.Message),
-                               Localization.Strings.Message_Error,
+                               string.Format(Localization.Messages.AnErrorHasOccurred, ex.Message),
+                               Localization.Messages.Error,
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
             }
@@ -290,18 +290,18 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 this.BtnCheckToken.Enabled =
                 this.BtnRevokeToken.Enabled = false;
 
-                text = Localization.Strings.Message_TokenRevokedSuccessfully;
-                title = Localization.Strings.Message_Information;
+                text = Localization.Messages.TokenRevokedSuccessfully;
+                title = Localization.Messages.Information;
             }
             catch (Exception ex)
             {
                 text = string.Format(
-                                  Localization.Strings.Message_AnErrorHasOccurred,
+                                  Localization.Messages.AnErrorHasOccurred,
                                   ex.Message);
 
                 icon = MessageBoxIcon.Error;
 
-                title = Localization.Strings.Message_Error;
+                title = Localization.Messages.Error;
             }
 
             MessageBox.Show(this, text, title, buttons, icon);

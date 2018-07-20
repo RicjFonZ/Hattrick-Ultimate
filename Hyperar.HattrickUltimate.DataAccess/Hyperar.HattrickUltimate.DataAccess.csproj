@@ -103,6 +103,7 @@
     <Compile Include="Database\Interface\IDatabaseContext.cs" />
     <Compile Include="Database\Interface\IHattrickRepository.cs" />
     <Compile Include="Database\Interface\IMapping.cs" />
+    <Compile Include="Database\Interface\IReadOnlyRepository.cs" />
     <Compile Include="Database\Interface\IRepository.cs" />
     <Compile Include="Database\Interface\IRollbackStrategy.cs" />
     <Compile Include="Database\Interface\IRollbackStrategyFactory.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Database\Mapping\Continent.cs" />
     <Compile Include="Database\Mapping\Entity.cs" />
     <Compile Include="Database\Mapping\HattrickEntity.cs" />
+    <Compile Include="Database\ReadOnlyRepository.cs" />
     <Compile Include="Database\Repository.cs" />
     <Compile Include="Database\Strategy\Rollback\AddedEntryRollbackStrategy.cs" />
     <Compile Include="Database\Strategy\Rollback\ModifiedEntryRollbackStrategy.cs" />

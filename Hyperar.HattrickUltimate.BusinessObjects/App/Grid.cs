@@ -7,6 +7,7 @@
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
     using System.Collections.Generic;
+    using Enums;
     using Interface;
 
     /// <summary>
@@ -25,6 +26,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Grid Layouts.
         /// </summary>
         public virtual ICollection<GridLayout> GridLayouts { get; set; } = new HashSet<GridLayout>();
+
+        /// <summary>
+        /// Gets or sets the Grid Type.
+        /// </summary>
+        public GridType GridType { get; set; }
 
         /// <summary>
         /// Gets or sets the Name.

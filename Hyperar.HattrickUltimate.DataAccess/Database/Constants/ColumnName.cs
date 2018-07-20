@@ -39,6 +39,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string Agreeability = "Agreeability";
 
         /// <summary>
+        /// Alignment database table column name.
+        /// </summary>
+        internal const string Alignment = "Alignment";
+
+        /// <summary>
         /// BookingStatus database table column name.
         /// </summary>
         internal const string BookingStatus = "BookingStatus";
@@ -129,6 +134,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string DefendingDelta = "DefendingDelta";
 
         /// <summary>
+        /// DisplayIndex database table column name.
+        /// </summary>
+        internal const string DisplayIndex = "DisplayIndex";
+
+        /// <summary>
+        /// DisplayMode database table column name.
+        /// </summary>
+        internal const string DisplayMode = "DisplayMode";
+
+        /// <summary>
         /// DisplayProperty database table column name.
         /// </summary>
         internal const string DisplayProperty = "DisplayProperty";
@@ -204,6 +219,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string FullName = "FullName";
 
         /// <summary>
+        /// GridColumnType database table column name.
+        /// </summary>
+        internal const string GridColumnType = "GridColumnType";
+
+        /// <summary>
+        /// GridType database table column name.
+        /// </summary>
+        internal const string GridType = "GridType";
+
+        /// <summary>
         /// HasHomegrownBonus database table column name.
         /// </summary>
         internal const string HasHomegrownBonus = "HasHomegrownBonus";
@@ -247,6 +272,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// IsPrimary database table column name.
         /// </summary>
         internal const string IsPrimary = "IsPrimary";
+
+        /// <summary>
+        /// IsVisible database table column name.
+        /// </summary>
+        internal const string IsVisible = "IsVisible";
 
         /// <summary>
         /// JuniorNationalTeamId database table column name.
@@ -509,9 +539,19 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string UserName = "UserName";
 
         /// <summary>
-        /// ValueProperty database table column name.
+        /// ValueChangeTrackingPropertyName database table column name.
         /// </summary>
-        internal const string ValueProperty = "ValueProperty";
+        internal const string ValueChangeTrackingPropertyName = "ValueChangeTrackingPropertyName";
+
+        /// <summary>
+        /// ValueDenominationType database table column name.
+        /// </summary>
+        internal const string ValueDenominationType = "ValueDenominationType";
+
+        /// <summary>
+        /// ValuePropertyName database table column name.
+        /// </summary>
+        internal const string ValuePropertyName = "ValuePropertyName";
 
         /// <summary>
         /// Wage database table column name.
@@ -522,6 +562,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// WaitingUsers database table column name.
         /// </summary>
         internal const string WaitingUsers = "WaitingUsers";
+
+        /// <summary>
+        /// Width database table column name.
+        /// </summary>
+        internal const string Width = "Width";
 
         /// <summary>
         /// Winger database table column name.

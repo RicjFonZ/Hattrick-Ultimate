@@ -37,7 +37,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Factory
                 default:
                     throw new NotSupportedException(
                                   string.Format(
-                                             Localization.Strings.Message_EntityStateNotSupported,
+                                             Localization.Messages.EntityStateNotSupported,
                                              state.ToString()));
             }
         }

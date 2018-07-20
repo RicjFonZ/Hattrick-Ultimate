@@ -100,8 +100,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
                 default:
                     throw new NotImplementedException(
                                   string.Format(
-                                             Localization.Strings.Message_NotImplemented,
-                                             "IFileProcessStrategy",
+                                             Localization.Messages.NotImplemented,
+                                             typeof(IFileProcessStrategy).Name,
                                              entity.FileName));
             }
         }

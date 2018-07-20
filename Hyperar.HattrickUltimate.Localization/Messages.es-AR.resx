@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AnErrorHasOccurred" xml:space="preserve">
+    <value>Ha ocurrido un error al intentar realizar la acción requerida.
+Mensaje de error: {0}</value>
+  </data>
+  <data name="Authorized" xml:space="preserve">
+    <value>Hattrick Ultimate ha sido autorizado exitosamente.</value>
+  </data>
+  <data name="AuthorizedOAuthSessionExpected" xml:space="preserve">
+    <value>Hattrick está esperando una Sesión OAuth autorizada.</value>
+  </data>
+  <data name="Cancelling" xml:space="preserve">
+    <value>Cancelando...</value>
+  </data>
+  <data name="CannotRetrieveLocalDbInstance" xml:space="preserve">
+    <value>Ocurrió un error al intentar obtener la instancia de LocalDb.</value>
+  </data>
+  <data name="CannotSetDataFolder" xml:space="preserve">
+    <value>No se pudo establecer la carpeta de la base de datos.</value>
+  </data>
+  <data name="CheckToken" xml:space="preserve">
+    <value>Hattrick Ultimate puede acceder a los datos de su cuenta. \r\nDesde: {0} - Hasta: {1}.</value>
+  </data>
+  <data name="CopyToClipboardFailed" xml:space="preserve">
+    <value>Copiar al portapapeles falló.</value>
+  </data>
+  <data name="DatabaseFolderGroup" xml:space="preserve">
+    <value>Carpeta de la base de datos:</value>
+  </data>
+  <data name="DataFolderNotSet" xml:space="preserve">
+    <value>No se ha elegido una carpeta para la base de datos. Hattrick Ultimate no puede continuar.</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Descargado '{0}'.</value>
+  </data>
+  <data name="Downloading" xml:space="preserve">
+    <value>Descargando '{0}'</value>
+  </data>
+  <data name="EntityIdNotFound" xml:space="preserve">
+    <value>No se ha encontrado una entidad de tipo '{0}' con el ID '{1}'.</value>
+  </data>
+  <data name="EntityStateNotSupported" xml:space="preserve">
+    <value>Estado de entidad '{0}' no soportado.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Finishing" xml:space="preserve">
+    <value>Terminando…</value>
+  </data>
+  <data name="IncompatibleParameters" xml:space="preserve">
+    <value>Los siguientes parámetros son incompatibles: {0}.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Información</value>
+  </data>
+  <data name="LocalDbInstanceNotFound" xml:space="preserve">
+    <value>No se ha encontrado una instancia de LocalDb. Hattrick Ultimate no puede continuar.</value>
+  </data>
+  <data name="NotImplemented" xml:space="preserve">
+    <value>No se ha encontrado una clase del tipo '{0}' para el parámetro '{1}'.</value>
+  </data>
+  <data name="NullValueParameter" xml:space="preserve">
+    <value>El parámetro '{0}' no tiene valor.</value>
+  </data>
+  <data name="OverlappingTransaction" xml:space="preserve">
+    <value>Ya hay una transacción activa en el contexto.</value>
+  </data>
+  <data name="Processed" xml:space="preserve">
+    <value>Procesado '{0}'.</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Procesando '{0}'.</value>
+  </data>
+  <data name="RequiredParameterMissing" xml:space="preserve">
+    <value>Parámetro requerido faltante '{0}'.</value>
+  </data>
+  <data name="TaskCancelled" xml:space="preserve">
+    <value>La tarea fue cancelada.</value>
+  </data>
+  <data name="TaskIdMustBeUnique" xml:space="preserve">
+    <value>El Identificador de Tarea debe ser único.</value>
+  </data>
+  <data name="TaskStarting" xml:space="preserve">
+    <value>Comenzando tarea…</value>
+  </data>
+  <data name="TeamIsPlayingMatchCannotProcessPlayers" xml:space="preserve">
+    <value>{0} está jugando un partido. La información de los jugadores no está disponible.</value>
+  </data>
+  <data name="TokenRevokedSuccessfully" xml:space="preserve">
+    <value>Hattrick Ultimate fue desautorizado correctamente.</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Hattrick Ultimate no está autorizado para acceder a la información de tu cuenta.</value>
+  </data>
+  <data name="UnavailableValue" xml:space="preserve">
+    <value>N/D</value>
+  </data>
+  <data name="UnexpectedObjectType" xml:space="preserve">
+    <value>Tipo de objeto inesperado.</value>
+  </data>
+  <data name="UnexpectedXmlElement" xml:space="preserve">
+    <value>Elemento Xml inesperado '{0}'.</value>
+  </data>
+  <data name="UnknownOAuthScope" xml:space="preserve">
+    <value>Permiso OAuth desconocido '{0}'.</value>
+  </data>
+  <data name="UnknownParameter" xml:space="preserve">
+    <value>Parámetro desconocido '{0}'.</value>
+  </data>
+  <data name="UnknownParametersForFile" xml:space="preserve">
+    <value>Parámetros desconocidos para el archivo '{0}'.</value>
+  </data>
+  <data name="UnknownSupporterTier" xml:space="preserve">
+    <value>Nivel Supporter desconocido '{0}'.</value>
+  </data>
+</root>

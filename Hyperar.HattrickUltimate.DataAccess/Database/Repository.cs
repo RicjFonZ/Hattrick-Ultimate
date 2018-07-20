@@ -67,7 +67,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
 
                 throw new Exception(
                           string.Format(
-                                     Localization.Strings.Message_EntityIdNotFound,
+                                     Localization.Messages.EntityIdNotFound,
                                      type.ToString(),
                                      id));
             }

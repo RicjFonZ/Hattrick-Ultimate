@@ -180,7 +180,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             {
                 if (this.userStateToLifetime.Contains(taskId))
                 {
-                    throw new ArgumentException(Localization.Strings.Message_TaskIdMustBeUnique, nameof(taskId));
+                    throw new ArgumentException(Localization.Messages.TaskIdMustBeUnique, nameof(taskId));
                 }
 
                 this.userStateToLifetime[taskId] = asyncOperation;
@@ -286,7 +286,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                 {
                     eventArgs = new FileTaskProgressChangedEventArgs(
                                         string.Format(
-                                                   Localization.Strings.Message_Downloading,
+                                                   Localization.Messages.Downloading,
                                                    currentFile.File.ToString()),
                                         (int)Math.Round(((float)i / (float)filesToDownload.Count) * (float)100),
                                         asyncOperation.UserSuppliedState);
@@ -303,7 +303,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
 
                     eventArgs = new FileTaskProgressChangedEventArgs(
                                         string.Format(
-                                                   Localization.Strings.Message_Downloaded,
+                                                   Localization.Messages.Downloaded,
                                                    currentFile.File.ToString()),
                                         (int)Math.Round(((float)i / (float)filesToDownload.Count) * (float)100),
                                         asyncOperation.UserSuppliedState);

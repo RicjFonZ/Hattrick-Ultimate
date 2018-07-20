@@ -122,7 +122,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                     };
 
                 default:
-                    throw new NotImplementedException(Localization.Strings.Message_UnknownParametersForFile);
+                    throw new NotImplementedException(Localization.Messages.UnknownParametersForFile);
             }
         }
 

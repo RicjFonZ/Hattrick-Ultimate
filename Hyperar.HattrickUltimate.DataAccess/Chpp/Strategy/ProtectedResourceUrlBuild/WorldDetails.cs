@@ -72,7 +72,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
             {
                 throw new Exception(
                           string.Format(
-                                     Localization.Strings.Message_RequiredParameterMissing,
+                                     Localization.Messages.RequiredParameterMissing,
                                      QueryStringParameterName.File));
             }
 
@@ -80,7 +80,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
             {
                 throw new Exception(
                           string.Format(
-                                     Localization.Strings.Message_RequiredParameterMissing,
+                                     Localization.Messages.RequiredParameterMissing,
                                      QueryStringParameterName.Version));
             }
 
@@ -92,7 +92,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
                 {
                     throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_NullValueParameter,
+                                         Localization.Messages.NullValueParameter,
                                          parameter.Key));
                 }
 
@@ -104,7 +104,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
                 {
                     throw new Exception(
                               string.Format(
-                                         Localization.Strings.Message_UnknownParameter,
+                                         Localization.Messages.UnknownParameter,
                                          parameter.Key));
                 }
             }

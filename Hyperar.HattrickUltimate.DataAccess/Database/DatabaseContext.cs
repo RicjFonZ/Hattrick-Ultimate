@@ -51,7 +51,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         {
             if (this.Database.CurrentTransaction != null)
             {
-                throw new InvalidOperationException(Localization.Strings.Message_OverlappingTransaction);
+                throw new InvalidOperationException(Localization.Messages.OverlappingTransaction);
             }
 
             this.Database.BeginTransaction();

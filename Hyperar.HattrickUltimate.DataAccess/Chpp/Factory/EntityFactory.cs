@@ -62,8 +62,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                 default:
                     throw new NotImplementedException(
                                   string.Format(
-                                             Localization.Strings.Message_NotImplemented,
-                                             "IXmlEntity",
+                                             Localization.Messages.NotImplemented,
+                                             typeof(IXmlEntity).Name,
                                              fileName));
             }
 
@@ -102,8 +102,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                 default:
                     throw new NotImplementedException(
                                   string.Format(
-                                             Localization.Strings.Message_NotImplemented,
-                                             "IXmlEntity",
+                                             Localization.Messages.NotImplemented,
+                                             typeof(IXmlEntity).Name,
                                              xmlFile.ToString()));
             }
 

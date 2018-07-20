@@ -16,9 +16,24 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         #region Public Properties
 
         /// <summary>
+        /// Gets or sets the Width.
+        /// </summary>
+        public int Alignment { get; set; }
+
+        /// <summary>
         /// Gets or sets the Custom Header Text.
         /// </summary>
         public string CustomHeaderText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Display Index.
+        /// </summary>
+        public int DisplayIndex { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Display Mode.
+        /// </summary>
+        public byte DisplayMode { get; set; }
 
         /// <summary>
         /// Gets or sets the Grid Column.
@@ -44,6 +59,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets a value indicating whether it's fixed or not.
         /// </summary>
         public bool IsFixed { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Width.
+        /// </summary>
+        public int Width { get; set; }
 
         #endregion Public Properties
 

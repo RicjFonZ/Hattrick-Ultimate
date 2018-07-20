@@ -83,8 +83,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                     default:
                         throw new NotImplementedException(
                                       string.Format(
-                                                 Localization.Strings.Message_NotImplemented,
-                                                 "IXmlParserFactory",
+                                                 Localization.Messages.NotImplemented,
+                                                 typeof(IXmlParserStrategy).Name,
                                                  fileName));
                 }
             }

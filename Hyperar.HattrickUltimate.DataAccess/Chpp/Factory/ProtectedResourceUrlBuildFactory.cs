@@ -44,8 +44,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                 default:
                     throw new NotImplementedException(
                               string.Format(
-                                         Localization.Strings.Message_NotImplemented,
-                                         "IProtectedResourceUrlBuildStrategy",
+                                         Localization.Messages.NotImplemented,
+                                         typeof(IProtectedResourceUrlBuildStrategy).Name,
                                          file.ToString()));
             }
         }

@@ -15,13 +15,13 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.OAuth
     {
         #region Public Properties
 
-        [LocalizableProperty("DownloadItemCategory_World", "DownloadItemDisplayName_DownloadAllRegions", "DownloadItemDescription_DownloadAllRegions", typeof(Strings))]
+        [LocalizableProperty("DownloadItemCategory_World", "DownloadItemDisplayName_DownloadAllRegions", "DownloadItemDescription_DownloadAllRegions", typeof(Controls))]
         public bool DownloadAllRegions { get; set; }
 
-        [LocalizableProperty("DownloadItemCategory_SeniorTeam", "DownloadItemDisplayName_SeniorTeamIncludeAwayFlags", "DownloadItemDescription_SeniorTeamIncludeAwayFlags", typeof(Strings))]
+        [LocalizableProperty("DownloadItemCategory_SeniorTeam", "DownloadItemDisplayName_SeniorTeamIncludeAwayFlags", "DownloadItemDescription_SeniorTeamIncludeAwayFlags", typeof(Controls))]
         public bool SeniorTeamIncludeAwayFlags { get; set; }
 
-        [LocalizableProperty("DownloadItemCategory_SeniorTeam", "DownloadItemDisplayName_SeniorTeamIncludeHomeFlags", "DownloadItemDescription_SeniorTeamIncludeHomeFlags", typeof(Strings))]
+        [LocalizableProperty("DownloadItemCategory_SeniorTeam", "DownloadItemDisplayName_SeniorTeamIncludeHomeFlags", "DownloadItemDescription_SeniorTeamIncludeHomeFlags", typeof(Controls))]
         public bool SeniorTeamIncludeHomeFlags { get; set; }
 
         #endregion Public Properties

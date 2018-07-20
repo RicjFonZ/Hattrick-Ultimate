@@ -46,21 +46,21 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         public override void PopulateLanguage()
         {
-            this.Text = Localization.Strings.FormUser_Text;
-            this.GrpBoxManager.Text = Localization.Strings.FormUser_GrpBoxManager_Text;
-            this.GrpBoxTeams.Text = Localization.Strings.FormUser_GrpBoxTeams_Text;
-            this.LblManager.Text = Localization.Strings.FormUser_LblManager_Text;
-            this.LblSupporterTier.Text = Localization.Strings.FormUser_LblSupporterTier_Text;
-            this.LblManagerCountry.Text = Localization.Strings.FormUser_LblManagerCountry_Text;
-            this.LblSeniorTeamArena.Text = Localization.Strings.FormUser_LblSeniorTeamArena_Text;
-            this.LblSeniorTeamCountry.Text = Localization.Strings.FormUser_LblSeniorTeamCountry_Text;
-            this.LblSeniorTeamRegion.Text = Localization.Strings.FormUser_LblSeniorTeamRegion_Text;
-            this.LblSeniorTeamLeague.Text = Localization.Strings.FormUser_LblSeniorTeamLeague_Text;
-            this.LblSeniorTeamSeries.Text = Localization.Strings.FormUser_LblSeniorTeamSeries_Text;
-            this.LblJuniorTeam.Text = Localization.Strings.FormUser_LblJuniorTeam_Text;
-            this.LblJuniorTeamSeries.Text = Localization.Strings.FormUser_LblJuniorTeamSeries_Text;
-            this.BtnManageToken.Text = Localization.Strings.FormUser_BtnManageToken_Text;
-            this.BtnClose.Text = Localization.Strings.FormGeneral_BtnClose_Text;
+            this.Text = Localization.Controls.FormUser_Text;
+            this.GrpBoxManager.Text = Localization.Controls.FormUser_GrpBoxManager_Text;
+            this.GrpBoxTeams.Text = Localization.Controls.FormUser_GrpBoxTeams_Text;
+            this.LblManager.Text = Localization.Controls.FormUser_LblManager_Text;
+            this.LblSupporterTier.Text = Localization.Controls.FormUser_LblSupporterTier_Text;
+            this.LblManagerCountry.Text = Localization.Controls.FormUser_LblManagerCountry_Text;
+            this.LblSeniorTeamArena.Text = Localization.Controls.FormUser_LblSeniorTeamArena_Text;
+            this.LblSeniorTeamCountry.Text = Localization.Controls.FormUser_LblSeniorTeamCountry_Text;
+            this.LblSeniorTeamRegion.Text = Localization.Controls.FormUser_LblSeniorTeamRegion_Text;
+            this.LblSeniorTeamLeague.Text = Localization.Controls.FormUser_LblSeniorTeamLeague_Text;
+            this.LblSeniorTeamSeries.Text = Localization.Controls.FormUser_LblSeniorTeamSeries_Text;
+            this.LblJuniorTeam.Text = Localization.Controls.FormUser_LblJuniorTeam_Text;
+            this.LblJuniorTeamSeries.Text = Localization.Controls.FormUser_LblJuniorTeamSeries_Text;
+            this.BtnManageToken.Text = Localization.Controls.FormUser_BtnManageToken_Text;
+            this.BtnClose.Text = Localization.Controls.FormGeneral_BtnClose_Text;
 
             this.LblJuniorTeamSeriesValue.Text =
             this.LblJuniorTeamValue.Text =
@@ -71,7 +71,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblSeniorTeamLeagueValue.Text =
             this.LblSeniorTeamRegionValue.Text =
             this.LblSeniorTeamSeriesValue.Text =
-            this.LblSupporterTierValue.Text = Localization.Strings.Message_UnavailableValue;
+            this.LblSupporterTierValue.Text = Localization.Messages.UnavailableValue;
         }
 
         #endregion Public Methods

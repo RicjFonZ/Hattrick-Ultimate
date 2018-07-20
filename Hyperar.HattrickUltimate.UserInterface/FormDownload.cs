@@ -94,11 +94,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         public override void PopulateLanguage()
         {
-            this.Text = Localization.Strings.FormDownload_Text;
-            this.BtnCancel.Text = Localization.Strings.FormGeneral_BtnCancel_Text;
-            this.BtnDownload.Text = Localization.Strings.FormDownload_BtnDownload_Text;
-            this.BtnClose.Text = Localization.Strings.FormGeneral_BtnClose_Text;
-            this.ChkBoxCloseOnSuccessfulDownload.Text = Localization.Strings.FormDownload_ChkBoxCloseOnSuccessfulDownload_Text;
+            this.Text = Localization.Controls.FormDownload_Text;
+            this.BtnCancel.Text = Localization.Controls.FormGeneral_BtnCancel_Text;
+            this.BtnDownload.Text = Localization.Controls.FormDownload_BtnDownload_Text;
+            this.BtnClose.Text = Localization.Controls.FormGeneral_BtnClose_Text;
+            this.ChkBoxCloseOnSuccessfulDownload.Text = Localization.Controls.FormDownload_ChkBoxCloseOnSuccessfulDownload_Text;
         }
 
         #endregion Public Methods
@@ -174,8 +174,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 MessageBox.Show(
                                this,
-                               Localization.Strings.Message_Unauthorized,
-                               Localization.Strings.Message_Error,
+                               Localization.Messages.Unauthorized,
+                               Localization.Messages.Error,
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
             }
@@ -204,14 +204,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 if (e.Cancelled)
                 {
-                    title = Localization.Strings.Message_Information;
-                    message = Localization.Strings.Message_TaskCancelled;
+                    title = Localization.Messages.Information;
+                    message = Localization.Messages.TaskCancelled;
                 }
 
                 if (e.Error != null)
                 {
-                    title = Localization.Strings.Message_Error;
-                    message = string.Format(Localization.Strings.Message_AnErrorHasOccurred, e.Error.Message);
+                    title = Localization.Messages.Error;
+                    message = string.Format(Localization.Messages.AnErrorHasOccurred, e.Error.Message);
                     icon = MessageBoxIcon.Error;
                 }
 
@@ -251,14 +251,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             if (e.Cancelled)
             {
-                message = Localization.Strings.Message_TaskCancelled;
-                title = Localization.Strings.Message_Information;
+                message = Localization.Messages.TaskCancelled;
+                title = Localization.Messages.Information;
             }
 
             if (e.Error != null)
             {
-                message = string.Format(Localization.Strings.Message_AnErrorHasOccurred, e.Error.Message);
-                title = Localization.Strings.Message_Error;
+                message = string.Format(Localization.Messages.AnErrorHasOccurred, e.Error.Message);
+                title = Localization.Messages.Error;
             }
 
             this.SetButtonState();

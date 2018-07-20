@@ -98,14 +98,20 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         private static void RegisterBusinessObjectsManagers()
         {
+            // FileProcess Registrations.
             Container.Register<Chpp.Interface.IFileProcessFactory, Chpp.Factory.FileProcessFactory>(Lifestyle.Transient);
+            Container.Register<Chpp.ChppFileProcesser>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.ManagerCompendium>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.Players>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.TeamDetails>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.WorldDetails>(Lifestyle.Transient);
-            Container.Register<Chpp.ChppFileProcesser>(Lifestyle.Transient);
+            Container.Register<Chpp.Strategy.FileProcess.YouthTeamDetails>(Lifestyle.Transient);
+
+            // Business Object Mangers.
             Container.Register<DownloadManager>(Lifestyle.Transient);
             Container.Register<FileProcessManager>(Lifestyle.Transient);
+            Container.Register<GridManager>(Lifestyle.Transient);
+            Container.Register<SeniorPlayerManager>(Lifestyle.Transient);
             Container.Register<TokenManager>(Lifestyle.Transient);
             Container.Register<UserManager>(Lifestyle.Transient);
         }
@@ -125,6 +131,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         {
             Container.Register(typeof(IRepository<>), typeof(Repository<>), Lifestyle.Scoped);
             Container.Register(typeof(IHattrickRepository<>), typeof(HattrickRepository<>), Lifestyle.Scoped);
+            Container.Register(typeof(IReadOnlyRepository<>), typeof(ReadOnlyRepository<>), Lifestyle.Scoped);
         }
 
         #endregion Private Methods

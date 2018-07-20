@@ -43,8 +43,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         public override void PopulateLanguage()
         {
-            this.Text = Localization.Strings.FormGenericProgress_Text;
-            this.LblTask.Text = Localization.Strings.Message_TaskStarting;
+            this.Text = Localization.Controls.FormGenericProgress_Text;
+            this.LblTask.Text = Localization.Messages.TaskStarting;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         public void SetCancelledState()
         {
             this.PrgBarProgress.Style = ProgressBarStyle.Marquee;
-            this.LblTask.Text = Localization.Strings.Message_Cancelling;
+            this.LblTask.Text = Localization.Messages.Cancelling;
         }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     using DataAccess.Database.Interface;
 
     /// <summary>
-    /// TODO: Update summary.
+    /// Token objects business processes.
     /// </summary>
     public class TokenManager
     {

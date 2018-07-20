@@ -10,6 +10,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using System.IO;
     using System.Windows.Forms;
     using BusinessLogic;
+    using SimpleInjector;
     using SimpleInjector.Lifestyles;
 
     /// <summary>
@@ -44,14 +45,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 if (string.IsNullOrWhiteSpace(localDbInstance))
                 {
-                    throw new Exception(Localization.Strings.Message_LocalDbInstanceNotFound);
+                    throw new Exception(Localization.Messages.LocalDbInstanceNotFound);
                 }
 
                 AppDomain.CurrentDomain.SetData(Constants.Settings.LocalDbInstance, localDbInstance);
             }
             catch (Exception ex)
             {
-                throw new Exception(Localization.Strings.Message_CannotRetrieveLocalDbInstance, ex);
+                throw new Exception(Localization.Messages.CannotRetrieveLocalDbInstance, ex);
             }
         }
 
@@ -79,7 +80,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
                         }
                         else
                         {
-                            throw new Exception(Localization.Strings.Message_DataFolderNotSet);
+                            throw new Exception(Localization.Messages.DataFolderNotSet);
                         }
                     }
                 }
@@ -92,7 +93,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             }
             catch (Exception ex)
             {
-                throw new Exception(Localization.Strings.Message_CannotSetDataFolder, ex);
+                throw new Exception(Localization.Messages.CannotSetDataFolder, ex);
             }
         }
 
@@ -131,6 +132,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             ApplicationObjects.RegisterContainer();
             RegisterForms();
+            RegisterFactoriesAndStrategies();
             ApplicationObjects.Finish();
         }
 
@@ -145,6 +147,25 @@ namespace Hyperar.HattrickUltimate.UserInterface
             ApplicationObjects.RegisterForm<FormMain>();
             ApplicationObjects.RegisterForm<FormToken>();
             ApplicationObjects.RegisterForm<FormUser>();
+        }
+
+        /// <summary>
+        /// Registers factories and strategies.
+        /// </summary>
+        private static void RegisterFactoriesAndStrategies()
+        {
+            ApplicationObjects.Container.Register<Interface.IDataGridViewColumnBuilderFactory, Factory.DataGridViewColumnBuilderFactory>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Interface.IDenominationDictionaryBuilderFactory, Factory.DenominationDictionaryFactory>(Lifestyle.Transient);
+
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.DenominatedValue>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.DenominatedValueWithChangeTracking>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.Text>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.ValueWithChangeTracking>(Lifestyle.Transient);
+
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.Aggressiveness>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.Agreeability>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.Honesty>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.PlayerSkill>(Lifestyle.Transient);
         }
 
         #endregion Private Methods

@@ -45,12 +45,12 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         public override void PopulateLanguage()
         {
-            this.Text = Localization.Strings.FormDataFolder_Text;
-            this.AdvTxtBoxDataFolder.Text = Localization.Strings.FormDataFolder_AdvTxtBoxDataFolder_Placeholder;
-            this.BtnBrowse.Text = Localization.Strings.FormGeneral_BtnBrowse_Text;
-            this.BtnCancel.Text = Localization.Strings.FormGeneral_BtnCancel_Text;
-            this.BtnOk.Text = Localization.Strings.FormGeneral_BtnOk_Text;
-            this.GrpBoxDatabaseFolder.Text = Localization.Strings.FormDataFolder_GrpBoxDatabaseFolder_Text;
+            this.Text = Localization.Controls.FormDataFolder_Text;
+            this.AdvTxtBoxDataFolder.Text = Localization.Controls.FormDataFolder_AdvTxtBoxDataFolder_Placeholder;
+            this.BtnBrowse.Text = Localization.Controls.FormGeneral_BtnBrowse_Text;
+            this.BtnCancel.Text = Localization.Controls.FormGeneral_BtnCancel_Text;
+            this.BtnOk.Text = Localization.Controls.FormGeneral_BtnOk_Text;
+            this.GrpBoxDatabaseFolder.Text = Localization.Controls.FormDataFolder_GrpBoxDatabaseFolder_Text;
         }
 
         #endregion Public Methods
@@ -77,7 +77,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             using (var form = new FolderBrowserDialog())
             {
-                form.Description = Localization.Strings.FormDataFolder_DataFolderBrowserDialog_Description;
+                form.Description = Localization.Controls.FormDataFolder_DataFolderBrowserDialog_Description;
                 form.RootFolder = Environment.SpecialFolder.UserProfile;
                 form.ShowNewFolderButton = true;
 

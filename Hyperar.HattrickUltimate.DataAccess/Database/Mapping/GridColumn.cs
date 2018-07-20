@@ -42,18 +42,36 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasMaxLength(ColumnLength.ShortText)
                 .IsRequired();
 
-            this.Property(p => p.DisplayProperty)
-                .HasColumnName(ColumnName.DisplayProperty)
+            this.Property(p => p.GridColumnType)
+                .HasColumnName(ColumnName.GridColumnType)
                 .HasColumnOrder(2)
+                .HasColumnType(ColumnType.TinyInt)
+                .IsRequired();
+
+            this.Property(p => p.ValueDenominationType)
+                .HasColumnName(ColumnName.ValueDenominationType)
+                .HasColumnOrder(3)
+                .HasColumnType(ColumnType.TinyInt)
+                .IsRequired();
+
+            this.Property(p => p.ValuePropertyName)
+                .HasColumnName(ColumnName.ValuePropertyName)
+                .HasColumnOrder(4)
+                .HasColumnType(ColumnType.UnicodeVarChar)
+                .HasMaxLength(ColumnLength.ShortText)
+                .IsRequired();
+
+            this.Property(p => p.ValueChangeTrackingPropertyName)
+                .HasColumnName(ColumnName.ValueChangeTrackingPropertyName)
+                .HasColumnOrder(5)
                 .HasColumnType(ColumnType.UnicodeVarChar)
                 .HasMaxLength(ColumnLength.ShortText)
                 .IsOptional();
 
-            this.Property(p => p.ValueProperty)
-                .HasColumnName(ColumnName.ValueProperty)
-                .HasColumnOrder(3)
-                .HasColumnType(ColumnType.UnicodeVarChar)
-                .HasMaxLength(ColumnLength.ShortText)
+            this.Property(p => p.IsVisible)
+                .HasColumnName(ColumnName.IsVisible)
+                .HasColumnOrder(6)
+                .HasColumnType(ColumnType.Boolean)
                 .IsRequired();
         }
 

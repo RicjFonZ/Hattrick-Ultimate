@@ -11,6 +11,21 @@
     <AssemblyName>Hyperar.HattrickUltimate.UserInterface</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -67,6 +82,9 @@
   <ItemGroup>
     <Compile Include="Constants\Settings.cs" />
     <Compile Include="DatabaseUtils.cs" />
+    <Compile Include="ExtensionMethods\LinqSort.cs" />
+    <Compile Include="Factory\DataGridViewColumnBuilderFactory.cs" />
+    <Compile Include="Factory\DenominationDictionaryFactory.cs" />
     <Compile Include="FormDataFolder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,12 +121,24 @@
     <Compile Include="FormUser.Designer.cs">
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IDataGridViewColumnBuilderFactory.cs" />
+    <Compile Include="Interface\IDataGridViewColumnBuilderStrategy.cs" />
     <Compile Include="Interface\ILocalizableForm.cs" />
+    <Compile Include="Interface\IDenominationDictionaryBuilderStrategy.cs" />
+    <Compile Include="Interface\IDenominationDictionaryBuilderFactory.cs" />
     <Compile Include="LocalizableFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\DenominatedValueWithChangeTracking.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\ValueWithChangeTracking.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\DenominatedValue.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\Text.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\Aggressiveness.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\Honesty.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\Agreeability.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\PlayerSkill.cs" />
     <EmbeddedResource Include="FormDataFolder.resx">
       <DependentUpon>FormDataFolder.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +392,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Download.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

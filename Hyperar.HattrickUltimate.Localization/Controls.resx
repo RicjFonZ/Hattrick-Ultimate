@@ -261,122 +261,6 @@
   <data name="FormUser_Text" xml:space="preserve">
     <value>User Profile</value>
   </data>
-  <data name="Message_AnErrorHasOccurred" xml:space="preserve">
-    <value>An error has occurred while attempting to perform the required action.
-Error message: {0}</value>
-  </data>
-  <data name="Message_Authorized" xml:space="preserve">
-    <value>Hattrick Ultimate has been authorized successfully.</value>
-  </data>
-  <data name="Message_AuthorizedOAuthSessionExpected" xml:space="preserve">
-    <value>Hattrick is expecting an authorized OAuth Session.</value>
-  </data>
-  <data name="Message_Cancelling" xml:space="preserve">
-    <value>Cancelling...</value>
-  </data>
-  <data name="Message_CannotRetrieveLocalDbInstance" xml:space="preserve">
-    <value>An error has occurred while trying to retrieve the LocalDb instance</value>
-  </data>
-  <data name="Message_CannotSetDataFolder" xml:space="preserve">
-    <value>Cannot set data folder.</value>
-  </data>
-  <data name="Message_CheckToken" xml:space="preserve">
-    <value>Hattrick Ultimate is able to access your account data.
-Since: {0} - Until: {1}.</value>
-  </data>
-  <data name="Message_CopyToClipboardFailed" xml:space="preserve">
-    <value>Copy to clipboard failed.</value>
-  </data>
-  <data name="Message_DatabaseFolderGroup" xml:space="preserve">
-    <value>Database folder:</value>
-  </data>
-  <data name="Message_DataFolderNotSet" xml:space="preserve">
-    <value>Database folder not set. Hattrick Ultimate cannot continue.</value>
-  </data>
-  <data name="Message_Downloaded" xml:space="preserve">
-    <value>Downloaded '{0}'.</value>
-  </data>
-  <data name="Message_Downloading" xml:space="preserve">
-    <value>Downloading '{0}'</value>
-  </data>
-  <data name="Message_EntityIdNotFound" xml:space="preserve">
-    <value>No entity of type '{0}' found with ID '{1}'.</value>
-  </data>
-  <data name="Message_EntityStateNotSupported" xml:space="preserve">
-    <value>EntityState '{0}' not supported.</value>
-  </data>
-  <data name="Message_Error" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="Message_Finishing" xml:space="preserve">
-    <value>Finishing…</value>
-  </data>
-  <data name="Message_IncompatibleParameters" xml:space="preserve">
-    <value>The following parameters are incompatible: {0}.</value>
-  </data>
-  <data name="Message_Information" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="Message_LocalDbInstanceNotFound" xml:space="preserve">
-    <value>LocalDb instance not found. Hattrick Ultimate cannot continue.</value>
-  </data>
-  <data name="Message_NotImplemented" xml:space="preserve">
-    <value>No class of type '{0}' found for parameter '{1}'.</value>
-  </data>
-  <data name="Message_NullValueParameter" xml:space="preserve">
-    <value>Parameter '{0}' has no value.</value>
-  </data>
-  <data name="Message_OverlappingTransaction" xml:space="preserve">
-    <value>There is already an active transaction on the context.</value>
-  </data>
-  <data name="Message_Processed" xml:space="preserve">
-    <value>Procesado '{0}'.</value>
-  </data>
-  <data name="Message_Processing" xml:space="preserve">
-    <value>Processing '{0}'.</value>
-  </data>
-  <data name="Message_RequiredParameterMissing" xml:space="preserve">
-    <value>Missing required parameter '{0}'.</value>
-  </data>
-  <data name="Message_TaskCancelled" xml:space="preserve">
-    <value>The task was cancelled.</value>
-  </data>
-  <data name="Message_TaskIdMustBeUnique" xml:space="preserve">
-    <value>Task ID must be unique.</value>
-  </data>
-  <data name="Message_TaskStarting" xml:space="preserve">
-    <value>Task starting…</value>
-  </data>
-  <data name="Message_TeamIsPlayingMatchCannotProcessPlayers" xml:space="preserve">
-    <value>{0} is playing a match. Players data is unavailable.</value>
-  </data>
-  <data name="Message_TokenRevokedSuccessfully" xml:space="preserve">
-    <value>Hattrick Ultimate was unauthorized successfully.</value>
-  </data>
-  <data name="Message_Unauthorized" xml:space="preserve">
-    <value>Hattrick Ultimate is not authorized to access your account data.</value>
-  </data>
-  <data name="Message_UnavailableValue" xml:space="preserve">
-    <value>N/A</value>
-  </data>
-  <data name="Message_UnexpectedObjectType" xml:space="preserve">
-    <value>Unexpected object type.</value>
-  </data>
-  <data name="Message_UnexpectedXmlElement" xml:space="preserve">
-    <value>Unexpected Xml element '{0}'.</value>
-  </data>
-  <data name="Message_UnknownOAuthScope" xml:space="preserve">
-    <value>Unknown OAuth Scope '{0}'.</value>
-  </data>
-  <data name="Message_UnknownParameter" xml:space="preserve">
-    <value>Unknown parameter '{0}'.</value>
-  </data>
-  <data name="Message_UnknownParametersForFile" xml:space="preserve">
-    <value>Unknown parameters for file '{0}'.</value>
-  </data>
-  <data name="Message_UnknownSupporterTier" xml:space="preserve">
-    <value>Unknown Supporter Tier '{0}'.</value>
-  </data>
   <data name="FormMain_ToolStrpMenuItemDownload_Text" xml:space="preserve">
     <value>Download</value>
   </data>
@@ -385,5 +269,113 @@ Since: {0} - Until: {1}.</value>
   </data>
   <data name="FormMain_ToolStrpMenuItemUser_Text" xml:space="preserve">
     <value>User</value>
+  </data>
+  <data name="ColumnSeniorPlayerAge_HeaderText" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="ColumnSeniorPlayerAggressiveness_HeaderText" xml:space="preserve">
+    <value>Aggressiveness</value>
+  </data>
+  <data name="ColumnSeniorPlayerAgreeability_HeaderText" xml:space="preserve">
+    <value>Agreeability</value>
+  </data>
+  <data name="ColumnSeniorPlayerBookingStatus_HeaderText" xml:space="preserve">
+    <value>Cards</value>
+  </data>
+  <data name="ColumnSeniorPlayerCareerGoals_HeaderText" xml:space="preserve">
+    <value>Career Goals</value>
+  </data>
+  <data name="ColumnSeniorPlayerCareerHattricks_HeaderText" xml:space="preserve">
+    <value>Career Hattricks</value>
+  </data>
+  <data name="ColumnSeniorPlayerCategory_HeaderText" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ColumnSeniorPlayerCountryEnglishName_HeaderText" xml:space="preserve">
+    <value>Nationality (English)</value>
+  </data>
+  <data name="ColumnSeniorPlayerCountryName_HeaderText" xml:space="preserve">
+    <value>Nationality</value>
+  </data>
+  <data name="ColumnSeniorPlayerDefending_HeaderText" xml:space="preserve">
+    <value>Defending</value>
+  </data>
+  <data name="ColumnSeniorPlayerExperience_HeaderText" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="ColumnSeniorPlayerFirstName_HeaderText" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="ColumnSeniorPlayerForm_HeaderText" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="ColumnSeniorPlayerHasHomegrownBonus_HeaderText" xml:space="preserve">
+    <value>Motherclub Bonus</value>
+  </data>
+  <data name="ColumnSeniorPlayerHattrickId_HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ColumnSeniorPlayerHonesty_HeaderText" xml:space="preserve">
+    <value>Honesty</value>
+  </data>
+  <data name="ColumnSeniorPlayerInjuryStatus_HeaderText" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="ColumnSeniorPlayerIsOnTransferMarket_HeaderText" xml:space="preserve">
+    <value>On Transfermarket</value>
+  </data>
+  <data name="ColumnSeniorPlayerKeeper_HeaderText" xml:space="preserve">
+    <value>Keeper</value>
+  </data>
+  <data name="ColumnSeniorPlayerLastName_HeaderText" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="ColumnSeniorPlayerLeadership_HeaderText" xml:space="preserve">
+    <value>Leadership</value>
+  </data>
+  <data name="ColumnSeniorPlayerLoyalty_HeaderText" xml:space="preserve">
+    <value>Loyalty</value>
+  </data>
+  <data name="ColumnSeniorPlayerMatchesOnJuniorNationalTeam_HeaderText" xml:space="preserve">
+    <value>U20 NT Matches</value>
+  </data>
+  <data name="ColumnSeniorPlayerMatchesOnSeniorNationalTeam_HeaderText" xml:space="preserve">
+    <value>NT Matches</value>
+  </data>
+  <data name="ColumnSeniorPlayerNickName_HeaderText" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
+  <data name="ColumnSeniorPlayerPassing_HeaderText" xml:space="preserve">
+    <value>Passing</value>
+  </data>
+  <data name="ColumnSeniorPlayerPlaymaking_HeaderText" xml:space="preserve">
+    <value>Playmaking</value>
+  </data>
+  <data name="ColumnSeniorPlayerPlaysOnNationalTeam_HeaderText" xml:space="preserve">
+    <value>Plays on NT</value>
+  </data>
+  <data name="ColumnSeniorPlayerScoring_HeaderText" xml:space="preserve">
+    <value>Scoring</value>
+  </data>
+  <data name="ColumnSeniorPlayerSeniorTeamId_HeaderText" xml:space="preserve">
+    <value>Team ID</value>
+  </data>
+  <data name="ColumnSeniorPlayerSetPieces_HeaderText" xml:space="preserve">
+    <value>Set Pieces</value>
+  </data>
+  <data name="ColumnSeniorPlayerSpecialty_HeaderText" xml:space="preserve">
+    <value>Specialty</value>
+  </data>
+  <data name="ColumnSeniorPlayerStamina_HeaderText" xml:space="preserve">
+    <value>Stamina</value>
+  </data>
+  <data name="ColumnSeniorPlayerTotalSkillIndex_HeaderText" xml:space="preserve">
+    <value>TSI</value>
+  </data>
+  <data name="ColumnSeniorPlayerWage_HeaderText" xml:space="preserve">
+    <value>Wage</value>
+  </data>
+  <data name="ColumnSeniorPlayerWinger_HeaderText" xml:space="preserve">
+    <value>Winger</value>
   </data>
 </root>

@@ -41,6 +41,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnType(ColumnType.UnicodeVarChar)
                 .HasMaxLength(ColumnLength.ShortText)
                 .IsRequired();
+
+            this.Property(p => p.GridType)
+                .HasColumnName(ColumnName.GridType)
+                .HasColumnType(ColumnType.TinyInt)
+                .IsRequired();
         }
 
         /// <summary>

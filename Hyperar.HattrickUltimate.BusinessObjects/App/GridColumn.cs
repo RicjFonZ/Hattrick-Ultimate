@@ -7,10 +7,11 @@
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
     using System.Collections.Generic;
+    using Enums;
     using Interface;
 
     /// <summary>
-    /// TODO: Update summary.
+    /// Represents a Grid Column.
     /// </summary>
     public class GridColumn : EntityBase, IEntity
     {
@@ -19,12 +20,17 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the Display Property.
         /// </summary>
-        public string DisplayProperty { get; set; }
+        public string DisplayPropertyName { get; set; }
 
         /// <summary>
         /// Gets or sets the Grid.
         /// </summary>
         public virtual Grid Grid { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Grid Column Type.
+        /// </summary>
+        public GridColumnType GridColumnType { get; set; }
 
         /// <summary>
         /// Gets or sets the Grid ID.
@@ -37,14 +43,29 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public virtual ICollection<GridLayoutColumn> GridLayoutColumns { get; set; } = new HashSet<GridLayoutColumn>();
 
         /// <summary>
+        /// Gets or sets a value indicating whether the column is visible or not.
+        /// </summary>
+        public bool IsVisible { get; set; }
+
+        /// <summary>
         /// Gets or sets the Name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the Value Change Tracking Property Name.
+        /// </summary>
+        public string ValueChangeTrackingPropertyName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Value Denomination Type.
+        /// </summary>
+        public ValueDenominationType ValueDenominationType { get; set; }
+
+        /// <summary>
         /// Gets or sets the Value Property.
         /// </summary>
-        public string ValueProperty { get; set; }
+        public string ValuePropertyName { get; set; }
 
         #endregion Public Properties
 

@@ -69,31 +69,31 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
             this.Property(p => p.Agreeability)
                 .HasColumnName(ColumnName.Agreeability)
                 .HasColumnOrder(7)
-                .HasColumnType(ColumnType.TinyInt)
+                .HasColumnType(ColumnType.Integer)
                 .IsRequired();
 
             this.Property(p => p.Aggressiveness)
                 .HasColumnName(ColumnName.Aggressiveness)
                 .HasColumnOrder(8)
-                .HasColumnType(ColumnType.TinyInt)
+                .HasColumnType(ColumnType.Integer)
                 .IsRequired();
 
             this.Property(p => p.Honesty)
                 .HasColumnName(ColumnName.Honesty)
                 .HasColumnOrder(9)
-                .HasColumnType(ColumnType.TinyInt)
+                .HasColumnType(ColumnType.Integer)
                 .IsRequired();
 
             this.Property(p => p.Leadership)
                 .HasColumnName(ColumnName.Leadership)
                 .HasColumnOrder(10)
-                .HasColumnType(ColumnType.TinyInt)
+                .HasColumnType(ColumnType.Integer)
                 .IsRequired();
 
             this.Property(p => p.Specialty)
                 .HasColumnName(ColumnName.Specialty)
                 .HasColumnOrder(11)
-                .HasColumnType(ColumnType.TinyInt)
+                .HasColumnType(ColumnType.Integer)
                 .IsRequired();
 
             this.Property(p => p.Wage)

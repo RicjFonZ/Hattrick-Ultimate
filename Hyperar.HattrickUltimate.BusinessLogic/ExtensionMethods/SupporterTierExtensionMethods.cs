@@ -43,7 +43,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
                 default:
                     throw new ArgumentException(
                                   string.Format(
-                                             Localization.Strings.Message_UnknownSupporterTier,
+                                             Localization.Messages.UnknownSupporterTier,
                                              value));
             }
         }
@@ -75,7 +75,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
                 default:
                     throw new ArgumentNullException(
                               string.Format(
-                                         Localization.Strings.Message_UnknownSupporterTier,
+                                         Localization.Messages.UnknownSupporterTier,
                                          value.ToString()));
             }
         }

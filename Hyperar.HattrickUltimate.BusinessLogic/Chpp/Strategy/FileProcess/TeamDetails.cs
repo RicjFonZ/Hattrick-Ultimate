@@ -130,7 +130,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 
             if (file == null)
             {
-                throw new ArgumentException(Localization.Strings.Message_UnexpectedObjectType, nameof(fileToProcess));
+                throw new ArgumentException(Localization.Messages.UnexpectedObjectType, nameof(fileToProcess));
             }
 
             var manager = this.managerRepository.GetByHattrickId(file.User.UserId);

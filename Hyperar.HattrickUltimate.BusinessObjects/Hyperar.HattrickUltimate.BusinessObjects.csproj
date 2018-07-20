@@ -44,7 +44,9 @@
     <Compile Include="App\Country.cs" />
     <Compile Include="App\Currency.cs" />
     <Compile Include="App\DateFormat.cs" />
-    <Compile Include="App\Enums\Grid.cs" />
+    <Compile Include="App\Enums\ValueDenominationType.cs" />
+    <Compile Include="App\Enums\GridColumnType.cs" />
+    <Compile Include="App\Enums\GridType.cs" />
     <Compile Include="App\Enums\LeagueCupTier.cs" />
     <Compile Include="App\Enums\LeagueCupType.cs" />
     <Compile Include="App\Enums\OAuthScope.cs" />

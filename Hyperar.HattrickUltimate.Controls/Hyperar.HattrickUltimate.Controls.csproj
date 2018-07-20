@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,11 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridViewDenominatedValueWithChangeTrackingCell.cs" />
+    <Compile Include="DataGridViewDenominatedValueWithChangeTrackingColumn.cs" />
+    <Compile Include="DataGridViewValueWithChangeTrackingCell.cs" />
+    <Compile Include="DataGridViewValueWithChangeTrackingColumn.cs" />
+    <Compile Include="DoubleBufferedDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="AdvancedTextBox.cs">
       <SubType>Component</SubType>
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="DataGridViewDenominatedValueColumn.cs" />
+    <Compile Include="DataGridViewDenominatedValueCell.cs" />
+    <Compile Include="Interface\IValueWithChangeTrackingColumn.cs" />
+    <Compile Include="Interface\IDenominatedValueColumn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueDisplayMode.cs" />
     <Compile Include="WizardTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
