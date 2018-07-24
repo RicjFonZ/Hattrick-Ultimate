@@ -33,8 +33,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
 
             IXmlEntity result = null;
 
-            switch (fileName)
+            switch (fileName.ToLower())
             {
+                case XmlFileName.Avatars:
+                    result = new BusinessObjects.Hattrick.Avatars.Root();
+                    break;
+
                 case XmlFileName.CheckToken:
                     result = new BusinessObjects.Hattrick.CheckToken.Root();
                     break;

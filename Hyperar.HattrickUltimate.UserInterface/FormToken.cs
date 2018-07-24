@@ -251,6 +251,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 this.LnkLblAuthorizationLink.Text = Localization.Controls.FormToken_LnkLabelAuthorizationUrl_Text;
 
+                this.LnkLblAuthorizationLink.Links.Clear();
+
                 this.LnkLblAuthorizationLink.Links.Add(
                                                        0,
                                                        this.LnkLblAuthorizationLink.Text.Length,

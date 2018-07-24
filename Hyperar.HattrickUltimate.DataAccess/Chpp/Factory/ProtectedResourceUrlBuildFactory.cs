@@ -26,6 +26,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
         {
             switch (file)
             {
+                case XmlFile.Avatars:
+                    return new Strategy.ProtectedResourceUrlBuild.Avatars();
+
                 case XmlFile.ManagerCompendium:
                     return new Strategy.ProtectedResourceUrlBuild.ManagerCompendium();
 

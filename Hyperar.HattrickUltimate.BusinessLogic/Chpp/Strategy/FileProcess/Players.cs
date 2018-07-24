@@ -22,7 +22,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         #region Private Fields
 
         /// <summary>
-        /// Zero digic char constant.
+        /// Zero digit char constant.
         /// </summary>
         private const char Zero = '0';
 

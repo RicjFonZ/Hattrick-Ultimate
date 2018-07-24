@@ -86,6 +86,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         {
             switch (file)
             {
+                case XmlFile.Avatars:
+                    return new KeyValuePair<string, string>[]
+                    {
+                        new KeyValuePair<string, string>(Constants.QueryStringParameterName.File, Constants.QueryStringParameterValue.File.Avatars),
+                        new KeyValuePair<string, string>(Constants.QueryStringParameterName.Version, Constants.QueryStringParameterValue.Version.Avatars)
+                    };
+
                 case XmlFile.ManagerCompendium:
                     return new KeyValuePair<string, string>[]
                     {

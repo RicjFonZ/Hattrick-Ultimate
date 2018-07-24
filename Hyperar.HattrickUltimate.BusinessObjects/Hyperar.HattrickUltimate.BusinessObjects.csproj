@@ -78,6 +78,11 @@
     <Compile Include="App\Token.cs" />
     <Compile Include="App\User.cs" />
     <Compile Include="App\Zone.cs" />
+    <Compile Include="Hattrick\Avatars\Avatar.cs" />
+    <Compile Include="Hattrick\Avatars\Layer.cs" />
+    <Compile Include="Hattrick\Avatars\Player.cs" />
+    <Compile Include="Hattrick\Avatars\Root.cs" />
+    <Compile Include="Hattrick\Avatars\Team.cs" />
     <Compile Include="Hattrick\CheckToken\Root.cs" />
     <Compile Include="Hattrick\Enums\XmlFile.cs" />
     <Compile Include="Hattrick\Players\LastMatch.cs" />
@@ -154,6 +159,7 @@
       <Name>Hyperar.HattrickUltimate.Localization</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

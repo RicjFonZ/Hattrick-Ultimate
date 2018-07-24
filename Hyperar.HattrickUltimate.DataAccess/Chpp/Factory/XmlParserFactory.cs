@@ -47,6 +47,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
         /// <returns>The corresponding IXmlParserStrategy object.</returns>
         public IXmlParserStrategy GetParser(string fileName)
         {
+            fileName = fileName.ToLower();
+
             if (string.IsNullOrWhiteSpace(fileName))
             {
                 throw new ArgumentNullException(nameof(fileName));
@@ -56,6 +58,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
             {
                 switch (fileName)
                 {
+                    case XmlFileName.Avatars:
+                        this.parserDictionary.Add(fileName, new Avatars());
+                        break;
+
                     case XmlFileName.CheckToken:
                         this.parserDictionary.Add(fileName, new CheckToken());
                         break;

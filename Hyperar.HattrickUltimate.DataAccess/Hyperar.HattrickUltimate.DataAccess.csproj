@@ -78,11 +78,13 @@
     </Compile>
     <Compile Include="Chpp\Interface\IXmlParserFactory.cs" />
     <Compile Include="Chpp\Interface\IXmlParserStrategy.cs" />
+    <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\Avatars.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\Players.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\YouthTeamDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\TeamDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\WorldDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\ManagerCompendium.cs" />
+    <Compile Include="Chpp\Strategy\XmlParser\Avatars.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\CheckToken.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\Players.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\ManagerCompendium.cs" />

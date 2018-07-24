@@ -14,6 +14,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         #region Public Fields
 
         /// <summary>
+        /// Hattrick Avatars XML file name.
+        /// </summary>
+        public const string Avatars = "avatars.xml";
+
+        /// <summary>
         /// Hattrick Check Token XML file name.
         /// </summary>
         public const string CheckToken = "check_token";

@@ -14,6 +14,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants.QueryStringParamete
         #region Internal Fields
 
         /// <summary>
+        /// Avatars Version query string parameter value.
+        /// </summary>
+        internal const string Avatars = "1.1";
+
+        /// <summary>
         /// Manager Compendium Version query string parameter value.
         /// </summary>
         internal const string ManagerCompendium = "1.1";

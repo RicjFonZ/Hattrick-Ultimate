@@ -140,7 +140,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                                      }));
 
             downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.Players));
-
+            downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.Avatars));
             downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.YouthTeamDetails));
 
             return downloadFileList;

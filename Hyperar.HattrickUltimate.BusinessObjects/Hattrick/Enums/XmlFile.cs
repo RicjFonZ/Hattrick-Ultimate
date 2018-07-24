@@ -12,6 +12,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Enums
     public enum XmlFile
     {
         /// <summary>
+        /// Avatars XML file.
+        /// </summary>
+        Avatars,
+
+        /// <summary>
         /// Check Token XML file.
         /// </summary>
         CheckToken,
