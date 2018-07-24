@@ -8,11 +8,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
     using System.Windows.Forms;
     using Controls;
     using ExtensionMethods;
+    using Hyperar.HattrickUltimate.BusinessObjects.App.Enums;
     using Interface;
 
     /// <summary>
@@ -36,6 +36,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// Grid manager.
         /// </summary>
         private BusinessLogic.GridManager gridManager;
+
+        /// <summary>
+        /// Gets or sets the Senior Player Grid Layout.
+        /// </summary>
+        private BusinessObjects.App.GridLayout seniorPlayerGridLayout;
 
         /// <summary>
         /// SeniorPlayerManager manager.
@@ -113,13 +118,36 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Private Methods
 
         /// <summary>
-        /// AdvGridViewSeniorPlayers ellFormatting event handler.
+        /// Build the Senior Player Grid.
+        /// </summary>
+        private void BuildSeniorPlayerGrid()
+        {
+            this.seniorPlayerGridLayout = this.gridManager.GetGridLayout(GridType.MainWindowSeniorPlayer);
+
+            var gridViewColumns = new DataGridViewColumn[this.seniorPlayerGridLayout.GridLayoutColumns.Count];
+
+            int i = 0;
+
+            this.seniorPlayerGridLayout.GridLayoutColumns.ToList()
+                                                         .ForEach(glc =>
+                                                         {
+                                                             gridViewColumns[i] = this.dataGridViewColumnBuilderFactory.GetFor(glc.GridColumn.GridColumnType)
+                                                                                                                       .Build(glc);
+
+                                                             i++;
+                                                         });
+
+            this.DataGridViewSeniorPlayers.Columns.AddRange(gridViewColumns);
+        }
+
+        /// <summary>
+        /// DataGridViewSeniorPlayers ellFormatting event handler.
         /// </summary>
         /// <param name="sender">Control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
-        private void AdvGridViewSeniorPlayers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void DataGridViewSeniorPlayers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            var column = this.AdvGridViewSeniorPlayers.Columns[e.ColumnIndex];
+            var column = this.DataGridViewSeniorPlayers.Columns[e.ColumnIndex];
 
             if (column is DataGridViewDenominatedValueColumn)
             {
@@ -169,16 +197,22 @@ namespace Hyperar.HattrickUltimate.UserInterface
                     e.FormattingApplied = true;
                 }
             }
+            else if (column is DataGridViewImageColumn && column.DataPropertyName == "HasHomegrownBonus")
+            {
+                e.Value = Convert.ToBoolean(e.Value)
+                        ? Properties.Resources.HomegrownBonus
+                        : Properties.Resources.Transparent;
+            }
         }
 
         /// <summary>
-        /// AdvGridViewSeniorPlayers CellValueNeeded event handler.
+        /// DataGridViewSeniorPlayers CellValueNeeded event handler.
         /// </summary>
         /// <param name="sender">Control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
-        private void AdvGridViewSeniorPlayers_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        private void DataGridViewSeniorPlayers_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
         {
-            var column = this.AdvGridViewSeniorPlayers.Columns[e.ColumnIndex];
+            var column = this.DataGridViewSeniorPlayers.Columns[e.ColumnIndex];
 
             object value = null;
 
@@ -201,8 +235,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 if (valueChange.HasValue)
                 {
-                    (this.AdvGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewValueWithChangeTrackingCell).ValueChange = valueChange.Value;
-                    (this.AdvGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewValueWithChangeTrackingCell).ToolTipText = valueChange.Value.ToString();
+                    (this.DataGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewValueWithChangeTrackingCell).ValueChange = valueChange.Value;
+                    (this.DataGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewValueWithChangeTrackingCell).ToolTipText = valueChange.Value.ToString();
                 }
             }
             else if (column is DataGridViewDenominatedValueWithChangeTrackingColumn)
@@ -215,18 +249,35 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 if (valueChange.HasValue)
                 {
-                    (this.AdvGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewDenominatedValueWithChangeTrackingCell).ValueChange = valueChange.Value;
-                    (this.AdvGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewDenominatedValueWithChangeTrackingCell).ToolTipText = valueChange.Value.ToString();
+                    (this.DataGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewDenominatedValueWithChangeTrackingCell).ValueChange = valueChange.Value;
+                    (this.DataGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewDenominatedValueWithChangeTrackingCell).ToolTipText = valueChange.Value.ToString();
                 }
             }
         }
 
         /// <summary>
-        /// AdvGridViewSeniorPlayers ColumnHeaderMouseClick event handler.
+        /// DataGridViewSeniorPlayers ColumnDisplayIndexChanged event handler.
         /// </summary>
         /// <param name="sender">Control that raised the event.</param>
         /// <param name="e">Event arguments.</param>
-        private void AdvGridViewSeniorPlayers_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridViewSeniorPlayers_ColumnDisplayIndexChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            this.DataGridViewSeniorPlayers.Columns.Cast<DataGridViewColumn>()
+                                                  .Where(c => c.DisplayIndex >= e.Column.DisplayIndex)
+                                                  .ToList()
+                                                  .ForEach(c =>
+                                                  {
+                                                      this.seniorPlayerGridLayout.GridLayoutColumns.Single(glc => glc.GridColumn.Name == e.Column.Name)
+                                                                                                   .DisplayIndex = e.Column.DisplayIndex;
+                                                  });
+        }
+
+        /// <summary>
+        /// DataGridViewSeniorPlayers ColumnHeaderMouseClick event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void DataGridViewSeniorPlayers_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
             {
@@ -235,7 +286,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             SortOrder order = SortOrder.None;
 
-            switch (this.AdvGridViewSeniorPlayers.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection)
+            switch (this.DataGridViewSeniorPlayers.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection)
             {
                 case SortOrder.None:
                     order = SortOrder.Ascending;
@@ -246,35 +297,41 @@ namespace Hyperar.HattrickUltimate.UserInterface
                     break;
             }
 
-            this.AdvGridViewSeniorPlayers.ApplySortCriteria(
-                                              this.AdvGridViewSeniorPlayers.Columns[e.ColumnIndex].Name,
+            this.DataGridViewSeniorPlayers.ApplySortCriteria(
+                                              this.DataGridViewSeniorPlayers.Columns[e.ColumnIndex].Name,
                                               order);
 
             this.GetSeniorPlayerGridData();
         }
 
         /// <summary>
-        /// Build the Senior Player Grid.
+        /// DataGridViewSeniorPlayers ColumnWidthChanged event handler.
         /// </summary>
-        private void BuildSeniorPlayerGrid()
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void DataGridViewSeniorPlayers_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
         {
-            var gridLayout = this.gridManager.GetGridLayout();
+            this.seniorPlayerGridLayout.GridLayoutColumns.SingleOrDefault(c => c.GridColumn.Name == e.Column.Name)
+                                                         .Width = e.Column.Width;
+        }
 
-            var gridViewColumns = new DataGridViewColumn[gridLayout.GridLayoutColumns.Count];
+        /// <summary>
+        /// DataGridViewSeniorPlayers SelectionChanged event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void DataGridViewSeniorPlayers_SelectionChanged(object sender, EventArgs e)
+        {
+        }
 
-            int i = 0;
-
-            gridLayout.GridLayoutColumns
-                                    .ToList()
-                                    .ForEach(glc =>
-                                    {
-                                        gridViewColumns[i] = this.dataGridViewColumnBuilderFactory.GetFor(glc.GridColumn.GridColumnType)
-                                                                                                  .Build(glc);
-
-                                        i++;
-                                    });
-
-            this.AdvGridViewSeniorPlayers.Columns.AddRange(gridViewColumns);
+        /// <summary>
+        /// FormMain FormClosing event handler.
+        /// </summary>
+        /// <param name="sender">Control that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.gridManager.SaveLayout(this.seniorPlayerGridLayout);
         }
 
         /// <summary>
@@ -323,17 +380,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private void GetSeniorPlayerGridData()
         {
-            var stopWatch = new Stopwatch();
-
-            stopWatch.Start();
-
             var query = this.seniorPlayerManager.GetSeniorPlayerWithSkillDelta(1);
 
             IOrderedQueryable<BusinessObjects.App.SeniorPlayerWithSkillDelta> sortedQuery = null;
 
-            foreach (var sortColumn in this.AdvGridViewSeniorPlayers.SortColumns)
+            foreach (var sortColumn in this.DataGridViewSeniorPlayers.SortColumns)
             {
-                string property = this.AdvGridViewSeniorPlayers.Columns[sortColumn.Key].DataPropertyName;
+                string property = this.DataGridViewSeniorPlayers.Columns[sortColumn.Key].DataPropertyName;
 
                 if (sortedQuery == null)
                 {
@@ -353,13 +406,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
                                                 ? query.ToList()
                                                 : sortedQuery.ToList();
 
-            this.AdvGridViewSeniorPlayers.RowCount = this.seniorPlayerWithSkillDeltaData.Count;
+            this.DataGridViewSeniorPlayers.RowCount = this.seniorPlayerWithSkillDeltaData.Count;
 
-            this.AdvGridViewSeniorPlayers.Refresh();
-
-            stopWatch.Stop();
-
-            this.Text = stopWatch.ElapsedMilliseconds.ToString();
+            this.DataGridViewSeniorPlayers.Refresh();
         }
 
         /// <summary>

@@ -37,6 +37,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public bool IsDefault { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the Grid Layout is selected or not.
+        /// </summary>
+        public bool IsSelected { get; set; }
+
+        /// <summary>
         /// Gets or sets the Name.
         /// </summary>
         public string Name { get; set; }

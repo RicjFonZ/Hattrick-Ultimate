@@ -378,4 +378,7 @@
   <data name="ColumnSeniorPlayerWinger_HeaderText" xml:space="preserve">
     <value>Winger</value>
   </data>
+  <data name="ColumnSeniorPlayerShirtNumber_HeaderText" xml:space="preserve">
+    <value>Shirt Number</value>
+  </data>
 </root>

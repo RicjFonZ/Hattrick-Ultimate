@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AggressivenessLevel" xml:space="preserve">
+    <value>tranquilo,calmado,estable,temperamental,iracundo,inestable</value>
+  </data>
+  <data name="AgreeabilityLevel" xml:space="preserve">
+    <value>malintencionado,polémico,agradable,carismático,popular,querido compañero de equipo</value>
+  </data>
+  <data name="HonestyLevel" xml:space="preserve">
+    <value>infame,deshonesto,honesto,justo,honorable,santo</value>
+  </data>
   <data name="PlayerSkillLevel" xml:space="preserve">
     <value>inexistente,desastroso,horrible,pobre,débil,insuficiente,aceptable,bueno,excelente,formidable,destacado,brillante,magnífico,clase mundial,sobrenatural,titánico,extraterrestre,mítico,mágico,utópico,divino</value>
+  </data>
+  <data name="PlayerSpecialty" xml:space="preserve">
+    <value>,Técnico,Rápido,Potente,Impredecible,Cabeceador,Resiliente,Solidario</value>
   </data>
 </root>

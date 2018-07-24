@@ -1,30 +1,32 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Text.cs" company="Hyperar">
+// <copyright file="ValueWithChangeTracking.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 //-----------------------------------------------------------------------
-namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuilderStrategy
+namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuilder
 {
+    using System.Drawing;
     using System.Windows.Forms;
     using BusinessObjects.App;
+    using Controls;
     using Interface;
 
     /// <summary>
-    /// DataGridViewTextBoxColumn implementation.
+    /// DataGridViewValueWithChangeTrackingColumn implementation.
     /// </summary>
-    public class Text : IDataGridViewColumnBuilderStrategy
+    public class ValueWithChangeTracking : IDataGridViewColumnBuilderStrategy
     {
         #region Public Methods
 
         /// <summary>
-        /// Builds a DataGridViewTextBoxColumn using the specified GridLayoutColumn as a templates.
+        /// Builds a DataGridViewValueWithChangeTrackingColumn using the specified GridLayoutColumn as a templates.
         /// </summary>
         /// <param name="gridLayoutColumn">Grid Layout Column to use as a template.</param>
         /// <returns>DataGridViewColumn generated with the specified template.</returns>
         public DataGridViewColumn Build(GridLayoutColumn gridLayoutColumn)
         {
-            var newColumn = new DataGridViewTextBoxColumn();
+            var newColumn = new DataGridViewValueWithChangeTrackingColumn();
 
             newColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             newColumn.DataPropertyName = gridLayoutColumn.GridColumn.ValuePropertyName;
@@ -40,6 +42,10 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuil
             newColumn.Resizable = DataGridViewTriState.True;
             newColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             newColumn.Width = gridLayoutColumn.Width;
+
+            newColumn.NegativeChangeBackColor = Color.FromArgb(255, 80, 80);
+            newColumn.PositiveChangeBackColor = Color.FromArgb(153, 204, 0);
+            newColumn.ValueChangeTrackingPropertyName = gridLayoutColumn.GridColumn.ValueChangeTrackingPropertyName;
 
             return newColumn;
         }

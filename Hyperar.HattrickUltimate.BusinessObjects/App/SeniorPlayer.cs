@@ -42,6 +42,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public short CareerGoals { get; set; }
 
         /// <summary>
+        /// Gets or sets the Shirt Number.
+        /// </summary>
+        public byte? ShirtNumber { get; set; }
+
+        /// <summary>
         /// Gets or sets the Career Hattricks.
         /// </summary>
         public short CareerHattricks { get; set; }

@@ -41,10 +41,19 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ToolStrpMain = new System.Windows.Forms.ToolStrip();
             this.ToolStrpBtnDownload = new System.Windows.Forms.ToolStripButton();
             this.ToolStrpBtnUser = new System.Windows.Forms.ToolStripButton();
-            this.AdvGridViewSeniorPlayers = new Hyperar.HattrickUltimate.Controls.DoubleBufferedDataGridView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.DataGridViewSeniorPlayers = new Hyperar.HattrickUltimate.Controls.DoubleBufferedDataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.MnuStrpMain.SuspendLayout();
             this.ToolStrpMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AdvGridViewSeniorPlayers)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSeniorPlayers)).BeginInit();
             this.SuspendLayout();
             // 
             // MnuStrpMain
@@ -136,39 +145,95 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ToolStrpBtnUser.Text = "ToolStrpBtnUser";
             this.ToolStrpBtnUser.Click += new System.EventHandler(this.ToolStrpBtnUser_Click);
             // 
-            // AdvGridViewSeniorPlayers
+            // tabControl1
             // 
-            this.AdvGridViewSeniorPlayers.AllowUserToAddRows = false;
-            this.AdvGridViewSeniorPlayers.AllowUserToDeleteRows = false;
-            this.AdvGridViewSeniorPlayers.AllowUserToOrderColumns = true;
-            this.AdvGridViewSeniorPlayers.AllowUserToResizeRows = false;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 49);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(884, 412);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.splitContainer1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(876, 386);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.DataGridViewSeniorPlayers);
+            this.splitContainer1.Size = new System.Drawing.Size(876, 386);
+            this.splitContainer1.SplitterDistance = 676;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // DataGridViewSeniorPlayers
+            // 
+            this.DataGridViewSeniorPlayers.AllowUserToAddRows = false;
+            this.DataGridViewSeniorPlayers.AllowUserToDeleteRows = false;
+            this.DataGridViewSeniorPlayers.AllowUserToOrderColumns = true;
+            this.DataGridViewSeniorPlayers.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.AdvGridViewSeniorPlayers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.AdvGridViewSeniorPlayers.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.AdvGridViewSeniorPlayers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.AdvGridViewSeniorPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.AdvGridViewSeniorPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdvGridViewSeniorPlayers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.AdvGridViewSeniorPlayers.Location = new System.Drawing.Point(0, 49);
-            this.AdvGridViewSeniorPlayers.Name = "AdvGridViewSeniorPlayers";
-            this.AdvGridViewSeniorPlayers.ReadOnly = true;
-            this.AdvGridViewSeniorPlayers.RowHeadersVisible = false;
-            this.AdvGridViewSeniorPlayers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.AdvGridViewSeniorPlayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AdvGridViewSeniorPlayers.Size = new System.Drawing.Size(884, 412);
-            this.AdvGridViewSeniorPlayers.SortColumns = ((System.Collections.Generic.Dictionary<string, System.Windows.Forms.SortOrder>)(resources.GetObject("AdvGridViewSeniorPlayers.SortColumns")));
-            this.AdvGridViewSeniorPlayers.TabIndex = 2;
-            this.AdvGridViewSeniorPlayers.VirtualMode = true;
-            this.AdvGridViewSeniorPlayers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AdvGridViewSeniorPlayers_CellFormatting);
-            this.AdvGridViewSeniorPlayers.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.AdvGridViewSeniorPlayers_CellValueNeeded);
-            this.AdvGridViewSeniorPlayers.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.AdvGridViewSeniorPlayers_ColumnHeaderMouseClick);
+            this.DataGridViewSeniorPlayers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridViewSeniorPlayers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DataGridViewSeniorPlayers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.DataGridViewSeniorPlayers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.DataGridViewSeniorPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DataGridViewSeniorPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridViewSeniorPlayers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.DataGridViewSeniorPlayers.Location = new System.Drawing.Point(0, 0);
+            this.DataGridViewSeniorPlayers.MultiSelect = false;
+            this.DataGridViewSeniorPlayers.Name = "DataGridViewSeniorPlayers";
+            this.DataGridViewSeniorPlayers.ReadOnly = true;
+            this.DataGridViewSeniorPlayers.RowHeadersVisible = false;
+            this.DataGridViewSeniorPlayers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridViewSeniorPlayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewSeniorPlayers.ShowCellErrors = false;
+            this.DataGridViewSeniorPlayers.ShowCellToolTips = false;
+            this.DataGridViewSeniorPlayers.ShowEditingIcon = false;
+            this.DataGridViewSeniorPlayers.ShowRowErrors = false;
+            this.DataGridViewSeniorPlayers.Size = new System.Drawing.Size(676, 386);
+            this.DataGridViewSeniorPlayers.SortColumns = ((System.Collections.Generic.Dictionary<string, System.Windows.Forms.SortOrder>)(resources.GetObject("DataGridViewSeniorPlayers.SortColumns")));
+            this.DataGridViewSeniorPlayers.TabIndex = 0;
+            this.DataGridViewSeniorPlayers.VirtualMode = true;
+            this.DataGridViewSeniorPlayers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewSeniorPlayers_CellFormatting);
+            this.DataGridViewSeniorPlayers.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.DataGridViewSeniorPlayers_CellValueNeeded);
+            this.DataGridViewSeniorPlayers.ColumnDisplayIndexChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DataGridViewSeniorPlayers_ColumnDisplayIndexChanged);
+            this.DataGridViewSeniorPlayers.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewSeniorPlayers_ColumnHeaderMouseClick);
+            this.DataGridViewSeniorPlayers.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DataGridViewSeniorPlayers_ColumnWidthChanged);
+            this.DataGridViewSeniorPlayers.SelectionChanged += new System.EventHandler(this.DataGridViewSeniorPlayers_SelectionChanged);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(876, 386);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
-            this.Controls.Add(this.AdvGridViewSeniorPlayers);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.ToolStrpMain);
             this.Controls.Add(this.MnuStrpMain);
             this.Icon = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Icon;
@@ -176,12 +241,18 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.MnuStrpMain.ResumeLayout(false);
             this.MnuStrpMain.PerformLayout();
             this.ToolStrpMain.ResumeLayout(false);
             this.ToolStrpMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AdvGridViewSeniorPlayers)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSeniorPlayers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +270,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem ToolStrpMenuItemUser;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private Controls.DoubleBufferedDataGridView AdvGridViewSeniorPlayers;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private Controls.DoubleBufferedDataGridView DataGridViewSeniorPlayers;
     }
 }

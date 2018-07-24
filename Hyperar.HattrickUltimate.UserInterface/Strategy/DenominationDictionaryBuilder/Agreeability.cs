@@ -4,7 +4,7 @@
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 //-----------------------------------------------------------------------
-namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DenominationDictionaryBuilderStrategy
+namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DenominationDictionaryBuilder
 {
     using System.Collections.Generic;
     using Interface;
@@ -28,7 +28,7 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DenominationDictionary
 
             for (int i = 0; i < values.Length; i++)
             {
-                denominations.Add(i, values[i]);
+                denominations.Add((byte)i, values[i]);
             }
 
             return denominations;

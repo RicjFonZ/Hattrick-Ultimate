@@ -1,53 +1,30 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="DenominatedValue.cs" company="Hyperar">
+// <copyright file="Text.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 //-----------------------------------------------------------------------
-namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuilderStrategy
+namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuilder
 {
     using System.Windows.Forms;
     using BusinessObjects.App;
-    using Controls;
     using Interface;
 
     /// <summary>
-    /// DenominatedValue implementation.
+    /// DataGridViewTextBoxColumn implementation.
     /// </summary>
-    public class DenominatedValue : IDataGridViewColumnBuilderStrategy
+    public class Text : IDataGridViewColumnBuilderStrategy
     {
-        #region Private Fields
-
-        /// <summary>
-        /// DenominationDictionaryBuilderFactory factory.
-        /// </summary>
-        private IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory;
-
-        #endregion Private Fields
-
-        #region Public Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DenominatedValue" /> class.
-        /// </summary>
-        /// <param name="denominationDictionaryBuilderFactory">DenominationDictionaryBuilderFactory factory.</param>
-        public DenominatedValue(IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory)
-        {
-            this.denominationDictionaryBuilderFactory = denominationDictionaryBuilderFactory;
-        }
-
-        #endregion Public Constructors
-
         #region Public Methods
 
         /// <summary>
-        /// Builds a DataGridViewDenominatedValueColumn using the specified GridLayoutColumn as a templates.
+        /// Builds a DataGridViewTextBoxColumn using the specified GridLayoutColumn as a templates.
         /// </summary>
         /// <param name="gridLayoutColumn">Grid Layout Column to use as a template.</param>
         /// <returns>DataGridViewColumn generated with the specified template.</returns>
         public DataGridViewColumn Build(GridLayoutColumn gridLayoutColumn)
         {
-            var newColumn = new DataGridViewDenominatedValueColumn();
+            var newColumn = new DataGridViewTextBoxColumn();
 
             newColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             newColumn.DataPropertyName = gridLayoutColumn.GridColumn.ValuePropertyName;
@@ -63,9 +40,6 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuil
             newColumn.Resizable = DataGridViewTriState.True;
             newColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             newColumn.Width = gridLayoutColumn.Width;
-            newColumn.ValueDenominationDictionary = this.denominationDictionaryBuilderFactory.GetFor(gridLayoutColumn.GridColumn.ValueDenominationType)
-                                                                                             .BuildDictionary();
-            newColumn.DisplayMode = ValueDisplayMode.DenominationAndValue;
 
             return newColumn;
         }

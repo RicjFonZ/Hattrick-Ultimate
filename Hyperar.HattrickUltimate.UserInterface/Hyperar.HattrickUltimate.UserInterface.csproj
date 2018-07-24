@@ -131,14 +131,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\DenominatedValueWithChangeTracking.cs" />
-    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\ValueWithChangeTracking.cs" />
-    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\DenominatedValue.cs" />
-    <Compile Include="Strategy\DataGridViewColumnBuilderStrategy\Text.cs" />
-    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\Aggressiveness.cs" />
-    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\Honesty.cs" />
-    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\Agreeability.cs" />
-    <Compile Include="Strategy\DenominationDictionaryBuilderStrategy\PlayerSkill.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilder\DenominatedValueWithChangeTracking.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilder\Image.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilder\ValueWithChangeTracking.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilder\DenominatedValue.cs" />
+    <Compile Include="Strategy\DataGridViewColumnBuilder\Text.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilder\Aggressiveness.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilder\Honesty.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilder\Agreeability.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilder\PlayerSpecialty.cs" />
+    <Compile Include="Strategy\DenominationDictionaryBuilder\PlayerSkill.cs" />
     <EmbeddedResource Include="FormDataFolder.resx">
       <DependentUpon>FormDataFolder.cs</DependentUpon>
     </EmbeddedResource>
@@ -409,6 +411,12 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HomegrownBonus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transparent.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

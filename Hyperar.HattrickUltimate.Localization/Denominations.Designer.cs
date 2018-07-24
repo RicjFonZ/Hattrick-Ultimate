@@ -19,7 +19,7 @@ namespace Hyperar.HattrickUltimate.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Denominations {
@@ -93,6 +93,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string PlayerSkillLevel {
             get {
                 return ResourceManager.GetString("PlayerSkillLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ,Technical,Quick,Powerful,Unpredictable,Head specialist,Resilient,Support.
+        /// </summary>
+        public static string PlayerSpecialty {
+            get {
+                return ResourceManager.GetString("PlayerSpecialty", resourceCulture);
             }
         }
     }

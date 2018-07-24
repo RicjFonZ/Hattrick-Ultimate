@@ -22,6 +22,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         #region Private Fields
 
         /// <summary>
+        /// Zero digic char constant.
+        /// </summary>
+        private const char Zero = '0';
+
+        /// <summary>
+        /// Current culture number decimal separator.
+        /// </summary>
+        private readonly string decimalSeparator;
+
+        /// <summary>
         /// Database context.
         /// </summary>
         private IDatabaseContext context;
@@ -91,6 +101,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
             this.seniorPlayerSeasonGoalsRepository = seniorPlayerSeasonGoalsRepository;
             this.seniorPlayerSkillsRepository = seniorPlayerSkillsRepository;
             this.seniorTeamRepository = seniorTeamRepository;
+            this.decimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
         }
 
         #endregion Public Constructors
@@ -156,103 +167,59 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 
             if (seniorPlayer == null)
             {
-                seniorPlayer = new SeniorPlayer
-                {
-                    Age = decimal.Parse(
-                                      player.Age +
-                                      CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator +
-                                      player.AgeDays),
-                    Aggressiveness = player.Aggressiveness,
-                    Agreeability = player.Agreeability,
-                    BookingStatus = player.Cards,
-                    CareerGoals = player.CareerGoals,
-                    CareerHattricks = player.CareerHattricks,
-                    Category = player.PlayerCategoryId.HasValue && player.PlayerCategoryId.Value != 0
-                             ? player.PlayerCategoryId
-                             : null,
-                    CountryId = this.countryRepository.GetByHattrickId(player.CountryId).Id,
-                    FirstName = player.FirstName,
-                    HasHomegrownBonus = player.MotherClubBonus,
-                    HattrickId = player.PlayerId,
-                    Honesty = player.Honesty,
-                    InjuryStatus = player.InjuryLevel > -1
-                                 ? (byte?)player.InjuryLevel
-                                 : null,
-                    IsOnTransferMarket = player.TransferListed,
-                    LastName = player.LastName,
-                    Leadership = player.Leadership,
-                    MatchesOnJuniorNationalTeam = player.CapsU20,
-                    MatchesOnSeniorNationalTeam = player.Caps,
-                    NickName = string.IsNullOrWhiteSpace(player.NickName) ? null : player.NickName,
-                    PlaysOnNationalTeam = player.NationalTeamId > 0,
-                    SeniorTeamId = seniorTeamId,
-                    Specialty = player.Specialty,
-                    Statement = player.Statement,
-                    Wage = Convert.ToInt32(player.Salary)
-                };
+                seniorPlayer = new SeniorPlayer();
+            }
 
+            seniorPlayer.Age = decimal.Parse($"{player.Age}{this.decimalSeparator}{player.AgeDays.ToString().PadLeft(3, Zero)}");
+            seniorPlayer.Aggressiveness = player.Aggressiveness;
+            seniorPlayer.Agreeability = player.Agreeability;
+            seniorPlayer.BookingStatus = player.Cards;
+            seniorPlayer.CareerGoals = player.CareerGoals;
+            seniorPlayer.CareerHattricks = player.CareerHattricks;
+            seniorPlayer.Category = player.PlayerCategoryId.HasValue && player.PlayerCategoryId.Value != 0 ? player.PlayerCategoryId : null;
+            seniorPlayer.CountryId = this.countryRepository.GetByHattrickId(player.CountryId).Id;
+            seniorPlayer.FirstName = player.FirstName;
+            seniorPlayer.HasHomegrownBonus = player.MotherClubBonus;
+            seniorPlayer.HattrickId = player.PlayerId;
+            seniorPlayer.Honesty = player.Honesty;
+            seniorPlayer.InjuryStatus = player.InjuryLevel > -1 ? (byte?)player.InjuryLevel : null;
+            seniorPlayer.IsOnTransferMarket = player.TransferListed;
+            seniorPlayer.LastName = player.LastName;
+            seniorPlayer.Leadership = player.Leadership;
+            seniorPlayer.MatchesOnJuniorNationalTeam = player.CapsU20;
+            seniorPlayer.MatchesOnSeniorNationalTeam = player.Caps;
+            seniorPlayer.NickName = string.IsNullOrWhiteSpace(player.NickName) ? null : player.NickName;
+            seniorPlayer.PlaysOnNationalTeam = player.NationalTeamId > 0;
+            seniorPlayer.SeniorTeamId = seniorTeamId;
+            seniorPlayer.ShirtNumber = player.PlayerNumber == 100 ? (byte?)null : player.PlayerNumber;
+            seniorPlayer.Specialty = player.Specialty;
+            seniorPlayer.Statement = player.Statement;
+            seniorPlayer.Wage = Convert.ToInt32(player.Salary);
+
+            if (seniorPlayer.Id == 0)
+            {
                 this.seniorPlayerRepository.Insert(seniorPlayer);
-
-                var seasonGoals = new SeniorPlayerSeasonGoals
-                {
-                    CupGoals = player.CupGoals,
-                    FriendlyGoals = player.FriendliesGoals,
-                    Season = Convert.ToByte(this.seasonNumber),
-                    SeniorPlayerId = seniorPlayer.Id,
-                    SeriesGoals = player.LeagueGoals
-                };
-
-                this.seniorPlayerSeasonGoalsRepository.Insert(seasonGoals);
             }
             else
             {
-                seniorPlayer.Age = decimal.Parse(
-                                               player.Age +
-                                               CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator +
-                                               player.AgeDays);
-                seniorPlayer.BookingStatus = player.Cards;
-                seniorPlayer.CareerGoals = player.CareerGoals;
-                seniorPlayer.CareerHattricks = player.CareerHattricks;
-                seniorPlayer.Category = player.PlayerCategoryId.HasValue && player.PlayerCategoryId.Value != 0
-                                      ? player.PlayerCategoryId
-                                      : null;
-                seniorPlayer.FirstName = player.FirstName;
-                seniorPlayer.HasHomegrownBonus = player.MotherClubBonus;
-                seniorPlayer.InjuryStatus = player.InjuryLevel > -1
-                                          ? (byte?)player.InjuryLevel
-                                          : null;
-                seniorPlayer.IsOnTransferMarket = player.TransferListed;
-                seniorPlayer.LastName = player.LastName;
-                seniorPlayer.MatchesOnJuniorNationalTeam = player.CapsU20;
-                seniorPlayer.MatchesOnSeniorNationalTeam = player.Caps;
-                seniorPlayer.NickName = string.IsNullOrWhiteSpace(player.NickName) ? null : player.NickName;
-                seniorPlayer.PlaysOnNationalTeam = player.NationalTeamId > 0;
-                seniorPlayer.Statement = player.Statement;
-                seniorPlayer.Wage = Convert.ToInt32(player.Salary);
-
                 this.seniorPlayerRepository.Update(seniorPlayer);
             }
 
-            this.context.Save();
-
-            if (player.DefenderSkill.HasValue)
-            {
-                this.ProcessSkills(
-                         player.PlayerForm,
-                         player.StaminaSkill,
-                         player.Experience,
-                         player.Loyalty,
-                         player.KeeperSkill.Value,
-                         player.DefenderSkill.Value,
-                         player.PlaymakerSkill.Value,
-                         player.WingerSkill.Value,
-                         player.PassingSkill.Value,
-                         player.ScorerSkill.Value,
-                         player.SetPiecesSkill.Value,
-                         Convert.ToInt32(player.TSI),
-                         seniorPlayer.Id,
-                         processingDate);
-            }
+            this.ProcessSkills(
+                     player.PlayerForm,
+                     player.StaminaSkill,
+                     player.Experience,
+                     player.Loyalty,
+                     player.KeeperSkill.Value,
+                     player.DefenderSkill.Value,
+                     player.PlaymakerSkill.Value,
+                     player.WingerSkill.Value,
+                     player.PassingSkill.Value,
+                     player.ScorerSkill.Value,
+                     player.SetPiecesSkill.Value,
+                     Convert.ToInt32(player.TSI),
+                     seniorPlayer.Id,
+                     processingDate);
 
             this.ProcessSeasonGoals(
                      player.LeagueGoals,
@@ -260,6 +227,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                      player.FriendliesGoals,
                      Convert.ToByte(seniorPlayer.Country.League.CurrentSeason),
                      seniorPlayer.Id);
+
+            this.context.Save();
         }
 
         /// <summary>

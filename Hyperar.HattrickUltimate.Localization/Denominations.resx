@@ -129,4 +129,7 @@
   <data name="PlayerSkillLevel" xml:space="preserve">
     <value>non-existent,disastrous,wretched,poor,weak,inadequate,passable,solid,excellent,formidable,outstanding,brilliant,magnificent,world class,supernatural,titanic,extra-terrestrial,mythical,magical,utopian,divine</value>
   </data>
+  <data name="PlayerSpecialty" xml:space="preserve">
+    <value>,Technical,Quick,Powerful,Unpredictable,Head specialist,Resilient,Support</value>
+  </data>
 </root>

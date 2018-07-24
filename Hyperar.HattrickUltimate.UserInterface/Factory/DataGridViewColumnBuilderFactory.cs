@@ -10,7 +10,7 @@ namespace Hyperar.HattrickUltimate.UserInterface.Factory
     using System.Collections.Generic;
     using BusinessObjects.App.Enums;
     using Interface;
-    using Strategy.DataGridViewColumnBuilderStrategy;
+    using Strategy.DataGridViewColumnBuilder;
 
     /// <summary>
     /// Data Grid Column Builder Factory implementation.
@@ -53,6 +53,10 @@ namespace Hyperar.HattrickUltimate.UserInterface.Factory
                 {
                     case GridColumnType.Text:
                         this.strategyDictionary.Add(GridColumnType.Text, new Text());
+                        break;
+
+                    case GridColumnType.Image:
+                        this.strategyDictionary.Add(GridColumnType.Image, new Image());
                         break;
 
                     case GridColumnType.DenominatedValue:

@@ -391,6 +391,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HomegrownBonus {
+            get {
+                object obj = ResourceManager.GetObject("HomegrownBonus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Icon {
@@ -626,6 +636,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         internal static System.Drawing.Bitmap Token_96px {
             get {
                 object obj = ResourceManager.GetObject("Token_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Transparent {
+            get {
+                object obj = ResourceManager.GetObject("Transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -47,6 +47,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnOrder(2)
                 .HasColumnType(ColumnType.Boolean)
                 .IsRequired();
+
+            this.Property(p => p.IsSelected)
+                .HasColumnName(ColumnName.IsSelected)
+                .HasColumnOrder(3)
+                .HasColumnType(ColumnType.Boolean)
+                .IsRequired();
         }
 
         /// <summary>

@@ -340,6 +340,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shirt Number.
+        /// </summary>
+        public static string ColumnSeniorPlayerShirtNumber_HeaderText {
+            get {
+                return ResourceManager.GetString("ColumnSeniorPlayerShirtNumber_HeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specialty.
         /// </summary>
         public static string ColumnSeniorPlayerSpecialty_HeaderText {

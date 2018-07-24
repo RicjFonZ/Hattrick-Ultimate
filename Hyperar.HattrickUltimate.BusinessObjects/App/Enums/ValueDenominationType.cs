@@ -34,6 +34,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App.Enums
         /// <summary>
         /// Player Skill value denomination.
         /// </summary>
-        PlayerSkill = 4
+        PlayerSkill = 4,
+
+        /// <summary>
+        /// Player Specialty value denomination.
+        /// </summary>
+        PlayerSpecialty = 5
     }
 }

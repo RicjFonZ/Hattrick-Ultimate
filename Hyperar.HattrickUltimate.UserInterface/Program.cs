@@ -157,15 +157,17 @@ namespace Hyperar.HattrickUltimate.UserInterface
             ApplicationObjects.Container.Register<Interface.IDataGridViewColumnBuilderFactory, Factory.DataGridViewColumnBuilderFactory>(Lifestyle.Transient);
             ApplicationObjects.Container.Register<Interface.IDenominationDictionaryBuilderFactory, Factory.DenominationDictionaryFactory>(Lifestyle.Transient);
 
-            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.DenominatedValue>(Lifestyle.Transient);
-            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.DenominatedValueWithChangeTracking>(Lifestyle.Transient);
-            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.Text>(Lifestyle.Transient);
-            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilderStrategy.ValueWithChangeTracking>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilder.DenominatedValue>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilder.DenominatedValueWithChangeTracking>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilder.Image>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilder.Text>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilder.ValueWithChangeTracking>(Lifestyle.Transient);
 
-            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.Aggressiveness>(Lifestyle.Transient);
-            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.Agreeability>(Lifestyle.Transient);
-            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.Honesty>(Lifestyle.Transient);
-            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilderStrategy.PlayerSkill>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.Aggressiveness>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.Agreeability>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.Honesty>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.PlayerSkill>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.PlayerSpecialty>(Lifestyle.Transient);
         }
 
         #endregion Private Methods

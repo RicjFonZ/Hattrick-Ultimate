@@ -10,7 +10,7 @@ namespace Hyperar.HattrickUltimate.UserInterface.Factory
     using System.Collections.Generic;
     using BusinessObjects.App.Enums;
     using Interface;
-    using Strategy.DenominationDictionaryBuilderStrategy;
+    using Strategy.DenominationDictionaryBuilder;
 
     /// <summary>
     /// Denominated Value Dictionary Builder Factory implementation.
@@ -65,6 +65,10 @@ namespace Hyperar.HattrickUltimate.UserInterface.Factory
 
                     case ValueDenominationType.PlayerSkill:
                         this.strategyDictionary.Add(denominationType, new PlayerSkill());
+                        break;
+
+                    case ValueDenominationType.PlayerSpecialty:
+                        this.strategyDictionary.Add(denominationType, new PlayerSpecialty());
                         break;
 
                     default:

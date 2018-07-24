@@ -23,12 +23,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the Aggressiveness.
         /// </summary>
-        public int Aggressiveness { get; set; }
+        public byte Aggressiveness { get; set; }
 
         /// <summary>
         /// Gets or sets the Agreeability.
         /// </summary>
-        public int Agreeability { get; set; }
+        public byte Agreeability { get; set; }
 
         /// <summary>
         /// Gets or sets the Booking Status.
@@ -131,7 +131,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// <summary>
         /// Gets or sets the Honesty.
         /// </summary>
-        public int Honesty { get; set; }
+        public byte Honesty { get; set; }
 
         /// <summary>
         /// Gets or sets the Injury Status.
@@ -239,9 +239,14 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public int? SetPiecesDelta { get; set; }
 
         /// <summary>
+        /// Gets or sets the Shirt Number.
+        /// </summary>
+        public byte? ShirtNumber { get; set; }
+
+        /// <summary>
         /// Gets or sets the Specialty.
         /// </summary>
-        public int Specialty { get; set; }
+        public byte Specialty { get; set; }
 
         /// <summary>
         /// Gets or sets the Stamina.

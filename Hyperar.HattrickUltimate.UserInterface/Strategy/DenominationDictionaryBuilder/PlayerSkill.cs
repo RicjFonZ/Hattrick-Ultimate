@@ -1,18 +1,18 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Aggressiveness.cs" company="Hyperar">
+// <copyright file="PlayerSkill.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 //-----------------------------------------------------------------------
-namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DenominationDictionaryBuilderStrategy
+namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DenominationDictionaryBuilder
 {
     using System.Collections.Generic;
     using Interface;
 
     /// <summary>
-    /// Aggressiveness Denomination Dictionary Builder Strategy contract.
+    /// Player Skill Denomination Dictionary Builder Strategy contract.
     /// </summary>
-    public class Aggressiveness : IDenominationDictionaryBuilderStrategy
+    public class PlayerSkill : IDenominationDictionaryBuilderStrategy
     {
         #region Public Methods
 
@@ -22,7 +22,7 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DenominationDictionary
         /// <returns>Dictionary with the denomination values.</returns>
         public Dictionary<object, string> BuildDictionary()
         {
-            var values = Localization.Denominations.AggressivenessLevel.Split(',');
+            var values = Localization.Denominations.PlayerSkillLevel.Split(',');
 
             Dictionary<object, string> denominations = new Dictionary<object, string>();
 

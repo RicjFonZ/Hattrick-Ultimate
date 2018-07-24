@@ -274,6 +274,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string IsPrimary = "IsPrimary";
 
         /// <summary>
+        /// IsSelected database table column name.
+        /// </summary>
+        internal const string IsSelected = "IsSelected";
+
+        /// <summary>
         /// IsVisible database table column name.
         /// </summary>
         internal const string IsVisible = "IsVisible";
@@ -452,6 +457,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// SetPiecesDelta database table column name.
         /// </summary>
         internal const string SetPiecesDelta = "SetPiecesDelta";
+
+        /// <summary>
+        /// ShirtNumber database table column name.
+        /// </summary>
+        internal const string ShirtNumber = "ShirtNumber";
 
         /// <summary>
         /// ShortName database table column name.
