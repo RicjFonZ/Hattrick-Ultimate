@@ -140,7 +140,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                                      }));
 
             downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.Players));
-            downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.Avatars));
+
+            //// Temporary disabled until the implementation of IFileProcessStrategy for the Avatars file.
+            //// downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.Avatars));
+
             downloadFileList.Add(new DownloadFile(BusinessObjects.Hattrick.Enums.XmlFile.YouthTeamDetails));
 
             return downloadFileList;

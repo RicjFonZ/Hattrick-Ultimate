@@ -70,6 +70,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         public static void RegisterContainer()
         {
             RegisterDatabaseContexts();
+            RegisterQueryStrategies();
             RegisterRepositories();
             RegisterBusinessObjectsManagers();
         }
@@ -122,6 +123,42 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         private static void RegisterDatabaseContexts()
         {
             Container.Register<IDatabaseContext, DatabaseContext>(Lifestyle.Scoped);
+        }
+
+        /// <summary>
+        /// Registers entity query strategies.
+        /// </summary>
+        private static void RegisterQueryStrategies()
+        {
+            container.Register<IQueryStrategy<BusinessObjects.App.Continent>, DataAccess.Database.Strategy.QueryStrategy.Continent>();
+            container.Register<IQueryStrategy<BusinessObjects.App.Country>, DataAccess.Database.Strategy.QueryStrategy.Country>();
+            container.Register<IQueryStrategy<BusinessObjects.App.Currency>, DataAccess.Database.Strategy.QueryStrategy.Currency>();
+            container.Register<IQueryStrategy<BusinessObjects.App.DateFormat>, DataAccess.Database.Strategy.QueryStrategy.DateFormat>();
+            container.Register<IQueryStrategy<BusinessObjects.App.Grid>, DataAccess.Database.Strategy.QueryStrategy.Grid>();
+            container.Register<IQueryStrategy<BusinessObjects.App.GridColumn>, DataAccess.Database.Strategy.QueryStrategy.GridColumn>();
+            container.Register<IQueryStrategy<BusinessObjects.App.GridLayout>, DataAccess.Database.Strategy.QueryStrategy.GridLayout>();
+            container.Register<IQueryStrategy<BusinessObjects.App.GridLayoutColumn>, DataAccess.Database.Strategy.QueryStrategy.GridLayoutColumn>();
+            container.Register<IQueryStrategy<BusinessObjects.App.JuniorSeries>, DataAccess.Database.Strategy.QueryStrategy.JuniorSeries>();
+            container.Register<IQueryStrategy<BusinessObjects.App.JuniorTeam>, DataAccess.Database.Strategy.QueryStrategy.JuniorTeam>();
+            container.Register<IQueryStrategy<BusinessObjects.App.League>, DataAccess.Database.Strategy.QueryStrategy.League>();
+            container.Register<IQueryStrategy<BusinessObjects.App.LeagueCup>, DataAccess.Database.Strategy.QueryStrategy.LeagueCup>();
+            container.Register<IQueryStrategy<BusinessObjects.App.LeagueNationalTeam>, DataAccess.Database.Strategy.QueryStrategy.LeagueNationalTeam>();
+            container.Register<IQueryStrategy<BusinessObjects.App.LeagueSchedule>, DataAccess.Database.Strategy.QueryStrategy.LeagueSchedule>();
+            container.Register<IQueryStrategy<BusinessObjects.App.Manager>, DataAccess.Database.Strategy.QueryStrategy.Manager>();
+            container.Register<IQueryStrategy<BusinessObjects.App.Region>, DataAccess.Database.Strategy.QueryStrategy.Region>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorArena>, DataAccess.Database.Strategy.QueryStrategy.SeniorArena>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayer>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayer>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerSeasonGoals>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerSeasonGoals>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerSkills>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerSkills>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorSeries>, DataAccess.Database.Strategy.QueryStrategy.SeniorSeries>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorTeam>, DataAccess.Database.Strategy.QueryStrategy.SeniorTeam>();
+            container.Register<IQueryStrategy<BusinessObjects.App.TimeFormat>, DataAccess.Database.Strategy.QueryStrategy.TimeFormat>();
+            container.Register<IQueryStrategy<BusinessObjects.App.Token>, DataAccess.Database.Strategy.QueryStrategy.Token>();
+            container.Register<IQueryStrategy<BusinessObjects.App.User>, DataAccess.Database.Strategy.QueryStrategy.User>();
+            container.Register<IQueryStrategy<BusinessObjects.App.Zone>, DataAccess.Database.Strategy.QueryStrategy.Zone>();
+
+            // Fallback Query Strategy.
+            container.RegisterConditional(typeof(IQueryStrategy<>), typeof(DataAccess.Database.Strategy.QueryStrategy.Default<>), c => !c.Handled);
         }
 
         /// <summary>

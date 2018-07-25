@@ -26,6 +26,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// </summary>
         private IDatabaseContext context;
 
+        /// <summary>
+        /// Query strategy.
+        /// </summary>
+        private IQueryStrategy<TEntity> queryStrategy;
+
         #endregion Private Fields
 
         #region Public Constructors
@@ -34,10 +39,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class.
         /// </summary>
         /// <param name="context">App Database Context.</param>
-        public Repository(IDatabaseContext context)
+        /// <param name="queryStrategy">Query strategy.</param>
+        public Repository(IDatabaseContext context, IQueryStrategy<TEntity> queryStrategy)
         {
             this.context = context;
             this.EntityCollection = this.context.CreateSet<TEntity>();
+            this.queryStrategy = queryStrategy;
         }
 
         #endregion Public Constructors
@@ -103,11 +110,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <returns>IQueryable object with the entities that satisfy the specified predicate.</returns>
         public IQueryable<TEntity> Query(Func<TEntity, bool> predicate = null)
         {
-            IQueryable<TEntity> query = this.EntityCollection.AsQueryable();
+            IQueryable<TEntity> query = this.queryStrategy.ApplyIncludes(
+                                                               this.EntityCollection.AsQueryable());
 
             if (predicate != null)
             {
-                query = query.Where(predicate).AsQueryable();
+                query = query.Where(predicate)
+                             .AsQueryable();
             }
 
             return query;
