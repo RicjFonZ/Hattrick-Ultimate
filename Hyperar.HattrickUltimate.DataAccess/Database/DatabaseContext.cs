@@ -36,7 +36,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             : base($"Data Source=(localdb)\\{AppDomain.CurrentDomain.GetData("LocalDbInstance")};AttachDbFilename={AppDomain.CurrentDomain.GetData("DataDirectory")}\\HattrickUltimateDB.mdf;Initial Catalog=HattrickUltimateDB;Integrated Security=True;")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, Migrations.Configuration>());
-            
+
             this.cancelled = false;
         }
 

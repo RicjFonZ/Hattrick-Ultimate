@@ -6,8 +6,6 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.DataAccess.Database.Interface
 {
-    using System;
-    using System.Linq;
     using BusinessObjects.App.Interface;
 
     /// <summary>

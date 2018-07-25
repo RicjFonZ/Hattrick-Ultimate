@@ -16,6 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     public class GridManager
     {
         #region Private Fields
+
         /// <summary>
         /// Database context.
         /// </summary>
