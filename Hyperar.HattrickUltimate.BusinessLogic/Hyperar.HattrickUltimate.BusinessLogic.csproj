@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,6 +68,7 @@
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Chpp\Interface\IFileProcessStrategy.cs" />
+    <Compile Include="Chpp\Strategy\FileProcess\Avatars.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\Players.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\YouthTeamDetails.cs" />

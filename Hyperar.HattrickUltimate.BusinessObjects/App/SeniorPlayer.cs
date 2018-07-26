@@ -32,6 +32,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public byte Agreeability { get; set; }
 
         /// <summary>
+        /// Gets or sets the Senior Player.
+        /// </summary>
+        public virtual SeniorPlayerAvatar Avatar { get; set; }
+
+        /// <summary>
         /// Gets or sets the Booking Status.
         /// </summary>
         public byte BookingStatus { get; set; }
@@ -40,11 +45,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Career Goals.
         /// </summary>
         public short CareerGoals { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Shirt Number.
-        /// </summary>
-        public byte? ShirtNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the Career Hattricks.
@@ -135,6 +135,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Senior Team Id.
         /// </summary>
         public int SeniorTeamId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Shirt Number.
+        /// </summary>
+        public byte? ShirtNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the Senior Player Skills.

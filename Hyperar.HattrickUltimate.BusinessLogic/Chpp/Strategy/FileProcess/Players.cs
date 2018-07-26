@@ -52,6 +52,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         private short seasonNumber;
 
         /// <summary>
+        /// SeniorPlayerAvatar repository.
+        /// </summary>
+        private IRepository<SeniorPlayerAvatar> seniorPlayerAvatarRepository;
+
+        /// <summary>
         /// Senior Player repository.
         /// </summary>
         private IHattrickRepository<SeniorPlayer> seniorPlayerRepository;
@@ -81,6 +86,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="context">Database context.</param>
         /// <param name="countryRepository">Country repository.</param>
         /// <param name="leagueRepository">League repository.</param>
+        /// <param name="seniorPlayerAvatarRepository">Senior Player Avatar repository.</param>
         /// <param name="seniorPlayerRepository">Senior Player repository.</param>
         /// <param name="seniorPlayerSeasonGoalsRepository">Senior Player Season Goals repository.</param>
         /// <param name="seniorPlayerSkillsRepository">Senior Player Skills repository.</param>
@@ -89,6 +95,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                    IDatabaseContext context,
                    IHattrickRepository<Country> countryRepository,
                    IHattrickRepository<League> leagueRepository,
+                   IRepository<SeniorPlayerAvatar> seniorPlayerAvatarRepository,
                    IHattrickRepository<SeniorPlayer> seniorPlayerRepository,
                    IRepository<SeniorPlayerSeasonGoals> seniorPlayerSeasonGoalsRepository,
                    IRepository<SeniorPlayerSkills> seniorPlayerSkillsRepository,
@@ -97,6 +104,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
             this.context = context;
             this.countryRepository = countryRepository;
             this.leagueRepository = leagueRepository;
+            this.seniorPlayerAvatarRepository = seniorPlayerAvatarRepository;
             this.seniorPlayerRepository = seniorPlayerRepository;
             this.seniorPlayerSeasonGoalsRepository = seniorPlayerSeasonGoalsRepository;
             this.seniorPlayerSkillsRepository = seniorPlayerSkillsRepository;
@@ -134,7 +142,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                                      file.Team.TeamName));
             }
 
-            this.seasonNumber = this.leagueRepository.GetById(1).CurrentSeason;
+            this.seasonNumber = this.leagueRepository.Query()
+                                                     .First().CurrentSeason;
 
             var seniorTeam = this.seniorTeamRepository.GetByHattrickId(file.Team.TeamId);
 
@@ -143,6 +152,44 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
             foreach (var curPlayer in file.Team.PlayerList)
             {
                 this.ProcessPlayer(curPlayer, seniorTeam.Id, processingDate);
+            }
+
+            // Gets the current Team's Players Hattrick ID.
+            var fileSeniorPlayerIds = file.Team.PlayerList.Select(sp => sp.PlayerId);
+
+            // Gets the stored Team's Players ID.
+            var seniorPlayerIdsToDelete = this.seniorPlayerRepository.Query(sp => !fileSeniorPlayerIds.Contains(sp.HattrickId)
+                                                                             && sp.SeniorTeam.HattrickId == file.Team.TeamId)
+                                                                   .Select(sp => sp.Id);
+
+            // If there are players to delete.
+            if (seniorPlayerIdsToDelete.Any())
+            {
+                foreach (var curPlayerId in seniorPlayerIdsToDelete)
+                {
+                    var seniorPlayerToDelete = this.seniorPlayerRepository.GetById(curPlayerId);
+
+                    this.seniorPlayerAvatarRepository.Delete(seniorPlayerToDelete.Avatar.Id);
+
+                    var seasonGoalsIdsToDelete = seniorPlayerToDelete.SeasonGoals.Select(sg => sg.Id)
+                                                                                  .ToArray();
+                    var skillsIdsToDelete = seniorPlayerToDelete.Skills.Select(s => s.Id)
+                                                                       .ToArray();
+
+                    foreach (var curId in seasonGoalsIdsToDelete)
+                    {
+                        this.seniorPlayerSeasonGoalsRepository.Delete(curId);
+                    }
+
+                    foreach (var curId in skillsIdsToDelete)
+                    {
+                        this.seniorPlayerSkillsRepository.Delete(curId);
+                    }
+
+                    this.seniorPlayerRepository.Delete(curPlayerId);
+                }
+
+                this.context.Save();
             }
         }
 

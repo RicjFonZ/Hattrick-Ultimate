@@ -66,9 +66,26 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
             var session = this.CreateOAuthSession(accessToken);
 
             return this.chppXmlParser.Parse(
-                                       this.GetResponseContentForUrl(
-                                                Constants.Url.CheckToken,
-                                                session));
+                                          this.GetResponseContentForUrl(
+                                                   Constants.Url.CheckToken,
+                                                   session));
+        }
+
+        /// <summary>
+        /// Downloads Resource file.
+        /// </summary>
+        /// <param name="url">Resource's URL.</param>
+        /// <returns>File content bytes.</returns>
+        public byte[] DownloadResourceFile(string url)
+        {
+            byte[] result = null;
+
+            using (WebClient webClient = new WebClient())
+            {
+                result = webClient.DownloadData(url);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -183,17 +200,17 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         private OAuthSession CreateOAuthSession()
         {
             return new OAuthSession(
-                        new OAuthConsumerContext
-                        {
-                            ConsumerKey = Constants.OAuth.Key,
-                            ConsumerSecret = Constants.OAuth.Secret,
-                            SignatureMethod = SignatureMethod.HmacSha1,
-                            UserAgent = AppDomain.CurrentDomain.GetData("AppName").ToString()
-                        },
-                        Constants.Url.RequestToken,
-                        Constants.Url.Authorize,
-                        Constants.Url.AccessToken,
-                        Constants.Url.Callback);
+                       new OAuthConsumerContext
+                       {
+                           ConsumerKey = Constants.OAuth.Key,
+                           ConsumerSecret = Constants.OAuth.Secret,
+                           SignatureMethod = SignatureMethod.HmacSha1,
+                           UserAgent = AppDomain.CurrentDomain.GetData("AppName").ToString()
+                       },
+                       Constants.Url.RequestToken,
+                       Constants.Url.Authorize,
+                       Constants.Url.AccessToken,
+                       Constants.Url.Callback);
         }
 
         /// <summary>

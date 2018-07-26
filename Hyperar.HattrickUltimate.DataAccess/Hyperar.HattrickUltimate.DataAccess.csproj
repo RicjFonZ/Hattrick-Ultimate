@@ -113,6 +113,7 @@
     <Compile Include="Database\Mapping\Grid.cs" />
     <Compile Include="Database\Mapping\GridLayoutColumn.cs" />
     <Compile Include="Database\Mapping\GridColumn.cs" />
+    <Compile Include="Database\Mapping\SeniorPlayerAvatar.cs" />
     <Compile Include="Database\Mapping\SeniorPlayerSeasonGoals.cs" />
     <Compile Include="Database\Mapping\SeniorPlayerSkills.cs" />
     <Compile Include="Database\Mapping\SeniorPlayer.cs" />

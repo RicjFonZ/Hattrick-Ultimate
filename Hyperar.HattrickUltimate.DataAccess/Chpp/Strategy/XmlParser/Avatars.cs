@@ -95,14 +95,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             List<KeyValuePair<string, int>> positionAttributes = new List<KeyValuePair<string, int>>();
 
-            if (!string.IsNullOrWhiteSpace(reader.GetAttribute(XmlTag.X)))
+            if (!string.IsNullOrWhiteSpace(reader.GetAttribute(XmlTag.X.ToLower())))
             {
-                newLayer.X = int.Parse(reader.GetAttribute(XmlTag.X));
+                newLayer.X = int.Parse(reader.GetAttribute(XmlTag.X.ToLower()));
             }
 
-            if (!string.IsNullOrWhiteSpace(reader.GetAttribute(XmlTag.Y)))
+            if (!string.IsNullOrWhiteSpace(reader.GetAttribute(XmlTag.Y.ToLower())))
             {
-                newLayer.X = int.Parse(reader.GetAttribute(XmlTag.Y));
+                newLayer.Y = int.Parse(reader.GetAttribute(XmlTag.Y.ToLower()));
             }
 
             // Skips Layer opening tag.

@@ -41,19 +41,35 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ToolStrpMain = new System.Windows.Forms.ToolStrip();
             this.ToolStrpBtnDownload = new System.Windows.Forms.ToolStripButton();
             this.ToolStrpBtnUser = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.TabCtrlTeam = new System.Windows.Forms.TabControl();
+            this.TabPageSeniorTeam = new System.Windows.Forms.TabPage();
+            this.SpltContSeniorTeam = new System.Windows.Forms.SplitContainer();
             this.DataGridViewSeniorPlayers = new Hyperar.HattrickUltimate.Controls.DoubleBufferedDataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TabLayPanSeniorPlayerPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.PicBoxSeniorPlayerAvatar = new System.Windows.Forms.PictureBox();
+            this.lblSeniorPlayerForm = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerStamina = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerKeeper = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerDefending = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerPlaymaking = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerWinger = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerPassing = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerScoring = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerSetPieces = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerLoyalty = new System.Windows.Forms.Label();
+            this.lblSeniorPlayerExperience = new System.Windows.Forms.Label();
+            this.TabPageJuniorTeam = new System.Windows.Forms.TabPage();
             this.MnuStrpMain.SuspendLayout();
             this.ToolStrpMain.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.TabCtrlTeam.SuspendLayout();
+            this.TabPageSeniorTeam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpltContSeniorTeam)).BeginInit();
+            this.SpltContSeniorTeam.Panel1.SuspendLayout();
+            this.SpltContSeniorTeam.Panel2.SuspendLayout();
+            this.SpltContSeniorTeam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSeniorPlayers)).BeginInit();
+            this.TabLayPanSeniorPlayerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxSeniorPlayerAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // MnuStrpMain
@@ -145,42 +161,46 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ToolStrpBtnUser.Text = "ToolStrpBtnUser";
             this.ToolStrpBtnUser.Click += new System.EventHandler(this.ToolStrpBtnUser_Click);
             // 
-            // tabControl1
+            // TabCtrlTeam
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 49);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(884, 412);
-            this.tabControl1.TabIndex = 2;
+            this.TabCtrlTeam.Controls.Add(this.TabPageSeniorTeam);
+            this.TabCtrlTeam.Controls.Add(this.TabPageJuniorTeam);
+            this.TabCtrlTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabCtrlTeam.Location = new System.Drawing.Point(0, 49);
+            this.TabCtrlTeam.Margin = new System.Windows.Forms.Padding(0);
+            this.TabCtrlTeam.Name = "TabCtrlTeam";
+            this.TabCtrlTeam.SelectedIndex = 0;
+            this.TabCtrlTeam.Size = new System.Drawing.Size(884, 412);
+            this.TabCtrlTeam.TabIndex = 2;
             // 
-            // tabPage1
+            // TabPageSeniorTeam
             // 
-            this.tabPage1.Controls.Add(this.splitContainer1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(876, 386);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.TabPageSeniorTeam.Controls.Add(this.SpltContSeniorTeam);
+            this.TabPageSeniorTeam.Location = new System.Drawing.Point(4, 22);
+            this.TabPageSeniorTeam.Margin = new System.Windows.Forms.Padding(0);
+            this.TabPageSeniorTeam.Name = "TabPageSeniorTeam";
+            this.TabPageSeniorTeam.Size = new System.Drawing.Size(876, 386);
+            this.TabPageSeniorTeam.TabIndex = 0;
+            this.TabPageSeniorTeam.Text = "TabPageSeniorTeam";
+            this.TabPageSeniorTeam.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1
+            // SpltContSeniorTeam
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer1.Name = "splitContainer1";
+            this.SpltContSeniorTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SpltContSeniorTeam.Location = new System.Drawing.Point(0, 0);
+            this.SpltContSeniorTeam.Margin = new System.Windows.Forms.Padding(0);
+            this.SpltContSeniorTeam.Name = "SpltContSeniorTeam";
             // 
-            // splitContainer1.Panel1
+            // SpltContSeniorTeam.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.DataGridViewSeniorPlayers);
-            this.splitContainer1.Size = new System.Drawing.Size(876, 386);
-            this.splitContainer1.SplitterDistance = 676;
-            this.splitContainer1.TabIndex = 0;
+            this.SpltContSeniorTeam.Panel1.Controls.Add(this.DataGridViewSeniorPlayers);
+            // 
+            // SpltContSeniorTeam.Panel2
+            // 
+            this.SpltContSeniorTeam.Panel2.Controls.Add(this.TabLayPanSeniorPlayerPanel);
+            this.SpltContSeniorTeam.Size = new System.Drawing.Size(876, 386);
+            this.SpltContSeniorTeam.SplitterDistance = 676;
+            this.SpltContSeniorTeam.TabIndex = 0;
             // 
             // DataGridViewSeniorPlayers
             // 
@@ -190,6 +210,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.DataGridViewSeniorPlayers.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.DataGridViewSeniorPlayers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridViewSeniorPlayers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.DataGridViewSeniorPlayers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DataGridViewSeniorPlayers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.DataGridViewSeniorPlayers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -218,22 +239,193 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.DataGridViewSeniorPlayers.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DataGridViewSeniorPlayers_ColumnWidthChanged);
             this.DataGridViewSeniorPlayers.SelectionChanged += new System.EventHandler(this.DataGridViewSeniorPlayers_SelectionChanged);
             // 
-            // tabPage2
+            // TabLayPanSeniorPlayerPanel
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(876, 386);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.TabLayPanSeniorPlayerPanel.ColumnCount = 3;
+            this.TabLayPanSeniorPlayerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.TabLayPanSeniorPlayerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.TabLayPanSeniorPlayerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.PicBoxSeniorPlayerAvatar, 0, 0);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerForm, 0, 1);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerStamina, 0, 2);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerKeeper, 0, 3);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerDefending, 0, 4);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerPlaymaking, 0, 5);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerWinger, 0, 6);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerPassing, 0, 7);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerScoring, 0, 8);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerSetPieces, 0, 9);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerLoyalty, 0, 10);
+            this.TabLayPanSeniorPlayerPanel.Controls.Add(this.lblSeniorPlayerExperience, 0, 11);
+            this.TabLayPanSeniorPlayerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabLayPanSeniorPlayerPanel.Location = new System.Drawing.Point(0, 0);
+            this.TabLayPanSeniorPlayerPanel.Name = "TabLayPanSeniorPlayerPanel";
+            this.TabLayPanSeniorPlayerPanel.RowCount = 13;
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanSeniorPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TabLayPanSeniorPlayerPanel.Size = new System.Drawing.Size(196, 386);
+            this.TabLayPanSeniorPlayerPanel.TabIndex = 0;
+            // 
+            // PicBoxSeniorPlayerAvatar
+            // 
+            this.TabLayPanSeniorPlayerPanel.SetColumnSpan(this.PicBoxSeniorPlayerAvatar, 3);
+            this.PicBoxSeniorPlayerAvatar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicBoxSeniorPlayerAvatar.Location = new System.Drawing.Point(0, 0);
+            this.PicBoxSeniorPlayerAvatar.Margin = new System.Windows.Forms.Padding(0);
+            this.PicBoxSeniorPlayerAvatar.Name = "PicBoxSeniorPlayerAvatar";
+            this.PicBoxSeniorPlayerAvatar.Size = new System.Drawing.Size(196, 155);
+            this.PicBoxSeniorPlayerAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PicBoxSeniorPlayerAvatar.TabIndex = 0;
+            this.PicBoxSeniorPlayerAvatar.TabStop = false;
+            // 
+            // lblSeniorPlayerForm
+            // 
+            this.lblSeniorPlayerForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerForm.Location = new System.Drawing.Point(0, 155);
+            this.lblSeniorPlayerForm.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerForm.Name = "lblSeniorPlayerForm";
+            this.lblSeniorPlayerForm.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerForm.TabIndex = 1;
+            this.lblSeniorPlayerForm.Text = "lblSeniorPlayerForm";
+            this.lblSeniorPlayerForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerStamina
+            // 
+            this.lblSeniorPlayerStamina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerStamina.Location = new System.Drawing.Point(0, 175);
+            this.lblSeniorPlayerStamina.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerStamina.Name = "lblSeniorPlayerStamina";
+            this.lblSeniorPlayerStamina.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerStamina.TabIndex = 2;
+            this.lblSeniorPlayerStamina.Text = "lblSeniorPlayerStamina";
+            this.lblSeniorPlayerStamina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerKeeper
+            // 
+            this.lblSeniorPlayerKeeper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerKeeper.Location = new System.Drawing.Point(0, 195);
+            this.lblSeniorPlayerKeeper.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerKeeper.Name = "lblSeniorPlayerKeeper";
+            this.lblSeniorPlayerKeeper.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerKeeper.TabIndex = 3;
+            this.lblSeniorPlayerKeeper.Text = "lblSeniorPlayerKeeper";
+            this.lblSeniorPlayerKeeper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerDefending
+            // 
+            this.lblSeniorPlayerDefending.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerDefending.Location = new System.Drawing.Point(0, 215);
+            this.lblSeniorPlayerDefending.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerDefending.Name = "lblSeniorPlayerDefending";
+            this.lblSeniorPlayerDefending.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerDefending.TabIndex = 4;
+            this.lblSeniorPlayerDefending.Text = "lblSeniorPlayerDefending";
+            this.lblSeniorPlayerDefending.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerPlaymaking
+            // 
+            this.lblSeniorPlayerPlaymaking.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerPlaymaking.Location = new System.Drawing.Point(0, 235);
+            this.lblSeniorPlayerPlaymaking.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerPlaymaking.Name = "lblSeniorPlayerPlaymaking";
+            this.lblSeniorPlayerPlaymaking.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerPlaymaking.TabIndex = 5;
+            this.lblSeniorPlayerPlaymaking.Text = "lblSeniorPlayerPlaymaking";
+            this.lblSeniorPlayerPlaymaking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerWinger
+            // 
+            this.lblSeniorPlayerWinger.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerWinger.Location = new System.Drawing.Point(0, 255);
+            this.lblSeniorPlayerWinger.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerWinger.Name = "lblSeniorPlayerWinger";
+            this.lblSeniorPlayerWinger.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerWinger.TabIndex = 6;
+            this.lblSeniorPlayerWinger.Text = "lblSeniorPlayerWinger";
+            this.lblSeniorPlayerWinger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerPassing
+            // 
+            this.lblSeniorPlayerPassing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerPassing.Location = new System.Drawing.Point(0, 275);
+            this.lblSeniorPlayerPassing.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerPassing.Name = "lblSeniorPlayerPassing";
+            this.lblSeniorPlayerPassing.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerPassing.TabIndex = 7;
+            this.lblSeniorPlayerPassing.Text = "lblSeniorPlayerPassing";
+            this.lblSeniorPlayerPassing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerScoring
+            // 
+            this.lblSeniorPlayerScoring.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerScoring.Location = new System.Drawing.Point(0, 295);
+            this.lblSeniorPlayerScoring.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerScoring.Name = "lblSeniorPlayerScoring";
+            this.lblSeniorPlayerScoring.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerScoring.TabIndex = 8;
+            this.lblSeniorPlayerScoring.Text = "lblSeniorPlayerScoring";
+            this.lblSeniorPlayerScoring.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerSetPieces
+            // 
+            this.lblSeniorPlayerSetPieces.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerSetPieces.Location = new System.Drawing.Point(0, 315);
+            this.lblSeniorPlayerSetPieces.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerSetPieces.Name = "lblSeniorPlayerSetPieces";
+            this.lblSeniorPlayerSetPieces.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerSetPieces.TabIndex = 9;
+            this.lblSeniorPlayerSetPieces.Text = "lblSeniorPlayerSetPieces";
+            this.lblSeniorPlayerSetPieces.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerLoyalty
+            // 
+            this.lblSeniorPlayerLoyalty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerLoyalty.Location = new System.Drawing.Point(0, 335);
+            this.lblSeniorPlayerLoyalty.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerLoyalty.Name = "lblSeniorPlayerLoyalty";
+            this.lblSeniorPlayerLoyalty.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerLoyalty.TabIndex = 10;
+            this.lblSeniorPlayerLoyalty.Text = "lblSeniorPlayerLoyalty";
+            this.lblSeniorPlayerLoyalty.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeniorPlayerExperience
+            // 
+            this.lblSeniorPlayerExperience.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSeniorPlayerExperience.Location = new System.Drawing.Point(0, 355);
+            this.lblSeniorPlayerExperience.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeniorPlayerExperience.Name = "lblSeniorPlayerExperience";
+            this.lblSeniorPlayerExperience.Size = new System.Drawing.Size(64, 20);
+            this.lblSeniorPlayerExperience.TabIndex = 11;
+            this.lblSeniorPlayerExperience.Text = "lblSeniorPlayerExperience";
+            this.lblSeniorPlayerExperience.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // TabPageJuniorTeam
+            // 
+            this.TabPageJuniorTeam.Location = new System.Drawing.Point(4, 22);
+            this.TabPageJuniorTeam.Name = "TabPageJuniorTeam";
+            this.TabPageJuniorTeam.Padding = new System.Windows.Forms.Padding(3);
+            this.TabPageJuniorTeam.Size = new System.Drawing.Size(876, 386);
+            this.TabPageJuniorTeam.TabIndex = 1;
+            this.TabPageJuniorTeam.Text = "TabPageJuniorTeam";
+            this.TabPageJuniorTeam.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.TabCtrlTeam);
             this.Controls.Add(this.ToolStrpMain);
             this.Controls.Add(this.MnuStrpMain);
             this.Icon = global::Hyperar.HattrickUltimate.UserInterface.Properties.Resources.Icon;
@@ -247,12 +439,15 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.MnuStrpMain.PerformLayout();
             this.ToolStrpMain.ResumeLayout(false);
             this.ToolStrpMain.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.TabCtrlTeam.ResumeLayout(false);
+            this.TabPageSeniorTeam.ResumeLayout(false);
+            this.SpltContSeniorTeam.Panel1.ResumeLayout(false);
+            this.SpltContSeniorTeam.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SpltContSeniorTeam)).EndInit();
+            this.SpltContSeniorTeam.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSeniorPlayers)).EndInit();
+            this.TabLayPanSeniorPlayerPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxSeniorPlayerAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,10 +465,23 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem ToolStrpMenuItemUser;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl TabCtrlTeam;
+        private System.Windows.Forms.TabPage TabPageSeniorTeam;
+        private System.Windows.Forms.SplitContainer SpltContSeniorTeam;
+        private System.Windows.Forms.TabPage TabPageJuniorTeam;
         private Controls.DoubleBufferedDataGridView DataGridViewSeniorPlayers;
+        private System.Windows.Forms.TableLayoutPanel TabLayPanSeniorPlayerPanel;
+        private System.Windows.Forms.PictureBox PicBoxSeniorPlayerAvatar;
+        private System.Windows.Forms.Label lblSeniorPlayerForm;
+        private System.Windows.Forms.Label lblSeniorPlayerStamina;
+        private System.Windows.Forms.Label lblSeniorPlayerKeeper;
+        private System.Windows.Forms.Label lblSeniorPlayerDefending;
+        private System.Windows.Forms.Label lblSeniorPlayerPlaymaking;
+        private System.Windows.Forms.Label lblSeniorPlayerWinger;
+        private System.Windows.Forms.Label lblSeniorPlayerPassing;
+        private System.Windows.Forms.Label lblSeniorPlayerScoring;
+        private System.Windows.Forms.Label lblSeniorPlayerSetPieces;
+        private System.Windows.Forms.Label lblSeniorPlayerLoyalty;
+        private System.Windows.Forms.Label lblSeniorPlayerExperience;
     }
 }

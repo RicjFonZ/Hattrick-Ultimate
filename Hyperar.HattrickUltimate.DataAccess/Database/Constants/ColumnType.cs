@@ -63,6 +63,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// </summary>
         internal const string UnicodeVarChar = "nvarchar";
 
+        /// <summary>
+        /// Variable Binary MAX column data type.
+        /// </summary>
+        internal const string VarBinaryMax = "varbinary(max)";
+
         #endregion Internal Fields
     }
 }

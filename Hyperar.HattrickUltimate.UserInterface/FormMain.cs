@@ -10,9 +10,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
     using System.Collections.Generic;
     using System.Linq;
     using System.Windows.Forms;
+    using BusinessObjects.App.Enums;
     using Controls;
     using ExtensionMethods;
-    using Hyperar.HattrickUltimate.BusinessObjects.App.Enums;
     using Interface;
 
     /// <summary>
@@ -111,6 +111,18 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.ToolStrpMenuItemDownload.Text = Localization.Controls.FormMain_ToolStrpMenuItemDownload_Text;
             this.ToolStrpMenuItemUser.Text = Localization.Controls.FormMain_ToolStrpMenuItemUser_Text;
             this.ToolStrpMenuItemExit.Text = Localization.Controls.FormMain_ToolStrpMenuItemExit_Text;
+
+            this.lblSeniorPlayerDefending.Text = Localization.Controls.ColumnSeniorPlayerDefending_HeaderText;
+            this.lblSeniorPlayerExperience.Text = Localization.Controls.ColumnSeniorPlayerExperience_HeaderText;
+            this.lblSeniorPlayerForm.Text = Localization.Controls.ColumnSeniorPlayerForm_HeaderText;
+            this.lblSeniorPlayerKeeper.Text = Localization.Controls.ColumnSeniorPlayerKeeper_HeaderText;
+            this.lblSeniorPlayerLoyalty.Text = Localization.Controls.ColumnSeniorPlayerLoyalty_HeaderText;
+            this.lblSeniorPlayerPassing.Text = Localization.Controls.ColumnSeniorPlayerPassing_HeaderText;
+            this.lblSeniorPlayerPlaymaking.Text = Localization.Controls.ColumnSeniorPlayerPlaymaking_HeaderText;
+            this.lblSeniorPlayerScoring.Text = Localization.Controls.ColumnSeniorPlayerScoring_HeaderText;
+            this.lblSeniorPlayerSetPieces.Text = Localization.Controls.ColumnSeniorPlayerSetPieces_HeaderText;
+            this.lblSeniorPlayerStamina.Text = Localization.Controls.ColumnSeniorPlayerStamina_HeaderText;
+            this.lblSeniorPlayerWinger.Text = Localization.Controls.ColumnSeniorPlayerWinger_HeaderText;
         }
 
         #endregion Public Methods
@@ -322,6 +334,12 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void DataGridViewSeniorPlayers_SelectionChanged(object sender, EventArgs e)
         {
+            if (this.DataGridViewSeniorPlayers.SelectedRows.Count > 0)
+            {
+                long selectedSeniorPlayerHattrickId = long.Parse(this.DataGridViewSeniorPlayers.SelectedRows[0].Cells["ColumnSeniorPlayerHattrickId"].Value.ToString());
+
+                this.UpdateSeniorPlayerPanel(selectedSeniorPlayerHattrickId);
+            }
         }
 
         /// <summary>
@@ -420,6 +438,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 form.ShowDialog(this);
             }
+
+            this.GetSeniorPlayerGridData();
+
+            this.DataGridViewSeniorPlayers.Refresh();
         }
 
         /// <summary>
@@ -481,6 +503,17 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private void ToolStrpMenuItemUser_Click(object sender, EventArgs e)
         {
             this.ShowUserWindow();
+        }
+
+        /// <summary>
+        /// Updates the Senior Player Panel.
+        /// </summary>
+        /// <param name="hattrickId">Selected Senior Player Hattrick ID.</param>
+        private void UpdateSeniorPlayerPanel(long hattrickId)
+        {
+            this.PicBoxSeniorPlayerAvatar.Image = this.seniorPlayerManager.GetSeniorPlayerAvatarByHattrickId(hattrickId);
+
+            var seniorPlayer = this.seniorPlayerWithSkillDeltaData.Single(x => x.HattrickId == hattrickId);
         }
 
         #endregion Private Methods

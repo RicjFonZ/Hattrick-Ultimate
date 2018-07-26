@@ -44,6 +44,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string Alignment = "Alignment";
 
         /// <summary>
+        /// Avatar database table column name.
+        /// </summary>
+        internal const string Avatar = "Avatar";
+
+        /// <summary>
+        /// AvatarBytes database table column name.
+        /// </summary>
+        internal const string AvatarBytes = "AvatarBytes";
+
+        /// <summary>
         /// BookingStatus database table column name.
         /// </summary>
         internal const string BookingStatus = "BookingStatus";
@@ -427,6 +437,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// SeniorNationalTeamId database table column name.
         /// </summary>
         internal const string SeniorNationalTeamId = "SeniorNationalTeamId";
+
+        /// <summary>
+        /// SeniorPlayerId database table column name.
+        /// </summary>
+        internal const string SeniorPlayerId = "SeniorPlayerId";
 
         /// <summary>
         /// SeniorTeamId database table column name.

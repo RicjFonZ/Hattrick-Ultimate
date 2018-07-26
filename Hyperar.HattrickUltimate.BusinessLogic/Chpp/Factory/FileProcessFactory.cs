@@ -19,27 +19,32 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         #region Private Fields
 
         /// <summary>
-        /// Manager Compendium Process Strategy.
+        /// Avatars File Processing Strategy.
+        /// </summary>
+        private Strategy.FileProcess.Avatars avatarsStrategy;
+
+        /// <summary>
+        /// ManagerCompendium File Processing Strategy.
         /// </summary>
         private Strategy.FileProcess.ManagerCompendium managerCompendiumStrategy;
 
         /// <summary>
-        /// Players Process Strategy.
+        /// Players File Processing Strategy.
         /// </summary>
         private Strategy.FileProcess.Players playersStrategy;
 
         /// <summary>
-        /// Team Details Process Strategy.
+        /// TeamDetails File Processing Strategy.
         /// </summary>
         private Strategy.FileProcess.TeamDetails teamDetailsStrategy;
 
         /// <summary>
-        /// World Details Process Strategy.
+        /// WorldDetails File Processing Strategy.
         /// </summary>
         private Strategy.FileProcess.WorldDetails worldDetailsStrategy;
 
         /// <summary>
-        /// Youth Team Details Process Strategy.
+        /// YouthTeamDetails File Processing Strategy.
         /// </summary>
         private Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy;
 
@@ -50,18 +55,21 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         /// <summary>
         /// Initializes a new instance of the <see cref="FileProcessFactory" /> class.
         /// </summary>
-        /// <param name="managerCompendiumStrategy">Manager Compendium Process Strategy.</param>
-        /// <param name="playersStrategy">Players Process Strategy.</param>
-        /// <param name="teamDetailsStrategy">Team Details Process Strategy.</param>
-        /// <param name="worldDetailsStrategy">World Details Process Strategy.</param>
-        /// <param name="youthTeamDetailsStrategy">Youth Team Details Process Strategy.</param>
+        /// <param name="avatarsStrategy">Avatars File Processing Strategy.</param>
+        /// <param name="managerCompendiumStrategy">ManagerCompendium File Processing Strategy.</param>
+        /// <param name="playersStrategy">Players File Processing Strategy.</param>
+        /// <param name="teamDetailsStrategy">TeamDetails File Processing Strategy.</param>
+        /// <param name="worldDetailsStrategy">WorldDetails File Processing Strategy.</param>
+        /// <param name="youthTeamDetailsStrategy">YouthTeamDetails File Processing Strategy.</param>
         public FileProcessFactory(
+                   Strategy.FileProcess.Avatars avatarsStrategy,
                    Strategy.FileProcess.ManagerCompendium managerCompendiumStrategy,
                    Strategy.FileProcess.Players playersStrategy,
                    Strategy.FileProcess.TeamDetails teamDetailsStrategy,
                    Strategy.FileProcess.WorldDetails worldDetailsStrategy,
                    Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy)
         {
+            this.avatarsStrategy = avatarsStrategy;
             this.managerCompendiumStrategy = managerCompendiumStrategy;
             this.playersStrategy = playersStrategy;
             this.teamDetailsStrategy = teamDetailsStrategy;
@@ -80,8 +88,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         /// <returns>Correct IFileProcessStrategy object for the specified IXmlEntity.</returns>
         public IFileProcessStrategy GetFor(IXmlEntity entity)
         {
-            switch (entity.FileName)
+            switch (entity.FileName.ToLower())
             {
+                case XmlFileName.Avatars:
+                    return this.avatarsStrategy;
+
                 case XmlFileName.ManagerCompendium:
                     return this.managerCompendiumStrategy;
 

@@ -36,7 +36,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             : base($"Data Source=(localdb)\\{AppDomain.CurrentDomain.GetData("LocalDbInstance")};AttachDbFilename={AppDomain.CurrentDomain.GetData("DataDirectory")}\\HattrickUltimateDB.mdf;Initial Catalog=HattrickUltimateDB;Integrated Security=True;MultipleActiveResultSets=true;")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, Migrations.Configuration>());
-            
+
             this.cancelled = false;
         }
 
@@ -148,6 +148,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             modelBuilder.Configurations.Add(new Mapping.Region());
             modelBuilder.Configurations.Add(new Mapping.SeniorArena());
             modelBuilder.Configurations.Add(new Mapping.SeniorPlayer());
+            modelBuilder.Configurations.Add(new Mapping.SeniorPlayerAvatar());
             modelBuilder.Configurations.Add(new Mapping.SeniorPlayerSeasonGoals());
             modelBuilder.Configurations.Add(new Mapping.SeniorPlayerSkills());
             modelBuilder.Configurations.Add(new Mapping.SeniorPlayerWithSkillDelta());
