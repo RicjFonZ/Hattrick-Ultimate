@@ -33,7 +33,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// Initializes a new instance of the <see cref="DatabaseContext"/> class.
         /// </summary>
         public DatabaseContext()
-            : base($"Data Source=(localdb)\\{AppDomain.CurrentDomain.GetData("LocalDbInstance")};AttachDbFilename={AppDomain.CurrentDomain.GetData("DataDirectory")}\\HattrickUltimateDB.mdf;Initial Catalog=HattrickUltimateDB;Integrated Security=True;MultipleActiveResultSets=true;")
+            : base($"Data Source=(localdb)\\{AppDomain.CurrentDomain.GetData("LocalDbInstance")};AttachDbFilename={AppDomain.CurrentDomain.GetData("DataDirectory")}\\HattrickUltimateDB.mdf;Initial Catalog=HattrickUltimateDB;Integrated Security=True;")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, Migrations.Configuration>());
 

@@ -22,7 +22,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// Initializes a new instance of the <see cref="HattrickRepository{TEntity}"/> class.
         /// </summary>
         /// <param name="context">App Database Context.</param>
-        public HattrickRepository(IDatabaseContext context) : base(context)
+        public HattrickRepository(IDatabaseContext context, IQueryStrategy<TEntity> queryStrategy) : base(context, queryStrategy)
         {
         }
 
