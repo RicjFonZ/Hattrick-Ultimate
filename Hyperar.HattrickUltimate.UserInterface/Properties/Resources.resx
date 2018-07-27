@@ -316,4 +316,19 @@
   <data name="Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Transparent.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Bruised" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bruised.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DualYellowCards" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DualYellowCards.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Injured" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Injured.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RedCard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RedCard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YellowCard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YellowCard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

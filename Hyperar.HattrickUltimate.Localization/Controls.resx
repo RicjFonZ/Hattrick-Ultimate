@@ -381,4 +381,10 @@
   <data name="ColumnSeniorPlayerShirtNumber_HeaderText" xml:space="preserve">
     <value>Shirt Number</value>
   </data>
+  <data name="FormGeneral_AgeDay" xml:space="preserve">
+    <value>{0} years and {1} day</value>
+  </data>
+  <data name="FormGeneral_AgeDays" xml:space="preserve">
+    <value>{0} years and {1} days</value>
+  </data>
 </root>

@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="SeniorPlayer.cs" company="Hyperar">
+// <copyright file="SeniorPlayerAvatar.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -11,9 +11,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Strategy.QueryStrategy
     using Interface;
 
     /// <summary>
-    /// SeniorPlayer Query Strategy.
+    /// SeniorPlayerAvatar Query Strategy.
     /// </summary>
-    public class SeniorPlayer : IQueryStrategy<BusinessObjects.App.SeniorPlayer>
+    public class SeniorPlayerAvatar : IQueryStrategy<BusinessObjects.App.SeniorPlayerAvatar>
     {
         #region Public Methods
 
@@ -22,12 +22,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Strategy.QueryStrategy
         /// </summary>
         /// <param name="query">Query to apply includes to.</param>
         /// <returns>Query with included child entities.</returns>
-        public IQueryable<BusinessObjects.App.SeniorPlayer> ApplyIncludes(IQueryable<BusinessObjects.App.SeniorPlayer> query)
+        public IQueryable<BusinessObjects.App.SeniorPlayerAvatar> ApplyIncludes(IQueryable<BusinessObjects.App.SeniorPlayerAvatar> query)
         {
-            return query.Include(p => p.Avatar)
-                        .Include(p => p.Country)
-                        .Include(p => p.SeniorTeam)
-                        .Include(p => p.Skills);
+            return query.Include(p => p.SeniorPlayer);
         }
 
         #endregion Public Methods

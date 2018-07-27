@@ -50,6 +50,9 @@
   <PropertyGroup>
     <ApplicationIcon>Resources\HU.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Hyperar.HattrickUltimate.UserInterface.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
@@ -83,6 +86,7 @@
     <Compile Include="Constants\Settings.cs" />
     <Compile Include="DatabaseUtils.cs" />
     <Compile Include="ExtensionMethods\LinqSort.cs" />
+    <Compile Include="Factory\DataGridViewCellFormatterFactory.cs" />
     <Compile Include="Factory\DataGridViewColumnBuilderFactory.cs" />
     <Compile Include="Factory\DenominationDictionaryFactory.cs" />
     <Compile Include="FormDataFolder.cs">
@@ -121,6 +125,8 @@
     <Compile Include="FormUser.Designer.cs">
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IDataGridViewCellFormatterFactory.cs" />
+    <Compile Include="Interface\IDataGridViewCellFormatterStrategy.cs" />
     <Compile Include="Interface\IDataGridViewColumnBuilderFactory.cs" />
     <Compile Include="Interface\IDataGridViewColumnBuilderStrategy.cs" />
     <Compile Include="Interface\ILocalizableForm.cs" />
@@ -131,6 +137,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\DataGridViewCellFormatterStrategy\DataGridViewDenominatedValueCell.cs" />
+    <Compile Include="Strategy\DataGridViewCellFormatterStrategy\DataGridViewTextBoxCell.cs" />
+    <Compile Include="Strategy\DataGridViewCellFormatterStrategy\DataGridViewImageCell.cs" />
     <Compile Include="Strategy\DataGridViewColumnBuilder\DenominatedValueWithChangeTracking.cs" />
     <Compile Include="Strategy\DataGridViewColumnBuilder\Image.cs" />
     <Compile Include="Strategy\DataGridViewColumnBuilder\ValueWithChangeTracking.cs" />
@@ -417,6 +426,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Transparent.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DualYellowCards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bruised.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Injured.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

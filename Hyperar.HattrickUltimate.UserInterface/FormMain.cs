@@ -21,6 +21,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
     public partial class FormMain : LocalizableFormBase, ILocalizableForm
     {
         #region Private Fields
+        /// <summary>
+        /// Data Grid View Cell Formatter Factory.
+        /// </summary>
+        private IDataGridViewCellFormatterFactory dataGridViewCellFormatterFactory;
 
         /// <summary>
         /// Data Grid View Column Builder Factory.
@@ -73,6 +77,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="seniorPlayerManager">Senior Player Manager.</param>
         /// <param name="tokenManager">Token Manager.</param>
         /// <param name="userManager">User Manager.</param>
+        /// <param name="dataGridViewCellFormatterFactory">Data Grid View Cell Formatter Factory.</param>
         /// <param name="dataGridViewColumnBuilderFactory">Data Grid View Column Builder Factory.</param>
         /// <param name="denominationDictionaryBuilderFactory">Denomination Dictionary Builder Factory.</param>
         public FormMain(
@@ -80,6 +85,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
                    BusinessLogic.SeniorPlayerManager seniorPlayerManager,
                    BusinessLogic.TokenManager tokenManager,
                    BusinessLogic.UserManager userManager,
+                   IDataGridViewCellFormatterFactory dataGridViewCellFormatterFactory,
                    IDataGridViewColumnBuilderFactory dataGridViewColumnBuilderFactory,
                    IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory)
         {
@@ -89,6 +95,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.seniorPlayerManager = seniorPlayerManager;
             this.tokenManager = tokenManager;
             this.userManager = userManager;
+            this.dataGridViewCellFormatterFactory = dataGridViewCellFormatterFactory;
             this.dataGridViewColumnBuilderFactory = dataGridViewColumnBuilderFactory;
             this.denominationDictionaryBuilderFactory = denominationDictionaryBuilderFactory;
         }
@@ -159,61 +166,15 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void DataGridViewSeniorPlayers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            var column = this.DataGridViewSeniorPlayers.Columns[e.ColumnIndex];
+            var cell = this.DataGridViewSeniorPlayers.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
-            if (column is DataGridViewDenominatedValueColumn)
+            if (cell is DataGridViewImageCell ||
+                cell is DataGridViewDenominatedValueCell ||
+                cell is DataGridViewDenominatedValueWithChangeTrackingCell ||
+                cell is DataGridViewTextBoxCell)
             {
-                var parsedColumn = column as DataGridViewDenominatedValueColumn;
-
-                // If can and should format the value.
-                if (parsedColumn.ValueDenominationDictionary != null &&
-                    parsedColumn.ValueDenominationDictionary.ContainsKey(e.Value) &&
-                    parsedColumn.DisplayMode != ValueDisplayMode.ValueOnly)
-                {
-                    switch (parsedColumn.DisplayMode)
-                    {
-                        case ValueDisplayMode.DenominationOnly:
-                            e.Value = parsedColumn.ValueDenominationDictionary[e.Value];
-                            break;
-
-                        case ValueDisplayMode.DenominationAndValue:
-                            e.Value = $"{parsedColumn.ValueDenominationDictionary[e.Value]} ({e.Value})";
-                            break;
-                    }
-
-                    // Format has been applied.
-                    e.FormattingApplied = true;
-                }
-            }
-            else if (column is DataGridViewDenominatedValueWithChangeTrackingColumn)
-            {
-                var parsedColumn = column as DataGridViewDenominatedValueWithChangeTrackingColumn;
-
-                // If can and should format the value.
-                if (parsedColumn.ValueDenominationDictionary != null &&
-                    parsedColumn.ValueDenominationDictionary.ContainsKey(e.Value) &&
-                    parsedColumn.DisplayMode != ValueDisplayMode.ValueOnly)
-                {
-                    switch (parsedColumn.DisplayMode)
-                    {
-                        case ValueDisplayMode.DenominationOnly:
-                            e.Value = parsedColumn.ValueDenominationDictionary[e.Value];
-                            break;
-
-                        case ValueDisplayMode.DenominationAndValue:
-                            e.Value = $"{parsedColumn.ValueDenominationDictionary[e.Value]} ({e.Value})";
-                            break;
-                    }
-
-                    // Format has been applied.
-                    e.FormattingApplied = true;
-                }
-            }
-            else if (column is DataGridViewImageColumn && column.DataPropertyName == "HasHomegrownBonus")
-            {
-                e.Value = Convert.ToBoolean(e.Value)
-                        ? Properties.Resources.HomegrownBonus
-                        : Properties.Resources.Transparent;
+                this.dataGridViewCellFormatterFactory.GetFor(cell)
+                                                     .ApplyFormat(e, cell);
             }
         }
 
@@ -334,7 +295,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="e">Event arguments.</param>
         private void DataGridViewSeniorPlayers_SelectionChanged(object sender, EventArgs e)
         {
-            if (this.DataGridViewSeniorPlayers.SelectedRows.Count > 0)
+            if (this.DataGridViewSeniorPlayers.SelectedRows.Count == 1)
             {
                 long selectedSeniorPlayerHattrickId = long.Parse(this.DataGridViewSeniorPlayers.SelectedRows[0].Cells["ColumnSeniorPlayerHattrickId"].Value.ToString());
 

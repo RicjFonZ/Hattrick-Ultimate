@@ -83,6 +83,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bruised {
+            get {
+                object obj = ResourceManager.GetObject("Bruised", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cancel_16px {
             get {
                 object obj = ResourceManager.GetObject("Cancel_16px", resourceCulture);
@@ -351,6 +361,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DualYellowCards {
+            get {
+                object obj = ResourceManager.GetObject("DualYellowCards", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Error {
@@ -407,6 +427,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
             get {
                 object obj = ResourceManager.GetObject("Icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Injured {
+            get {
+                object obj = ResourceManager.GetObject("Injured", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -536,6 +566,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         internal static System.Drawing.Bitmap OpenInBrowser_24px {
             get {
                 object obj = ResourceManager.GetObject("OpenInBrowser_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedCard {
+            get {
+                object obj = ResourceManager.GetObject("RedCard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -716,6 +756,16 @@ namespace Hyperar.HattrickUltimate.UserInterface.Properties {
         internal static System.Drawing.Bitmap Working_96px {
             get {
                 object obj = ResourceManager.GetObject("Working_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YellowCard {
+            get {
+                object obj = ResourceManager.GetObject("YellowCard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

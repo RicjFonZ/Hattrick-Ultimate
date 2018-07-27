@@ -137,25 +137,16 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         /// <summary>
-        /// Registers application forms.
-        /// </summary>
-        private static void RegisterForms()
-        {
-            ApplicationObjects.RegisterForm<FormDataFolder>();
-            ApplicationObjects.RegisterForm<FormDownload>();
-            ApplicationObjects.RegisterForm<FormGenericProgress>();
-            ApplicationObjects.RegisterForm<FormMain>();
-            ApplicationObjects.RegisterForm<FormToken>();
-            ApplicationObjects.RegisterForm<FormUser>();
-        }
-
-        /// <summary>
         /// Registers factories and strategies.
         /// </summary>
         private static void RegisterFactoriesAndStrategies()
         {
+            ApplicationObjects.Container.Register<Interface.IDataGridViewCellFormatterFactory, Factory.DataGridViewCellFormatterFactory>(Lifestyle.Transient);
             ApplicationObjects.Container.Register<Interface.IDataGridViewColumnBuilderFactory, Factory.DataGridViewColumnBuilderFactory>(Lifestyle.Transient);
             ApplicationObjects.Container.Register<Interface.IDenominationDictionaryBuilderFactory, Factory.DenominationDictionaryFactory>(Lifestyle.Transient);
+
+            ApplicationObjects.Container.Register<Strategy.DataGridViewCellFormatterStrategy.DataGridViewDenominatedValueCell>(Lifestyle.Transient);
+            ApplicationObjects.Container.Register<Strategy.DataGridViewCellFormatterStrategy.DataGridViewImageCell>(Lifestyle.Transient);
 
             ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilder.DenominatedValue>(Lifestyle.Transient);
             ApplicationObjects.Container.Register<Strategy.DataGridViewColumnBuilder.DenominatedValueWithChangeTracking>(Lifestyle.Transient);
@@ -168,6 +159,19 @@ namespace Hyperar.HattrickUltimate.UserInterface
             ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.Honesty>(Lifestyle.Transient);
             ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.PlayerSkill>(Lifestyle.Transient);
             ApplicationObjects.Container.Register<Strategy.DenominationDictionaryBuilder.PlayerSpecialty>(Lifestyle.Transient);
+        }
+
+        /// <summary>
+        /// Registers application forms.
+        /// </summary>
+        private static void RegisterForms()
+        {
+            ApplicationObjects.RegisterForm<FormDataFolder>();
+            ApplicationObjects.RegisterForm<FormDownload>();
+            ApplicationObjects.RegisterForm<FormGenericProgress>();
+            ApplicationObjects.RegisterForm<FormMain>();
+            ApplicationObjects.RegisterForm<FormToken>();
+            ApplicationObjects.RegisterForm<FormUser>();
         }
 
         #endregion Private Methods

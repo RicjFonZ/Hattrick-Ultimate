@@ -144,6 +144,7 @@
     <Compile Include="Database\ReadOnlyRepository.cs" />
     <Compile Include="Database\Repository.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\GridLayout.cs" />
+    <Compile Include="Database\Strategy\QueryStrategy\SeniorPlayerAvatar.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\User.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\Token.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\SeniorTeam.cs" />

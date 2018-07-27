@@ -24,14 +24,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         private IDatabaseContext context;
 
         /// <summary>
-        /// Senior Player Repository.
-        /// </summary>
-        private IHattrickRepository<BusinessObjects.App.SeniorPlayer> seniorPlayerRepository;
-
-        /// <summary>
         /// Senior Player Avatar Repository.
         /// </summary>
         private IRepository<BusinessObjects.App.SeniorPlayerAvatar> seniorPlayerAvatarRepository;
+
+        /// <summary>
+        /// Senior Player Repository.
+        /// </summary>
+        private IHattrickRepository<BusinessObjects.App.SeniorPlayer> seniorPlayerRepository;
 
         /// <summary>
         /// Senior Player With Skill Delta Repository.

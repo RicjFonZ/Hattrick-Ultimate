@@ -529,6 +529,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} years and {1} day.
+        /// </summary>
+        public static string FormGeneral_AgeDay {
+            get {
+                return ResourceManager.GetString("FormGeneral_AgeDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} years and {1} days.
+        /// </summary>
+        public static string FormGeneral_AgeDays {
+            get {
+                return ResourceManager.GetString("FormGeneral_AgeDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
         public static string FormGeneral_BtnBrowse_Text {

@@ -148,6 +148,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             container.Register<IQueryStrategy<BusinessObjects.App.Region>, DataAccess.Database.Strategy.QueryStrategy.Region>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorArena>, DataAccess.Database.Strategy.QueryStrategy.SeniorArena>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayer>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayer>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerAvatar>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerAvatar>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerSeasonGoals>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerSeasonGoals>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerSkills>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerSkills>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorSeries>, DataAccess.Database.Strategy.QueryStrategy.SeniorSeries>();
