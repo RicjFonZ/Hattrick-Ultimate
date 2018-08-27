@@ -8,6 +8,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Core.Objects;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
     using BusinessObjects.App.Interface;
@@ -212,6 +213,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
                 rollbackStrategyFactory.GetFor(e.State)
                                        .Undo(e, objectContext);
             });
+
+            objectContext.Refresh(RefreshMode.StoreWins, entriesToRevert.Select(etr => etr.Entity));
         }
 
         #endregion Private Methods

@@ -25,8 +25,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Strategy.Rollback
         public void Undo(ObjectStateEntry entry, ObjectContext context)
         {
             entry.ChangeState(EntityState.Unchanged);
-
-            context.Refresh(RefreshMode.StoreWins, entry.Entity);
         }
 
         #endregion Public Methods
