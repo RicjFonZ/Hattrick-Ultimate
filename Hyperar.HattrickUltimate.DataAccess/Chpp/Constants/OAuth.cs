@@ -21,7 +21,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// <summary>
         /// OAuth Consumer Secret.
         /// </summary>
-        internal const string Secret = "71aNbETM4PpJ3tOEK7xhTw7rPgBsiT1XUmwQfF8JjhD";
+        internal const string Secret = "q3bNTmNcccRYgws1IDWiwfQ4RKgSa7bD1ASdoxFl3Hd";
 
         #endregion Internal Fields
     }
