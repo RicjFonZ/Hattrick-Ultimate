@@ -41,6 +41,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// </summary>
         public ChppManager()
         {
+            // Force TLS 1.2 to avoid authentcation exception.
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            ServicePointManager.DefaultConnectionLimit = 9999;
+
             this.chppXmlParser = new ChppXmlParser();
             this.chppUrlBuilder = new ChppUrlBuilder();
         }
