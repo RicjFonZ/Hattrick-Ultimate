@@ -160,7 +160,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
             // Gets the stored Team's Players ID.
             var seniorPlayerIdsToDelete = this.seniorPlayerRepository.Query(sp => !fileSeniorPlayerIds.Contains(sp.HattrickId)
                                                                              && sp.SeniorTeam.HattrickId == file.Team.TeamId)
-                                                                   .Select(sp => sp.Id);
+                                                                     .Select(sp => sp.Id)
+                                                                     .ToList();
 
             // If there are players to delete.
             if (seniorPlayerIdsToDelete.Any())
