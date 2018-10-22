@@ -146,7 +146,7 @@ namespace Hyperar.HattrickUltimate.Localization
             if (this.localizedPropertyCollection == null)
             {
                 // Get the collection of properties
-                PropertyDescriptorCollection baseProps = TypeDescriptor.GetProperties(this, attributes, true);
+                var baseProps = TypeDescriptor.GetProperties(this, attributes, true);
 
                 this.localizedPropertyCollection = new PropertyDescriptorCollection(null);
 
@@ -172,7 +172,7 @@ namespace Hyperar.HattrickUltimate.Localization
             if (this.localizedPropertyCollection == null)
             {
                 // Get the collection of properties
-                PropertyDescriptorCollection baseProps = TypeDescriptor.GetProperties(this, true);
+                var baseProps = TypeDescriptor.GetProperties(this, true);
                 this.localizedPropertyCollection = new PropertyDescriptorCollection(null);
 
                 // For each property use a property descriptor of our own that is able to be localized.

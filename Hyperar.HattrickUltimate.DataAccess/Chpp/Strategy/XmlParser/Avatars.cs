@@ -93,7 +93,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newLayer = new BusinessObjects.Hattrick.Avatars.Layer();
 
-            List<KeyValuePair<string, int>> positionAttributes = new List<KeyValuePair<string, int>>();
+            var positionAttributes = new List<KeyValuePair<string, int>>();
 
             if (!string.IsNullOrWhiteSpace(reader.GetAttribute(XmlTag.X.ToLower())))
             {

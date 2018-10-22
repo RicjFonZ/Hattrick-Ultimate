@@ -85,7 +85,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         {
             byte[] result = null;
 
-            using (WebClient webClient = new WebClient())
+            using (var webClient = new WebClient())
             {
                 result = webClient.DownloadData(url);
             }

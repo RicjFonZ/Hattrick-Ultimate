@@ -66,7 +66,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <param name="id">ID of the object to delete.</param>
         public void Delete(int id)
         {
-            TEntity entity = this.GetById(id);
+            var entity = this.GetById(id);
 
             if (entity == null)
             {
@@ -110,7 +110,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <returns>IQueryable object with the entities that satisfy the specified predicate.</returns>
         public IQueryable<TEntity> Query(Func<TEntity, bool> predicate = null)
         {
-            IQueryable<TEntity> query = this.queryStrategy.ApplyIncludes(
+            var query = this.queryStrategy.ApplyIncludes(
                                                                this.EntityCollection.AsQueryable());
 
             if (predicate != null)

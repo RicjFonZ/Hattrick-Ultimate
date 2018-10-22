@@ -30,7 +30,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
             }
 
             // Having a valid token means at least having Read access, thus it's always ON.
-            OAuthScope result = OAuthScope.Read;
+            var result = OAuthScope.Read;
 
             foreach (string value in values)
             {
@@ -74,7 +74,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
         /// <returns>Query String value of the current OAuthScope state.</returns>
         public static string GetString(this OAuthScope value)
         {
-            List<string> result = new List<string>();
+            var result = new List<string>();
 
             if (value.HasFlag(OAuthScope.ManageChallenges))
             {

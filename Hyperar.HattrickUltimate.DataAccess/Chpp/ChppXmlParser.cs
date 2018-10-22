@@ -56,7 +56,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         {
             IXmlEntity result = null;
 
-            using (XmlReader reader = XmlReader.Create(file, new XmlReaderSettings { CloseInput = true, IgnoreComments = true, IgnoreProcessingInstructions = true, IgnoreWhitespace = true }))
+            using (var reader = XmlReader.Create(file, new XmlReaderSettings { CloseInput = true, IgnoreComments = true, IgnoreProcessingInstructions = true, IgnoreWhitespace = true }))
             {
                 reader.ReadToFollowing(Constants.XmlTag.FileName);
 
@@ -65,7 +65,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                 result.UserID = uint.Parse(reader.ReadElementContentAsString());
                 result.FetchedDate = DateTime.Parse(reader.ReadElementContentAsString());
 
-                IXmlParserStrategy parsingStrategy = this.parserFactory.GetParser(result.FileName);
+                var parsingStrategy = this.parserFactory.GetParser(result.FileName);
 
                 parsingStrategy.Parse(reader, ref result);
             }
@@ -89,7 +89,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
 
             Stream file = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
 
-            using (XmlReader reader = XmlReader.Create(file, new XmlReaderSettings { CloseInput = true, IgnoreComments = true, IgnoreProcessingInstructions = true, IgnoreWhitespace = true }))
+            using (var reader = XmlReader.Create(file, new XmlReaderSettings { CloseInput = true, IgnoreComments = true, IgnoreProcessingInstructions = true, IgnoreWhitespace = true }))
             {
                 reader.ReadToFollowing(Constants.XmlTag.FileName);
 
@@ -98,7 +98,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                 result.UserID = uint.Parse(reader.ReadElementContentAsString());
                 result.FetchedDate = DateTime.Parse(reader.ReadElementContentAsString());
 
-                IXmlParserStrategy parsingStrategy = this.parserFactory.GetParser(result.FileName);
+                var parsingStrategy = this.parserFactory.GetParser(result.FileName);
 
                 parsingStrategy.Parse(reader, ref result);
             }

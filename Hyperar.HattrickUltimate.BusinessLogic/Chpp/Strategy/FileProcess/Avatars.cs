@@ -81,9 +81,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(fileToProcess));
             }
 
-            var file = fileToProcess as BusinessObjects.Hattrick.Avatars.Root;
-
-            if (file == null)
+            if (!(fileToProcess is BusinessObjects.Hattrick.Avatars.Root file))
             {
                 throw new ArgumentException(Localization.Messages.UnexpectedObjectType, nameof(fileToProcess));
             }
@@ -121,6 +119,51 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         }
 
         /// <summary>
+        /// Gets image bytes by Url.
+        /// </summary>
+        /// <param name="relativeUrl">Image relative Url.</param>
+        /// <returns>Image bytes.</returns>
+        private byte[] GetImageBytes(string relativeUrl)
+        {
+            string fileNameAndPath = this.GetLocalFileNameAndPath(relativeUrl);
+
+            if (File.Exists(fileNameAndPath))
+            {
+                return this.GetImageBytesFromLocalDrive(fileNameAndPath);
+            }
+            else
+            {
+                byte[] imageBytes = this.chppManager.DownloadResourceFile(
+                                                         this.BuildUrl(relativeUrl));
+
+                string folder = Path.GetDirectoryName(fileNameAndPath);
+
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+
+                File.WriteAllBytes(fileNameAndPath, imageBytes);
+
+                return imageBytes;
+            }
+        }
+
+        /// <summary>
+        /// Gets image bytes from local drive.
+        /// </summary>
+        /// <param name="fileNameAndPath">File Name and Path.</param>
+        /// <returns>Image bytes.</returns>
+        private byte[] GetImageBytesFromLocalDrive(string fileNameAndPath)
+        {
+            byte[] imageBytes = null;
+
+            imageBytes = File.ReadAllBytes(fileNameAndPath);
+
+            return imageBytes;
+        }
+
+        /// <summary>
         /// Builds an image from the specified bytes.
         /// </summary>
         /// <param name="imageBytes">Image's content bytes.</param>
@@ -138,6 +181,30 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         }
 
         /// <summary>
+        /// Gets the local file name and path for the given relative Url.
+        /// </summary>
+        /// <param name="relativeUrl">Image relative Url.</param>
+        /// <returns>File name and path.</returns>
+        private string GetLocalFileNameAndPath(string relativeUrl)
+        {
+            string fileName = relativeUrl.Substring(relativeUrl.LastIndexOf('/') + 1);
+            string[] relativePath = relativeUrl.Substring(0, relativeUrl.LastIndexOf('/'))
+                                               .Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            string absolutePath = Path.Combine(
+                                          Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                          "Hyperar",
+                                          "Hattrick Ultimate");
+
+            foreach (string folder in relativePath)
+            {
+                absolutePath = Path.Combine(absolutePath, folder);
+            }
+
+            return Path.Combine(absolutePath, fileName);
+        }
+
+        /// <summary>
         /// Process Avatar object in Avatars XML file.
         /// </summary>
         /// <param name="avatar">Avatar to process.</param>
@@ -149,11 +216,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(avatar));
             }
 
-            Bitmap avatarImage = new Bitmap(110, 155, PixelFormat.Format32bppArgb);
+            var avatarImage = new Bitmap(110, 155, PixelFormat.Format32bppArgb);
 
             avatarImage.SetResolution(120, 120);
 
-            Graphics graphics = Graphics.FromImage(avatarImage);
+            var graphics = Graphics.FromImage(avatarImage);
 
             graphics.DrawImageUnscaled(
                          this.GetImageFromBytes(
@@ -166,9 +233,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 
             foreach (var curLayer in avatar.Layers)
             {
-                Bitmap layerImage = this.GetImageFromBytes(
-                                            this.chppManager.DownloadResourceFile(
-                                                                 this.BuildUrl(curLayer.Image)));
+                var layerImage = this.GetImageFromBytes(
+                                          this.GetImageBytes(curLayer.Image));
 
                 graphics.DrawImageUnscaled(layerImage, curLayer.X, curLayer.Y, layerImage.Width, layerImage.Height);
             }

@@ -63,7 +63,7 @@ namespace Hyperar.HattrickUltimate.Localization
                     category = this.propertyDescriptor.DisplayName + "Category";
                 }
 
-                ResourceManager rm = new ResourceManager(resourceType);
+                var rm = new ResourceManager(resourceType);
 
                 string localizedResourceValue = rm.GetString(category);
 
@@ -104,7 +104,7 @@ namespace Hyperar.HattrickUltimate.Localization
                     description = this.propertyDescriptor.Description + "Description";
                 }
 
-                ResourceManager rm = new ResourceManager(resourceType);
+                var rm = new ResourceManager(resourceType);
 
                 string localizedResourceValue = rm.GetString(description);
 
@@ -137,7 +137,7 @@ namespace Hyperar.HattrickUltimate.Localization
                     displayName = this.propertyDescriptor.DisplayName + "DisplayName";
                 }
 
-                ResourceManager rm = new ResourceManager(resourceType);
+                var rm = new ResourceManager(resourceType);
 
                 string localizedResourceValue = rm.GetString(displayName);
 
