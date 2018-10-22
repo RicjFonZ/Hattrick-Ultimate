@@ -39,29 +39,32 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         {
             IFileAnalysisStrategy result = null;
 
-            if (!this.strategies.ContainsKey(entity.FileName.ToLower()))
+            string key = entity.FileName.ToLower();
+
+            if (!this.strategies.ContainsKey(key))
             {
-                switch (entity.FileName.ToLower())
+                switch (key)
                 {
                     case XmlFileName.Avatars:
                     case XmlFileName.WorldDetails:
                     case XmlFileName.CheckToken:
                     case XmlFileName.Players:
+                    case XmlFileName.YouthPlayerList:
                     case XmlFileName.YouthTeamDetails:
-                        this.strategies.Add(entity.FileName, new Default());
+                        this.strategies.Add(key, new Default());
                         break;
 
                     case XmlFileName.ManagerCompendium:
-                        this.strategies.Add(entity.FileName, new ManagerCompendium());
+                        this.strategies.Add(key, new ManagerCompendium());
                         break;
 
                     case XmlFileName.TeamDetails:
-                        this.strategies.Add(entity.FileName, new TeamDetails());
+                        this.strategies.Add(key, new TeamDetails());
                         break;
                 }
             }
 
-            result = this.strategies[entity.FileName];
+            result = this.strategies[key];
 
             return result;
         }

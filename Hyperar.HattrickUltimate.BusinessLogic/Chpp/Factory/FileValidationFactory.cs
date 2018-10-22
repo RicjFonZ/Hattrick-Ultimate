@@ -40,20 +40,23 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         {
             IFileValidationStrategy result = null;
 
-            if (!this.strategies.ContainsKey(entity.FileName.ToLower()))
+            string key = entity.FileName.ToLower();
+
+            if (!this.strategies.ContainsKey(key))
             {
-                switch (entity.FileName.ToLower())
+                switch (key)
                 {
                     case XmlFileName.Avatars:
                     case XmlFileName.ManagerCompendium:
                     case XmlFileName.TeamDetails:
                     case XmlFileName.WorldDetails:
+                    case XmlFileName.YouthPlayerList:
                     case XmlFileName.YouthTeamDetails:
-                        this.strategies.Add(entity.FileName, new Default());
+                        this.strategies.Add(key, new Default());
                         break;
 
                     case XmlFileName.Players:
-                        this.strategies.Add(entity.FileName, new Players());
+                        this.strategies.Add(key, new Players());
                         break;
 
                     default:
@@ -61,7 +64,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
                 }
             }
 
-            result = this.strategies[entity.FileName];
+            result = this.strategies[key];
 
             return result;
         }
