@@ -18,7 +18,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Migrations
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class.
+        /// Initializes a new instance of the <see cref="Configuration"/> class.
         /// </summary>
         public Configuration()
         {
@@ -36,14 +36,14 @@ namespace Hyperar.HattrickUltimate.DataAccess.Migrations
         /// <param name="context">Database context.</param>
         protected override void Seed(Database.DatabaseContext context)
         {
-            var sqlFiles = Directory.GetFiles(
+            string[] sqlFiles = Directory.GetFiles(
                                         Path.Combine(
                                                 AppDomain.CurrentDomain.BaseDirectory,
                                                 "Database",
                                                 "Scripts"),
                                         "*.sql");
 
-            foreach (var curSqlFile in sqlFiles)
+            foreach (string curSqlFile in sqlFiles)
             {
                 context.Database.ExecuteSqlCommand(
                                      File.ReadAllText(curSqlFile));

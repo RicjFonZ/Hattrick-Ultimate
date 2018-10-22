@@ -61,28 +61,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationObjects.cs" />
-    <Compile Include="Chpp\ChppFileProcesser.cs" />
+    <Compile Include="ChppFileTaskManager.cs" />
+    <Compile Include="ChppFileTaskProgressChangedEventArgs.cs" />
+    <Compile Include="Chpp\FileValidator.cs" />
+    <Compile Include="Chpp\FileAnalyser.cs" />
+    <Compile Include="Chpp\FileProcesser.cs" />
     <Compile Include="Chpp\Constants\ParameterName.cs" />
+    <Compile Include="Chpp\Factory\FileAnalysisFactory.cs" />
     <Compile Include="Chpp\Factory\FileProcessFactory.cs" />
+    <Compile Include="Chpp\Factory\FileValidationFactory.cs" />
+    <Compile Include="Chpp\Interface\IFileValidationFactory.cs" />
+    <Compile Include="Chpp\Interface\IFileValidationStrategy.cs" />
+    <Compile Include="Chpp\Interface\IFileAnalysisFactory.cs" />
+    <Compile Include="Chpp\Interface\IFileAnalysisStrategy.cs" />
     <Compile Include="Chpp\Interface\IFileProcessFactory.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Chpp\Interface\IFileProcessStrategy.cs" />
+    <Compile Include="Chpp\Strategy\FileAnalysis\TeamDetails.cs" />
+    <Compile Include="Chpp\Strategy\FileAnalysis\ManagerCompendium.cs" />
+    <Compile Include="Chpp\Strategy\FileAnalysis\Default.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\Avatars.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\Players.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\YouthTeamDetails.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\WorldDetails.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\TeamDetails.cs" />
+    <Compile Include="Chpp\Strategy\FileValidation\Players.cs" />
+    <Compile Include="Chpp\Strategy\FileValidation\Default.cs" />
     <Compile Include="Constants\OAuthScope.cs" />
     <Compile Include="Constants\SupporterTier.cs" />
-    <Compile Include="DownloadFile.cs" />
-    <Compile Include="DownloadFileCompletedEventArgs.cs" />
-    <Compile Include="DownloadManager.cs" />
-    <Compile Include="FileTaskProgressChangedEventArgs.cs" />
+    <Compile Include="ChppFile.cs" />
+    <Compile Include="Chpp\Enums\FileTaskState.cs" />
     <Compile Include="ExtensionMethods\OAuthScopeExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\SupporterTierExtensionMethods.cs" />
-    <Compile Include="FileProcessManager.cs" />
     <Compile Include="GridManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeniorPlayerManager.cs" />

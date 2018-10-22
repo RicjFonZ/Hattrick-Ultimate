@@ -16,7 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.TeamDetails
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NationalTeamCoach" /> class.
+        /// Initializes a new instance of the <see cref="NationalTeamCoach"/> class.
         /// </summary>
         public NationalTeamCoach()
         {

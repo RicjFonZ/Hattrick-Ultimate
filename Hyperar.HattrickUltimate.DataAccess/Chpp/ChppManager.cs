@@ -25,12 +25,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// <summary>
         /// Hattrick OAuth URL builder.
         /// </summary>
-        private ChppUrlBuilder chppUrlBuilder;
+        private readonly ChppUrlBuilder chppUrlBuilder;
 
         /// <summary>
         /// Hattrick XML file parser.
         /// </summary>
-        private ChppXmlParser chppXmlParser;
+        private readonly ChppXmlParser chppXmlParser;
 
         #endregion Private Fields
 
@@ -172,7 +172,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// <returns>IXmlEntity object with the Hattrick response.</returns>
         public IXmlEntity GetProtectedResource(BusinessObjects.App.Token accessToken, XmlFile file, params KeyValuePair<string, string>[] parameters)
         {
-            var url = this.chppUrlBuilder.GetUrlFor(file, parameters);
+            string url = this.chppUrlBuilder.GetUrlFor(file, parameters);
             var session = this.CreateOAuthSession(accessToken);
 
             return this.chppXmlParser.Parse(

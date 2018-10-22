@@ -94,9 +94,9 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewCellFormat
             }
             else
             {
-                Bitmap image = new Bitmap(21, 11, PixelFormat.Format32bppArgb);
+                var image = new Bitmap(21, 11, PixelFormat.Format32bppArgb);
 
-                Graphics graphics = Graphics.FromImage(image);
+                var graphics = Graphics.FromImage(image);
 
                 graphics.CompositingQuality = CompositingQuality.HighQuality;
                 graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;

@@ -41,7 +41,7 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewCellFormat
         /// <param name="cellFormattingEventArgs">Cell Formatting event arguments.</param>
         private void ApplyAgeFormat(DataGridViewCellFormattingEventArgs cellFormattingEventArgs)
         {
-            var parsedValue = (decimal)cellFormattingEventArgs.Value;
+            decimal parsedValue = (decimal)cellFormattingEventArgs.Value;
 
             int integralValue = (int)decimal.Truncate(parsedValue);
             int decimalValue = (int)((parsedValue - integralValue) * 1000);

@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.Controls
     using Interface;
 
     /// <summary>
-    /// Extends <see cref="DataGridViewTextBoxColumn" /> to show denominated values.
+    /// Extends <see cref="DataGridViewTextBoxColumn"/> to show denominated values.
     /// </summary>
     public class DataGridViewDenominatedValueColumn : DataGridViewTextBoxColumn, IDenominatedValueColumn
     {

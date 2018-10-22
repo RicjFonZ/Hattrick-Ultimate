@@ -25,7 +25,7 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewCellFormat
         /// <param name="cell">DataGridViewCell object.</param>
         public void ApplyFormat(DataGridViewCellFormattingEventArgs cellFormattingEventArgs, DataGridViewCell cell)
         {
-            ValueDisplayMode displayMode = ValueDisplayMode.ValueOnly;
+            var displayMode = ValueDisplayMode.ValueOnly;
             Dictionary<object, string> valueDenominationDictionary;
 
             if (cell.OwningColumn is DataGridViewDenominatedValueColumn)

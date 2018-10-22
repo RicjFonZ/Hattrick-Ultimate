@@ -17,7 +17,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GridLayout" /> class.
+        /// Initializes a new instance of the <see cref="GridLayout"/> class.
         /// </summary>
         internal GridLayout()
         {

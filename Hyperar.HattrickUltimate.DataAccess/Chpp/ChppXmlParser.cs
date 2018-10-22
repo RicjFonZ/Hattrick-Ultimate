@@ -23,12 +23,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// <summary>
         /// Hattrick Entity factory.
         /// </summary>
-        private EntityFactory entityFactory;
+        private readonly EntityFactory entityFactory;
 
         /// <summary>
         /// Hattrick XML Parser factory.
         /// </summary>
-        private XmlParserFactory parserFactory;
+        private readonly XmlParserFactory parserFactory;
 
         #endregion Private Fields
 

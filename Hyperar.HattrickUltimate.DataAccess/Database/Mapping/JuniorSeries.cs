@@ -17,7 +17,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JuniorSeries" /> class.
+        /// Initializes a new instance of the <see cref="JuniorSeries"/> class.
         /// </summary>
         internal JuniorSeries()
         {

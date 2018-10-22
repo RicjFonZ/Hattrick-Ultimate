@@ -144,7 +144,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             try
             {
-                Process process = new Process
+                var process = new Process
                 {
                     StartInfo = new ProcessStartInfo
                     {
@@ -231,7 +231,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             try
             {
-                Process process = new Process
+                var process = new Process
                 {
                     StartInfo = new ProcessStartInfo
                     {

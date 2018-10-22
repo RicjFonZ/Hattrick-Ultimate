@@ -32,7 +32,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.ExtensionMethods
             // Having a valid token means at least having Read access, thus it's always ON.
             OAuthScope result = OAuthScope.Read;
 
-            foreach (var value in values)
+            foreach (string value in values)
             {
                 switch (value)
                 {

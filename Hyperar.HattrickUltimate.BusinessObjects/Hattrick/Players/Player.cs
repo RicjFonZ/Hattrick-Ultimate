@@ -7,7 +7,7 @@
 namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
 {
     /// <summary>
-    /// Player node within WorldDetails XML file.
+    /// Player node within Players XML file.
     /// </summary>
     public class Player
     {
@@ -47,8 +47,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// Gets or sets the number of bookings.
         /// </summary>
         /// <remarks>
-        /// One yellow card: 1.
-        /// Two yellow cards: 2.
+        /// One yellow card: 1. Two yellow cards: 2.
         /// Suspended: 3. Two bookings on the same game or by accumulation of 3 yellow cards.
         /// </remarks>
         public byte Cards { get; set; }
@@ -76,9 +75,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Defender skill level.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned or transferlisted players.
-        /// </remarks>
+        /// <remarks>Only available for owned or transferlisted players.</remarks>
         public byte? DefenderSkill { get; set; }
 
         /// <summary>
@@ -107,24 +104,20 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <remarks>
         /// Healthy: -1.
         /// Bruised: 0.
-        /// Injured: > 0.
+        /// Injured: &gt; 0.
         /// </remarks>
         public sbyte InjuryLevel { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the player is foreign or not.
         /// </summary>
-        /// <remarks>
-        /// The value is a binary in the Xml file.
-        /// </remarks>
+        /// <remarks>The value is a binary in the Xml file.</remarks>
         public bool IsAbroad { get; set; }
 
         /// <summary>
         /// Gets or sets the Keeper skill level.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned or transferlisted players.
-        /// </remarks>
+        /// <remarks>Only available for owned or transferlisted players.</remarks>
         public byte? KeeperSkill { get; set; }
 
         /// <summary>
@@ -170,17 +163,13 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Passing skill level.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned or transferlisted players.
-        /// </remarks>
+        /// <remarks>Only available for owned or transferlisted players.</remarks>
         public byte? PassingSkill { get; set; }
 
         /// <summary>
         /// Gets or sets the Player category.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned players.
-        /// </remarks>
+        /// <remarks>Only available for owned players.</remarks>
         public byte? PlayerCategoryId { get; set; }
 
         /// <summary>
@@ -196,41 +185,31 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Player Number.
         /// </summary>
-        /// <remarks>
-        /// A value of 100 means no number for the player.
-        /// </remarks>
+        /// <remarks>A value of 100 means no number for the player.</remarks>
         public byte PlayerNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the Playmaker skill level.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned or transferlisted players.
-        /// </remarks>
+        /// <remarks>Only available for owned or transferlisted players.</remarks>
         public byte? PlaymakerSkill { get; set; }
 
         /// <summary>
         /// Gets or sets the Salary.
         /// </summary>
-        /// <remarks>
-        /// The value is given in Swedish Kroner (kr).
-        /// </remarks>
+        /// <remarks>The value is given in Swedish Kroner (kr).</remarks>
         public long Salary { get; set; }
 
         /// <summary>
         /// Gets or sets the Scorer skill level.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned or transferlisted players.
-        /// </remarks>
+        /// <remarks>Only available for owned or transferlisted players.</remarks>
         public byte? ScorerSkill { get; set; }
 
         /// <summary>
         /// Gets or sets the Set Pieces skill level.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned or transferlisted players.
-        /// </remarks>
+        /// <remarks>Only available for owned or transferlisted players.</remarks>
         public byte? SetPiecesSkill { get; set; }
 
         /// <summary>
@@ -266,9 +245,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Winger skill level.
         /// </summary>
-        /// <remarks>
-        /// Only available for owned or transferlisted players.
-        /// </remarks>
+        /// <remarks>Only available for owned or transferlisted players.</remarks>
         public byte? WingerSkill { get; set; }
 
         #endregion Public Properties

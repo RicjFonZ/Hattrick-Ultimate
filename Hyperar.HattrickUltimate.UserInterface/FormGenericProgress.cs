@@ -18,7 +18,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormGenericProgress" /> class.
+        /// Initializes a new instance of the <see cref="FormGenericProgress"/> class.
         /// </summary>
         public FormGenericProgress()
         {

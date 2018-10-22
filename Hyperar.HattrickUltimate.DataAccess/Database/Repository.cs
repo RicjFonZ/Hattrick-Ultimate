@@ -24,12 +24,12 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Query strategy.
         /// </summary>
-        private IQueryStrategy<TEntity> queryStrategy;
+        private readonly IQueryStrategy<TEntity> queryStrategy;
 
         #endregion Private Fields
 

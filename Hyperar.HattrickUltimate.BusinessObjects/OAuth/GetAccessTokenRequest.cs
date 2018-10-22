@@ -33,7 +33,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.OAuth
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetAccessTokenRequest" /> class.
+        /// Initializes a new instance of the <see cref="GetAccessTokenRequest"/> class.
         /// </summary>
         /// <param name="verificationCode">Verification code.</param>
         /// <param name="token">Request token.</param>

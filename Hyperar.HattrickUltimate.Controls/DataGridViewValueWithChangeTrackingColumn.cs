@@ -11,7 +11,7 @@ namespace Hyperar.HattrickUltimate.Controls
     using Interface;
 
     /// <summary>
-    /// Extends <see cref="DataGridViewTextBoxColumn" /> to reflect value changes.
+    /// Extends <see cref="DataGridViewTextBoxColumn"/> to reflect value changes.
     /// </summary>
     public class DataGridViewValueWithChangeTrackingColumn : DataGridViewTextBoxColumn, IValueWithChangeTrackingColumn
     {

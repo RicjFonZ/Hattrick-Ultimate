@@ -17,7 +17,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
         #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="User" /> class.
+        /// Initializes a new instance of the <see cref="User"/> class.
         /// </summary>
         internal User()
         {

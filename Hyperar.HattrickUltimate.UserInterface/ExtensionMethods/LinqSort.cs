@@ -67,7 +67,8 @@ namespace Hyperar.HattrickUltimate.UserInterface.ExtensionMethods
         }
 
         /// <summary>
-        /// Performs a subsequent sort of the elements of a sequence in ascending order by the specified property.
+        /// Performs a subsequent sort of the elements of a sequence in ascending order by the
+        /// specified property.
         /// </summary>
         /// <typeparam name="T">The type of elements in the IQueryable object.</typeparam>
         /// <param name="source">Source collection.</param>
@@ -79,7 +80,8 @@ namespace Hyperar.HattrickUltimate.UserInterface.ExtensionMethods
         }
 
         /// <summary>
-        /// Performs a subsequent sort of the elements of a sequence in descending order by the specified property.
+        /// Performs a subsequent sort of the elements of a sequence in descending order by the
+        /// specified property.
         /// </summary>
         /// <typeparam name="T">The type of elements in the IQueryable object.</typeparam>
         /// <param name="source">Source collection.</param>
@@ -105,20 +107,20 @@ namespace Hyperar.HattrickUltimate.UserInterface.ExtensionMethods
         private static IOrderedQueryable<T> ApplyOrder<T>(IQueryable<T> source, string property, string methodName)
         {
             string[] props = property.Split('.');
-            Type type = typeof(T);
-            ParameterExpression arg = Expression.Parameter(type, "x");
+            var type = typeof(T);
+            var arg = Expression.Parameter(type, "x");
             Expression expr = arg;
             foreach (string prop in props)
             {
                 // use reflection (not ComponentModel) to mirror LINQ
-                PropertyInfo pi = type.GetProperty(prop);
+                var pi = type.GetProperty(prop);
                 expr = Expression.Property(expr, pi);
                 type = pi.PropertyType;
             }
 
-            Type delegateType = typeof(Func<,>).MakeGenericType(typeof(T), type);
+            var delegateType = typeof(Func<,>).MakeGenericType(typeof(T), type);
 
-            LambdaExpression lambda = Expression.Lambda(delegateType, expr, arg);
+            var lambda = Expression.Lambda(delegateType, expr, arg);
 
             object result = typeof(Queryable).GetMethods()
                                              .Single(method => method.Name == methodName

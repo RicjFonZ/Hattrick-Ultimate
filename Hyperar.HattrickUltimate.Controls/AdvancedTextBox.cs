@@ -61,7 +61,8 @@ namespace Hyperar.HattrickUltimate.Controls
         public bool ShowPlaceholder { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the placeholder will remain when the control gains focus or not.
+        /// Gets or sets a value indicating whether the placeholder will remain when the control
+        /// gains focus or not.
         /// </summary>
         [Category("Appearance"),
          Description("Indicates whether the placeholder will be shown when the control gains focus."),
@@ -113,7 +114,7 @@ namespace Hyperar.HattrickUltimate.Controls
 
                 if (result.ToInt32() != 1)
                 {
-                    var errorCode = NativeMethods.GetLastError();
+                    uint errorCode = NativeMethods.GetLastError();
 
                     throw new Exception($"Send message was unsuccesful. Error code: {errorCode}.");
                 }
@@ -164,11 +165,16 @@ namespace Hyperar.HattrickUltimate.Controls
             /// <summary>
             /// Sends a message to a control.
             /// </summary>
-            /// <param name="hWnd">A handle to the window whose window procedure will receive the message.</param>
+            /// <param name="hWnd">
+            /// A handle to the window whose window procedure will receive the message.
+            /// </param>
             /// <param name="msg">The message to be sent.</param>
             /// <param name="wParam">First additional message-specific information.</param>
             /// <param name="lParam">Second additional message-specific information.</param>
-            /// <returns>The return value specifies the result of the message processing; it depends on the message sent.</returns>
+            /// <returns>
+            /// The return value specifies the result of the message processing; it depends on the
+            /// message sent.
+            /// </returns>
             [DllImport(UserLibrary, CharSet = CharSet.Unicode)]
             internal static extern IntPtr SendMessage(IntPtr hWnd, uint msg, IntPtr wParam, [MarshalAs(UnmanagedType.LPWStr)]string lParam);
 

@@ -30,7 +30,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorldDetails" /> class.
+        /// Initializes a new instance of the <see cref="WorldDetails"/> class.
         /// </summary>
         public WorldDetails()
         {

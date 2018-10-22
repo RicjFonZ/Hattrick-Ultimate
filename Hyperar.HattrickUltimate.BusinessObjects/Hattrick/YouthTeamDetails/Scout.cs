@@ -33,9 +33,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthTeamDetails
         /// <summary>
         /// Gets or sets the ID of the associated Hall Of Fame Player.
         /// </summary>
-        /// <remarks>
-        /// 0 if None.
-        /// </remarks>
+        /// <remarks>0 if None.</remarks>
         public long HofPlayerId { get; set; }
 
         /// <summary>
@@ -57,13 +55,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthTeamDetails
         /// Gets or sets the type of Player the Scout is searching for.
         /// </summary>
         /// <remarks>
-        /// Any = 0.
-        /// Keeper = 1.
-        /// Defender = 2.
-        /// Wingback = 3.
-        /// Midfielder = 4.
-        /// Winger = 5.
-        /// Forward = 6.
+        /// Any = 0. Keeper = 1. Defender = 2. Wingback = 3. Midfielder = 4. Winger = 5. Forward = 6.
         /// </remarks>
         public byte PlayerSearchType { get; set; }
 

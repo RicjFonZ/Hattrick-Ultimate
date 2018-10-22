@@ -12,7 +12,7 @@ namespace Hyperar.HattrickUltimate.Controls
     using Interface;
 
     /// <summary>
-    /// Extends <see cref="DataGridViewTextBoxColumn" /> to reflect value changes and denominated values.
+    /// Extends <see cref="DataGridViewTextBoxColumn"/> to reflect value changes and denominated values.
     /// </summary>
     public class DataGridViewDenominatedValueWithChangeTrackingColumn : DataGridViewTextBoxColumn, IDenominatedValueColumn, IValueWithChangeTrackingColumn
     {
@@ -22,11 +22,6 @@ namespace Hyperar.HattrickUltimate.Controls
         public override DataGridViewCell CellTemplate { get; set; } = new DataGridViewDenominatedValueWithChangeTrackingCell();
 
         #region Public Properties
-
-        /// <summary>
-        /// Gets or sets the Value Denomination Dictionary.
-        /// </summary>
-        public Dictionary<object, string> ValueDenominationDictionary { get; set; }
 
         /// <summary>
         /// Gets or sets the Value Display Mode.
@@ -47,6 +42,11 @@ namespace Hyperar.HattrickUltimate.Controls
         /// Gets or sets the name of the value change bound property.
         /// </summary>
         public string ValueChangeTrackingPropertyName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Value Denomination Dictionary.
+        /// </summary>
+        public Dictionary<object, string> ValueDenominationDictionary { get; set; }
     }
 
     #endregion Public Properties

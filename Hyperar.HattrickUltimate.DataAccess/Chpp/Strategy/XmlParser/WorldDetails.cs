@@ -135,7 +135,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
             newCup.CupLevel = byte.Parse(reader.ReadElementContentAsString());
             newCup.CupLevelIndex = byte.Parse(reader.ReadElementContentAsString());
 
-            // Hack due to a CHPP error which returns -1 as MatchRound for Hattrick International cups under specific situations.
+            // Hack due to a CHPP error which returns -1 as MatchRound for Hattrick International
+            // cups under specific situations.
             byte aux = 0;
 
             if (byte.TryParse(reader.ReadElementContentAsString(), out aux))

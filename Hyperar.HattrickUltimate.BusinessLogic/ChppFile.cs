@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="DownloadFile.cs" company="Hyperar">
+// <copyright file="ChppFile.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -12,33 +12,19 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// <summary>
     /// Download file task definition.
     /// </summary>
-    public class DownloadFile
+    public class ChppFile
     {
-        #region Private Fields
-
-        /// <summary>
-        /// Xml file to download.
-        /// </summary>
-        private readonly XmlFile file;
-
-        /// <summary>
-        /// Parameter list.
-        /// </summary>
-        private readonly Dictionary<string, string> parameters;
-
-        #endregion Private Fields
-
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DownloadFile" /> class.
+        /// Initializes a new instance of the <see cref="ChppFile"/> class.
         /// </summary>
         /// <param name="file">Xml file to download.</param>
         /// <param name="parameters">Parameter list.</param>
-        public DownloadFile(XmlFile file, Dictionary<string, string> parameters = null)
+        public ChppFile(XmlFile file, Dictionary<string, string> parameters = null)
         {
-            this.file = file;
-            this.parameters = parameters;
+            this.File = file;
+            this.Parameters = parameters;
         }
 
         #endregion Public Constructors
@@ -48,24 +34,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Gets the Xml file to download.
         /// </summary>
-        public XmlFile File
-        {
-            get
-            {
-                return this.file;
-            }
-        }
+        public XmlFile File { get; }
 
         /// <summary>
         /// Gets the parameter list.
         /// </summary>
-        public Dictionary<string, string> Parameters
-        {
-            get
-            {
-                return this.parameters;
-            }
-        }
+        public Dictionary<string, string> Parameters { get; }
 
         #endregion Public Properties
     }

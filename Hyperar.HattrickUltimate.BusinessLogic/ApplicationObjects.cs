@@ -61,7 +61,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         public static void Finish()
         {
+#if DEBUG
             Container.Verify(VerificationOption.VerifyAndDiagnose);
+#else
+            Container.Verify(VerificationOption.VerifyOnly);
+#endif
         }
 
         /// <summary>
@@ -100,17 +104,24 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         private static void RegisterBusinessObjectsManagers()
         {
             // FileProcess Registrations.
+            Container.Register<Chpp.Interface.IFileAnalysisFactory, Chpp.Factory.FileAnalysisFactory>(Lifestyle.Transient);
+            Container.Register<Chpp.FileAnalyser>(Lifestyle.Transient);
+
             Container.Register<Chpp.Interface.IFileProcessFactory, Chpp.Factory.FileProcessFactory>(Lifestyle.Transient);
-            Container.Register<Chpp.ChppFileProcesser>(Lifestyle.Transient);
+            Container.Register<Chpp.FileProcesser>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.ManagerCompendium>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.Players>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.TeamDetails>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.WorldDetails>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileProcess.YouthTeamDetails>(Lifestyle.Transient);
 
+            Container.Register<Chpp.Interface.IFileValidationFactory, Chpp.Factory.FileValidationFactory>(Lifestyle.Transient);
+            Container.Register<Chpp.FileValidator>(Lifestyle.Transient);
+            Container.Register<Chpp.Strategy.FileValidation.Default>(Lifestyle.Transient);
+            Container.Register<Chpp.Strategy.FileValidation.Players>(Lifestyle.Transient);
+
             // Business Object Mangers.
-            Container.Register<DownloadManager>(Lifestyle.Transient);
-            Container.Register<FileProcessManager>(Lifestyle.Transient);
+            Container.Register<ChppFileTaskManager>(Lifestyle.Transient);
             Container.Register<GridManager>(Lifestyle.Transient);
             Container.Register<SeniorPlayerManager>(Lifestyle.Transient);
             Container.Register<TokenManager>(Lifestyle.Transient);

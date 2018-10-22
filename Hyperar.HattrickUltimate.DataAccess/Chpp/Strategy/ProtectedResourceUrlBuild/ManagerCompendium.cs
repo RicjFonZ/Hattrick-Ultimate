@@ -30,7 +30,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ManagerCompendium" /> class.
+        /// Initializes a new instance of the <see cref="ManagerCompendium"/> class.
         /// </summary>
         public ManagerCompendium()
         {

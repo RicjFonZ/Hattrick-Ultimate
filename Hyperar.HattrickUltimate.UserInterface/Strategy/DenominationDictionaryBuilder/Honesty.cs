@@ -22,9 +22,9 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DenominationDictionary
         /// <returns>Dictionary with the denomination values.</returns>
         public Dictionary<object, string> BuildDictionary()
         {
-            var values = Localization.Denominations.HonestyLevel.Split(',');
+            string[] values = Localization.Denominations.HonestyLevel.Split(',');
 
-            Dictionary<object, string> denominations = new Dictionary<object, string>();
+            var denominations = new Dictionary<object, string>();
 
             for (int i = 0; i < values.Length; i++)
             {

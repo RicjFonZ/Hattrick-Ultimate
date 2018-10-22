@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthTeamDetails
 {
-    using Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Interface;
+    using BusinessObjects.Hattrick.Interface;
 
     /// <summary>
     /// YouthTeamDetails XML file root.

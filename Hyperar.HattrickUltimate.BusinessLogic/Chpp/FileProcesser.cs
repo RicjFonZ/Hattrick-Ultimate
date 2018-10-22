@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ChppFileProcesser.cs" company="Hyperar">
+// <copyright file="FileProcesser.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
@@ -12,24 +12,24 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
     /// <summary>
     /// Provides functionality to process CHPP files.
     /// </summary>
-    public class ChppFileProcesser : IFileProcessStrategy
+    public class FileProcesser : IFileProcessStrategy
     {
         #region Private Fields
 
         /// <summary>
         /// File Process Factory.
         /// </summary>
-        private IFileProcessFactory fileProcessFactory;
+        private readonly IFileProcessFactory fileProcessFactory;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChppFileProcesser" /> class.
+        /// Initializes a new instance of the <see cref="FileProcesser"/> class.
         /// </summary>
         /// <param name="fileProcessFactory">File Process Factory.</param>
-        public ChppFileProcesser(IFileProcessFactory fileProcessFactory)
+        public FileProcesser(IFileProcessFactory fileProcessFactory)
         {
             this.fileProcessFactory = fileProcessFactory;
         }

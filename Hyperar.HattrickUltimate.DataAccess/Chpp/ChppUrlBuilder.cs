@@ -21,19 +21,19 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
         /// <summary>
         /// URL building strategy collection.
         /// </summary>
-        private Dictionary<XmlFile, IProtectedResourceUrlBuildStrategy> strategies;
+        private readonly Dictionary<XmlFile, IProtectedResourceUrlBuildStrategy> strategies;
 
         /// <summary>
         /// URL building strategy factory.
         /// </summary>
-        private Factory.ProtectedResourceUrlBuildFactory urlBuilderFactory;
+        private readonly Factory.ProtectedResourceUrlBuildFactory urlBuilderFactory;
 
         #endregion Private Fields
 
         #region Internal Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChppUrlBuilder" /> class.
+        /// Initializes a new instance of the <see cref="ChppUrlBuilder"/> class.
         /// </summary>
         internal ChppUrlBuilder()
         {
@@ -92,6 +92,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
                         new KeyValuePair<string, string>(Constants.QueryStringParameterName.File, Constants.QueryStringParameterValue.File.Avatars),
                         new KeyValuePair<string, string>(Constants.QueryStringParameterName.Version, Constants.QueryStringParameterValue.Version.Avatars)
                     };
+
+                case XmlFile.CheckToken:
+                    return new KeyValuePair<string, string>[] { };
 
                 case XmlFile.ManagerCompendium:
                     return new KeyValuePair<string, string>[]

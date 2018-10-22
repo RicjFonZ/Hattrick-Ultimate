@@ -7,8 +7,8 @@
 namespace Hyperar.HattrickUltimate.BusinessLogic
 {
     using System.Linq;
+    using BusinessObjects.App.Enums;
     using DataAccess.Database.Interface;
-    using Hyperar.HattrickUltimate.BusinessObjects.App.Enums;
 
     /// <summary>
     /// Grid objects business processes.
@@ -20,24 +20,24 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Grid Layout Column Repository.
         /// </summary>
-        private IRepository<BusinessObjects.App.GridLayoutColumn> gridLayoutColumnRepository;
+        private readonly IRepository<BusinessObjects.App.GridLayoutColumn> gridLayoutColumnRepository;
 
         /// <summary>
         /// Grid Layout Repository.
         /// </summary>
-        private IRepository<BusinessObjects.App.GridLayout> gridLayoutRepository;
+        private readonly IRepository<BusinessObjects.App.GridLayout> gridLayoutRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GridManager" /> class.
+        /// Initializes a new instance of the <see cref="GridManager"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="gridLayoutRepository">Grid Layout Repository.</param>

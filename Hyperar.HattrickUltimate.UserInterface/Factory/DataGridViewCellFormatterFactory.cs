@@ -22,14 +22,14 @@ namespace Hyperar.HattrickUltimate.UserInterface.Factory
         /// <summary>
         /// DataGridViewCellFormatterStrategy dictionary.
         /// </summary>
-        private Dictionary<Type, IDataGridViewCellFormatterStrategy> strategyDictionary;
+        private readonly Dictionary<Type, IDataGridViewCellFormatterStrategy> strategyDictionary;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridViewCellFormatterFactory" /> class.
+        /// Initializes a new instance of the <see cref="DataGridViewCellFormatterFactory"/> class.
         /// </summary>
         public DataGridViewCellFormatterFactory()
         {

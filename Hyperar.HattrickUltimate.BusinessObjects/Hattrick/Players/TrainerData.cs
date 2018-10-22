@@ -7,7 +7,7 @@
 namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
 {
     /// <summary>
-    /// TrainerData node within WorldDetails XML file.
+    /// TrainerData node within Players XML file.
     /// </summary>
     public class TrainerData
     {
@@ -21,11 +21,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets the Trainer type.
         /// </summary>
-        /// <remarks>
-        /// Defensive = 0.
-        /// Offensive = 1.
-        /// Balanced = 2.
-        /// </remarks>
+        /// <remarks>Defensive = 0. Offensive = 1. Balanced = 2.</remarks>
         public byte TrainerType { get; set; }
 
         #endregion Public Properties

@@ -9,7 +9,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
     using System;
 
     /// <summary>
-    /// LastMatch node within WorldDetails XML file.
+    /// LastMatch node within Players XML file.
     /// </summary>
     public class LastMatch
     {

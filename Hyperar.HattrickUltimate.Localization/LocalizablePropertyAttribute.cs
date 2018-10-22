@@ -17,7 +17,7 @@ namespace Hyperar.HattrickUltimate.Localization
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalizablePropertyAttribute" /> class.
+        /// Initializes a new instance of the <see cref="LocalizablePropertyAttribute"/> class.
         /// </summary>
         /// <param name="categoryResourceName">Category Resource Type Name.</param>
         /// <param name="displaynameResourceName">Display Name Resource Type Name.</param>

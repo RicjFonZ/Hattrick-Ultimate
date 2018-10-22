@@ -28,10 +28,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthTeamDetails
         /// <summary>
         /// Gets or sets the type of the travel.
         /// </summary>
-        /// <remarks>
-        /// Plane = 1.
-        /// Car = 2.
-        /// </remarks>
+        /// <remarks>Plane = 1. Car = 2.</remarks>
         public byte TravelType { get; set; }
 
         #endregion Public Properties

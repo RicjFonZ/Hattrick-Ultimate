@@ -7,7 +7,7 @@
 namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuilder
 {
     using System.Windows.Forms;
-    using Hyperar.HattrickUltimate.BusinessObjects.App;
+    using BusinessObjects.App;
     using Interface;
 
     /// <summary>

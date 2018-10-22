@@ -19,8 +19,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string AccessToken = "https://chpp.hattrick.org/oauth/access_token.ashx";
 
         /// <summary>
-        /// Authenticate URL.
-        /// <remarks>Temporary token URL, should be used for testing purposes only.</remarks>
+        /// Authenticate URL. <remarks>Temporary token URL, should be used for testing purposes only.</remarks>
         /// </summary>
         internal const string Authenticate = "https://chpp.hattrick.org/oauth/authenticate.aspx";
 

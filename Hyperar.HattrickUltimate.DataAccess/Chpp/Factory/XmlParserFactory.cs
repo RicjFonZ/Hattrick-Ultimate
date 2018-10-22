@@ -22,7 +22,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
         /// <summary>
         /// Parser dictionary.
         /// </summary>
-        private Dictionary<string, IXmlParserStrategy> parserDictionary;
+        private readonly Dictionary<string, IXmlParserStrategy> parserDictionary;
 
         #endregion Private Fields
 

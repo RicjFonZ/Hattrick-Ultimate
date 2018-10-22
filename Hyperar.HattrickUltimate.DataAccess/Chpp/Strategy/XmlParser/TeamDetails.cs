@@ -597,7 +597,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
 
             var newPressAnnouncement = new BusinessObjects.Hattrick.TeamDetails.PressAnnouncement();
 
-            // Hattrick sends two different PressAnnouncement nodes, one where the SendDate is in the bottom and another on the top.
+            // Hattrick sends two different PressAnnouncement nodes, one where the SendDate is in the
+            // bottom and another on the top.
             if (reader.Name.Equals(XmlTag.Subject, StringComparison.OrdinalIgnoreCase))
             {
                 newPressAnnouncement.Subject = reader.ReadElementContentAsString();
@@ -924,7 +925,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                 }
             }
 
-            // Skips TrophyList closing node, this is outside the if because the tag is always present, but it can be empty.
+            // Skips TrophyList closing node, this is outside the if because the tag is always
+            // present, but it can be empty.
             reader.Read();
 
             if (reader.Name.Equals(XmlTag.SupportedTeams, StringComparison.OrdinalIgnoreCase))
@@ -1059,7 +1061,8 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
                 }
             }
 
-            // Skips NationalTeamCoach closing tag. This is outside the if because the tag is always present but it can be empty.
+            // Skips NationalTeamCoach closing tag. This is outside the if because the tag is always
+            // present but it can be empty.
             reader.Read();
 
             // Skips User closing node.

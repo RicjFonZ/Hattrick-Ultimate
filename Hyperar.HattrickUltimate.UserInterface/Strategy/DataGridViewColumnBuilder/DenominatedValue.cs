@@ -21,16 +21,18 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuil
         /// <summary>
         /// DenominationDictionaryBuilderFactory factory.
         /// </summary>
-        private IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory;
+        private readonly IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DenominatedValue" /> class.
+        /// Initializes a new instance of the <see cref="DenominatedValue"/> class.
         /// </summary>
-        /// <param name="denominationDictionaryBuilderFactory">DenominationDictionaryBuilderFactory factory.</param>
+        /// <param name="denominationDictionaryBuilderFactory">
+        /// DenominationDictionaryBuilderFactory factory.
+        /// </param>
         public DenominatedValue(IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory)
         {
             this.denominationDictionaryBuilderFactory = denominationDictionaryBuilderFactory;

@@ -19,7 +19,7 @@ namespace Hyperar.HattrickUltimate.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Messages {
@@ -61,7 +61,8 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error has occurred while attempting to perform the required action.\r\nError message: {0}.
+        ///   Looks up a localized string similar to An error has occurred while attempting to perform the required action.
+        ///Error message: {0}.
         /// </summary>
         public static string AnErrorHasOccurred {
             get {
@@ -115,7 +116,8 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hattrick Ultimate is able to access your account data.\r\nSince: {0} - Until: {1}..
+        ///   Looks up a localized string similar to Hattrick Ultimate is able to access your account data.
+        ///Since: {0} - Until: {1}..
         /// </summary>
         public static string CheckToken {
             get {
@@ -309,6 +311,15 @@ namespace Hyperar.HattrickUltimate.Localization {
         public static string TaskStarting {
             get {
                 return ResourceManager.GetString("TaskStarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download cannot continue. At least one of your teams is playing a match..
+        /// </summary>
+        public static string TeamIsPlayingMatch {
+            get {
+                return ResourceManager.GetString("TeamIsPlayingMatch", resourceCulture);
             }
         }
         

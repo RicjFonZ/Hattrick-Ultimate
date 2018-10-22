@@ -19,24 +19,24 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Provides functionality to interact with Hattrick.
         /// </summary>
-        private DataAccess.Chpp.ChppManager chppManager;
+        private readonly DataAccess.Chpp.ChppManager chppManager;
 
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// User repository.
         /// </summary>
-        private IRepository<BusinessObjects.App.User> userRepository;
+        private readonly IRepository<BusinessObjects.App.User> userRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserManager" /> class.
+        /// Initializes a new instance of the <see cref="UserManager"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="userRepository">User repository.</param>

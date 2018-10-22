@@ -35,6 +35,15 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnDownload = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.ChkBoxCloseOnSuccessfulDownload = new System.Windows.Forms.CheckBox();
+            this.PgrBarProcess = new System.Windows.Forms.ProgressBar();
+            this.PgrBarCurrentTask = new System.Windows.Forms.ProgressBar();
+            this.LblCurrentFile = new System.Windows.Forms.Label();
+            this.LblFile = new System.Windows.Forms.Label();
+            this.LblCurrentTask = new System.Windows.Forms.Label();
+            this.LblTask = new System.Windows.Forms.Label();
+            this.LblOverallProgress = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PropGridDownloadSettings
@@ -45,7 +54,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.PropGridDownloadSettings.LineColor = System.Drawing.SystemColors.ControlDark;
             this.PropGridDownloadSettings.Location = new System.Drawing.Point(12, 12);
             this.PropGridDownloadSettings.Name = "PropGridDownloadSettings";
-            this.PropGridDownloadSettings.Size = new System.Drawing.Size(460, 349);
+            this.PropGridDownloadSettings.Size = new System.Drawing.Size(460, 260);
             this.PropGridDownloadSettings.TabIndex = 0;
             // 
             // BtnCancel
@@ -96,22 +105,138 @@ namespace Hyperar.HattrickUltimate.UserInterface
             // 
             // ChkBoxCloseOnSuccessfulDownload
             // 
-            this.ChkBoxCloseOnSuccessfulDownload.AutoSize = true;
+            this.ChkBoxCloseOnSuccessfulDownload.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkBoxCloseOnSuccessfulDownload.Checked = true;
             this.ChkBoxCloseOnSuccessfulDownload.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkBoxCloseOnSuccessfulDownload.Location = new System.Drawing.Point(118, 367);
             this.ChkBoxCloseOnSuccessfulDownload.MinimumSize = new System.Drawing.Size(80, 32);
             this.ChkBoxCloseOnSuccessfulDownload.Name = "ChkBoxCloseOnSuccessfulDownload";
-            this.ChkBoxCloseOnSuccessfulDownload.Size = new System.Drawing.Size(203, 32);
+            this.ChkBoxCloseOnSuccessfulDownload.Size = new System.Drawing.Size(248, 32);
             this.ChkBoxCloseOnSuccessfulDownload.TabIndex = 4;
             this.ChkBoxCloseOnSuccessfulDownload.Text = "ChkBoxCloseOnSuccessfulDownload";
             this.ChkBoxCloseOnSuccessfulDownload.UseVisualStyleBackColor = true;
+            // 
+            // PgrBarProcess
+            // 
+            this.PgrBarProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.PgrBarProcess, 4);
+            this.PgrBarProcess.Location = new System.Drawing.Point(0, 66);
+            this.PgrBarProcess.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.PgrBarProcess.Name = "PgrBarProcess";
+            this.PgrBarProcess.Size = new System.Drawing.Size(460, 17);
+            this.PgrBarProcess.TabIndex = 5;
+            // 
+            // PgrBarCurrentTask
+            // 
+            this.PgrBarCurrentTask.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.PgrBarCurrentTask, 4);
+            this.PgrBarCurrentTask.Location = new System.Drawing.Point(0, 23);
+            this.PgrBarCurrentTask.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.PgrBarCurrentTask.Name = "PgrBarCurrentTask";
+            this.PgrBarCurrentTask.Size = new System.Drawing.Size(460, 17);
+            this.PgrBarCurrentTask.TabIndex = 6;
+            // 
+            // LblCurrentFile
+            // 
+            this.LblCurrentFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblCurrentFile.Location = new System.Drawing.Point(0, 0);
+            this.LblCurrentFile.Margin = new System.Windows.Forms.Padding(0);
+            this.LblCurrentFile.Name = "LblCurrentFile";
+            this.LblCurrentFile.Size = new System.Drawing.Size(100, 20);
+            this.LblCurrentFile.TabIndex = 7;
+            this.LblCurrentFile.Text = "LblCurrentFile";
+            this.LblCurrentFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblFile
+            // 
+            this.LblFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblFile.Location = new System.Drawing.Point(100, 0);
+            this.LblFile.Margin = new System.Windows.Forms.Padding(0);
+            this.LblFile.Name = "LblFile";
+            this.LblFile.Size = new System.Drawing.Size(130, 20);
+            this.LblFile.TabIndex = 8;
+            this.LblFile.Text = "LblFile";
+            this.LblFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblCurrentTask
+            // 
+            this.LblCurrentTask.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblCurrentTask.Location = new System.Drawing.Point(230, 0);
+            this.LblCurrentTask.Margin = new System.Windows.Forms.Padding(0);
+            this.LblCurrentTask.Name = "LblCurrentTask";
+            this.LblCurrentTask.Size = new System.Drawing.Size(100, 20);
+            this.LblCurrentTask.TabIndex = 9;
+            this.LblCurrentTask.Text = "LblCurrentTask";
+            this.LblCurrentTask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblTask
+            // 
+            this.LblTask.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTask.Location = new System.Drawing.Point(330, 0);
+            this.LblTask.Margin = new System.Windows.Forms.Padding(0);
+            this.LblTask.Name = "LblTask";
+            this.LblTask.Size = new System.Drawing.Size(130, 20);
+            this.LblTask.TabIndex = 10;
+            this.LblTask.Text = "LblTask";
+            this.LblTask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblOverallProgress
+            // 
+            this.LblOverallProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.LblOverallProgress, 2);
+            this.LblOverallProgress.Location = new System.Drawing.Point(0, 43);
+            this.LblOverallProgress.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.LblOverallProgress.Name = "LblOverallProgress";
+            this.LblOverallProgress.Size = new System.Drawing.Size(230, 20);
+            this.LblOverallProgress.TabIndex = 11;
+            this.LblOverallProgress.Text = "LblOverallProgress";
+            this.LblOverallProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.LblTask, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PgrBarProcess, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.LblOverallProgress, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.LblCurrentTask, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PgrBarCurrentTask, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.LblCurrentFile, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.LblFile, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 278);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(460, 83);
+            this.tableLayoutPanel1.TabIndex = 12;
             // 
             // FormDownload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 411);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.ChkBoxCloseOnSuccessfulDownload);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnDownload);
@@ -125,8 +250,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Name = "FormDownload";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDownload";
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -137,5 +262,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private System.Windows.Forms.Button BtnDownload;
         private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.CheckBox ChkBoxCloseOnSuccessfulDownload;
+        private System.Windows.Forms.ProgressBar PgrBarProcess;
+        private System.Windows.Forms.ProgressBar PgrBarCurrentTask;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label LblTask;
+        private System.Windows.Forms.Label LblOverallProgress;
+        private System.Windows.Forms.Label LblCurrentTask;
+        private System.Windows.Forms.Label LblCurrentFile;
+        private System.Windows.Forms.Label LblFile;
     }
 }

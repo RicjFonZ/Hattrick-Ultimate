@@ -21,29 +21,29 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Senior Player Avatar Repository.
         /// </summary>
-        private IRepository<BusinessObjects.App.SeniorPlayerAvatar> seniorPlayerAvatarRepository;
+        private readonly IRepository<BusinessObjects.App.SeniorPlayerAvatar> seniorPlayerAvatarRepository;
 
         /// <summary>
         /// Senior Player Repository.
         /// </summary>
-        private IHattrickRepository<BusinessObjects.App.SeniorPlayer> seniorPlayerRepository;
+        private readonly IHattrickRepository<BusinessObjects.App.SeniorPlayer> seniorPlayerRepository;
 
         /// <summary>
         /// Senior Player With Skill Delta Repository.
         /// </summary>
-        private IReadOnlyRepository<BusinessObjects.App.SeniorPlayerWithSkillDelta> seniorPlayerWithSkillDeltaRepository;
+        private readonly IReadOnlyRepository<BusinessObjects.App.SeniorPlayerWithSkillDelta> seniorPlayerWithSkillDeltaRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SeniorPlayerManager" /> class.
+        /// Initializes a new instance of the <see cref="SeniorPlayerManager"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="seniorPlayerAvatarRepository">Senior Player Avatar Repository.</param>

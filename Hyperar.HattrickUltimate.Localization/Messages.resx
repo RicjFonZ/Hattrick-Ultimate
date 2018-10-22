@@ -118,7 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnErrorHasOccurred" xml:space="preserve">
-    <value>An error has occurred while attempting to perform the required action.\r\nError message: {0}</value>
+    <value>An error has occurred while attempting to perform the required action.
+Error message: {0}</value>
   </data>
   <data name="Authorized" xml:space="preserve">
     <value>Hattrick Ultimate has been authorized successfully.</value>
@@ -136,7 +137,8 @@
     <value>Cannot set data folder.</value>
   </data>
   <data name="CheckToken" xml:space="preserve">
-    <value>Hattrick Ultimate is able to access your account data.\r\nSince: {0} - Until: {1}.</value>
+    <value>Hattrick Ultimate is able to access your account data.
+Since: {0} - Until: {1}.</value>
   </data>
   <data name="CopyToClipboardFailed" xml:space="preserve">
     <value>Copy to clipboard failed.</value>
@@ -230,5 +232,8 @@
   </data>
   <data name="UnknownSupporterTier" xml:space="preserve">
     <value>Unknown Supporter Tier '{0}'.</value>
+  </data>
+  <data name="TeamIsPlayingMatch" xml:space="preserve">
+    <value>Download cannot continue. At least one of your teams is playing a match.</value>
   </data>
 </root>

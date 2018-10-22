@@ -26,9 +26,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// <summary>
         /// Gets or sets a value indicating whether the info requested is for Youth players or not.
         /// </summary>
-        /// <remarks>
-        /// Deprecated, always false.
-        /// </remarks>
+        /// <remarks>Deprecated, always false.</remarks>
         public bool IsYouth { get; set; }
 
         /// <summary>

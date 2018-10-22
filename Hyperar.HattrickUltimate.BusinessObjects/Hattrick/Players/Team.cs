@@ -9,7 +9,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
     using System.Collections.Generic;
 
     /// <summary>
-    /// Team node within WorldDetails XML file.
+    /// Team node within Players XML file.
     /// </summary>
     public class Team
     {

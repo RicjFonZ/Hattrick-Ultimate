@@ -27,10 +27,8 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthTeamDetails
         /// Gets or sets the Youth League Status.
         /// </summary>
         /// <remarks>
-        /// Not full = 0.
-        /// About to create matches = 1.
-        /// Matches created, league is running = 3
-        /// League is finished = 10.
+        /// Not full = 0. About to create matches = 1. Matches created, league is running = 3 League
+        /// is finished = 10.
         /// </remarks>
         public byte YouthLeagueStatus { get; set; }
 

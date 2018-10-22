@@ -26,29 +26,29 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// CHPP Manager.
         /// </summary>
-        private DataAccess.Chpp.ChppManager chppManager;
+        private readonly DataAccess.Chpp.ChppManager chppManager;
 
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// SeniorPlayerAvatar repository.
         /// </summary>
-        private IRepository<SeniorPlayerAvatar> seniorPlayerAvatarRepository;
+        private readonly IRepository<SeniorPlayerAvatar> seniorPlayerAvatarRepository;
 
         /// <summary>
         /// SeniorPlayer repository.
         /// </summary>
-        private IHattrickRepository<SeniorPlayer> seniorPlayerRepository;
+        private readonly IHattrickRepository<SeniorPlayer> seniorPlayerRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Avatars" /> class.
+        /// Initializes a new instance of the <see cref="Avatars"/> class.
         /// </summary>
         /// <param name="chppManager">CHPP Manager.</param>
         /// <param name="context">Database context.</param>

@@ -22,16 +22,18 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuil
         /// <summary>
         /// DenominationDictionaryBuilderFactory factory.
         /// </summary>
-        private IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory;
+        private readonly IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DenominatedValueWithChangeTracking" /> class.
+        /// Initializes a new instance of the <see cref="DenominatedValueWithChangeTracking"/> class.
         /// </summary>
-        /// <param name="denominationDictionaryBuilderFactory">DenominationDictionaryBuilderFactory factory.</param>
+        /// <param name="denominationDictionaryBuilderFactory">
+        /// DenominationDictionaryBuilderFactory factory.
+        /// </param>
         public DenominatedValueWithChangeTracking(IDenominationDictionaryBuilderFactory denominationDictionaryBuilderFactory)
         {
             this.denominationDictionaryBuilderFactory = denominationDictionaryBuilderFactory;
@@ -42,7 +44,8 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuil
         #region Public Methods
 
         /// <summary>
-        /// Builds a DataGridViewDenominatedValueWithChangeTrackingColumn using the specified GridLayoutColumn as a templates.
+        /// Builds a DataGridViewDenominatedValueWithChangeTrackingColumn using the specified
+        /// GridLayoutColumn as a templates.
         /// </summary>
         /// <param name="gridLayoutColumn">Grid Layout Column to use as a template.</param>
         /// <returns>DataGridViewColumn generated with the specified template.</returns>

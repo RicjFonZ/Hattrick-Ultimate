@@ -25,79 +25,79 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Continent repository.
         /// </summary>
-        private IRepository<Continent> continentRepository;
+        private readonly IRepository<Continent> continentRepository;
 
         /// <summary>
         /// Country repository.
         /// </summary>
-        private IHattrickRepository<Country> countryRepository;
+        private readonly IHattrickRepository<Country> countryRepository;
 
         /// <summary>
         /// Currency repository.
         /// </summary>
-        private IRepository<Currency> currencyRepository;
+        private readonly IRepository<Currency> currencyRepository;
 
         /// <summary>
         /// DateFormat repository.
         /// </summary>
-        private IRepository<DateFormat> dateFormatRepository;
+        private readonly IRepository<DateFormat> dateFormatRepository;
 
         /// <summary>
         /// LeagueCup repository.
         /// </summary>
-        private IHattrickRepository<LeagueCup> leagueCupRepository;
+        private readonly IHattrickRepository<LeagueCup> leagueCupRepository;
 
         /// <summary>
         /// LeagueNationalTeam repository.
         /// </summary>
-        private IRepository<LeagueNationalTeam> leagueNationalTeamRepository;
+        private readonly IRepository<LeagueNationalTeam> leagueNationalTeamRepository;
 
         /// <summary>
         /// League repository.
         /// </summary>
-        private IHattrickRepository<League> leagueRepository;
+        private readonly IHattrickRepository<League> leagueRepository;
 
         /// <summary>
         /// LeagueSchedule repository.
         /// </summary>
-        private IRepository<LeagueSchedule> leagueScheduleRepository;
+        private readonly IRepository<LeagueSchedule> leagueScheduleRepository;
 
         /// <summary>
         /// Manager repository.
         /// </summary>
-        private IHattrickRepository<Manager> managerRepository;
+        private readonly IHattrickRepository<Manager> managerRepository;
 
         /// <summary>
         /// Region repository.
         /// </summary>
-        private IHattrickRepository<Region> regionRepository;
+        private readonly IHattrickRepository<Region> regionRepository;
 
         /// <summary>
         /// TimeFormat repository.
         /// </summary>
-        private IRepository<TimeFormat> timeFormatRepository;
+        private readonly IRepository<TimeFormat> timeFormatRepository;
 
         /// <summary>
         /// User repository.
         /// </summary>
-        private IRepository<User> userRepository;
+        private readonly IRepository<User> userRepository;
 
         /// <summary>
         /// Zone repository.
         /// </summary>
-        private IRepository<Zone> zoneRepository;
+        private readonly IRepository<Zone> zoneRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorldDetails" /> class.
+        /// Initializes a new instance of the <see cref="WorldDetails"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="continentRepository">Continent repository.</param>

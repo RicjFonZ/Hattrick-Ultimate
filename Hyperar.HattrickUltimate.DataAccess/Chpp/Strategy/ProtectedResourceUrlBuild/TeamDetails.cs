@@ -30,7 +30,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TeamDetails" /> class.
+        /// Initializes a new instance of the <see cref="TeamDetails"/> class.
         /// </summary>
         public TeamDetails()
         {
@@ -89,7 +89,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
             if (parameters.Any(kvp => kvp.Key.Equals(QueryStringParameterName.TeamId, StringComparison.OrdinalIgnoreCase)) &&
                 parameters.Any(kvp => kvp.Key.Equals(QueryStringParameterName.UserId, StringComparison.OrdinalIgnoreCase)))
             {
-                var incompatibleParameters = new string[] { QueryStringParameterName.TeamId, QueryStringParameterName.UserId };
+                string[] incompatibleParameters = new string[] { QueryStringParameterName.TeamId, QueryStringParameterName.UserId };
 
                 throw new Exception(
                           string.Format(

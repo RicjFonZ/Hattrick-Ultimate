@@ -23,59 +23,59 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Country repository.
         /// </summary>
-        private IHattrickRepository<Country> countryRepository;
+        private readonly IHattrickRepository<Country> countryRepository;
 
         /// <summary>
         /// Junior Team repository.
         /// </summary>
-        private IHattrickRepository<JuniorTeam> juniorTeamRepository;
+        private readonly IHattrickRepository<JuniorTeam> juniorTeamRepository;
 
         /// <summary>
         /// League repository.
         /// </summary>
-        private IHattrickRepository<League> leagueRepository;
+        private readonly IHattrickRepository<League> leagueRepository;
 
         /// <summary>
         /// Manager repository.
         /// </summary>
-        private IHattrickRepository<Manager> managerRepository;
+        private readonly IHattrickRepository<Manager> managerRepository;
 
         /// <summary>
         /// Region repository.
         /// </summary>
-        private IHattrickRepository<Region> regionRepository;
+        private readonly IHattrickRepository<Region> regionRepository;
 
         /// <summary>
         /// Senior Arena repository.
         /// </summary>
-        private IHattrickRepository<SeniorArena> seniorArenaRepository;
+        private readonly IHattrickRepository<SeniorArena> seniorArenaRepository;
 
         /// <summary>
         /// Senior Series repository.
         /// </summary>
-        private IHattrickRepository<SeniorSeries> seniorSeriesRepository;
+        private readonly IHattrickRepository<SeniorSeries> seniorSeriesRepository;
 
         /// <summary>
         /// Senior Team repository.
         /// </summary>
-        private IHattrickRepository<SeniorTeam> seniorTeamRepository;
+        private readonly IHattrickRepository<SeniorTeam> seniorTeamRepository;
 
         /// <summary>
         /// User repository.
         /// </summary>
-        private IRepository<User> userRepository;
+        private readonly IRepository<User> userRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TeamDetails" /> class.
+        /// Initializes a new instance of the <see cref="TeamDetails"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="countryRepository">Country repository.</param>

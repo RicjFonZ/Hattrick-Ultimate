@@ -20,7 +20,8 @@ namespace Hyperar.HattrickUltimate.UserInterface.Strategy.DataGridViewColumnBuil
         #region Public Methods
 
         /// <summary>
-        /// Builds a DataGridViewValueWithChangeTrackingColumn using the specified GridLayoutColumn as a templates.
+        /// Builds a DataGridViewValueWithChangeTrackingColumn using the specified GridLayoutColumn
+        /// as a templates.
         /// </summary>
         /// <param name="gridLayoutColumn">Grid Layout Column to use as a template.</param>
         /// <returns>DataGridViewColumn generated with the specified template.</returns>

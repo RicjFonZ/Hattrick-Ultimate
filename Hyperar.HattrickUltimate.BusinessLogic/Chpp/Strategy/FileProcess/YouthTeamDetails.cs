@@ -22,29 +22,29 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Junior Series repository.
         /// </summary>
-        private IHattrickRepository<JuniorSeries> juniorSeriesRepository;
+        private readonly IHattrickRepository<JuniorSeries> juniorSeriesRepository;
 
         /// <summary>
         /// Junior Team repository.
         /// </summary>
-        private IHattrickRepository<JuniorTeam> juniorTeamRepository;
+        private readonly IHattrickRepository<JuniorTeam> juniorTeamRepository;
 
         /// <summary>
         /// Senior Team repository.
         /// </summary>
-        private IHattrickRepository<SeniorTeam> seniorTeamRepository;
+        private readonly IHattrickRepository<SeniorTeam> seniorTeamRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YouthTeamDetails" /> class.
+        /// Initializes a new instance of the <see cref="YouthTeamDetails"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="juniorSeriesRepository">Junior Series repository.</param>

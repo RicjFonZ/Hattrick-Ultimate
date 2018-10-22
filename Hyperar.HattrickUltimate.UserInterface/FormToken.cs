@@ -39,7 +39,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormToken" /> class.
+        /// Initializes a new instance of the <see cref="FormToken"/> class.
         /// </summary>
         /// <param name="tokenManager">Token Manager.</param>
         /// <param name="userManager">User Manager.</param>
@@ -169,8 +169,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private void BtnCheckToken_Click(object sender, EventArgs e)
         {
             string text, title = null;
-            MessageBoxIcon icon = MessageBoxIcon.Information;
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            var icon = MessageBoxIcon.Information;
+            var buttons = MessageBoxButtons.OK;
 
             try
             {
@@ -280,8 +280,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private void BtnRevokeToken_Click(object sender, EventArgs e)
         {
             string text, title = null;
-            MessageBoxIcon icon = MessageBoxIcon.Information;
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            var icon = MessageBoxIcon.Information;
+            var buttons = MessageBoxButtons.OK;
 
             try
             {

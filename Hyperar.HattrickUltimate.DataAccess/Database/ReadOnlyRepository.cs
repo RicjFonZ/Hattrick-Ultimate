@@ -24,7 +24,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         #endregion Private Fields
 

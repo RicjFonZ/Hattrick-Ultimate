@@ -20,34 +20,19 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Private Fields
 
         /// <summary>
+        /// File Download Asynchronous Task ID.
+        /// </summary>
+        private Guid chppFilesTasksAsyncTaskId;
+
+        /// <summary>
         /// Download manager.
         /// </summary>
-        private BusinessLogic.DownloadManager downloadManager;
+        private BusinessLogic.ChppFileTaskManager chppFileTaskManager;
 
         /// <summary>
         /// Download settings.
         /// </summary>
         private BusinessObjects.OAuth.DownloadSettings downloadSettings;
-
-        /// <summary>
-        /// File Download Asynchronous Task ID.
-        /// </summary>
-        private Guid fileDownloadAsyncTaskId;
-
-        /// <summary>
-        /// File Process Asynchronous Task ID.
-        /// </summary>
-        private Guid fileProcessAsyncTaskId;
-
-        /// <summary>
-        /// File Process manager.
-        /// </summary>
-        private BusinessLogic.FileProcessManager fileProcessManager;
-
-        /// <summary>
-        /// Generic task progress window.
-        /// </summary>
-        private FormGenericProgress formGenericProgress;
 
         /// <summary>
         /// User manager.
@@ -59,26 +44,21 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormDownload" /> class.
+        /// Initializes a new instance of the <see cref="FormDownload"/> class.
         /// </summary>
-        /// <param name="downloadManager">Download manager.</param>
-        /// <param name="fileProcessManager">File Process manager.</param>
+        /// <param name="chppFileManager">Chpp File manager.</param>
         /// <param name="userManager">User manager.</param>
         public FormDownload(
-                   BusinessLogic.DownloadManager downloadManager,
-                   BusinessLogic.FileProcessManager fileProcessManager,
+                   BusinessLogic.ChppFileTaskManager chppFileManager,
                    BusinessLogic.UserManager userManager)
         {
             this.InitializeComponent();
 
-            this.downloadManager = downloadManager;
-            this.fileProcessManager = fileProcessManager;
+            this.chppFileTaskManager = chppFileManager;
             this.userManager = userManager;
 
-            this.downloadManager.DownloadProgressChanged += new BusinessLogic.DownloadProgressChangedEventHandler(this.DownloadProgressChanged_EventHandler);
-            this.downloadManager.DownloadCompleted += new BusinessLogic.DownloadCompletedEventHandler(this.DownloadCompleted_EventHandler);
-            this.fileProcessManager.FileProcessProgressChanged += new BusinessLogic.FileProcessProgressChangedEventHandler(this.FileProcessProgressChanged_EventHandler);
-            this.fileProcessManager.FileProcessCompleted += new BusinessLogic.FileProcessCompletedEventHandler(this.FileProcessCompleted_EventHandler);
+            this.chppFileTaskManager.ChppFileTaskProgressChanged += new BusinessLogic.ChppFileTaskProgressChangedEventHandler(this.ChppFileTaskProgressChanged_EventHandler);
+            this.chppFileTaskManager.ChppFilesTasksCompleted += new BusinessLogic.ChppFilesTasksCompletedEventHandler(this.ChppFilesTasksCompleted_EventHandler);
 
             this.downloadSettings = new BusinessObjects.OAuth.DownloadSettings();
 
@@ -111,8 +91,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <returns>A value indicating whether there are async tasks running or not.</returns>
         private bool AreAsyncTasksRunning()
         {
-            return this.fileDownloadAsyncTaskId != Guid.Empty ||
-                   this.fileProcessAsyncTaskId != Guid.Empty;
+            return this.chppFilesTasksAsyncTaskId != Guid.Empty;
         }
 
         /// <summary>
@@ -124,17 +103,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
         {
             this.BtnCancel.Enabled = false;
 
-            if (this.fileDownloadAsyncTaskId != Guid.Empty)
+            if (this.chppFilesTasksAsyncTaskId != Guid.Empty)
             {
-                this.downloadManager.CancelAsync(this.fileDownloadAsyncTaskId);
-            }
+                this.chppFileTaskManager.CancelAsync(this.chppFilesTasksAsyncTaskId);
 
-            if (this.fileProcessAsyncTaskId != Guid.Empty)
-            {
-                this.fileProcessManager.CancelAsync(this.fileProcessAsyncTaskId);
+                this.PgrBarProcess.Style =
+                this.PgrBarCurrentTask.Style = ProgressBarStyle.Marquee;
             }
-
-            this.formGenericProgress.SetCancelledState();
         }
 
         /// <summary>
@@ -158,17 +133,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             if (user != null && user.Token != null)
             {
-                List<BusinessLogic.DownloadFile> downloadFileList = this.downloadManager.BuildDownloadFileList(this.downloadSettings);
+                var downloadFileList = this.chppFileTaskManager.BuildDownloadFileList(this.downloadSettings);
 
-                this.formGenericProgress = BusinessLogic.ApplicationObjects.Container.GetInstance<FormGenericProgress>();
+                this.chppFilesTasksAsyncTaskId = Guid.NewGuid();
 
-                this.formGenericProgress.Show(this);
+                this.SetControlState();
 
-                this.fileDownloadAsyncTaskId = Guid.NewGuid();
-
-                this.SetButtonState();
-
-                this.downloadManager.DownloadFileAsync(user.Token, downloadFileList, this.fileDownloadAsyncTaskId);
+                this.chppFileTaskManager.ProcessChppFilesTasksAsync(user.Token, downloadFileList, this.chppFilesTasksAsyncTaskId);
             }
             else
             {
@@ -186,68 +157,14 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
         /// <param name="e">Event args.</param>
-        private void DownloadCompleted_EventHandler(object sender, BusinessLogic.DownloadFileCompletedEventArgs e)
+        private void ChppFilesTasksCompleted_EventHandler(object sender, AsyncCompletedEventArgs e)
         {
-            this.fileDownloadAsyncTaskId = Guid.Empty;
-
-            if (!e.Cancelled && e.Error == null)
-            {
-                this.fileProcessAsyncTaskId = Guid.NewGuid();
-                this.fileProcessManager.ProcessFilesAsync(e.DownloadedFiles, this.fileProcessAsyncTaskId);
-            }
-            else
-            {
-                string title = null,
-                       message = null;
-
-                MessageBoxIcon icon = MessageBoxIcon.Information;
-
-                if (e.Cancelled)
-                {
-                    title = Localization.Messages.Information;
-                    message = Localization.Messages.TaskCancelled;
-                }
-
-                if (e.Error != null)
-                {
-                    title = Localization.Messages.Error;
-                    message = string.Format(Localization.Messages.AnErrorHasOccurred, e.Error.Message);
-                    icon = MessageBoxIcon.Error;
-                }
-
-                this.SetButtonState();
-
-                this.formGenericProgress.Close();
-
-                MessageBox.Show(this, message, title, MessageBoxButtons.OK, icon);
-            }
-        }
-
-        /// <summary>
-        /// Download ProgressChanged event handler.
-        /// </summary>
-        /// <param name="sender">Object that raised the event.</param>
-        /// <param name="e">Event args.</param>
-        private void DownloadProgressChanged_EventHandler(object sender, BusinessLogic.FileTaskProgressChangedEventArgs e)
-        {
-            this.formGenericProgress.SetProgress(
-                                         e.FileTask,
-                                         e.ProgressPercentage);
-        }
-
-        /// <summary>
-        /// File Process Completed Event Handler.
-        /// </summary>
-        /// <param name="sender">Object that raised the event.</param>
-        /// <param name="e">Event arguments.</param>
-        private void FileProcessCompleted_EventHandler(object sender, AsyncCompletedEventArgs e)
-        {
-            this.fileProcessAsyncTaskId = Guid.Empty;
+            this.chppFilesTasksAsyncTaskId = Guid.Empty;
 
             string title = null,
                    message = null;
 
-            MessageBoxIcon icon = MessageBoxIcon.Information;
+            var icon = MessageBoxIcon.Information;
 
             if (e.Cancelled)
             {
@@ -261,9 +178,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 title = Localization.Messages.Error;
             }
 
-            this.SetButtonState();
-
-            this.formGenericProgress.Close();
+            this.SetControlState();
 
             if (e.Cancelled || e.Error != null)
             {
@@ -276,20 +191,26 @@ namespace Hyperar.HattrickUltimate.UserInterface
         }
 
         /// <summary>
-        /// File Process Progress Changed Event Handler.
+        /// Download ProgressChanged event handler.
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
-        /// <param name="e">Event arguments.</param>
-        private void FileProcessProgressChanged_EventHandler(object sender, BusinessLogic.FileTaskProgressChangedEventArgs e)
+        /// <param name="e">Event args.</param>
+        private void ChppFileTaskProgressChanged_EventHandler(object sender, BusinessLogic.ChppFileTaskProgressChangedEventArgs e)
         {
-            this.formGenericProgress.SetProgress(e.FileTask, e.ProgressPercentage);
+            this.LblFile.Text = e.FileName;
+            this.LblTask.Text = e.State.ToString();
+            this.PgrBarProcess.Value = e.ProgressPercentage;
+            this.PgrBarCurrentTask.Value = ((int)e.State + 1) * 20;
         }
 
         /// <summary>
         /// Sets the forms buttons to the corresponding state.
         /// </summary>
-        private void SetButtonState()
+        private void SetControlState()
         {
+            this.PgrBarProcess.Value =
+            this.PgrBarCurrentTask.Value = 0;
+
             this.BtnDownload.Enabled =
             this.BtnDownload.Visible =
             this.BtnClose.Enabled = !this.AreAsyncTasksRunning();

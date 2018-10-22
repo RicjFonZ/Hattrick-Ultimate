@@ -137,7 +137,8 @@ Mensaje de error: {0}</value>
     <value>No se pudo establecer la carpeta de la base de datos.</value>
   </data>
   <data name="CheckToken" xml:space="preserve">
-    <value>Hattrick Ultimate puede acceder a los datos de su cuenta. \r\nDesde: {0} - Hasta: {1}.</value>
+    <value>Hattrick Ultimate puede acceder a los datos de su cuenta.
+Desde: {0} - Hasta: {1}.</value>
   </data>
   <data name="CopyToClipboardFailed" xml:space="preserve">
     <value>Copiar al portapapeles falló.</value>
@@ -231,5 +232,8 @@ Mensaje de error: {0}</value>
   </data>
   <data name="UnknownSupporterTier" xml:space="preserve">
     <value>Nivel Supporter desconocido '{0}'.</value>
+  </data>
+  <data name="TeamIsPlayingMatch" xml:space="preserve">
+    <value>No se puede continuar con la descarga. Al menos uno de tus equipos está jugando un partido.</value>
   </data>
 </root>

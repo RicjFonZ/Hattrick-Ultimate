@@ -21,39 +21,39 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         /// <summary>
         /// Avatars File Processing Strategy.
         /// </summary>
-        private Strategy.FileProcess.Avatars avatarsStrategy;
+        private readonly Strategy.FileProcess.Avatars avatarsStrategy;
 
         /// <summary>
         /// ManagerCompendium File Processing Strategy.
         /// </summary>
-        private Strategy.FileProcess.ManagerCompendium managerCompendiumStrategy;
+        private readonly Strategy.FileProcess.ManagerCompendium managerCompendiumStrategy;
 
         /// <summary>
         /// Players File Processing Strategy.
         /// </summary>
-        private Strategy.FileProcess.Players playersStrategy;
+        private readonly Strategy.FileProcess.Players playersStrategy;
 
         /// <summary>
         /// TeamDetails File Processing Strategy.
         /// </summary>
-        private Strategy.FileProcess.TeamDetails teamDetailsStrategy;
+        private readonly Strategy.FileProcess.TeamDetails teamDetailsStrategy;
 
         /// <summary>
         /// WorldDetails File Processing Strategy.
         /// </summary>
-        private Strategy.FileProcess.WorldDetails worldDetailsStrategy;
+        private readonly Strategy.FileProcess.WorldDetails worldDetailsStrategy;
 
         /// <summary>
         /// YouthTeamDetails File Processing Strategy.
         /// </summary>
-        private Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy;
+        private readonly Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileProcessFactory" /> class.
+        /// Initializes a new instance of the <see cref="FileProcessFactory"/> class.
         /// </summary>
         /// <param name="avatarsStrategy">Avatars File Processing Strategy.</param>
         /// <param name="managerCompendiumStrategy">ManagerCompendium File Processing Strategy.</param>

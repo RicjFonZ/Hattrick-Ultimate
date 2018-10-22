@@ -24,29 +24,29 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Country repository.
         /// </summary>
-        private IHattrickRepository<Country> countryRepository;
+        private readonly IHattrickRepository<Country> countryRepository;
 
         /// <summary>
         /// Manager repository.
         /// </summary>
-        private IHattrickRepository<Manager> managerRepository;
+        private readonly IHattrickRepository<Manager> managerRepository;
 
         /// <summary>
         /// User repository.
         /// </summary>
-        private IRepository<User> userRepository;
+        private readonly IRepository<User> userRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ManagerCompendium" /> class.
+        /// Initializes a new instance of the <see cref="ManagerCompendium"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="countryRepository">Country repository.</param>
@@ -86,7 +86,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentException(Localization.Messages.UnexpectedObjectType, nameof(fileToProcess));
             }
 
-            var isUser = file.UserID == file.Manager.UserId;
+            bool isUser = file.UserID == file.Manager.UserId;
 
             this.ProcessManager(file.Manager, isUser);
         }

@@ -21,24 +21,24 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Provides functionality to interact with Hattrick.
         /// </summary>
-        private DataAccess.Chpp.ChppManager chppManager;
+        private readonly DataAccess.Chpp.ChppManager chppManager;
 
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
 
         /// <summary>
         /// Token repository.
         /// </summary>
-        private IRepository<BusinessObjects.App.Token> tokenRepository;
+        private readonly IRepository<BusinessObjects.App.Token> tokenRepository;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TokenManager" /> class.
+        /// Initializes a new instance of the <see cref="TokenManager"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
         /// <param name="tokenRepository">Token repository.</param>

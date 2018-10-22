@@ -21,6 +21,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
     public partial class FormMain : LocalizableFormBase, ILocalizableForm
     {
         #region Private Fields
+
         /// <summary>
         /// Data Grid View Cell Formatter Factory.
         /// </summary>
@@ -71,7 +72,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormMain" /> class.
+        /// Initializes a new instance of the <see cref="FormMain"/> class.
         /// </summary>
         /// <param name="gridManager">Grid Manager.</param>
         /// <param name="seniorPlayerManager">Senior Player Manager.</param>
@@ -79,7 +80,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="userManager">User Manager.</param>
         /// <param name="dataGridViewCellFormatterFactory">Data Grid View Cell Formatter Factory.</param>
         /// <param name="dataGridViewColumnBuilderFactory">Data Grid View Column Builder Factory.</param>
-        /// <param name="denominationDictionaryBuilderFactory">Denomination Dictionary Builder Factory.</param>
+        /// <param name="denominationDictionaryBuilderFactory">
+        /// Denomination Dictionary Builder Factory.
+        /// </param>
         public FormMain(
                    BusinessLogic.GridManager gridManager,
                    BusinessLogic.SeniorPlayerManager seniorPlayerManager,
@@ -257,7 +260,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 return;
             }
 
-            SortOrder order = SortOrder.None;
+            var order = SortOrder.None;
 
             switch (this.DataGridViewSeniorPlayers.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection)
             {

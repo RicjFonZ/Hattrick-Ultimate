@@ -10,14 +10,14 @@ namespace Hyperar.HattrickUltimate.Controls
     using System.Windows.Forms;
 
     /// <summary>
-    /// Extends <see cref="DataGridView" /> control to include Double Buffering and not auto generate columns.
+    /// Extends <see cref="DataGridView"/> control to include Double Buffering and not auto generate columns.
     /// </summary>
     public class DoubleBufferedDataGridView : DataGridView
     {
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DoubleBufferedDataGridView" /> class.
+        /// Initializes a new instance of the <see cref="DoubleBufferedDataGridView"/> class.
         /// </summary>
         public DoubleBufferedDataGridView()
         {

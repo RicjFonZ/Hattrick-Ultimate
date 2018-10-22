@@ -210,7 +210,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
         /// Parses LeagueLevelUnit node.
         /// </summary>
         /// <param name="reader">XmlReader object loaded with the Xml file.</param>
-        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit with the parsed data.</returns>
+        /// <returns>
+        /// BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit with the parsed data.
+        /// </returns>
         private BusinessObjects.Hattrick.ManagerCompendium.LeagueLevelUnit ParseLeagueLevelUnitNode(XmlReader reader)
         {
             if (!reader.Name.Equals(XmlTag.LeagueLevelUnit, StringComparison.OrdinalIgnoreCase))
@@ -365,7 +367,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
         /// Parses NationalTeam node.
         /// </summary>
         /// <param name="reader">XmlReader object loaded with the Xml file.</param>
-        /// <returns>BusinessObjects.Hattrick.ManagerCompendium.NationalTeam with the parsed data.</returns>
+        /// <returns>
+        /// BusinessObjects.Hattrick.ManagerCompendium.NationalTeam with the parsed data.
+        /// </returns>
         private BusinessObjects.Hattrick.ManagerCompendium.NationalTeam ParseNationalTeamNode(XmlReader reader)
         {
             if (!reader.Name.Equals(XmlTag.NationalTeam, StringComparison.OrdinalIgnoreCase))

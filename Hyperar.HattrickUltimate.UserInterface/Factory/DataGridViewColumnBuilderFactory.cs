@@ -22,14 +22,14 @@ namespace Hyperar.HattrickUltimate.UserInterface.Factory
         /// <summary>
         /// Column Builder Strategies Dictionary.
         /// </summary>
-        private Dictionary<GridColumnType, IDataGridViewColumnBuilderStrategy> strategyDictionary;
+        private readonly Dictionary<GridColumnType, IDataGridViewColumnBuilderStrategy> strategyDictionary;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridViewColumnBuilderFactory" /> class.
+        /// Initializes a new instance of the <see cref="DataGridViewColumnBuilderFactory"/> class.
         /// </summary>
         public DataGridViewColumnBuilderFactory()
         {

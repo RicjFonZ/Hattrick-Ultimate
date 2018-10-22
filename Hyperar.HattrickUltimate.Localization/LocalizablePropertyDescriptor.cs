@@ -21,14 +21,14 @@ namespace Hyperar.HattrickUltimate.Localization
         /// <summary>
         /// Property descriptor.
         /// </summary>
-        private PropertyDescriptor propertyDescriptor;
+        private readonly PropertyDescriptor propertyDescriptor;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalizablePropertyDescriptor" /> class.
+        /// Initializes a new instance of the <see cref="LocalizablePropertyDescriptor"/> class.
         /// </summary>
         /// <param name="propertyDescriptor">Property descriptor.</param>
         public LocalizablePropertyDescriptor(PropertyDescriptor propertyDescriptor) : base(propertyDescriptor)
@@ -198,7 +198,9 @@ namespace Hyperar.HattrickUltimate.Localization
         /// <summary>
         /// Resets the value for this property of the component to the default value.
         /// </summary>
-        /// <param name="component">The component with the property value that is to be reset to the default value.</param>
+        /// <param name="component">
+        /// The component with the property value that is to be reset to the default value.
+        /// </param>
         public override void ResetValue(object component)
         {
             this.propertyDescriptor.ResetValue(component);

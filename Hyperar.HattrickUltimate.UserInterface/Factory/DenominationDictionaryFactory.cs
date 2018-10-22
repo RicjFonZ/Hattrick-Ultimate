@@ -22,14 +22,14 @@ namespace Hyperar.HattrickUltimate.UserInterface.Factory
         /// <summary>
         /// DenominationDictionaryBuilderStrategy dictionary.
         /// </summary>
-        private Dictionary<ValueDenominationType, IDenominationDictionaryBuilderStrategy> strategyDictionary;
+        private readonly Dictionary<ValueDenominationType, IDenominationDictionaryBuilderStrategy> strategyDictionary;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DenominationDictionaryFactory" /> class.
+        /// Initializes a new instance of the <see cref="DenominationDictionaryFactory"/> class.
         /// </summary>
         public DenominationDictionaryFactory()
         {

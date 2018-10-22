@@ -27,7 +27,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormUser" /> class.
+        /// Initializes a new instance of the <see cref="FormUser"/> class.
         /// </summary>
         /// <param name="userManager">User manager.</param>
         public FormUser(BusinessLogic.UserManager userManager)
