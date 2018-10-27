@@ -67,7 +67,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 if (string.IsNullOrWhiteSpace(dataFolder))
                 {
-                    using (var form = ApplicationObjects.Container.GetInstance<FormDataFolder>())
+                    using (var form = new FormDataFolder())
                     {
                         if (form.ShowDialog() == DialogResult.OK)
                         {
@@ -116,11 +116,11 @@ namespace Hyperar.HattrickUltimate.UserInterface
             Application.SetCompatibleTextRenderingDefault(false);
 
             Initialize();
+            GetDataFolder();
             RegisterDependencies();
 
             using (var scope = ThreadScopedLifestyle.BeginScope(ApplicationObjects.Container))
             {
-                GetDataFolder();
                 Application.Run(ApplicationObjects.Container.GetInstance<FormMain>());
             }
         }
