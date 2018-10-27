@@ -14,6 +14,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileValidation
     /// </summary>
     public class Default : IFileValidationStrategy
     {
+        #region Public Methods
+
         /// <summary>
         /// Validates the specified entity.
         /// </summary>
@@ -21,5 +23,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileValidation
         public void Validate(IXmlEntity entity)
         {
         }
+
+        #endregion Public Methods
     }
 }

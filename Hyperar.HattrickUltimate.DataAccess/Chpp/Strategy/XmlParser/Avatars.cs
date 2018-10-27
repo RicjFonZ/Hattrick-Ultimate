@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
     using Interface;
 
     /// <summary>
-    /// Hattrick AvatarsStrategy XML file parser implementation.
+    /// Avatars XML file parser strategy.
     /// </summary>
     internal class Avatars : IXmlParserStrategy
     {
@@ -120,7 +120,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
         /// Parses Player node.
         /// </summary>
         /// <param name="reader">XmlReader object loaded with the Xml file.</param>
-        /// <returns>BusinessObjects.Hattrick.Players.Player with the parsed data.</returns>
+        /// <returns>BusinessObjects.Hattrick.Avatars.Player with the parsed data.</returns>
         private BusinessObjects.Hattrick.Avatars.Player ParsePlayerNode(XmlReader reader)
         {
             if (!reader.Name.Equals(XmlTag.Player, StringComparison.OrdinalIgnoreCase))
@@ -149,7 +149,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
         /// Parses Team node.
         /// </summary>
         /// <param name="reader">XmlReader object loaded with the Xml file.</param>
-        /// <returns>BusinessObjects.Hattrick.Teams.Team with the parsed data.</returns>
+        /// <returns>BusinessObjects.Hattrick.Avatars.Team with the parsed data.</returns>
         private BusinessObjects.Hattrick.Avatars.Team ParseTeamNode(XmlReader reader)
         {
             if (!reader.Name.Equals(XmlTag.Team, StringComparison.OrdinalIgnoreCase))

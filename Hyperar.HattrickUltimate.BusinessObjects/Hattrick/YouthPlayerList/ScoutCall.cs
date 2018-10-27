@@ -13,6 +13,8 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class ScoutCall
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Scout.
         /// </summary>
@@ -27,5 +29,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// Gets or sets the Region ID where the Scout is looking for Players.
         /// </summary>
         public long ScoutRegionId { get; set; }
+
+        #endregion Public Properties
     }
 }

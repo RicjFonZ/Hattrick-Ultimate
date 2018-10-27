@@ -54,6 +54,21 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string GridLayoutColumn = "GridLayoutColumn";
 
         /// <summary>
+        /// JuniorPlayer database table name.
+        /// </summary>
+        internal const string JuniorPlayer = "JuniorPlayer";
+
+        /// <summary>
+        /// JuniorPlayerAvatar database table name.
+        /// </summary>
+        internal const string JuniorPlayerAvatar = "JuniorPlayerAvatar";
+
+        /// <summary>
+        /// JuniorPlayerWeekLog database table name.
+        /// </summary>
+        internal const string JuniorPlayerWeekLog = "JuniorPlayerWeekLog";
+
+        /// <summary>
         /// JuniorSeries database table name.
         /// </summary>
         internal const string JuniorSeries = "JuniorSeries";
@@ -117,6 +132,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// SeniorPlayerSkills database table name.
         /// </summary>
         internal const string SeniorPlayerSkills = "SeniorPlayerSkills";
+
+        /// <summary>
+        /// SeniorPlayerWeekLog database table name.
+        /// </summary>
+        internal const string SeniorPlayerWeekLog = "SeniorPlayerWeekLog";
 
         /// <summary>
         /// SeniorPlayerWithSkillDelta database table name.

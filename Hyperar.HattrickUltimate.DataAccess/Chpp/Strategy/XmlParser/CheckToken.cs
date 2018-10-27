@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
     using Interface;
 
     /// <summary>
-    /// Hattrick CheckTokenStrategy XML file parser implementation.
+    /// Check Token XML file parser strategy.
     /// </summary>
     internal class CheckToken : IXmlParserStrategy
     {

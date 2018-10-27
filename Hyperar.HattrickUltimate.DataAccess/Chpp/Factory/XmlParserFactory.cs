@@ -78,12 +78,20 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                         this.parserDictionary.Add(fileName, new TeamDetails());
                         break;
 
-                    case XmlFileName.YouthTeamDetails:
-                        this.parserDictionary.Add(fileName, new YouthTeamDetails());
-                        break;
-
                     case XmlFileName.WorldDetails:
                         this.parserDictionary.Add(fileName, new WorldDetails());
+                        break;
+
+                    case XmlFileName.YouthAvatars:
+                        this.parserDictionary.Add(fileName, new YouthAvatars());
+                        break;
+
+                    case XmlFileName.YouthPlayerList:
+                        this.parserDictionary.Add(fileName, new YouthPlayerList());
+                        break;
+
+                    case XmlFileName.YouthTeamDetails:
+                        this.parserDictionary.Add(fileName, new YouthTeamDetails());
                         break;
 
                     default:

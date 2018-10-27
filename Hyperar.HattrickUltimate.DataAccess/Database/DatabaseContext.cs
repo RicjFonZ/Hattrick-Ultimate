@@ -139,6 +139,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             modelBuilder.Configurations.Add(new Mapping.GridColumn());
             modelBuilder.Configurations.Add(new Mapping.GridLayout());
             modelBuilder.Configurations.Add(new Mapping.GridLayoutColumn());
+            modelBuilder.Configurations.Add(new Mapping.JuniorPlayer());
+            modelBuilder.Configurations.Add(new Mapping.JuniorPlayerAvatar());
+            modelBuilder.Configurations.Add(new Mapping.JuniorPlayerWeekLog());
             modelBuilder.Configurations.Add(new Mapping.JuniorSeries());
             modelBuilder.Configurations.Add(new Mapping.JuniorTeam());
             modelBuilder.Configurations.Add(new Mapping.League());
@@ -150,9 +153,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
             modelBuilder.Configurations.Add(new Mapping.SeniorArena());
             modelBuilder.Configurations.Add(new Mapping.SeniorPlayer());
             modelBuilder.Configurations.Add(new Mapping.SeniorPlayerAvatar());
-            modelBuilder.Configurations.Add(new Mapping.SeniorPlayerSeasonGoals());
-            modelBuilder.Configurations.Add(new Mapping.SeniorPlayerSkills());
-            modelBuilder.Configurations.Add(new Mapping.SeniorPlayerWithSkillDelta());
+            modelBuilder.Configurations.Add(new Mapping.SeniorPlayerWeekLog());
             modelBuilder.Configurations.Add(new Mapping.SeniorSeries());
             modelBuilder.Configurations.Add(new Mapping.SeniorTeam());
             modelBuilder.Configurations.Add(new Mapping.TimeFormat());

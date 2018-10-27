@@ -38,11 +38,17 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Factory
                 case XmlFile.TeamDetails:
                     return new Strategy.ProtectedResourceUrlBuild.TeamDetails();
 
-                case XmlFile.YouthTeamDetails:
-                    return new Strategy.ProtectedResourceUrlBuild.YouthTeamDetails();
-
                 case XmlFile.WorldDetails:
                     return new Strategy.ProtectedResourceUrlBuild.WorldDetails();
+
+                case XmlFile.YouthAvatars:
+                    return new Strategy.ProtectedResourceUrlBuild.YouthAvatars();
+
+                case XmlFile.YouthPlayerList:
+                    return new Strategy.ProtectedResourceUrlBuild.YouthPlayerList();
+
+                case XmlFile.YouthTeamDetails:
+                    return new Strategy.ProtectedResourceUrlBuild.YouthTeamDetails();
 
                 default:
                     throw new NotImplementedException(

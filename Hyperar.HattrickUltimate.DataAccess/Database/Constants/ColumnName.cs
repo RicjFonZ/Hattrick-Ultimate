@@ -29,6 +29,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string Age = "Age";
 
         /// <summary>
+        /// AgeDays database table column name.
+        /// </summary>
+        internal const string AgeDays = "AgeDays";
+
+        /// <summary>
         /// Aggressiveness database table column name.
         /// </summary>
         internal const string Aggressiveness = "Aggressiveness";
@@ -42,6 +47,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// Alignment database table column name.
         /// </summary>
         internal const string Alignment = "Alignment";
+
+        /// <summary>
+        /// ArrivedOn database table column name.
+        /// </summary>
+        internal const string ArrivedOn = "ArrivedOn";
 
         /// <summary>
         /// Avatar database table column name.
@@ -134,6 +144,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string CustomHeaderText = "CustomHeaderText";
 
         /// <summary>
+        /// DaysToPromote database table column name.
+        /// </summary>
+        internal const string DaysToPromote = "DaysToPromote";
+
+        /// <summary>
         /// Defending database table column name.
         /// </summary>
         internal const string Defending = "Defending";
@@ -142,6 +157,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// DefendingDelta database table column name.
         /// </summary>
         internal const string DefendingDelta = "DefendingDelta";
+
+        /// <summary>
+        /// DefendingMax database table column name.
+        /// </summary>
+        internal const string DefendingMax = "DefendingMax";
+
+        /// <summary>
+        /// DefendingMaxReached database table column name.
+        /// </summary>
+        internal const string DefendingMaxReached = "DefendingMaxReached";
 
         /// <summary>
         /// DisplayIndex database table column name.
@@ -249,6 +274,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string HattrickId = "HattrickId";
 
         /// <summary>
+        /// HealthStatus database table column name.
+        /// </summary>
+        internal const string HealthStatus = "HealthStatus";
+
+        /// <summary>
         /// Honesty database table column name.
         /// </summary>
         internal const string Honesty = "Honesty";
@@ -257,11 +287,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// Id database table column name.
         /// </summary>
         internal const string Id = "Id";
-
-        /// <summary>
-        /// InjuryStatus database table column name.
-        /// </summary>
-        internal const string InjuryStatus = "InjuryStatus";
 
         /// <summary>
         /// IsDefault database table column name.
@@ -299,9 +324,24 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string JuniorNationalTeamId = "JuniorNationalTeamId";
 
         /// <summary>
+        /// JuniorPlayerId database table column name.
+        /// </summary>
+        internal const string JuniorPlayerId = "JuniorPlayerId";
+
+        /// <summary>
         /// Keeper database table column name.
         /// </summary>
         internal const string Keeper = "Keeper";
+
+        /// <summary>
+        /// KeeperMax database table column name.
+        /// </summary>
+        internal const string KeeperMax = "KeeperMax";
+
+        /// <summary>
+        /// KeeperMaxReached database table column name.
+        /// </summary>
+        internal const string KeeperMaxReached = "KeeperMaxReached";
 
         /// <summary>
         /// Key database table column name.
@@ -369,6 +409,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string NickName = "NickName";
 
         /// <summary>
+        /// OwnerNotes database table column name.
+        /// </summary>
+        internal const string OwnerNotes = "OwnerNotes";
+
+        /// <summary>
         /// Passing database table column name.
         /// </summary>
         internal const string Passing = "Passing";
@@ -379,6 +424,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string PassingDelta = "PassingDelta";
 
         /// <summary>
+        /// PassingMax database table column name.
+        /// </summary>
+        internal const string PassingMax = "PassingMax";
+
+        /// <summary>
+        /// PassingMaxReached database table column name.
+        /// </summary>
+        internal const string PassingMaxReached = "PassingMaxReached";
+
+        /// <summary>
         /// Playmaking database table column name.
         /// </summary>
         internal const string Playmaking = "Playmaking";
@@ -387,6 +442,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// PlaymakingDelta database table column name.
         /// </summary>
         internal const string PlaymakingDelta = "PlaymakingDelta";
+
+        /// <summary>
+        /// PlaymakingMax database table column name.
+        /// </summary>
+        internal const string PlaymakingMax = "PlaymakingMax";
+
+        /// <summary>
+        /// PlaymakingMaxReached database table column name.
+        /// </summary>
+        internal const string PlaymakingMaxReached = "PlaymakingMaxReached";
 
         /// <summary>
         /// PlaysOnNationalTeam database table column name.
@@ -417,6 +482,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// ScoringDelta database table column name.
         /// </summary>
         internal const string ScoringDelta = "ScoringDelta";
+
+        /// <summary>
+        /// ScoringMax database table column name.
+        /// </summary>
+        internal const string ScoringMax = "ScoringMax";
+
+        /// <summary>
+        /// ScoringMaxReached database table column name.
+        /// </summary>
+        internal const string ScoringMaxReached = "ScoringMaxReached";
 
         /// <summary>
         /// Season database table column name.
@@ -472,6 +547,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// SetPiecesDelta database table column name.
         /// </summary>
         internal const string SetPiecesDelta = "SetPiecesDelta";
+
+        /// <summary>
+        /// SetPiecesMax database table column name.
+        /// </summary>
+        internal const string SetPiecesMax = "SetPiecesMax";
+
+        /// <summary>
+        /// SetPiecesMaxReached database table column name.
+        /// </summary>
+        internal const string SetPiecesMaxReached = "SetPiecesMaxReached";
 
         /// <summary>
         /// ShirtNumber database table column name.
@@ -589,6 +674,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string WaitingUsers = "WaitingUsers";
 
         /// <summary>
+        /// Week database table column name.
+        /// </summary>
+        internal const string Week = "Week";
+
+        /// <summary>
         /// Width database table column name.
         /// </summary>
         internal const string Width = "Width";
@@ -602,6 +692,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// WingerDelta database table column name.
         /// </summary>
         internal const string WingerDelta = "WingerDelta";
+
+        /// <summary>
+        /// WingerMax database table column name.
+        /// </summary>
+        internal const string WingerMax = "WingerMax";
+
+        /// <summary>
+        /// WingerMaxReached database table column name.
+        /// </summary>
+        internal const string WingerMaxReached = "WingerMaxReached";
 
         /// <summary>
         /// WinsInRow database table column name.

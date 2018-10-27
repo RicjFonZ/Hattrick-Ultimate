@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
     using Interface;
 
     /// <summary>
-    /// Hattrick WorldDetails XML file parser implementation.
+    /// World Details XML file parser strategy.
     /// </summary>
     internal class WorldDetails : IXmlParserStrategy
     {

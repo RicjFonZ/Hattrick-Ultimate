@@ -160,9 +160,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(fileToProcess));
             }
 
-            var file = fileToProcess as BusinessObjects.Hattrick.WorldDetails.Root;
-
-            if (file == null)
+            if (!(fileToProcess is BusinessObjects.Hattrick.WorldDetails.Root file))
             {
                 throw new ArgumentException(Localization.Messages.UnexpectedObjectType, nameof(fileToProcess));
             }

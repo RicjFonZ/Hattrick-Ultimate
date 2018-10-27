@@ -44,6 +44,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         public const string WorldDetails = "worlddetails.xml";
 
         /// <summary>
+        /// Hattrick Youth Avatars XML file name.
+        /// </summary>
+        public const string YouthAvatars = "youthavatars.xml";
+
+        /// <summary>
+        /// Hattrick Youth Player List XML file name.
+        /// </summary>
+        public const string YouthPlayerList = "youthplayerlist.xml";
+
+        /// <summary>
         /// Hattrick Youth Team Details XML file name.
         /// </summary>
         public const string YouthTeamDetails = "youthteam.xml";

@@ -17,6 +17,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
     /// </summary>
     public class TeamDetails : IFileAnalysisStrategy
     {
+        #region Public Methods
+
         /// <summary>
         /// Analyses the specified entity.
         /// </summary>
@@ -46,10 +48,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
                                         XmlFile.Avatars,
                                         new Dictionary<string, string>
                                         {
-                                        {
-                                            QueryStringParameterName.TeamId,
-                                            team.TeamId.ToString()
-                                        }
+                                            {
+                                                QueryStringParameterName.TeamId,
+                                                team.TeamId.ToString()
+                                            }
                                         }));
 
                 if (team.YouthTeamId.HasValue)
@@ -59,15 +61,51 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
                                             XmlFile.YouthTeamDetails,
                                             new Dictionary<string, string>
                                             {
+                                                {
+                                                    QueryStringParameterName.YouthTeamId,
+                                                    team.YouthTeamId.Value.ToString()
+                                                }
+                                            }));
+
+                    additionalTasks.Add(
+                                        new ChppFile(
+                                            XmlFile.YouthPlayerList,
+                                            new Dictionary<string, string>
                                             {
-                                                QueryStringParameterName.YouthTeamId,
-                                                team.YouthTeamId.Value.ToString()
-                                            }
+                                                {
+                                                    QueryStringParameterName.ActionType,
+                                                    "details"
+                                                },
+                                                {
+                                                    QueryStringParameterName.YouthTeamId,
+                                                    team.YouthTeamId.Value.ToString()
+                                                },
+                                                {
+                                                    QueryStringParameterName.ShowScoutCall,
+                                                    bool.TrueString
+                                                },
+                                                {
+                                                    QueryStringParameterName.ShowLastMatch,
+                                                    bool.TrueString
+                                                }
+                                            }));
+
+                    additionalTasks.Add(
+                                        new ChppFile(
+                                            XmlFile.YouthAvatars,
+                                            new Dictionary<string, string>
+                                            {
+                                                {
+                                                    QueryStringParameterName.YouthTeamId,
+                                                    team.YouthTeamId.Value.ToString()
+                                                }
                                             }));
                 }
             }
 
             return additionalTasks;
         }
+
+        #endregion Public Methods
     }
 }

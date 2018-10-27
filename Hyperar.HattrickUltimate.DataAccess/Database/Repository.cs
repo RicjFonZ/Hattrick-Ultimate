@@ -111,7 +111,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database
         public IQueryable<TEntity> Query(Func<TEntity, bool> predicate = null)
         {
             var query = this.queryStrategy.ApplyIncludes(
-                                                               this.EntityCollection.AsQueryable());
+                                               this.EntityCollection.AsQueryable());
 
             if (predicate != null)
             {

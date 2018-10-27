@@ -11,6 +11,8 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class Scout
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Scout ID.
         /// </summary>
@@ -20,5 +22,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// Gets or sets the Scout Name.
         /// </summary>
         public string ScoutName { get; set; }
+
+        #endregion Public Properties
     }
 }

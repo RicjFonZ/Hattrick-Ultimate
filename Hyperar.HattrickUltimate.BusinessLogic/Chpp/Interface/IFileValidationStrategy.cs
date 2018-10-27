@@ -13,10 +13,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Interface
     /// </summary>
     public interface IFileValidationStrategy
     {
+        #region Public Methods
+
         /// <summary>
         /// Validates the specified entity.
         /// </summary>
         /// <param name="entity">Entity to validate.</param>
         void Validate(IXmlEntity entity);
+
+        #endregion Public Methods
     }
 }

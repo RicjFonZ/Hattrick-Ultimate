@@ -78,16 +78,20 @@
     </Compile>
     <Compile Include="Chpp\Interface\IXmlParserFactory.cs" />
     <Compile Include="Chpp\Interface\IXmlParserStrategy.cs" />
+    <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\YouthAvatars.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\Avatars.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\Players.cs" />
+    <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\YouthPlayerList.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\YouthTeamDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\TeamDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\WorldDetails.cs" />
     <Compile Include="Chpp\Strategy\ProtectedResourceUrlBuild\ManagerCompendium.cs" />
+    <Compile Include="Chpp\Strategy\XmlParser\YouthAvatars.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\Avatars.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\CheckToken.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\Players.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\ManagerCompendium.cs" />
+    <Compile Include="Chpp\Strategy\XmlParser\YouthPlayerList.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\YouthTeamDetails.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\TeamDetails.cs" />
     <Compile Include="Chpp\Strategy\XmlParser\WorldDetails.cs" />
@@ -115,11 +119,12 @@
     <Compile Include="Database\Mapping\Grid.cs" />
     <Compile Include="Database\Mapping\GridLayoutColumn.cs" />
     <Compile Include="Database\Mapping\GridColumn.cs" />
+    <Compile Include="Database\Mapping\JuniorPlayerAvatar.cs" />
+    <Compile Include="Database\Mapping\JuniorPlayer.cs" />
+    <Compile Include="Database\Mapping\SeniorPlayerWeekLog.cs" />
+    <Compile Include="Database\Mapping\JuniorPlayerWeekLog.cs" />
     <Compile Include="Database\Mapping\SeniorPlayerAvatar.cs" />
-    <Compile Include="Database\Mapping\SeniorPlayerSeasonGoals.cs" />
-    <Compile Include="Database\Mapping\SeniorPlayerSkills.cs" />
     <Compile Include="Database\Mapping\SeniorPlayer.cs" />
-    <Compile Include="Database\Mapping\SeniorPlayerWithSkillDelta.cs" />
     <Compile Include="Database\Mapping\SeniorTeam.cs" />
     <Compile Include="Database\Mapping\SeniorSeries.cs" />
     <Compile Include="Database\Mapping\SeniorArena.cs" />
@@ -141,16 +146,17 @@
     <Compile Include="Database\Mapping\Continent.cs" />
     <Compile Include="Database\Mapping\Entity.cs" />
     <Compile Include="Database\Mapping\HattrickEntity.cs" />
-    <Compile Include="Database\ReadOnlyRepository.cs" />
     <Compile Include="Database\Repository.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\GridLayout.cs" />
+    <Compile Include="Database\Strategy\QueryStrategy\JuniorPlayerAvatar.cs" />
+    <Compile Include="Database\Strategy\QueryStrategy\SeniorPlayerWeekLog.cs" />
+    <Compile Include="Database\Strategy\QueryStrategy\JuniorPlayerWeekLog.cs" />
+    <Compile Include="Database\Strategy\QueryStrategy\JuniorPlayer.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\SeniorPlayerAvatar.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\User.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\Token.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\SeniorTeam.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\SeniorSeries.cs" />
-    <Compile Include="Database\Strategy\QueryStrategy\SeniorPlayerSkills.cs" />
-    <Compile Include="Database\Strategy\QueryStrategy\SeniorPlayerSeasonGoals.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\SeniorPlayer.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\SeniorArena.cs" />
     <Compile Include="Database\Strategy\QueryStrategy\Region.cs" />
@@ -187,10 +193,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\Scripts\001_SeniorPlayerWithSkillDelta.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database\Scripts\002_Grids.sql">
+    <Content Include="Database\Scripts\001_Grids.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

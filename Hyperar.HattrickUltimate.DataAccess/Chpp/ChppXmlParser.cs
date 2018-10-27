@@ -11,7 +11,6 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp
     using System.Xml;
     using BusinessObjects.Hattrick.Interface;
     using Factory;
-    using Interface;
 
     /// <summary>
     /// Hattrick XML file base parser.

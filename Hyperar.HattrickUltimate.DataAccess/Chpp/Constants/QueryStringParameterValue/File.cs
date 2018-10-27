@@ -39,6 +39,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants.QueryStringParamete
         internal const string WorldDetails = "worlddetails";
 
         /// <summary>
+        /// Youth Avatars File query string parameter value.
+        /// </summary>
+        internal const string YouthAvatars = "youthavatars";
+
+        /// <summary>
+        /// Youth Player List File query string parameter value.
+        /// </summary>
+        internal const string YouthPlayerList = "youthplayerlist";
+
+        /// <summary>
         /// Youth Team Details File query string parameter value.
         /// </summary>
         internal const string YouthTeamDetails = "youthteamdetails";

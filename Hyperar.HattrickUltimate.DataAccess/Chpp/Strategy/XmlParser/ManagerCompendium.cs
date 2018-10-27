@@ -13,7 +13,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
     using Interface;
 
     /// <summary>
-    /// Hattrick ManagerCompendium XML file parser implementation.
+    /// Manager Compendium XML file parser strategy.
     /// </summary>
     internal class ManagerCompendium : IXmlParserStrategy
     {

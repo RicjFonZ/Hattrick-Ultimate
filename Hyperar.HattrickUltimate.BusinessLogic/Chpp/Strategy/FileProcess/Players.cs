@@ -22,11 +22,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         #region Private Fields
 
         /// <summary>
-        /// Zero digit char constant.
-        /// </summary>
-        private const char Zero = '0';
-
-        /// <summary>
         /// Database context.
         /// </summary>
         private readonly IDatabaseContext context;
@@ -57,24 +52,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         private readonly IHattrickRepository<SeniorPlayer> seniorPlayerRepository;
 
         /// <summary>
-        /// Senior Player Season Goals repository.
+        /// Senior Player Week Log repository.
         /// </summary>
-        private readonly IRepository<SeniorPlayerSeasonGoals> seniorPlayerSeasonGoalsRepository;
-
-        /// <summary>
-        /// Senior Player Skills repository.
-        /// </summary>
-        private readonly IRepository<SeniorPlayerSkills> seniorPlayerSkillsRepository;
+        private readonly IRepository<SeniorPlayerWeekLog> seniorPlayerWeekLogRepository;
 
         /// <summary>
         /// Senior Team repository.
         /// </summary>
         private readonly IHattrickRepository<SeniorTeam> seniorTeamRepository;
-
-        /// <summary>
-        /// Global season number.
-        /// </summary>
-        private short seasonNumber;
 
         #endregion Private Fields
 
@@ -88,8 +73,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// <param name="leagueRepository">League repository.</param>
         /// <param name="seniorPlayerAvatarRepository">Senior Player Avatar repository.</param>
         /// <param name="seniorPlayerRepository">Senior Player repository.</param>
-        /// <param name="seniorPlayerSeasonGoalsRepository">Senior Player Season Goals repository.</param>
-        /// <param name="seniorPlayerSkillsRepository">Senior Player Skills repository.</param>
+        /// <param name="seniorPlayerWeekLogRepository">Senior Player Week Log repository.</param>
         /// <param name="seniorTeamRepository">Senior Team repository.</param>
         public Players(
                    IDatabaseContext context,
@@ -97,8 +81,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                    IHattrickRepository<League> leagueRepository,
                    IRepository<SeniorPlayerAvatar> seniorPlayerAvatarRepository,
                    IHattrickRepository<SeniorPlayer> seniorPlayerRepository,
-                   IRepository<SeniorPlayerSeasonGoals> seniorPlayerSeasonGoalsRepository,
-                   IRepository<SeniorPlayerSkills> seniorPlayerSkillsRepository,
+                   IRepository<SeniorPlayerWeekLog> seniorPlayerWeekLogRepository,
                    IHattrickRepository<SeniorTeam> seniorTeamRepository)
         {
             this.context = context;
@@ -106,8 +89,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
             this.leagueRepository = leagueRepository;
             this.seniorPlayerAvatarRepository = seniorPlayerAvatarRepository;
             this.seniorPlayerRepository = seniorPlayerRepository;
-            this.seniorPlayerSeasonGoalsRepository = seniorPlayerSeasonGoalsRepository;
-            this.seniorPlayerSkillsRepository = seniorPlayerSkillsRepository;
+            this.seniorPlayerWeekLogRepository = seniorPlayerWeekLogRepository;
             this.seniorTeamRepository = seniorTeamRepository;
             this.decimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
         }
@@ -127,9 +109,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(fileToProcess));
             }
 
-            var file = fileToProcess as BusinessObjects.Hattrick.Players.Root;
-
-            if (file == null)
+            if (!(fileToProcess is BusinessObjects.Hattrick.Players.Root file))
             {
                 throw new ArgumentException(Localization.Messages.UnexpectedObjectType, nameof(fileToProcess));
             }
@@ -142,16 +122,18 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                                      file.Team.TeamName));
             }
 
-            this.seasonNumber = this.leagueRepository.Query()
-                                                     .First().CurrentSeason;
-
             var seniorTeam = this.seniorTeamRepository.GetByHattrickId(file.Team.TeamId);
 
             var processingDate = DateTime.Now;
 
+            var sampleLeague = this.leagueRepository.GetByHattrickId(1);
+
+            short season = sampleLeague.CurrentSeason;
+            byte week = sampleLeague.CurrentRound;
+
             foreach (var curPlayer in file.Team.PlayerList)
             {
-                this.ProcessPlayer(curPlayer, seniorTeam.Id, processingDate);
+                this.ProcessPlayer(curPlayer, season, week, seniorTeam.Id);
             }
 
             // Gets the current Team's Players Hattrick ID.
@@ -172,19 +154,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
 
                     this.seniorPlayerAvatarRepository.Delete(seniorPlayerToDelete.Avatar.Id);
 
-                    int[] seasonGoalsIdsToDelete = seniorPlayerToDelete.SeasonGoals.Select(sg => sg.Id)
-                                                                                  .ToArray();
-                    int[] skillsIdsToDelete = seniorPlayerToDelete.Skills.Select(s => s.Id)
-                                                                       .ToArray();
-
-                    foreach (int curId in seasonGoalsIdsToDelete)
+                    int[] weekLogsToDelete = seniorPlayerToDelete.WeekLogs.Select(wl => wl.Id)
+                                                                                .ToArray();
+                    foreach (int curId in weekLogsToDelete)
                     {
-                        this.seniorPlayerSeasonGoalsRepository.Delete(curId);
-                    }
-
-                    foreach (int curId in skillsIdsToDelete)
-                    {
-                        this.seniorPlayerSkillsRepository.Delete(curId);
+                        this.seniorPlayerWeekLogRepository.Delete(curId);
                     }
 
                     this.seniorPlayerRepository.Delete(curPlayerId);
@@ -202,9 +176,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
         /// Process Player.
         /// </summary>
         /// <param name="player">Player to process.</param>
+        /// <param name="season">Current season.</param>
+        /// <param name="week">Current week.</param>
         /// <param name="seniorTeamId">Senior Team Id.</param>
-        /// <param name="processingDate">Processing date and time.</param>
-        private void ProcessPlayer(BusinessObjects.Hattrick.Players.Player player, int seniorTeamId, DateTime processingDate)
+        private void ProcessPlayer(BusinessObjects.Hattrick.Players.Player player, short season, byte week, int seniorTeamId)
         {
             if (player == null)
             {
@@ -218,19 +193,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 seniorPlayer = new SeniorPlayer();
             }
 
-            seniorPlayer.Age = decimal.Parse($"{player.Age}{this.decimalSeparator}{player.AgeDays.ToString().PadLeft(3, Zero)}");
+            seniorPlayer.AgeDays = player.AgeDays;
             seniorPlayer.Aggressiveness = player.Aggressiveness;
             seniorPlayer.Agreeability = player.Agreeability;
             seniorPlayer.BookingStatus = player.Cards;
-            seniorPlayer.CareerGoals = player.CareerGoals;
-            seniorPlayer.CareerHattricks = player.CareerHattricks;
             seniorPlayer.Category = player.PlayerCategoryId.HasValue && player.PlayerCategoryId.Value != 0 ? player.PlayerCategoryId : null;
             seniorPlayer.CountryId = this.countryRepository.GetByHattrickId(player.CountryId).Id;
             seniorPlayer.FirstName = player.FirstName;
             seniorPlayer.HasHomegrownBonus = player.MotherClubBonus;
             seniorPlayer.HattrickId = player.PlayerId;
             seniorPlayer.Honesty = player.Honesty;
-            seniorPlayer.InjuryStatus = player.InjuryLevel > -1 ? (byte?)player.InjuryLevel : null;
             seniorPlayer.IsOnTransferMarket = player.TransferListed;
             seniorPlayer.LastName = player.LastName;
             seniorPlayer.Leadership = player.Leadership;
@@ -242,7 +214,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
             seniorPlayer.ShirtNumber = player.PlayerNumber == 100 ? (byte?)null : player.PlayerNumber;
             seniorPlayer.Specialty = player.Specialty;
             seniorPlayer.Statement = player.Statement;
-            seniorPlayer.Wage = Convert.ToInt32(player.Salary);
 
             if (seniorPlayer.Id == 0)
             {
@@ -253,11 +224,20 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 this.seniorPlayerRepository.Update(seniorPlayer);
             }
 
-            this.ProcessSkills(
+            this.context.Save();
+
+            this.ProcessWeekLog(
+                     season,
+                     week,
+                     player.Age,
+                     player.InjuryLevel,
+                     player.CareerGoals,
+                     player.CareerHattricks,
+                     player.LeagueGoals,
+                     player.CupGoals,
+                     player.FriendliesGoals,
                      player.PlayerForm,
                      player.StaminaSkill,
-                     player.Experience,
-                     player.Loyalty,
                      player.KeeperSkill.Value,
                      player.DefenderSkill.Value,
                      player.PlaymakerSkill.Value,
@@ -265,134 +245,136 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                      player.PassingSkill.Value,
                      player.ScorerSkill.Value,
                      player.SetPiecesSkill.Value,
+                     player.Loyalty,
+                     player.Experience,
                      Convert.ToInt32(player.TSI),
-                     seniorPlayer.Id,
-                     processingDate);
-
-            this.ProcessSeasonGoals(
-                     player.LeagueGoals,
-                     player.CupGoals,
-                     player.FriendliesGoals,
-                     Convert.ToByte(seniorPlayer.Country.League.CurrentSeason),
+                     Convert.ToInt32(player.Salary),
                      seniorPlayer.Id);
-
-            this.context.Save();
         }
 
         /// <summary>
-        /// Processes Player season goals.
+        /// Process Senior Player Week Log.
         /// </summary>
-        /// <param name="seriesGoals">Season series goals.</param>
-        /// <param name="cupGoals">Season cup goals.</param>
-        /// <param name="friendlyGoals">Season friendly goals.</param>
-        /// <param name="seasonNumber">Season number.</param>
-        /// <param name="seniorPlayerId">Senior Player Id.</param>
-        private void ProcessSeasonGoals(byte seriesGoals, byte cupGoals, byte friendlyGoals, byte seasonNumber, int seniorPlayerId)
-        {
-            var seasonGoals = this.seniorPlayerSeasonGoalsRepository.Query(spsg => spsg.SeniorPlayerId == seniorPlayerId
-                                                                                && spsg.Season == seasonNumber)
-                                                                    .SingleOrDefault();
-
-            if (seasonGoals == null)
-            {
-                seasonGoals = new SeniorPlayerSeasonGoals
-                {
-                    CupGoals = cupGoals,
-                    FriendlyGoals = friendlyGoals,
-                    Season = seasonNumber,
-                    SeniorPlayerId = seniorPlayerId,
-                    SeriesGoals = seriesGoals
-                };
-
-                this.seniorPlayerSeasonGoalsRepository.Insert(seasonGoals);
-            }
-            else
-            {
-                seasonGoals.CupGoals = cupGoals;
-                seasonGoals.FriendlyGoals = friendlyGoals;
-                seasonGoals.SeriesGoals = seriesGoals;
-
-                this.seniorPlayerSeasonGoalsRepository.Update(seasonGoals);
-            }
-
-            this.context.Save();
-        }
-
-        /// <summary>
-        /// Processes Player skills.
-        /// </summary>
-        /// <param name="form">Form level.</param>
-        /// <param name="stamina">Stamina level.</param>
-        /// <param name="experience">Experience level.</param>
-        /// <param name="loyalty">Loyalty level.</param>
-        /// <param name="keeper">Keeper level.</param>
-        /// <param name="defending">Defending level.</param>
-        /// <param name="playmaking">Playmaking level.</param>
-        /// <param name="winger">Winger level.</param>
-        /// <param name="passing">Passing level.</param>
-        /// <param name="scoring">Scoring level.</param>
-        /// <param name="setPieces">Set Pieces level.</param>
+        /// <param name="season">Current Season.</param>
+        /// <param name="week">Current Week.</param>
+        /// <param name="age">Age in Years.</param>
+        /// <param name="healthStatus">Health Status.</param>
+        /// <param name="careerGoals">Career Goals.</param>
+        /// <param name="careerHattricks">Career Hattricks.</param>
+        /// <param name="seriesGoals">Series Goals.</param>
+        /// <param name="cupGoals">Cup Goals.</param>
+        /// <param name="friendlyGoals">Friendly Goals.</param>
+        /// <param name="form">Form Level.</param>
+        /// <param name="stamina">Stamina Level.</param>
+        /// <param name="keeper">Keeper Level.</param>
+        /// <param name="defending">Defending Level.</param>
+        /// <param name="playmaking">Playmaking Level.</param>
+        /// <param name="winger">Winger Level.</param>
+        /// <param name="passing">Passing Level.</param>
+        /// <param name="scoring">Scoring Level.</param>
+        /// <param name="setPieces">Set Pieces Level.</param>
+        /// <param name="loyalty">Loyalty Level.</param>
+        /// <param name="experience">Experience Level.</param>
         /// <param name="totalSkillIndex">Total Skill Index.</param>
-        /// <param name="seniorPlayerId">Senior Player Id.</param>
-        /// <param name="processingDate">Processing date and time.</param>
-        private void ProcessSkills(
-                         byte form,
-                         byte stamina,
-                         byte experience,
-                         byte loyalty,
-                         byte keeper,
-                         byte defending,
-                         byte playmaking,
-                         byte winger,
-                         byte passing,
-                         byte scoring,
-                         byte setPieces,
-                         int totalSkillIndex,
-                         int seniorPlayerId,
-                         DateTime processingDate)
+        /// <param name="wage">Player's Wage.</param>
+        /// <param name="seniorPlayerId">Senior Player ID.</param>
+        private void ProcessWeekLog(
+            short season,
+            byte week,
+            byte age,
+            int healthStatus,
+            short careerGoals,
+            short careerHattricks,
+            byte seriesGoals,
+            byte cupGoals,
+            byte friendlyGoals,
+            byte form,
+            byte stamina,
+            byte keeper,
+            byte defending,
+            byte playmaking,
+            byte winger,
+            byte passing,
+            byte scoring,
+            byte setPieces,
+            byte loyalty,
+            byte experience,
+            int totalSkillIndex,
+            int wage,
+            int seniorPlayerId)
         {
-            var skills = this.seniorPlayerSkillsRepository.Query(sps => sps.SeniorPlayerId == seniorPlayerId)
-                                                          .OrderByDescending(sps => sps.UpdatedOn)
-                                                          .FirstOrDefault();
+            var weekLog = this.seniorPlayerWeekLogRepository.Query()
+                                                            .SingleOrDefault(wl => wl.Season == season
+                                                                                && wl.Week == week
+                                                                                && wl.SeniorPlayerId == seniorPlayerId);
 
-            bool shouldInsert = skills == null ||
-                                (skills.Form != form ||
-                                 skills.Stamina != stamina ||
-                                 skills.Keeper != keeper ||
-                                 skills.Defending != defending ||
-                                 skills.Playmaking != playmaking ||
-                                 skills.Winger != winger ||
-                                 skills.Passing != passing ||
-                                 skills.Scoring != scoring ||
-                                 skills.SetPieces != setPieces ||
-                                 skills.Loyalty != loyalty ||
-                                 skills.Experience != experience ||
-                                 skills.TotalSkillIndex != totalSkillIndex);
+            bool shouldInsert = false;
 
-            if (shouldInsert)
+            if (weekLog == null)
             {
-                skills = new SeniorPlayerSkills
+                weekLog = new SeniorPlayerWeekLog
                 {
+                    Age = age,
+                    CareerGoals = careerGoals,
+                    CareerHattricks = careerHattricks,
+                    CupGoals = cupGoals,
                     Defending = defending,
                     Experience = experience,
                     Form = form,
+                    FriendlyGoals = friendlyGoals,
+                    HealthStatus = healthStatus,
                     Keeper = keeper,
                     Loyalty = loyalty,
                     Passing = passing,
                     Playmaking = playmaking,
                     Scoring = scoring,
+                    Season = season,
+                    SeniorPlayerId = seniorPlayerId,
+                    SeriesGoals = seriesGoals,
                     SetPieces = setPieces,
                     Stamina = stamina,
-                    Winger = winger,
                     TotalSkillIndex = totalSkillIndex,
-                    UpdatedOn = processingDate,
-                    SeniorPlayerId = seniorPlayerId
+                    Wage = wage,
+                    Week = week,
+                    Winger = winger
                 };
 
-                this.seniorPlayerSkillsRepository.Insert(skills);
-
-                this.context.Save();
+                shouldInsert = true;
             }
+            else
+            {
+                weekLog.Age = age;
+                weekLog.CareerGoals = careerGoals;
+                weekLog.CareerHattricks = careerHattricks;
+                weekLog.CupGoals = cupGoals;
+                weekLog.Defending = defending;
+                weekLog.Experience = experience;
+                weekLog.Form = form;
+                weekLog.FriendlyGoals = friendlyGoals;
+                weekLog.HealthStatus = healthStatus;
+                weekLog.Keeper = keeper;
+                weekLog.Loyalty = loyalty;
+                weekLog.Passing = passing;
+                weekLog.Playmaking = playmaking;
+                weekLog.Scoring = scoring;
+                weekLog.SeriesGoals = seriesGoals;
+                weekLog.SetPieces = setPieces;
+                weekLog.Stamina = stamina;
+                weekLog.TotalSkillIndex = totalSkillIndex;
+                weekLog.Wage = wage;
+                weekLog.Winger = winger;
+            }
+
+            if (shouldInsert)
+            {
+                this.seniorPlayerWeekLogRepository.Insert(weekLog);
+            }
+            else
+            {
+                this.seniorPlayerWeekLogRepository.Update(weekLog);
+            }
+
+            this.context.Save();
         }
 
         #endregion Private Methods

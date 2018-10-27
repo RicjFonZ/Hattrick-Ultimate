@@ -14,11 +14,15 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Interface
     /// </summary>
     public interface IFileAnalysisStrategy
     {
+        #region Public Methods
+
         /// <summary>
         /// Analyses the specified entity.
         /// </summary>
         /// <param name="entity">Entity to analyze.</param>
         /// <returns>Additional Files Tasks list.</returns>
         List<ChppFile> Analyze(IXmlEntity entity);
+
+        #endregion Public Methods
     }
 }

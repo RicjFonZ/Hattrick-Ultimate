@@ -18,10 +18,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
     /// </summary>
     public class FileValidationFactory : IFileValidationFactory
     {
+        #region Private Fields
+
         /// <summary>
         /// Strategy Dictionary.
         /// </summary>
         private readonly Dictionary<string, IFileValidationStrategy> strategies;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileValidationFactory"/> class.
@@ -30,6 +36,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         {
             this.strategies = new Dictionary<string, IFileValidationStrategy>();
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         /// <summary>
         /// Gets the corresponding Strategy to Validation the specified file.
@@ -50,6 +60,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
                     case XmlFileName.ManagerCompendium:
                     case XmlFileName.TeamDetails:
                     case XmlFileName.WorldDetails:
+                    case XmlFileName.YouthAvatars:
                     case XmlFileName.YouthPlayerList:
                     case XmlFileName.YouthTeamDetails:
                         this.strategies.Add(key, new Default());
@@ -68,5 +79,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
 
             return result;
         }
+
+        #endregion Public Methods
     }
 }

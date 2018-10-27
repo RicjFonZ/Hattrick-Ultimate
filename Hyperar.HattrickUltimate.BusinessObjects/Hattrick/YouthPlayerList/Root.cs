@@ -13,9 +13,13 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class Root : XmlEntityBase
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Player List.
         /// </summary>
         public List<YouthPlayer> PlayerList { get; set; }
+
+        #endregion Public Properties
     }
 }

@@ -106,7 +106,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.Players
         /// Bruised: 0.
         /// Injured: &gt; 0.
         /// </remarks>
-        public sbyte InjuryLevel { get; set; }
+        public int InjuryLevel { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the player is foreign or not.

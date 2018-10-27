@@ -9,7 +9,6 @@ namespace Hyperar.HattrickUltimate.UserInterface.ExtensionMethods
     using System;
     using System.Linq;
     using System.Linq.Expressions;
-    using System.Reflection;
 
     /// <summary>
     /// IQueryable object sorting Extension Methods.

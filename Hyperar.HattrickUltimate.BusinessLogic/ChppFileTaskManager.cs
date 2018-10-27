@@ -261,6 +261,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                              filesTasks.Count,
                              asyncOperation.UserSuppliedState);
 
+                    if (this.IsCanceled(asyncOperation.UserSuppliedState))
+                    {
+                        break;
+                    }
+
                     var downloadResult = this.chppManager.GetProtectedResource(
                                                               accessToken,
                                                               currentFile.File,
@@ -299,6 +304,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                              filesTasks.Count,
                              asyncOperation.UserSuppliedState);
 
+                    if (this.IsCanceled(asyncOperation.UserSuppliedState))
+                    {
+                        break;
+                    }
+
                     this.chppFileProcesser.ProcessFile(downloadResult);
 
                     i++;
@@ -315,6 +325,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             catch (Exception ex)
             {
                 exception = ex;
+
+                this.CancelAsync(asyncOperation.UserSuppliedState);
             }
 
             // If cancelled, perform rollback.

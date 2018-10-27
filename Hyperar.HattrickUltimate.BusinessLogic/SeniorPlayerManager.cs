@@ -6,6 +6,8 @@
 //-----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessLogic
 {
+    using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Drawing;
     using System.IO;
     using System.Linq;
@@ -33,11 +35,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         private readonly IHattrickRepository<BusinessObjects.App.SeniorPlayer> seniorPlayerRepository;
 
-        /// <summary>
-        /// Senior Player With Skill Delta Repository.
-        /// </summary>
-        private readonly IReadOnlyRepository<BusinessObjects.App.SeniorPlayerWithSkillDelta> seniorPlayerWithSkillDeltaRepository;
-
         #endregion Private Fields
 
         #region Public Constructors
@@ -48,17 +45,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <param name="context">Database context.</param>
         /// <param name="seniorPlayerAvatarRepository">Senior Player Avatar Repository.</param>
         /// <param name="seniorPlayerRepository">Senior Player Repository.</param>
-        /// <param name="seniorPlayerWithSkillDeltaRepository">Senior Player With Skill Delta Repository.</param>
         public SeniorPlayerManager(
                    IDatabaseContext context,
                    IRepository<BusinessObjects.App.SeniorPlayerAvatar> seniorPlayerAvatarRepository,
-                   IHattrickRepository<BusinessObjects.App.SeniorPlayer> seniorPlayerRepository,
-                   IReadOnlyRepository<BusinessObjects.App.SeniorPlayerWithSkillDelta> seniorPlayerWithSkillDeltaRepository)
+                   IHattrickRepository<BusinessObjects.App.SeniorPlayer> seniorPlayerRepository)
         {
             this.context = context;
             this.seniorPlayerAvatarRepository = seniorPlayerAvatarRepository;
             this.seniorPlayerRepository = seniorPlayerRepository;
-            this.seniorPlayerWithSkillDeltaRepository = seniorPlayerWithSkillDeltaRepository;
         }
 
         #endregion Public Constructors
@@ -89,13 +83,92 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         }
 
         /// <summary>
-        /// Gets the Senior Players with Skills and Skills Deltas for the specified Senior Team ID.
+        /// Gets the Senior Player Grid Rows for the specified Senior Team ID.
         /// </summary>
-        /// <param name="seniorTeamId">Owning Senior Team ID.</param>
-        /// <returns>Senior Players with Skills and Skills Delta on a Queryable object.</returns>
-        public IQueryable<BusinessObjects.App.SeniorPlayerWithSkillDelta> GetSeniorPlayerWithSkillDelta(int seniorTeamId)
+        /// <param name="selectedTeamId">Selected Senior Team ID.</param>
+        /// <returns>Senior Player Grid Rows.</returns>
+        public IQueryable<BusinessObjects.UI.SeniorPlayerGridRow> GetSeniorPlayerGridRows(int selectedTeamId)
         {
-            return this.seniorPlayerWithSkillDeltaRepository.Query(x => x.SeniorTeamId == seniorTeamId);
+            var rows = new List<BusinessObjects.UI.SeniorPlayerGridRow>();
+
+            var query = this.seniorPlayerRepository.Query(x => x.SeniorTeamId == selectedTeamId);
+
+            query.ToList()
+                 .ForEach(sp =>
+                 {
+                     (this.context as DbContext).Entry(sp).Reload();
+
+                     var lastWeekLog = sp.WeekLogs.Last();
+                     var previousWeekLog = sp.WeekLogs.Reverse()
+                                                          .Skip(1)
+                                                          .Take(1)
+                                                          .SingleOrDefault();
+
+                     var newRow = new BusinessObjects.UI.SeniorPlayerGridRow
+                     {
+                         Age = sp.WeekLogs.Last().Age,
+                         Aggressiveness = sp.Aggressiveness,
+                         Agreeability = sp.Agreeability,
+                         Avatar = sp.Avatar.AvatarBytes,
+                         BookingStatus = sp.BookingStatus,
+                         CareerGoals = lastWeekLog.CareerGoals,
+                         CareerGoalsDelta = previousWeekLog != null ? lastWeekLog.CareerGoals - previousWeekLog.CareerGoals : (int?)null,
+                         CareerHattricks = lastWeekLog.CareerHattricks,
+                         CareerHattricksDelta = previousWeekLog != null ? lastWeekLog.CareerHattricks - previousWeekLog.CareerHattricks : (int?)null,
+                         Category = sp.Category,
+                         CountryEnglishName = sp.Country.League.EnglishName,
+                         CountryHattrickId = sp.Country.HattrickId,
+                         CountryId = sp.CountryId,
+                         CountryName = sp.Country.Name,
+                         Defending = lastWeekLog.Defending,
+                         DefendingDelta = previousWeekLog != null ? lastWeekLog.Defending - previousWeekLog.Defending : (int?)null,
+                         Experience = lastWeekLog.Experience,
+                         ExperienceDelta = previousWeekLog != null ? lastWeekLog.Experience - previousWeekLog.Experience : (int?)null,
+                         FirstName = sp.FirstName,
+                         Form = lastWeekLog.Form,
+                         FormDelta = previousWeekLog != null ? lastWeekLog.Form - previousWeekLog.Form : (int?)null,
+                         HasHomegrownBonus = sp.HasHomegrownBonus,
+                         HattrickId = sp.HattrickId,
+                         Honesty = sp.Honesty,
+                         Id = sp.Id,
+                         HealthStatus = lastWeekLog.HealthStatus,
+                         HealthStatusDelta = previousWeekLog != null ? lastWeekLog.HealthStatus - previousWeekLog.HealthStatus : (int?)null,
+                         IsOnTransferMarket = sp.IsOnTransferMarket,
+                         Keeper = lastWeekLog.Keeper,
+                         KeeperDelta = previousWeekLog != null ? lastWeekLog.Keeper - previousWeekLog.Keeper : (int?)null,
+                         LastName = sp.LastName,
+                         Leadership = sp.Leadership,
+                         Loyalty = lastWeekLog.Loyalty,
+                         LoyaltyDelta = previousWeekLog != null ? lastWeekLog.Loyalty - previousWeekLog.Loyalty : (int?)null,
+                         MatchesOnJuniorNationalTeam = sp.MatchesOnJuniorNationalTeam,
+                         MatchesOnSeniorNationalTeam = sp.MatchesOnSeniorNationalTeam,
+                         NickName = sp.NickName,
+                         Passing = lastWeekLog.Passing,
+                         PassingDelta = previousWeekLog != null ? lastWeekLog.Passing - previousWeekLog.Passing : (int?)null,
+                         Playmaking = lastWeekLog.Playmaking,
+                         PlaymakingDelta = previousWeekLog != null ? lastWeekLog.Playmaking - previousWeekLog.Playmaking : (int?)null,
+                         PlaysOnNationalTeam = sp.PlaysOnNationalTeam,
+                         Scoring = lastWeekLog.Scoring,
+                         ScoringDelta = previousWeekLog != null ? lastWeekLog.Scoring - previousWeekLog.Scoring : (int?)null,
+                         SeniorTeamId = sp.SeniorTeamId,
+                         SetPieces = lastWeekLog.SetPieces,
+                         SetPiecesDelta = previousWeekLog != null ? lastWeekLog.SetPieces - previousWeekLog.SetPieces : (int?)null,
+                         ShirtNumber = sp.ShirtNumber,
+                         Specialty = sp.Specialty,
+                         Stamina = lastWeekLog.Stamina,
+                         StaminaDelta = previousWeekLog != null ? lastWeekLog.Stamina - previousWeekLog.Stamina : (int?)null,
+                         TotalSkillIndex = lastWeekLog.TotalSkillIndex,
+                         TotalSkillIndexDelta = previousWeekLog != null ? lastWeekLog.TotalSkillIndex - previousWeekLog.TotalSkillIndex : (int?)null,
+                         Wage = lastWeekLog.Wage,
+                         WageDelta = previousWeekLog != null ? lastWeekLog.Wage - previousWeekLog.Wage : (int?)null,
+                         Winger = lastWeekLog.Winger,
+                         WingerDelta = previousWeekLog != null ? lastWeekLog.Winger - previousWeekLog.Winger : (int?)null,
+                     };
+
+                     rows.Add(newRow);
+                 });
+
+            return rows.AsQueryable();
         }
 
         #endregion Public Methods

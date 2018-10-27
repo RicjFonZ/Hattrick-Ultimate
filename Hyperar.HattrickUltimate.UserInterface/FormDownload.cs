@@ -7,7 +7,6 @@
 namespace Hyperar.HattrickUltimate.UserInterface
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Windows.Forms;
     using Interface;
@@ -208,12 +207,16 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private void SetControlState()
         {
-            this.PgrBarProcess.Value =
-            this.PgrBarCurrentTask.Value = 0;
+            this.PgrBarCurrentTask.Value =
+            this.PgrBarProcess.Value = 0;
+
+            this.PgrBarCurrentTask.Style =
+            this.PgrBarProcess.Style = ProgressBarStyle.Continuous;
 
             this.BtnDownload.Enabled =
             this.BtnDownload.Visible =
-            this.BtnClose.Enabled = !this.AreAsyncTasksRunning();
+            this.BtnClose.Enabled =
+            this.PropGridDownloadSettings.Enabled = !this.AreAsyncTasksRunning();
 
             this.BtnCancel.Enabled =
             this.BtnCancel.Visible = this.AreAsyncTasksRunning();

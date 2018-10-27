@@ -11,9 +11,13 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class Skill : SkillBase
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets a value indicating whether Max Is Reached or not.
         /// </summary>
         public bool IsMaxReached { get; set; }
+
+        #endregion Public Properties
     }
 }

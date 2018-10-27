@@ -15,6 +15,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileValidation
     /// </summary>
     public class Players : IFileValidationStrategy
     {
+        #region Public Methods
+
         /// <summary>
         /// Validates the specified entity.
         /// </summary>
@@ -28,5 +30,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileValidation
                 throw new InvalidOperationException(Localization.Messages.TeamIsPlayingMatch);
             }
         }
+
+        #endregion Public Methods
     }
 }

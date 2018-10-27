@@ -13,6 +13,8 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class YouthPlayer
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Age.
         /// </summary>
@@ -56,12 +58,12 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// <summary>
         /// Gets or sets the Friendly Goals.
         /// </summary>
-        public short FriendlyGoals { get; set; }
+        public byte FriendlyGoals { get; set; }
 
         /// <summary>
         /// Gets or sets the Injury Level.
         /// </summary>
-        public sbyte InjuryLevel { get; set; }
+        public int InjuryLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the Last Match.
@@ -76,7 +78,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// <summary>
         /// Gets or sets the League Goals.
         /// </summary>
-        public short LeagueGoals { get; set; }
+        public byte LeagueGoals { get; set; }
 
         /// <summary>
         /// Gets or sets the Nick Name.
@@ -127,5 +129,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// Gets or sets the Youth Player ID.
         /// </summary>
         public long YouthPlayerId { get; set; }
+
+        #endregion Public Properties
     }
 }

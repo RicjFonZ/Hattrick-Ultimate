@@ -15,6 +15,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
     /// </summary>
     public class Default : IFileAnalysisStrategy
     {
+        #region Public Methods
+
         /// <summary>
         /// Analyses the specified entity.
         /// </summary>
@@ -24,5 +26,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
         {
             return null;
         }
+
+        #endregion Public Methods
     }
 }

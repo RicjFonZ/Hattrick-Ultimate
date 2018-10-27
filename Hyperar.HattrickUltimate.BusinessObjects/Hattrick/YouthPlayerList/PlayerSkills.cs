@@ -11,6 +11,8 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class PlayerSkills
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Defender Skill.
         /// </summary>
@@ -80,5 +82,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// Gets or sets the Winger Skill Max.
         /// </summary>
         public SkillMax WingerSkillMax { get; set; }
+
+        #endregion Public Properties
     }
 }

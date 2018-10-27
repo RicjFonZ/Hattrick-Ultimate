@@ -79,9 +79,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 throw new ArgumentNullException(nameof(fileToProcess));
             }
 
-            var file = fileToProcess as BusinessObjects.Hattrick.ManagerCompendium.Root;
-
-            if (file == null)
+            if (!(fileToProcess is BusinessObjects.Hattrick.ManagerCompendium.Root file))
             {
                 throw new ArgumentException(Localization.Messages.UnexpectedObjectType, nameof(fileToProcess));
             }

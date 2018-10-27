@@ -11,6 +11,8 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class OwningYouthTeam
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Senior Team.
         /// </summary>
@@ -30,5 +32,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// Gets or sets the Youth Team Name.
         /// </summary>
         public string YouthTeamName { get; set; }
+
+        #endregion Public Properties
     }
 }

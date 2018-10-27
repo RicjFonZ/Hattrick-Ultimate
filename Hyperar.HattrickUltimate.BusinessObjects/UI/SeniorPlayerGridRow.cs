@@ -1,19 +1,22 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="SeniorPlayerWithSkillDelta.cs" company="Hyperar">
+// <copyright file="SeniorPlayerGridRow.cs" company="Hyperar">
 //     Copyright (c) Hyperar. All rights reserved.
 // </copyright>
 // <author>Matías Ezequiel Sánchez</author>
 //-----------------------------------------------------------------------
-namespace Hyperar.HattrickUltimate.BusinessObjects.App
+namespace Hyperar.HattrickUltimate.BusinessObjects.UI
 {
-    using Interface;
+    using App;
+    using App.Interface;
 
     /// <summary>
-    /// Represents a SeniorPlayerWithSkillDelta view record.
+    /// Represents a Senior Player Grid Row.
     /// </summary>
-    public class SeniorPlayerWithSkillDelta : HattrickEntityBase, IHattrickEntity
+    public class SeniorPlayerGridRow : HattrickEntityBase, IHattrickEntity
     {
         #region Public Properties
+
+        public byte[] Avatar { get; set; }
 
         /// <summary>
         /// Gets or sets the Age.
@@ -41,9 +44,19 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public short CareerGoals { get; set; }
 
         /// <summary>
+        /// Gets or sets the Career Goals Delta.
+        /// </summary>
+        public int? CareerGoalsDelta { get; set; }
+
+        /// <summary>
         /// Gets or sets the Career Hattricks.
         /// </summary>
         public short CareerHattricks { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Career Hattricks Delta.
+        /// </summary>
+        public int? CareerHattricksDelta { get; set; }
 
         /// <summary>
         /// Gets or sets the Category.
@@ -118,7 +131,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
                 }
                 else
                 {
-                    return $"{this.FirstName} \" {this.NickName}\" {this.LastName}";
+                    return $"{this.FirstName} \"{this.NickName}\" {this.LastName}";
                 }
             }
         }
@@ -129,14 +142,19 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public bool HasHomegrownBonus { get; set; }
 
         /// <summary>
+        /// Gets or sets the Health Status.
+        /// </summary>
+        public int HealthStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Health Status Delta.
+        /// </summary>
+        public int? HealthStatusDelta { get; set; }
+
+        /// <summary>
         /// Gets or sets the Honesty.
         /// </summary>
         public byte Honesty { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Injury Status.
-        /// </summary>
-        public byte? InjuryStatus { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the player Is On Transfer Market or not.
@@ -272,6 +290,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Wage.
         /// </summary>
         public int Wage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Wage Delta.
+        /// </summary>
+        public int? WageDelta { get; set; }
 
         /// <summary>
         /// Gets or sets the Winger.

@@ -15,10 +15,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
     /// </summary>
     public class FileAnalyser : IFileAnalysisStrategy
     {
+        #region Private Fields
+
         /// <summary>
         /// File Analysis Strategy Factory.
         /// </summary>
         private readonly IFileAnalysisFactory factory;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileAnalyser"/> class.
@@ -28,6 +34,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
         {
             this.factory = factory;
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         /// <summary>
         /// Analyse the specified file and adds additional Files Tasks.
@@ -39,5 +49,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
             return this.factory.GetFor(entity)
                                .Analyze(entity);
         }
+
+        #endregion Public Methods
     }
 }

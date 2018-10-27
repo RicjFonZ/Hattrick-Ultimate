@@ -6,6 +6,7 @@
 // -----------------------------------------------------------------------
 namespace Hyperar.HattrickUltimate.BusinessObjects.App
 {
+    using System.Collections.Generic;
     using Interface;
 
     /// <summary>
@@ -19,6 +20,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the FullName.
         /// </summary>
         public string FullName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Junior Players.
+        /// </summary>
+        public virtual ICollection<JuniorPlayer> JuniorPlayers { get; set; } = new HashSet<JuniorPlayer>();
 
         /// <summary>
         /// Gets or sets the Junior Series.

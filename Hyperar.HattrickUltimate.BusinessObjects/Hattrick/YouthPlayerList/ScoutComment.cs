@@ -11,6 +11,8 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
     /// </summary>
     public class ScoutComment
     {
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the Comment Skill Level.
         /// </summary>
@@ -35,5 +37,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.Hattrick.YouthPlayerList
         /// Gets or sets the Comment Variation.
         /// </summary>
         public long CommentVariation { get; set; }
+
+        #endregion Public Properties
     }
 }

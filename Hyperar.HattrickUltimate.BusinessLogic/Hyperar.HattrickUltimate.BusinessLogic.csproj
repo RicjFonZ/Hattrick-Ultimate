@@ -81,6 +81,8 @@
     <Compile Include="Chpp\Strategy\FileAnalysis\TeamDetails.cs" />
     <Compile Include="Chpp\Strategy\FileAnalysis\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\FileAnalysis\Default.cs" />
+    <Compile Include="Chpp\Strategy\FileProcess\YouthPlayerList.cs" />
+    <Compile Include="Chpp\Strategy\FileProcess\YouthAvatars.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\Avatars.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\ManagerCompendium.cs" />
     <Compile Include="Chpp\Strategy\FileProcess\Players.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="ExtensionMethods\OAuthScopeExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\SupporterTierExtensionMethods.cs" />
     <Compile Include="GridManager.cs" />
+    <Compile Include="ImageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeniorPlayerManager.cs" />
     <Compile Include="TokenManager.cs" />

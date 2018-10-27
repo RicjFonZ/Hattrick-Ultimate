@@ -24,6 +24,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string ActiveUsers = "ActiveUsers";
 
         /// <summary>
+        /// Age tag.
+        /// </summary>
+        internal const string Age = "Age";
+
+        /// <summary>
         /// Arena tag.
         /// </summary>
         internal const string Arena = "Arena";
@@ -164,6 +169,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string DefenderSkill = "DefenderSkill";
 
         /// <summary>
+        /// DefenderSkillMax tag.
+        /// </summary>
+        internal const string DefenderSkillMax = "DefenderSkillMax";
+
+        /// <summary>
         /// EconomyDate tag.
         /// </summary>
         internal const string EconomyDate = "EconomyDate";
@@ -249,9 +259,24 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string InRegion = "InRegion";
 
         /// <summary>
+        /// IsAvailable tag.
+        /// </summary>
+        internal const string IsAvailable = "IsAvailable";
+
+        /// <summary>
+        /// IsMaxReached tag.
+        /// </summary>
+        internal const string IsMaxReached = "IsMaxReached";
+
+        /// <summary>
         /// KeeperSkill tag.
         /// </summary>
         internal const string KeeperSkill = "KeeperSkill";
+
+        /// <summary>
+        /// KeeperSkillMax tag.
+        /// </summary>
+        internal const string KeeperSkillMax = "KeeperSkillMax";
 
         /// <summary>
         /// Language tag.
@@ -349,6 +374,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string MaxItems = "MaxItems";
 
         /// <summary>
+        /// MayUnlock tag.
+        /// </summary>
+        internal const string MayUnlock = "MayUnlock";
+
+        /// <summary>
         /// MotherTeamID tag.
         /// </summary>
         internal const string MotherTeamId = "MotherTeamId";
@@ -399,14 +429,29 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string NumberOfLevels = "NumberOfLevels";
 
         /// <summary>
+        /// OwnerNotes tag.
+        /// </summary>
+        internal const string OwnerNotes = "OwnerNotes";
+
+        /// <summary>
         /// OwningTeam tag.
         /// </summary>
         internal const string OwningTeam = "OwningTeam";
 
         /// <summary>
+        /// OwningYouthTeam tag.
+        /// </summary>
+        internal const string OwningYouthTeam = "OwningYouthTeam";
+
+        /// <summary>
         /// PassingSkill tag.
         /// </summary>
         internal const string PassingSkill = "PassingSkill";
+
+        /// <summary>
+        /// PassingSkillMax tag.
+        /// </summary>
+        internal const string PassingSkillMax = "PassingSkillMax";
 
         /// <summary>
         /// Player tag.
@@ -424,9 +469,19 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string PlayerList = "PlayerList";
 
         /// <summary>
+        /// PlayerSkills tag.
+        /// </summary>
+        internal const string PlayerSkills = "PlayerSkills";
+
+        /// <summary>
         /// PlaymakerSkill tag.
         /// </summary>
         internal const string PlaymakerSkill = "PlaymakerSkill";
+
+        /// <summary>
+        /// PlaymakerSkillMax tag.
+        /// </summary>
+        internal const string PlaymakerSkillMax = "PlaymakerSkillMax";
 
         /// <summary>
         /// PressAnnouncement tag.
@@ -459,9 +514,29 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string ScorerSkill = "ScorerSkill";
 
         /// <summary>
+        /// ScorerSkillMax tag.
+        /// </summary>
+        internal const string ScorerSkillMax = "ScorerSkillMax";
+
+        /// <summary>
         /// Scout tag.
         /// </summary>
         internal const string Scout = "Scout";
+
+        /// <summary>
+        /// ScoutCall tag.
+        /// </summary>
+        internal const string ScoutCall = "ScoutCall";
+
+        /// <summary>
+        /// ScoutComment tag.
+        /// </summary>
+        internal const string ScoutComment = "ScoutComment";
+
+        /// <summary>
+        /// ScoutComments tag.
+        /// </summary>
+        internal const string ScoutComments = "ScoutComments";
 
         /// <summary>
         /// ScoutList tag.
@@ -479,6 +554,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string SeasonOffset = "SeasonOffset";
 
         /// <summary>
+        /// SeniorTeam tag.
+        /// </summary>
+        internal const string SeniorTeam = "SeniorTeam";
+
+        /// <summary>
         /// SeriesMatchDate tag.
         /// </summary>
         internal const string SeriesMatchDate = "SeriesMatchDate";
@@ -487,6 +567,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// SetPiecesSkill tag.
         /// </summary>
         internal const string SetPiecesSkill = "SetPiecesSkill";
+
+        /// <summary>
+        /// SetPiecesSkillMax tag.
+        /// </summary>
+        internal const string SetPiecesSkillMax = "SetPiecesSkillMax";
 
         /// <summary>
         /// ShortName tag.
@@ -624,6 +709,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         internal const string WingerSkill = "WingerSkill";
 
         /// <summary>
+        /// WingerSkillMax tag.
+        /// </summary>
+        internal const string WingerSkillMax = "WingerSkillMax";
+
+        /// <summary>
         /// X tag.
         /// </summary>
         internal const string X = "X";
@@ -667,6 +757,11 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         /// YouthLeagueStatus tag.
         /// </summary>
         internal const string YouthLeagueStatus = "YouthLeagueStatus";
+
+        /// <summary>
+        /// YouthPlayer tag.
+        /// </summary>
+        internal const string YouthPlayer = "YouthPlayer";
 
         /// <summary>
         /// YouthPlayerId tag.

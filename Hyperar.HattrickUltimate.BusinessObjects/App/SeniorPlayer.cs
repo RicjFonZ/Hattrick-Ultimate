@@ -17,9 +17,9 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         #region Public Properties
 
         /// <summary>
-        /// Gets or sets the Age.
+        /// Gets or sets the Age Days.
         /// </summary>
-        public decimal Age { get; set; }
+        public byte AgeDays { get; set; }
 
         /// <summary>
         /// Gets or sets the Aggressiveness.
@@ -40,16 +40,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Booking Status.
         /// </summary>
         public byte BookingStatus { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Career Goals.
-        /// </summary>
-        public short CareerGoals { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Career Hattricks.
-        /// </summary>
-        public short CareerHattricks { get; set; }
 
         /// <summary>
         /// Gets or sets the Category.
@@ -80,11 +70,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         /// Gets or sets the Honesty.
         /// </summary>
         public byte Honesty { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Injury Status.
-        /// </summary>
-        public byte? InjuryStatus { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the player is on the Transfer Market or not.
@@ -122,11 +107,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public bool PlaysOnNationalTeam { get; set; }
 
         /// <summary>
-        /// Gets or sets the Senior Player SeasonGoals.
-        /// </summary>
-        public virtual ICollection<SeniorPlayerSeasonGoals> SeasonGoals { get; set; } = new HashSet<SeniorPlayerSeasonGoals>();
-
-        /// <summary>
         /// Gets or sets the Senior Team.
         /// </summary>
         public virtual SeniorTeam SeniorTeam { get; set; }
@@ -142,11 +122,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public byte? ShirtNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets the Senior Player Skills.
-        /// </summary>
-        public virtual ICollection<SeniorPlayerSkills> Skills { get; set; } = new HashSet<SeniorPlayerSkills>();
-
-        /// <summary>
         /// Gets or sets the Specialty.
         /// </summary>
         public byte Specialty { get; set; }
@@ -157,9 +132,9 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public string Statement { get; set; }
 
         /// <summary>
-        /// Gets or sets the Wage.
+        /// Gets or sets the Senior Player Week Logs.
         /// </summary>
-        public int Wage { get; set; }
+        public virtual ICollection<SeniorPlayerWeekLog> WeekLogs { get; set; } = new HashSet<SeniorPlayerWeekLog>();
 
         #endregion Public Properties
 

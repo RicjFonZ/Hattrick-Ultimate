@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.ProtectedResourceUrl
     using Interface;
 
     /// <summary>
-    /// Manager Compendium URL build strategy.
+    /// Youth Team Details URL build strategy.
     /// </summary>
     internal class YouthTeamDetails : IProtectedResourceUrlBuildStrategy
     {

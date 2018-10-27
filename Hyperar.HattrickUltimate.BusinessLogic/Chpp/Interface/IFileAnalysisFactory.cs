@@ -13,11 +13,15 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Interface
     /// </summary>
     public interface IFileAnalysisFactory
     {
+        #region Public Methods
+
         /// <summary>
         /// Gets the corresponding strategy for the specified entity.
         /// </summary>
         /// <param name="entity">Entity to validate.</param>
         /// <returns>The corresponding IFileAnalysisStrategy for the specified entity.</returns>
         IFileAnalysisStrategy GetFor(IXmlEntity entity);
+
+        #endregion Public Methods
     }
 }

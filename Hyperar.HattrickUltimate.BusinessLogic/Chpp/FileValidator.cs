@@ -14,10 +14,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
     /// </summary>
     public class FileValidator : IFileValidationStrategy
     {
+        #region Private Fields
+
         /// <summary>
         /// File Validation Strategy Factory.
         /// </summary>
         private readonly IFileValidationFactory factory;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileValidator"/> class.
@@ -28,6 +34,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
             this.factory = factory;
         }
 
+        #endregion Public Constructors
+
+        #region Public Methods
+
         /// <summary>
         /// Validates the specified File.
         /// </summary>
@@ -37,5 +47,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
             this.factory.GetFor(entity)
                         .Validate(entity);
         }
+
+        #endregion Public Methods
     }
 }

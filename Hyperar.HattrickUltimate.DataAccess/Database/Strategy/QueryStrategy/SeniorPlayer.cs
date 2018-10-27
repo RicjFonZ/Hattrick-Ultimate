@@ -27,7 +27,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Strategy.QueryStrategy
             return query.Include(p => p.Avatar)
                         .Include(p => p.Country)
                         .Include(p => p.SeniorTeam)
-                        .Include(p => p.Skills);
+                        .Include(p => p.WeekLogs);
         }
 
         #endregion Public Methods

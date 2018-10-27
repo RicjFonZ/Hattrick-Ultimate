@@ -56,11 +56,10 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasMaxLength(ColumnLength.ShortText)
                 .IsRequired();
 
-            this.Property(p => p.Age)
-                .HasColumnName(ColumnName.Age)
+            this.Property(p => p.AgeDays)
+                .HasColumnName(ColumnName.AgeDays)
                 .HasColumnOrder(5)
-                .HasColumnType(ColumnType.Numeric)
-                .HasPrecision(Precision.Age, Scale.Age)
+                .HasColumnType(ColumnType.TinyInt)
                 .IsRequired();
 
             this.Property(p => p.ShirtNumber)
@@ -112,63 +111,39 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnType(ColumnType.TinyInt)
                 .IsRequired();
 
-            this.Property(p => p.Wage)
-                .HasColumnName(ColumnName.Wage)
-                .HasColumnOrder(14)
-                .HasColumnType(ColumnType.Integer)
-                .IsRequired();
-
-            this.Property(p => p.CareerGoals)
-                .HasColumnName(ColumnName.CareerGoals)
-                .HasColumnOrder(15)
-                .HasColumnType(ColumnType.SmallInt)
-                .IsRequired();
-
-            this.Property(p => p.CareerHattricks)
-                .HasColumnName(ColumnName.CareerHattricks)
-                .HasColumnOrder(16)
-                .HasColumnType(ColumnType.SmallInt)
-                .IsRequired();
-
             this.Property(p => p.BookingStatus)
                 .HasColumnName(ColumnName.BookingStatus)
-                .HasColumnOrder(17)
+                .HasColumnOrder(14)
                 .HasColumnType(ColumnType.TinyInt)
                 .IsRequired();
-
-            this.Property(p => p.InjuryStatus)
-                .HasColumnName(ColumnName.InjuryStatus)
-                .HasColumnOrder(18)
-                .HasColumnType(ColumnType.TinyInt)
-                .IsOptional();
 
             this.Property(p => p.PlaysOnNationalTeam)
                 .HasColumnName(ColumnName.PlaysOnNationalTeam)
-                .HasColumnOrder(19)
+                .HasColumnOrder(15)
                 .HasColumnType(ColumnType.Boolean)
                 .IsRequired();
 
             this.Property(p => p.IsOnTransferMarket)
                 .HasColumnName(ColumnName.IsOnTransferMarket)
-                .HasColumnOrder(20)
+                .HasColumnOrder(16)
                 .HasColumnType(ColumnType.Boolean)
                 .IsRequired();
 
             this.Property(p => p.MatchesOnSeniorNationalTeam)
                 .HasColumnName(ColumnName.MatchesOnSeniorNationalTeam)
-                .HasColumnOrder(21)
+                .HasColumnOrder(17)
                 .HasColumnType(ColumnType.SmallInt)
                 .IsRequired();
 
             this.Property(p => p.MatchesOnJuniorNationalTeam)
                 .HasColumnName(ColumnName.MatchesOnJuniorNationalTeam)
-                .HasColumnOrder(22)
+                .HasColumnOrder(18)
                 .HasColumnType(ColumnType.SmallInt)
                 .IsRequired();
 
             this.Property(p => p.Category)
                 .HasColumnName(ColumnName.Category)
-                .HasColumnOrder(23)
+                .HasColumnOrder(19)
                 .HasColumnType(ColumnType.TinyInt)
                 .IsOptional();
         }

@@ -14,7 +14,7 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Strategy.XmlParser
     using Interface;
 
     /// <summary>
-    /// Hattrick YouthTeamDetails XML file parser implementation.
+    /// Youth Team Details XML file parser strategy.
     /// </summary>
     internal class YouthTeamDetails : IXmlParserStrategy
     {

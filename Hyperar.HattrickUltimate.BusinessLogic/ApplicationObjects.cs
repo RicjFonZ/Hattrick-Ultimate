@@ -120,9 +120,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             Container.Register<Chpp.Strategy.FileValidation.Default>(Lifestyle.Transient);
             Container.Register<Chpp.Strategy.FileValidation.Players>(Lifestyle.Transient);
 
-            // Business Object Mangers.
+            // Business Object Managers.
             Container.Register<ChppFileTaskManager>(Lifestyle.Transient);
             Container.Register<GridManager>(Lifestyle.Transient);
+            Container.Register<ImageManager>(Lifestyle.Scoped);
             Container.Register<SeniorPlayerManager>(Lifestyle.Transient);
             Container.Register<TokenManager>(Lifestyle.Transient);
             Container.Register<UserManager>(Lifestyle.Transient);
@@ -149,6 +150,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             container.Register<IQueryStrategy<BusinessObjects.App.GridColumn>, DataAccess.Database.Strategy.QueryStrategy.GridColumn>();
             container.Register<IQueryStrategy<BusinessObjects.App.GridLayout>, DataAccess.Database.Strategy.QueryStrategy.GridLayout>();
             container.Register<IQueryStrategy<BusinessObjects.App.GridLayoutColumn>, DataAccess.Database.Strategy.QueryStrategy.GridLayoutColumn>();
+            container.Register<IQueryStrategy<BusinessObjects.App.JuniorPlayer>, DataAccess.Database.Strategy.QueryStrategy.JuniorPlayer>();
+            container.Register<IQueryStrategy<BusinessObjects.App.JuniorPlayerAvatar>, DataAccess.Database.Strategy.QueryStrategy.JuniorPlayerAvatar>();
+            container.Register<IQueryStrategy<BusinessObjects.App.JuniorPlayerWeekLog>, DataAccess.Database.Strategy.QueryStrategy.JuniorPlayerWeekLog>();
             container.Register<IQueryStrategy<BusinessObjects.App.JuniorSeries>, DataAccess.Database.Strategy.QueryStrategy.JuniorSeries>();
             container.Register<IQueryStrategy<BusinessObjects.App.JuniorTeam>, DataAccess.Database.Strategy.QueryStrategy.JuniorTeam>();
             container.Register<IQueryStrategy<BusinessObjects.App.League>, DataAccess.Database.Strategy.QueryStrategy.League>();
@@ -160,8 +164,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorArena>, DataAccess.Database.Strategy.QueryStrategy.SeniorArena>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayer>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayer>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerAvatar>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerAvatar>();
-            container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerSeasonGoals>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerSeasonGoals>();
-            container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerSkills>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerSkills>();
+            container.Register<IQueryStrategy<BusinessObjects.App.SeniorPlayerWeekLog>, DataAccess.Database.Strategy.QueryStrategy.SeniorPlayerWeekLog>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorSeries>, DataAccess.Database.Strategy.QueryStrategy.SeniorSeries>();
             container.Register<IQueryStrategy<BusinessObjects.App.SeniorTeam>, DataAccess.Database.Strategy.QueryStrategy.SeniorTeam>();
             container.Register<IQueryStrategy<BusinessObjects.App.TimeFormat>, DataAccess.Database.Strategy.QueryStrategy.TimeFormat>();
@@ -180,7 +183,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         {
             Container.Register(typeof(IRepository<>), typeof(Repository<>), Lifestyle.Scoped);
             Container.Register(typeof(IHattrickRepository<>), typeof(HattrickRepository<>), Lifestyle.Scoped);
-            Container.Register(typeof(IReadOnlyRepository<>), typeof(ReadOnlyRepository<>), Lifestyle.Scoped);
         }
 
         #endregion Private Methods

@@ -22,6 +22,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
     {
         #region Private Fields
 
+        private readonly BusinessLogic.ImageManager imageManager;
+
         /// <summary>
         /// Data Grid View Cell Formatter Factory.
         /// </summary>
@@ -55,7 +57,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Senior Player With Skill Delta list for Grid.
         /// </summary>
-        private List<BusinessObjects.App.SeniorPlayerWithSkillDelta> seniorPlayerWithSkillDeltaData;
+        private IQueryable<BusinessObjects.UI.SeniorPlayerGridRow> seniorPlayerData;
+
+        private List<BusinessObjects.UI.SeniorPlayerGridRow> seniorPlayerGridRows;
 
         /// <summary>
         /// Token manager.
@@ -85,6 +89,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </param>
         public FormMain(
                    BusinessLogic.GridManager gridManager,
+                   BusinessLogic.ImageManager imageManager,
                    BusinessLogic.SeniorPlayerManager seniorPlayerManager,
                    BusinessLogic.TokenManager tokenManager,
                    BusinessLogic.UserManager userManager,
@@ -95,6 +100,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.InitializeComponent();
 
             this.gridManager = gridManager;
+            this.imageManager = imageManager;
             this.seniorPlayerManager = seniorPlayerManager;
             this.tokenManager = tokenManager;
             this.userManager = userManager;
@@ -194,9 +200,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             if (!string.IsNullOrWhiteSpace(column.DataPropertyName))
             {
-                var dataPropertyInfo = typeof(BusinessObjects.App.SeniorPlayerWithSkillDelta).GetProperty(column.DataPropertyName);
+                var dataPropertyInfo = typeof(BusinessObjects.UI.SeniorPlayerGridRow).GetProperty(column.DataPropertyName);
 
-                value = dataPropertyInfo.GetValue(this.seniorPlayerWithSkillDeltaData[e.RowIndex], null);
+                value = dataPropertyInfo.GetValue(this.seniorPlayerGridRows[e.RowIndex], null);
             }
 
             e.Value = value;
@@ -205,9 +211,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 var parsedColumn = column as DataGridViewValueWithChangeTrackingColumn;
 
-                var valueChangePropertyInfo = typeof(BusinessObjects.App.SeniorPlayerWithSkillDelta).GetProperty(parsedColumn.ValueChangeTrackingPropertyName);
+                var valueChangePropertyInfo = typeof(BusinessObjects.UI.SeniorPlayerGridRow).GetProperty(parsedColumn.ValueChangeTrackingPropertyName);
 
-                int? valueChange = (int?)valueChangePropertyInfo.GetValue(this.seniorPlayerWithSkillDeltaData[e.RowIndex], null);
+                int? valueChange =
+                (int?)valueChangePropertyInfo.GetValue(this.seniorPlayerGridRows[e.RowIndex], null);
 
                 if (valueChange.HasValue)
                 {
@@ -219,9 +226,10 @@ namespace Hyperar.HattrickUltimate.UserInterface
             {
                 var parsedColumn = column as DataGridViewDenominatedValueWithChangeTrackingColumn;
 
-                var valueChangePropertyInfo = typeof(BusinessObjects.App.SeniorPlayerWithSkillDelta).GetProperty(parsedColumn.ValueChangeTrackingPropertyName);
+                var valueChangePropertyInfo = typeof(BusinessObjects.UI.SeniorPlayerGridRow).GetProperty(parsedColumn.ValueChangeTrackingPropertyName);
 
-                int? valueChange = (int?)valueChangePropertyInfo.GetValue(this.seniorPlayerWithSkillDeltaData[e.RowIndex], null);
+                int? valueChange =
+                (int?)valueChangePropertyInfo.GetValue(this.seniorPlayerGridRows[e.RowIndex], null);
 
                 if (valueChange.HasValue)
                 {
@@ -277,7 +285,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
                                               this.DataGridViewSeniorPlayers.Columns[e.ColumnIndex].Name,
                                               order);
 
-            this.GetSeniorPlayerGridData();
+            this.UpdateSeniorPlayerGridRows();
         }
 
         /// <summary>
@@ -357,14 +365,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.GetSeniorPlayerGridData();
         }
 
-        /// <summary>
-        /// Gets the Senior Player Grid data sorted by the specified column and the specified direction.
-        /// </summary>
-        private void GetSeniorPlayerGridData()
+        private void UpdateSeniorPlayerGridRows()
         {
-            var query = this.seniorPlayerManager.GetSeniorPlayerWithSkillDelta(1);
-
-            IOrderedQueryable<BusinessObjects.App.SeniorPlayerWithSkillDelta> sortedQuery = null;
+            IOrderedQueryable<BusinessObjects.UI.SeniorPlayerGridRow> sortedQuery = null;
 
             foreach (var sortColumn in this.DataGridViewSeniorPlayers.SortColumns)
             {
@@ -373,8 +376,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 if (sortedQuery == null)
                 {
                     sortedQuery = sortColumn.Value == SortOrder.Ascending
-                                ? query.OrderBy(property)
-                                : query.OrderByDescending(property);
+                                ? this.seniorPlayerData.OrderBy(property)
+                                : this.seniorPlayerData.OrderByDescending(property);
                 }
                 else
                 {
@@ -384,13 +387,21 @@ namespace Hyperar.HattrickUltimate.UserInterface
                 }
             }
 
-            this.seniorPlayerWithSkillDeltaData = sortedQuery == null
-                                                ? query.ToList()
-                                                : sortedQuery.ToList();
+            this.seniorPlayerGridRows = sortedQuery == null ? this.seniorPlayerData.ToList() : sortedQuery.ToList();
 
-            this.DataGridViewSeniorPlayers.RowCount = this.seniorPlayerWithSkillDeltaData.Count;
+            this.DataGridViewSeniorPlayers.RowCount = this.seniorPlayerGridRows.Count;
 
             this.DataGridViewSeniorPlayers.Refresh();
+        }
+
+        /// <summary>
+        /// Gets the Senior Player Grid data sorted by the specified column and the specified direction.
+        /// </summary>
+        private void GetSeniorPlayerGridData()
+        {
+            this.seniorPlayerData = this.seniorPlayerManager.GetSeniorPlayerGridRows(6);
+
+            this.UpdateSeniorPlayerGridRows();
         }
 
         /// <summary>
@@ -475,9 +486,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <param name="hattrickId">Selected Senior Player Hattrick ID.</param>
         private void UpdateSeniorPlayerPanel(long hattrickId)
         {
-            this.PicBoxSeniorPlayerAvatar.Image = this.seniorPlayerManager.GetSeniorPlayerAvatarByHattrickId(hattrickId);
+            var seniorPlayer = this.seniorPlayerData.Single(x => x.HattrickId == hattrickId);
 
-            var seniorPlayer = this.seniorPlayerWithSkillDeltaData.Single(x => x.HattrickId == hattrickId);
+            this.PicBoxSeniorPlayerAvatar.Image = this.imageManager.GetImageFromBytes(seniorPlayer.Avatar);
         }
 
         #endregion Private Methods

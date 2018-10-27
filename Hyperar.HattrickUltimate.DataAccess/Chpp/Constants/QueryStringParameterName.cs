@@ -64,6 +64,16 @@ namespace Hyperar.HattrickUltimate.DataAccess.Chpp.Constants
         public const string OrderBy = "orderby";
 
         /// <summary>
+        /// Show Last Match query string parameter.
+        /// </summary>
+        public const string ShowLastMatch = "showlastmatch";
+
+        /// <summary>
+        /// Show Scout Call query string parameter.
+        /// </summary>
+        public const string ShowScoutCall = "showscoutcall";
+
+        /// <summary>
         /// Show Scouts query string parameter.
         /// </summary>
         public const string ShowScouts = "showscouts";

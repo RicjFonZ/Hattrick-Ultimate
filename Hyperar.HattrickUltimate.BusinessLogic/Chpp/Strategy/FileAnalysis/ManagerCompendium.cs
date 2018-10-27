@@ -17,6 +17,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
     /// </summary>
     public class ManagerCompendium : IFileAnalysisStrategy
     {
+        #region Public Methods
+
         /// <summary>
         /// Analyses the specified entity.
         /// </summary>
@@ -59,5 +61,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
 
             return additionalTasks;
         }
+
+        #endregion Public Methods
     }
 }

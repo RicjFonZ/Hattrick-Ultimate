@@ -44,6 +44,16 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         private readonly Strategy.FileProcess.WorldDetails worldDetailsStrategy;
 
         /// <summary>
+        /// YouthAvatars File Processing Strategy.
+        /// </summary>
+        private readonly Strategy.FileProcess.YouthAvatars youthAvatarsStrategy;
+
+        /// <summary>
+        /// YouthPlayerList File Processing Strategy.
+        /// </summary>
+        private readonly Strategy.FileProcess.YouthPlayerList youthPlayerListStrategy;
+
+        /// <summary>
         /// YouthTeamDetails File Processing Strategy.
         /// </summary>
         private readonly Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy;
@@ -60,6 +70,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
         /// <param name="playersStrategy">Players File Processing Strategy.</param>
         /// <param name="teamDetailsStrategy">TeamDetails File Processing Strategy.</param>
         /// <param name="worldDetailsStrategy">WorldDetails File Processing Strategy.</param>
+        /// <param name="youthAvatarsStrategy">YouthAvatars File Processing Strategy.</param>
+        /// <param name="youthPlayerListStrategy">YouthPlayerList File Processing Strategy.</param>
         /// <param name="youthTeamDetailsStrategy">YouthTeamDetails File Processing Strategy.</param>
         public FileProcessFactory(
                    Strategy.FileProcess.Avatars avatarsStrategy,
@@ -67,6 +79,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
                    Strategy.FileProcess.Players playersStrategy,
                    Strategy.FileProcess.TeamDetails teamDetailsStrategy,
                    Strategy.FileProcess.WorldDetails worldDetailsStrategy,
+                   Strategy.FileProcess.YouthAvatars youthAvatarsStrategy,
+                   Strategy.FileProcess.YouthPlayerList youthPlayerListStrategy,
                    Strategy.FileProcess.YouthTeamDetails youthTeamDetailsStrategy)
         {
             this.avatarsStrategy = avatarsStrategy;
@@ -74,6 +88,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
             this.playersStrategy = playersStrategy;
             this.teamDetailsStrategy = teamDetailsStrategy;
             this.worldDetailsStrategy = worldDetailsStrategy;
+            this.youthAvatarsStrategy = youthAvatarsStrategy;
+            this.youthPlayerListStrategy = youthPlayerListStrategy;
             this.youthTeamDetailsStrategy = youthTeamDetailsStrategy;
         }
 
@@ -104,6 +120,12 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Factory
 
                 case XmlFileName.WorldDetails:
                     return this.worldDetailsStrategy;
+
+                case XmlFileName.YouthAvatars:
+                    return this.youthAvatarsStrategy;
+
+                case XmlFileName.YouthPlayerList:
+                    return this.youthPlayerListStrategy;
 
                 case XmlFileName.YouthTeamDetails:
                     return this.youthTeamDetailsStrategy;

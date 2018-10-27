@@ -14,6 +14,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     /// </summary>
     public class ChppFileTaskProgressChangedEventArgs : ProgressChangedEventArgs
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ChppFileTaskProgressChangedEventArgs"/> class.
         /// </summary>
@@ -31,6 +33,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             this.State = state;
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
         /// <summary>
         /// Gets the file name.
         /// </summary>
@@ -40,5 +46,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// Gets the task state.
         /// </summary>
         public FileTaskState State { get; }
+
+        #endregion Public Properties
     }
 }
