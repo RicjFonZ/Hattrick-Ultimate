@@ -22,6 +22,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
     {
         #region Private Fields
 
+        /// <summary>
+        /// Image Manager.
+        /// </summary>
         private readonly BusinessLogic.ImageManager imageManager;
 
         /// <summary>
@@ -45,21 +48,24 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private BusinessLogic.GridManager gridManager;
 
         /// <summary>
+        /// Senior Player Data for Senior Grid.
+        /// </summary>
+        private IQueryable<BusinessObjects.UI.SeniorPlayerGridRow> seniorPlayerData;
+
+        /// <summary>
         /// Gets or sets the Senior Player Grid Layout.
         /// </summary>
         private BusinessObjects.App.GridLayout seniorPlayerGridLayout;
 
         /// <summary>
+        /// Senior Player Grid Rows.
+        /// </summary>
+        private List<BusinessObjects.UI.SeniorPlayerGridRow> seniorPlayerGridRows;
+
+        /// <summary>
         /// SeniorPlayerManager manager.
         /// </summary>
         private BusinessLogic.SeniorPlayerManager seniorPlayerManager;
-
-        /// <summary>
-        /// Senior Player With Skill Delta list for Grid.
-        /// </summary>
-        private IQueryable<BusinessObjects.UI.SeniorPlayerGridRow> seniorPlayerData;
-
-        private List<BusinessObjects.UI.SeniorPlayerGridRow> seniorPlayerGridRows;
 
         /// <summary>
         /// Token manager.
@@ -79,6 +85,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// Initializes a new instance of the <see cref="FormMain"/> class.
         /// </summary>
         /// <param name="gridManager">Grid Manager.</param>
+        /// <param name="imageManager">Image Manager.</param>
         /// <param name="seniorPlayerManager">Senior Player Manager.</param>
         /// <param name="tokenManager">Token Manager.</param>
         /// <param name="userManager">User Manager.</param>
@@ -365,35 +372,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.GetSeniorPlayerGridData();
         }
 
-        private void UpdateSeniorPlayerGridRows()
-        {
-            IOrderedQueryable<BusinessObjects.UI.SeniorPlayerGridRow> sortedQuery = null;
-
-            foreach (var sortColumn in this.DataGridViewSeniorPlayers.SortColumns)
-            {
-                string property = this.DataGridViewSeniorPlayers.Columns[sortColumn.Key].DataPropertyName;
-
-                if (sortedQuery == null)
-                {
-                    sortedQuery = sortColumn.Value == SortOrder.Ascending
-                                ? this.seniorPlayerData.OrderBy(property)
-                                : this.seniorPlayerData.OrderByDescending(property);
-                }
-                else
-                {
-                    sortedQuery = sortColumn.Value == SortOrder.Ascending
-                                ? sortedQuery.ThenBy(property)
-                                : sortedQuery.ThenByDescending(property);
-                }
-            }
-
-            this.seniorPlayerGridRows = sortedQuery == null ? this.seniorPlayerData.ToList() : sortedQuery.ToList();
-
-            this.DataGridViewSeniorPlayers.RowCount = this.seniorPlayerGridRows.Count;
-
-            this.DataGridViewSeniorPlayers.Refresh();
-        }
-
         /// <summary>
         /// Gets the Senior Player Grid data sorted by the specified column and the specified direction.
         /// </summary>
@@ -478,6 +456,38 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private void ToolStrpMenuItemUser_Click(object sender, EventArgs e)
         {
             this.ShowUserWindow();
+        }
+
+        /// <summary>
+        /// Updates the Senior Player Grid rows with already fetched data.
+        /// </summary>
+        private void UpdateSeniorPlayerGridRows()
+        {
+            IOrderedQueryable<BusinessObjects.UI.SeniorPlayerGridRow> sortedQuery = null;
+
+            foreach (var sortColumn in this.DataGridViewSeniorPlayers.SortColumns)
+            {
+                string property = this.DataGridViewSeniorPlayers.Columns[sortColumn.Key].DataPropertyName;
+
+                if (sortedQuery == null)
+                {
+                    sortedQuery = sortColumn.Value == SortOrder.Ascending
+                                ? this.seniorPlayerData.OrderBy(property)
+                                : this.seniorPlayerData.OrderByDescending(property);
+                }
+                else
+                {
+                    sortedQuery = sortColumn.Value == SortOrder.Ascending
+                                ? sortedQuery.ThenBy(property)
+                                : sortedQuery.ThenByDescending(property);
+                }
+            }
+
+            this.seniorPlayerGridRows = sortedQuery == null ? this.seniorPlayerData.ToList() : sortedQuery.ToList();
+
+            this.DataGridViewSeniorPlayers.RowCount = this.seniorPlayerGridRows.Count;
+
+            this.DataGridViewSeniorPlayers.Refresh();
         }
 
         /// <summary>

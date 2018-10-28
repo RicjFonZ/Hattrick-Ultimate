@@ -16,8 +16,6 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.UI
     {
         #region Public Properties
 
-        public byte[] Avatar { get; set; }
-
         /// <summary>
         /// Gets or sets the Age.
         /// </summary>
@@ -32,6 +30,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.UI
         /// Gets or sets the Agreeability.
         /// </summary>
         public byte Agreeability { get; set; }
+
+        /// <summary>
+        /// Avatar image bytes.
+        /// </summary>
+        public byte[] Avatar { get; set; }
 
         /// <summary>
         /// Gets or sets the Booking Status.
