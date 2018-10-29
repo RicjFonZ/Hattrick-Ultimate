@@ -16,6 +16,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
     using BusinessObjects.Hattrick.Interface;
     using DataAccess.Database.Interface;
     using Hyperar.HattrickUltimate.BusinessLogic.Chpp.Enums;
+    using Hyperar.HattrickUltimate.BusinessObjects.App;
 
     /// <summary>
     /// ChppFilesTasksCompletedEventHandler event handler delegate.
@@ -41,27 +42,37 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// <summary>
         /// Chpp File Analyser.
         /// </summary>
-        private Chpp.FileAnalyser chppFileAnalyser;
+        private readonly Chpp.FileAnalyser chppFileAnalyser;
 
         /// <summary>
         /// Chpp File Processer.
         /// </summary>
-        private Chpp.FileProcesser chppFileProcesser;
+        private readonly Chpp.FileProcesser chppFileProcesser;
 
         /// <summary>
         /// Chpp File Validator.
         /// </summary>
-        private Chpp.FileValidator chppFileValidator;
+        private readonly Chpp.FileValidator chppFileValidator;
 
         /// <summary>
         /// CHPP Manager.
         /// </summary>
-        private DataAccess.Chpp.ChppManager chppManager;
+        private readonly DataAccess.Chpp.ChppManager chppManager;
 
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDatabaseContext context;
+        private readonly IDatabaseContext context;
+
+        /// <summary>
+        /// Download Settings repository.
+        /// </summary>
+        private readonly IRepository<DownloadSettings> downloadSettingsRepository;
+
+        /// <summary>
+        /// Tasks dictionary.
+        /// </summary>
+        private readonly HybridDictionary userStateToLifetime;
 
         /// <summary>
         /// On Complete delegate.
@@ -73,11 +84,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         private SendOrPostCallback onProgressReportDelegate;
 
-        /// <summary>
-        /// Tasks dictionary.
-        /// </summary>
-        private HybridDictionary userStateToLifetime;
-
         #endregion Private Fields
 
         #region Public Constructors
@@ -86,12 +92,14 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// Initializes a new instance of the <see cref="ChppFileTaskManager"/> class.
         /// </summary>
         /// <param name="context">Database context.</param>
+        /// <param name="downloadSettingsRepository">Download Settings repository.</param>
         /// <param name="chppFileAnalyser">Chpp File Analyser.</param>
         /// <param name="chppFileProcesser">Chpp File Processer.</param>
         /// <param name="chppFileValidator">Chpp File Validator.</param>
         /// <param name="chppManager">CHPP manager.</param>
         public ChppFileTaskManager(
                    IDatabaseContext context,
+                   IRepository<DownloadSettings> downloadSettingsRepository,
                    Chpp.FileAnalyser chppFileAnalyser,
                    Chpp.FileProcesser chppFileProcesser,
                    Chpp.FileValidator chppFileValidator,
@@ -101,6 +109,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             this.onProgressReportDelegate = new SendOrPostCallback(this.ReportProcessProgress);
             this.userStateToLifetime = new HybridDictionary();
             this.context = context;
+            this.downloadSettingsRepository = downloadSettingsRepository;
             this.chppFileAnalyser = chppFileAnalyser;
             this.chppFileProcesser = chppFileProcesser;
             this.chppFileValidator = chppFileValidator;
@@ -116,8 +125,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         /// <param name="accessToken">Access token.</param>
         /// <param name="filesToDownload">List of files to download.</param>
+        /// <param name="downloadSettings">Download Settings.</param>
         /// <param name="asyncOperation">Async operation.</param>
-        private delegate void WorkerEventHandler(BusinessObjects.App.Token accessToken, List<ChppFile> filesToDownload, AsyncOperation asyncOperation);
+        private delegate void WorkerEventHandler(Token accessToken, List<ChppFile> filesToDownload, DownloadSettings downloadSettings, AsyncOperation asyncOperation);
 
         #endregion Private Delegates
 
@@ -142,7 +152,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         /// <param name="downloadSettings">User settings.</param>
         /// <returns>List of files to download.</returns>
-        public List<ChppFile> BuildDownloadFileList(BusinessObjects.OAuth.DownloadSettings downloadSettings)
+        public List<ChppFile> BuildDownloadFileList(DownloadSettings downloadSettings)
         {
             return new List<ChppFile>
             {
@@ -167,12 +177,40 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         }
 
         /// <summary>
+        /// Gets the Download Settings.
+        /// </summary>
+        /// <returns>Stored Download Settings.</returns>
+        public DownloadSettings GetDownloadSettings()
+        {
+            var downloadSettings = this.downloadSettingsRepository.Query()
+                                                                  .SingleOrDefault();
+
+            if (downloadSettings == null)
+            {
+                downloadSettings = new DownloadSettings
+                {
+                    IncludeJuniorPlayerMatchInfo = true,
+                    IncludeSeniorPlayerMatchInfo = true,
+                    IncludeSeniorTeamAwayFlags = false,
+                    IncludeSeniorTeamHomeFlags = false
+                };
+
+                this.downloadSettingsRepository.Insert(downloadSettings);
+
+                this.context.Save();
+            }
+
+            return downloadSettings;
+        }
+
+        /// <summary>
         /// Downloads the specified list of files.
         /// </summary>
         /// <param name="accessToken">Access token.</param>
         /// <param name="filesToDownload">List of files to download.</param>
+        /// <param name="downloadSettings">Download Settings.</param>
         /// <param name="taskId">ID of the task.</param>
-        public virtual void ProcessChppFilesTasksAsync(BusinessObjects.App.Token accessToken, List<ChppFile> filesToDownload, object taskId)
+        public virtual void ProcessChppFilesTasksAsync(Token accessToken, List<ChppFile> filesToDownload, DownloadSettings downloadSettings, object taskId)
         {
             // Create an AsyncOperation for taskId.
             var asyncOperation = AsyncOperationManager.CreateOperation(taskId);
@@ -191,7 +229,11 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
             // Start the asynchronous operation.
             var workerDelegate = new WorkerEventHandler(this.ChppFilesTasksWorker);
 
-            workerDelegate.BeginInvoke(accessToken, filesToDownload, asyncOperation, null, null);
+            this.downloadSettingsRepository.Update(downloadSettings);
+
+            this.context.Save();
+
+            workerDelegate.BeginInvoke(accessToken, filesToDownload, downloadSettings, asyncOperation, null, null);
         }
 
         #endregion Public Methods
@@ -236,8 +278,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
         /// </summary>
         /// <param name="accessToken">Access token.</param>
         /// <param name="filesTasks">List of files tasks to execute.</param>
+        /// <param name="downloadSettings">Download Settings.</param>
         /// <param name="asyncOperation">Async operation.</param>
-        private void ChppFilesTasksWorker(BusinessObjects.App.Token accessToken, List<ChppFile> filesTasks, AsyncOperation asyncOperation)
+        private void ChppFilesTasksWorker(Token accessToken, List<ChppFile> filesTasks, DownloadSettings downloadSettings, AsyncOperation asyncOperation)
         {
             var result = new List<IXmlEntity>();
             Exception exception = null;
@@ -289,7 +332,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic
                              filesTasks.Count,
                              asyncOperation.UserSuppliedState);
 
-                    var additionalTasks = this.chppFileAnalyser.Analyze(downloadResult);
+                    var additionalTasks = this.chppFileAnalyser.Analyze(downloadResult, downloadSettings);
 
                     if (additionalTasks != null && additionalTasks.Any())
                     {

@@ -120,25 +120,16 @@
   <data name="DownloadItemCategory_SeniorTeam" xml:space="preserve">
     <value>Senior Team</value>
   </data>
-  <data name="DownloadItemCategory_World" xml:space="preserve">
-    <value>Hattrick World</value>
-  </data>
-  <data name="DownloadItemDescription_DownloadAllRegions" xml:space="preserve">
-    <value>This setting will force the download of all region of all countries instead of downloading the regions of the teams' countries.</value>
-  </data>
-  <data name="DownloadItemDescription_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+  <data name="DownloadItemDescription_IncludeSeniorTeamAwayFlags" xml:space="preserve">
     <value>Includes the country flags of the teams that you have visited to play a friendly match.</value>
   </data>
-  <data name="DownloadItemDescription_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+  <data name="DownloadItemDescription_IncludeSeniorTeamHomeFlags" xml:space="preserve">
     <value>Includes the country flags of the teams that have visited you to play a friendly match.</value>
   </data>
-  <data name="DownloadItemDisplayName_DownloadAllRegions" xml:space="preserve">
-    <value>Download all regions</value>
-  </data>
-  <data name="DownloadItemDisplayName_SeniorTeamIncludeAwayFlags" xml:space="preserve">
+  <data name="DownloadItemDisplayName_IncludeSeniorTeamAwayFlags" xml:space="preserve">
     <value>Include Away Flags</value>
   </data>
-  <data name="DownloadItemDisplayName_SeniorTeamIncludeHomeFlags" xml:space="preserve">
+  <data name="DownloadItemDisplayName_IncludeSeniorTeamHomeFlags" xml:space="preserve">
     <value>Include Home Flags</value>
   </data>
   <data name="FormDataFolder_AdvTxtBoxDataFolder_Placeholder" xml:space="preserve">
@@ -386,5 +377,23 @@
   </data>
   <data name="FormGeneral_AgeDays" xml:space="preserve">
     <value>{0} years and {1} days</value>
+  </data>
+  <data name="DownloadItemCategory_JuniorPlayers" xml:space="preserve">
+    <value>Junior Players</value>
+  </data>
+  <data name="DownloadItemCategory_SeniorPlayers" xml:space="preserve">
+    <value>Senior Players</value>
+  </data>
+  <data name="DownloadItemDescription_IncludeJuniorPlayerMatchInfo" xml:space="preserve">
+    <value>Includes the players' last match information.</value>
+  </data>
+  <data name="DownloadItemDescription_IncludeSeniorPlayerMatchInfo" xml:space="preserve">
+    <value>Includes the players' last match information.</value>
+  </data>
+  <data name="DownloadItemDisplayName_IncludeJuniorPlayerMatchInfo" xml:space="preserve">
+    <value>Include Player Match Info</value>
+  </data>
+  <data name="DownloadItemDisplayName_IncludeSeniorPlayerMatchInfo" xml:space="preserve">
+    <value>Include Player Match Info</value>
   </data>
 </root>

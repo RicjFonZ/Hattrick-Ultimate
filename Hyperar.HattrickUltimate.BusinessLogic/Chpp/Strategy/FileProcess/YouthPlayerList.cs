@@ -206,7 +206,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     OwnerNotes = !string.IsNullOrWhiteSpace(youthPlayer.OwnerNotes) ? youthPlayer.OwnerNotes : null,
                     ShirtNumber = youthPlayer.PlayerNumber == 100 ? (byte?)null : youthPlayer.PlayerNumber,
                     Specialty = youthPlayer.Specialty,
-                    Statement = !string.IsNullOrWhiteSpace(youthPlayer.Statement) ? youthPlayer.Statement : null
+                    Statement = !string.IsNullOrWhiteSpace(youthPlayer.Statement) ? youthPlayer.Statement : null,
+                    LastMatchRating = youthPlayer.LastMatch?.Rating
                 };
 
                 this.juniorPlayerRepository.Insert(juniorPlayer);

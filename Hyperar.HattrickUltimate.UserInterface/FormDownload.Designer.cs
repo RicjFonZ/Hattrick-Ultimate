@@ -42,8 +42,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblCurrentTask = new System.Windows.Forms.Label();
             this.LblTask = new System.Windows.Forms.Label();
             this.LblOverallProgress = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.TabLayPanProgress = new System.Windows.Forms.TableLayoutPanel();
+            this.TabLayPanProgress.SuspendLayout();
             this.SuspendLayout();
             // 
             // PropGridDownloadSettings
@@ -122,7 +122,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.PgrBarProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.PgrBarProcess, 4);
+            this.TabLayPanProgress.SetColumnSpan(this.PgrBarProcess, 4);
             this.PgrBarProcess.Location = new System.Drawing.Point(0, 66);
             this.PgrBarProcess.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.PgrBarProcess.Name = "PgrBarProcess";
@@ -134,7 +134,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.PgrBarCurrentTask.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.PgrBarCurrentTask, 4);
+            this.TabLayPanProgress.SetColumnSpan(this.PgrBarCurrentTask, 4);
             this.PgrBarCurrentTask.Location = new System.Drawing.Point(0, 23);
             this.PgrBarCurrentTask.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.PgrBarCurrentTask.Name = "PgrBarCurrentTask";
@@ -198,7 +198,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblOverallProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.LblOverallProgress, 2);
+            this.TabLayPanProgress.SetColumnSpan(this.LblOverallProgress, 2);
             this.LblOverallProgress.Location = new System.Drawing.Point(0, 43);
             this.LblOverallProgress.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.LblOverallProgress.Name = "LblOverallProgress";
@@ -207,36 +207,36 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblOverallProgress.Text = "LblOverallProgress";
             this.LblOverallProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanel1
+            // TabLayPanProgress
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.LblTask, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PgrBarProcess, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.LblOverallProgress, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.LblCurrentTask, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PgrBarCurrentTask, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.LblCurrentFile, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.LblFile, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 278);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(460, 83);
-            this.tableLayoutPanel1.TabIndex = 12;
+            this.TabLayPanProgress.ColumnCount = 4;
+            this.TabLayPanProgress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.TabLayPanProgress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TabLayPanProgress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.TabLayPanProgress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TabLayPanProgress.Controls.Add(this.LblTask, 3, 0);
+            this.TabLayPanProgress.Controls.Add(this.PgrBarProcess, 0, 3);
+            this.TabLayPanProgress.Controls.Add(this.LblOverallProgress, 0, 2);
+            this.TabLayPanProgress.Controls.Add(this.LblCurrentTask, 2, 0);
+            this.TabLayPanProgress.Controls.Add(this.PgrBarCurrentTask, 0, 1);
+            this.TabLayPanProgress.Controls.Add(this.LblCurrentFile, 0, 0);
+            this.TabLayPanProgress.Controls.Add(this.LblFile, 1, 0);
+            this.TabLayPanProgress.Location = new System.Drawing.Point(12, 278);
+            this.TabLayPanProgress.Name = "TabLayPanProgress";
+            this.TabLayPanProgress.RowCount = 4;
+            this.TabLayPanProgress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanProgress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanProgress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.TabLayPanProgress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TabLayPanProgress.Size = new System.Drawing.Size(460, 83);
+            this.TabLayPanProgress.TabIndex = 12;
             // 
             // FormDownload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 411);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.TabLayPanProgress);
             this.Controls.Add(this.ChkBoxCloseOnSuccessfulDownload);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnDownload);
@@ -250,7 +250,8 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.Name = "FormDownload";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDownload";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.FormDownload_Load);
+            this.TabLayPanProgress.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -264,7 +265,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private System.Windows.Forms.CheckBox ChkBoxCloseOnSuccessfulDownload;
         private System.Windows.Forms.ProgressBar PgrBarProcess;
         private System.Windows.Forms.ProgressBar PgrBarCurrentTask;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel TabLayPanProgress;
         private System.Windows.Forms.Label LblTask;
         private System.Windows.Forms.Label LblOverallProgress;
         private System.Windows.Forms.Label LblCurrentTask;

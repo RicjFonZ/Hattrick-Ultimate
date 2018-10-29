@@ -167,7 +167,7 @@
     <Compile Include="Hattrick\YouthTeamDetails\YouthArena.cs" />
     <Compile Include="Hattrick\YouthTeamDetails\YouthTeam.cs" />
     <Compile Include="Hattrick\YouthTeamDetails\YouthTrainer.cs" />
-    <Compile Include="OAuth\DownloadSettings.cs" />
+    <Compile Include="App\DownloadSettings.cs" />
     <Compile Include="OAuth\GetAccessTokenRequest.cs" />
     <Compile Include="OAuth\GetAuthorizationUrlResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

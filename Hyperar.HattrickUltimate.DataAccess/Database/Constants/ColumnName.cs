@@ -289,6 +289,26 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         internal const string Id = "Id";
 
         /// <summary>
+        /// IncludeJuniorPlayerMatchInfo database table column name.
+        /// </summary>
+        internal const string IncludeJuniorPlayerMatchInfo = "IncludeJuniorPlayerMatchInfo";
+
+        /// <summary>
+        /// IncludeSeniorPlayerMatchInfo database table column name.
+        /// </summary>
+        internal const string IncludeSeniorPlayerMatchInfo = "IncludeSeniorPlayerMatchInfo";
+
+        /// <summary>
+        /// IncludeSeniorTeamAwayFlags database table column name.
+        /// </summary>
+        internal const string IncludeSeniorTeamAwayFlags = "IncludeSeniorTeamAwayFlags";
+
+        /// <summary>
+        /// IncludeSeniorTeamHomeFlags database table column name.
+        /// </summary>
+        internal const string IncludeSeniorTeamHomeFlags = "IncludeSeniorTeamHomeFlags";
+
+        /// <summary>
         /// IsDefault database table column name.
         /// </summary>
         internal const string IsDefault = "IsDefault";
@@ -347,6 +367,21 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         /// Key database table column name.
         /// </summary>
         internal const string Key = "Key";
+
+        /// <summary>
+        /// LastMatchAverageRating database table column name.
+        /// </summary>
+        internal const string LastMatchAverageRating = "LastMatchAverageRating";
+
+        /// <summary>
+        /// LastMatchFinalRating database table column name.
+        /// </summary>
+        internal const string LastMatchFinalRating = "LastMatchFinalRating";
+
+        /// <summary>
+        /// LastMatchRating database table column name.
+        /// </summary>
+        internal const string LastMatchRating = "LastMatchRating";
 
         /// <summary>
         /// LastName database table column name.

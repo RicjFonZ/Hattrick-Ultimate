@@ -14,9 +14,9 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Constants
         #region Internal Fields
 
         /// <summary>
-        /// Age numeric column precision.
+        /// MatchRating numeric column precision.
         /// </summary>
-        internal const byte Age = 6;
+        internal const byte MatchRating = 2;
 
         /// <summary>
         /// Currency numeric column precision.

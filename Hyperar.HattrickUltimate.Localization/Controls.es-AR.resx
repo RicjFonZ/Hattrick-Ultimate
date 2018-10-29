@@ -117,30 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DownloadItemCategory_SeniorTeam" xml:space="preserve">
-    <value>Equipo mayor</value>
-  </data>
-  <data name="DownloadItemCategory_World" xml:space="preserve">
-    <value>Mundo Hattrick</value>
-  </data>
-  <data name="DownloadItemDescription_DownloadAllRegions" xml:space="preserve">
-    <value>Esta configuración forzara que se descarguen las regiones de todos los paises en lugar de descargar las regiones de los paises de los equipos.</value>
-  </data>
-  <data name="DownloadItemDescription_SeniorTeamIncludeAwayFlags" xml:space="preserve">
-    <value>Incluye las banderas de los países que visitaste para jugar un partido amistoso.</value>
-  </data>
-  <data name="DownloadItemDescription_SeniorTeamIncludeHomeFlags" xml:space="preserve">
-    <value>Incluye las banderas de los países de los equipos que han jugado un partido amistoso en tu estadio.</value>
-  </data>
-  <data name="DownloadItemDisplayName_DownloadAllRegions" xml:space="preserve">
-    <value>Descargar todas las regiones</value>
-  </data>
-  <data name="DownloadItemDisplayName_SeniorTeamIncludeAwayFlags" xml:space="preserve">
-    <value>Incluir Banderas Visitantes</value>
-  </data>
-  <data name="DownloadItemDisplayName_SeniorTeamIncludeHomeFlags" xml:space="preserve">
-    <value>Incluir Banderas Local</value>
-  </data>
   <data name="FormDataFolder_AdvTxtBoxDataFolder_Placeholder" xml:space="preserve">
     <value>Carpeta de la base de datos</value>
   </data>
@@ -386,5 +362,38 @@
   </data>
   <data name="FormGeneral_AgeDays" xml:space="preserve">
     <value>{0} años y {1} días</value>
+  </data>
+  <data name="DownloadItemCategory_JuniorPlayers" xml:space="preserve">
+    <value>Jugadores Inferiores</value>
+  </data>
+  <data name="DownloadItemCategory_SeniorPlayers" xml:space="preserve">
+    <value>Jugadores</value>
+  </data>
+  <data name="DownloadItemCategory_SeniorTeam" xml:space="preserve">
+    <value>Primer Equipo</value>
+  </data>
+  <data name="DownloadItemDescription_IncludeJuniorPlayerMatchInfo" xml:space="preserve">
+    <value>Incluir la información del último partido de los jugadores.</value>
+  </data>
+  <data name="DownloadItemDescription_IncludeSeniorPlayerMatchInfo" xml:space="preserve">
+    <value>Incluir la información del último partido de los jugadores.</value>
+  </data>
+  <data name="DownloadItemDescription_IncludeSeniorTeamAwayFlags" xml:space="preserve">
+    <value>Incluye las banderas de los países que tu equipo ha visitado para jugar un partido amistoso.</value>
+  </data>
+  <data name="DownloadItemDescription_IncludeSeniorTeamHomeFlags" xml:space="preserve">
+    <value>Incluye las banderas de los países de los equipos que han visitado el país de tu equipo para jugar un partido amistos.</value>
+  </data>
+  <data name="DownloadItemDisplayName_IncludeJuniorPlayerMatchInfo" xml:space="preserve">
+    <value>Incluir la Información de Partido de los Jugadores</value>
+  </data>
+  <data name="DownloadItemDisplayName_IncludeSeniorPlayerMatchInfo" xml:space="preserve">
+    <value>Incluir la Información de Partido de los Jugadores</value>
+  </data>
+  <data name="DownloadItemDisplayName_IncludeSeniorTeamAwayFlags" xml:space="preserve">
+    <value>Incluir Banderas Visitantes</value>
+  </data>
+  <data name="DownloadItemDisplayName_IncludeSeniorTeamHomeFlags" xml:space="preserve">
+    <value>Inclur Banderas Locales</value>
   </data>
 </root>

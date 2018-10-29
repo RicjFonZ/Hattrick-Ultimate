@@ -146,6 +146,20 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnOrder(19)
                 .HasColumnType(ColumnType.TinyInt)
                 .IsOptional();
+
+            this.Property(p => p.LastMatchAverageRating)
+                .HasColumnName(ColumnName.LastMatchAverageRating)
+                .HasColumnOrder(20)
+                .HasColumnType(ColumnType.Numeric)
+                .HasPrecision(Precision.MatchRating, Scale.MatchRating)
+                .IsOptional();
+
+            this.Property(p => p.LastMatchFinalRating)
+                .HasColumnName(ColumnName.LastMatchFinalRating)
+                .HasColumnOrder(21)
+                .HasColumnType(ColumnType.Numeric)
+                .HasPrecision(Precision.MatchRating, Scale.MatchRating)
+                .IsOptional();
         }
 
         /// <summary>

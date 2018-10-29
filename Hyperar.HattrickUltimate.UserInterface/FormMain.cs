@@ -377,9 +377,13 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// </summary>
         private void GetSeniorPlayerGridData()
         {
-            this.seniorPlayerData = this.seniorPlayerManager.GetSeniorPlayerGridRows(6);
+            var user = this.userManager.GetUser();
 
-            this.UpdateSeniorPlayerGridRows();
+            if (user != null && user.Manager != null && user.Manager.SeniorTeams != null)
+            {
+                this.seniorPlayerData = this.seniorPlayerManager.GetSeniorPlayerGridRows(user.Manager.SeniorTeams.Single(x => x.IsPrimary).Id);
+                this.UpdateSeniorPlayerGridRows();
+            }
         }
 
         /// <summary>

@@ -111,6 +111,13 @@ namespace Hyperar.HattrickUltimate.DataAccess.Database.Mapping
                 .HasColumnOrder(13)
                 .HasColumnType(ColumnType.TinyInt)
                 .IsOptional();
+
+            this.Property(p => p.LastMatchRating)
+               .HasColumnName(ColumnName.LastMatchRating)
+               .HasColumnOrder(14)
+               .HasColumnType(ColumnType.Numeric)
+               .HasPrecision(Precision.MatchRating, Scale.MatchRating)
+               .IsOptional();
         }
 
         /// <summary>

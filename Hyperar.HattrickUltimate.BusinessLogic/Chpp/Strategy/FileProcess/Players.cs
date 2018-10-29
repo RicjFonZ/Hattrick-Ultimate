@@ -204,6 +204,8 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
             seniorPlayer.HattrickId = player.PlayerId;
             seniorPlayer.Honesty = player.Honesty;
             seniorPlayer.IsOnTransferMarket = player.TransferListed;
+            seniorPlayer.LastMatchAverageRating = player.LastMatch?.Rating;
+            seniorPlayer.LastMatchFinalRating = player.LastMatch?.RatingEndOfGame;
             seniorPlayer.LastName = player.LastName;
             seniorPlayer.Leadership = player.Leadership;
             seniorPlayer.MatchesOnJuniorNationalTeam = player.CapsU20;
@@ -308,8 +310,6 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                                                                                 && wl.Week == week
                                                                                 && wl.SeniorPlayerId == seniorPlayerId);
 
-            bool shouldInsert = false;
-
             if (weekLog == null)
             {
                 weekLog = new SeniorPlayerWeekLog
@@ -339,7 +339,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                     Winger = winger
                 };
 
-                shouldInsert = true;
+                this.seniorPlayerWeekLogRepository.Insert(weekLog);
             }
             else
             {
@@ -363,14 +363,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileProcess
                 weekLog.TotalSkillIndex = totalSkillIndex;
                 weekLog.Wage = wage;
                 weekLog.Winger = winger;
-            }
 
-            if (shouldInsert)
-            {
-                this.seniorPlayerWeekLogRepository.Insert(weekLog);
-            }
-            else
-            {
                 this.seniorPlayerWeekLogRepository.Update(weekLog);
             }
 

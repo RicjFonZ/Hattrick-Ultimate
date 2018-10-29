@@ -9,6 +9,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
     using System.Collections.Generic;
     using BusinessLogic.Chpp.Interface;
     using BusinessObjects.Hattrick.Interface;
+    using Hyperar.HattrickUltimate.BusinessObjects.App;
 
     /// <summary>
     /// Default File Analysis Strategy.
@@ -21,8 +22,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
         /// Analyses the specified entity.
         /// </summary>
         /// <param name="entity">Entity to analyze.</param>
+        /// <param name="downloadSettings">Download Settings.</param>
         /// <returns>Additional Files Tasks list.</returns>
-        public List<ChppFile> Analyze(IXmlEntity entity)
+        public List<ChppFile> Analyze(IXmlEntity entity, DownloadSettings downloadSettings)
         {
             return null;
         }

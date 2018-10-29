@@ -32,7 +32,7 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.UI
         public byte Agreeability { get; set; }
 
         /// <summary>
-        /// Avatar image bytes.
+        /// Gets or sets Avatar image bytes.
         /// </summary>
         public byte[] Avatar { get; set; }
 

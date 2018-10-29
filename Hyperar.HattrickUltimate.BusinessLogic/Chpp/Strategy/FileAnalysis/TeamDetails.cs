@@ -11,6 +11,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
     using BusinessObjects.Hattrick.Enums;
     using BusinessObjects.Hattrick.Interface;
     using DataAccess.Chpp.Constants;
+    using Hyperar.HattrickUltimate.BusinessObjects.App;
 
     /// <summary>
     /// TeamDetails File Analysis Strategy.
@@ -23,8 +24,9 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
         /// Analyses the specified entity.
         /// </summary>
         /// <param name="entity">Entity to analyze.</param>
+        /// <param name="downloadSettings">Download Settings.</param>
         /// <returns>Additional Files Tasks list.</returns>
-        public List<ChppFile> Analyze(IXmlEntity entity)
+        public List<ChppFile> Analyze(IXmlEntity entity, DownloadSettings downloadSettings)
         {
             var additionalTasks = new List<ChppFile>();
 
@@ -40,6 +42,10 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
                                             {
                                                 QueryStringParameterName.TeamId,
                                                 team.TeamId.ToString()
+                                            },
+                                            {
+                                                QueryStringParameterName.IncludeMatchInfo,
+                                                downloadSettings.IncludeSeniorPlayerMatchInfo.ToString()
                                             }
                                         }));
 
@@ -86,7 +92,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp.Strategy.FileAnalysis
                                                 },
                                                 {
                                                     QueryStringParameterName.ShowLastMatch,
-                                                    bool.TrueString
+                                                    downloadSettings.IncludeJuniorPlayerMatchInfo.ToString()
                                                 }
                                             }));
 

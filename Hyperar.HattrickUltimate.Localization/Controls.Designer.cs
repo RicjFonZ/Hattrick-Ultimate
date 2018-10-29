@@ -19,7 +19,7 @@ namespace Hyperar.HattrickUltimate.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Controls {
@@ -394,6 +394,24 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Junior Players.
+        /// </summary>
+        public static string DownloadItemCategory_JuniorPlayers {
+            get {
+                return ResourceManager.GetString("DownloadItemCategory_JuniorPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Senior Players.
+        /// </summary>
+        public static string DownloadItemCategory_SeniorPlayers {
+            get {
+                return ResourceManager.GetString("DownloadItemCategory_SeniorPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Senior Team.
         /// </summary>
         public static string DownloadItemCategory_SeniorTeam {
@@ -403,65 +421,74 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hattrick World.
+        ///   Looks up a localized string similar to Includes the players&apos; last match information..
         /// </summary>
-        public static string DownloadItemCategory_World {
+        public static string DownloadItemDescription_IncludeJuniorPlayerMatchInfo {
             get {
-                return ResourceManager.GetString("DownloadItemCategory_World", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDescription_IncludeJuniorPlayerMatchInfo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This setting will force the download of all region of all countries instead of downloading the regions of the teams&apos; countries..
+        ///   Looks up a localized string similar to Includes the players&apos; last match information..
         /// </summary>
-        public static string DownloadItemDescription_DownloadAllRegions {
+        public static string DownloadItemDescription_IncludeSeniorPlayerMatchInfo {
             get {
-                return ResourceManager.GetString("DownloadItemDescription_DownloadAllRegions", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDescription_IncludeSeniorPlayerMatchInfo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Includes the country flags of the teams that you have visited to play a friendly match..
         /// </summary>
-        public static string DownloadItemDescription_SeniorTeamIncludeAwayFlags {
+        public static string DownloadItemDescription_IncludeSeniorTeamAwayFlags {
             get {
-                return ResourceManager.GetString("DownloadItemDescription_SeniorTeamIncludeAwayFlags", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDescription_IncludeSeniorTeamAwayFlags", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Includes the country flags of the teams that have visited you to play a friendly match..
         /// </summary>
-        public static string DownloadItemDescription_SeniorTeamIncludeHomeFlags {
+        public static string DownloadItemDescription_IncludeSeniorTeamHomeFlags {
             get {
-                return ResourceManager.GetString("DownloadItemDescription_SeniorTeamIncludeHomeFlags", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDescription_IncludeSeniorTeamHomeFlags", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download all regions.
+        ///   Looks up a localized string similar to Include Player Match Info.
         /// </summary>
-        public static string DownloadItemDisplayName_DownloadAllRegions {
+        public static string DownloadItemDisplayName_IncludeJuniorPlayerMatchInfo {
             get {
-                return ResourceManager.GetString("DownloadItemDisplayName_DownloadAllRegions", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDisplayName_IncludeJuniorPlayerMatchInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include Player Match Info.
+        /// </summary>
+        public static string DownloadItemDisplayName_IncludeSeniorPlayerMatchInfo {
+            get {
+                return ResourceManager.GetString("DownloadItemDisplayName_IncludeSeniorPlayerMatchInfo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Include Away Flags.
         /// </summary>
-        public static string DownloadItemDisplayName_SeniorTeamIncludeAwayFlags {
+        public static string DownloadItemDisplayName_IncludeSeniorTeamAwayFlags {
             get {
-                return ResourceManager.GetString("DownloadItemDisplayName_SeniorTeamIncludeAwayFlags", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDisplayName_IncludeSeniorTeamAwayFlags", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Include Home Flags.
         /// </summary>
-        public static string DownloadItemDisplayName_SeniorTeamIncludeHomeFlags {
+        public static string DownloadItemDisplayName_IncludeSeniorTeamHomeFlags {
             get {
-                return ResourceManager.GetString("DownloadItemDisplayName_SeniorTeamIncludeHomeFlags", resourceCulture);
+                return ResourceManager.GetString("DownloadItemDisplayName_IncludeSeniorTeamHomeFlags", resourceCulture);
             }
         }
         

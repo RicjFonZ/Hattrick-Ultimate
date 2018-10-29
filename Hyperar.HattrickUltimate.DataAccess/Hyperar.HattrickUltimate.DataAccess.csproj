@@ -115,6 +115,7 @@
     <Compile Include="Database\Interface\IRepositoryBase.cs" />
     <Compile Include="Database\Interface\IRollbackStrategy.cs" />
     <Compile Include="Database\Interface\IRollbackStrategyFactory.cs" />
+    <Compile Include="Database\Mapping\DownloadSettings.cs" />
     <Compile Include="Database\Mapping\GridLayout.cs" />
     <Compile Include="Database\Mapping\Grid.cs" />
     <Compile Include="Database\Mapping\GridLayoutColumn.cs" />

@@ -31,7 +31,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         /// <summary>
         /// Download settings.
         /// </summary>
-        private BusinessObjects.OAuth.DownloadSettings downloadSettings;
+        private BusinessObjects.App.DownloadSettings downloadSettings;
 
         /// <summary>
         /// User manager.
@@ -58,10 +58,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
             this.chppFileTaskManager.ChppFileTaskProgressChanged += new BusinessLogic.ChppFileTaskProgressChangedEventHandler(this.ChppFileTaskProgressChanged_EventHandler);
             this.chppFileTaskManager.ChppFilesTasksCompleted += new BusinessLogic.ChppFilesTasksCompletedEventHandler(this.ChppFilesTasksCompleted_EventHandler);
-
-            this.downloadSettings = new BusinessObjects.OAuth.DownloadSettings();
-
-            this.PropGridDownloadSettings.SelectedObject = this.downloadSettings;
         }
 
         #endregion Public Constructors
@@ -138,7 +134,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
 
                 this.SetControlState();
 
-                this.chppFileTaskManager.ProcessChppFilesTasksAsync(user.Token, downloadFileList, this.chppFilesTasksAsyncTaskId);
+                this.chppFileTaskManager.ProcessChppFilesTasksAsync(user.Token, downloadFileList, this.downloadSettings, this.chppFilesTasksAsyncTaskId);
             }
             else
             {
@@ -200,6 +196,18 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblTask.Text = e.State.ToString();
             this.PgrBarProcess.Value = e.ProgressPercentage;
             this.PgrBarCurrentTask.Value = ((int)e.State + 1) * 20;
+        }
+
+        /// <summary>
+        /// FormDownload Load Event Handler.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void FormDownload_Load(object sender, EventArgs e)
+        {
+            this.downloadSettings = this.chppFileTaskManager.GetDownloadSettings();
+
+            this.PropGridDownloadSettings.SelectedObject = this.downloadSettings;
         }
 
         /// <summary>

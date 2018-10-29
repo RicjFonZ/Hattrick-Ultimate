@@ -63,6 +63,11 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public int JuniorTeamId { get; set; }
 
         /// <summary>
+        /// Gets or sets the Last Match Rating.
+        /// </summary>
+        public decimal? LastMatchRating { get; set; }
+
+        /// <summary>
         /// Gets or sets the LastName.
         /// </summary>
         public string LastName { get; set; }

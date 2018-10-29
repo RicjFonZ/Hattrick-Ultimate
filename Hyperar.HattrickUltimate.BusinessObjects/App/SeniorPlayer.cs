@@ -77,6 +77,16 @@ namespace Hyperar.HattrickUltimate.BusinessObjects.App
         public bool IsOnTransferMarket { get; set; }
 
         /// <summary>
+        /// Gets or sets the Last Match Average Rating.
+        /// </summary>
+        public decimal? LastMatchAverageRating { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Last Match Final Rating.
+        /// </summary>
+        public decimal? LastMatchFinalRating { get; set; }
+
+        /// <summary>
         /// Gets or sets the LastName.
         /// </summary>
         public string LastName { get; set; }

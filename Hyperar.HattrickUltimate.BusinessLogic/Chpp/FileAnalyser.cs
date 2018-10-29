@@ -9,6 +9,7 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
     using System.Collections.Generic;
     using BusinessLogic.Chpp.Interface;
     using BusinessObjects.Hattrick.Interface;
+    using Hyperar.HattrickUltimate.BusinessObjects.App;
 
     /// <summary>
     /// Provides functionality to analyse CHPP files.
@@ -40,14 +41,15 @@ namespace Hyperar.HattrickUltimate.BusinessLogic.Chpp
         #region Public Methods
 
         /// <summary>
-        /// Analyse the specified file and adds additional Files Tasks.
+        /// Analyses the specified entity.
         /// </summary>
         /// <param name="entity">Entity to analyze.</param>
-        /// <returns>Additional Files Tasks.</returns>
-        public List<ChppFile> Analyze(IXmlEntity entity)
+        /// <param name="downloadSettings">Download Settings.</param>
+        /// <returns>Additional Files Tasks list.</returns>
+        public List<ChppFile> Analyze(IXmlEntity entity, DownloadSettings downloadSettings)
         {
             return this.factory.GetFor(entity)
-                               .Analyze(entity);
+                               .Analyze(entity, downloadSettings);
         }
 
         #endregion Public Methods
