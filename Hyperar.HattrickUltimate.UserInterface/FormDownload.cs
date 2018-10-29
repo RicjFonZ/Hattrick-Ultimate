@@ -74,6 +74,9 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.BtnDownload.Text = Localization.Controls.FormDownload_BtnDownload_Text;
             this.BtnClose.Text = Localization.Controls.FormGeneral_BtnClose_Text;
             this.ChkBoxCloseOnSuccessfulDownload.Text = Localization.Controls.FormDownload_ChkBoxCloseOnSuccessfulDownload_Text;
+            this.LblCurrentFile.Text = Localization.Controls.FormDownload_LblCurrentFile_Text;
+            this.LblCurrentTask.Text = Localization.Controls.FormDownload_LblCurrentTask_Text;
+            this.LblOverallProgress.Text = Localization.Controls.FormDownload_LblOverallProgress_Text;
         }
 
         #endregion Public Methods
@@ -193,7 +196,7 @@ namespace Hyperar.HattrickUltimate.UserInterface
         private void ChppFileTaskProgressChanged_EventHandler(object sender, BusinessLogic.ChppFileTaskProgressChangedEventArgs e)
         {
             this.LblFile.Text = e.FileName;
-            this.LblTask.Text = e.State.ToString();
+            this.LblTask.Text = Localization.Denominations.TaskState.Split(',')[(int)e.State];
             this.PgrBarProcess.Value = e.ProgressPercentage;
             this.PgrBarCurrentTask.Value = ((int)e.State + 1) * 20;
         }

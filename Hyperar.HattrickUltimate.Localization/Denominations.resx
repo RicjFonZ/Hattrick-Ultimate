@@ -132,4 +132,7 @@
   <data name="PlayerSpecialty" xml:space="preserve">
     <value>,Technical,Quick,Powerful,Unpredictable,Head specialist,Resilient,Support</value>
   </data>
+  <data name="TaskState" xml:space="preserve">
+    <value>Downloading,Validating,Analyzing,Processing,Finished</value>
+  </data>
 </root>

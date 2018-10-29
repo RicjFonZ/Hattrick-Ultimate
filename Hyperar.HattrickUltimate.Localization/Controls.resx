@@ -396,4 +396,13 @@
   <data name="DownloadItemDisplayName_IncludeSeniorPlayerMatchInfo" xml:space="preserve">
     <value>Include Player Match Info</value>
   </data>
+  <data name="FormDownload_LblCurrentFile_Text" xml:space="preserve">
+    <value>File:</value>
+  </data>
+  <data name="FormDownload_LblCurrentTask_Text" xml:space="preserve">
+    <value>Task:</value>
+  </data>
+  <data name="FormDownload_LblOverallProgress_Text" xml:space="preserve">
+    <value>Overall progress:</value>
+  </data>
 </root>

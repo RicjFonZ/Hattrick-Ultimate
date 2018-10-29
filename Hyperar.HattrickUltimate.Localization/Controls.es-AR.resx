@@ -396,4 +396,13 @@
   <data name="DownloadItemDisplayName_IncludeSeniorTeamHomeFlags" xml:space="preserve">
     <value>Inclur Banderas Locales</value>
   </data>
+  <data name="FormDownload_LblCurrentFile_Text" xml:space="preserve">
+    <value>Archivo:</value>
+  </data>
+  <data name="FormDownload_LblCurrentTask_Text" xml:space="preserve">
+    <value>Tarea:</value>
+  </data>
+  <data name="FormDownload_LblOverallProgress_Text" xml:space="preserve">
+    <value>Progreso general:</value>
+  </data>
 </root>

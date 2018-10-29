@@ -104,5 +104,14 @@ namespace Hyperar.HattrickUltimate.Localization {
                 return ResourceManager.GetString("PlayerSpecialty", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading,Validating,Analyzing,Processing,Finished.
+        /// </summary>
+        public static string TaskState {
+            get {
+                return ResourceManager.GetString("TaskState", resourceCulture);
+            }
+        }
     }
 }

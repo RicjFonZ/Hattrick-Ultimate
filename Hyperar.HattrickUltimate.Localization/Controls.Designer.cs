@@ -547,6 +547,33 @@ namespace Hyperar.HattrickUltimate.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File:.
+        /// </summary>
+        public static string FormDownload_LblCurrentFile_Text {
+            get {
+                return ResourceManager.GetString("FormDownload_LblCurrentFile_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task:.
+        /// </summary>
+        public static string FormDownload_LblCurrentTask_Text {
+            get {
+                return ResourceManager.GetString("FormDownload_LblCurrentTask_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overall progress:.
+        /// </summary>
+        public static string FormDownload_LblOverallProgress_Text {
+            get {
+                return ResourceManager.GetString("FormDownload_LblOverallProgress_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download.
         /// </summary>
         public static string FormDownload_Text {

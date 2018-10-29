@@ -164,7 +164,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblFile.Name = "LblFile";
             this.LblFile.Size = new System.Drawing.Size(130, 20);
             this.LblFile.TabIndex = 8;
-            this.LblFile.Text = "LblFile";
             this.LblFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LblCurrentTask
@@ -190,7 +189,6 @@ namespace Hyperar.HattrickUltimate.UserInterface
             this.LblTask.Name = "LblTask";
             this.LblTask.Size = new System.Drawing.Size(130, 20);
             this.LblTask.TabIndex = 10;
-            this.LblTask.Text = "LblTask";
             this.LblTask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LblOverallProgress
